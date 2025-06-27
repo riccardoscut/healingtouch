@@ -1,3 +1,15 @@
+// Polyfill check for Intersection Observer
+if (!('IntersectionObserver' in window)) {
+    // Fallback for browsers that don't support Intersection Observer
+    console.warn('Intersection Observer not supported, using fallback');
+    // Simple fallback: show all cards immediately
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.classList.add('visible');
+        });
+    });
+}
+
 const IS_DEVELOPMENT = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
 
 /* global emailjs */

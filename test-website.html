@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Testing Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #005a87;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌐 Website Compatibility Testing Tool</h1>
+    
+    <div class="test-section">
+        <h2>📱 Device Simulation</h2>
+        <p>Test your website on different device sizes:</p>
+        <button class="test-button" onclick="openInNewWindow('http://healingtouch.da-sign.com', 'iPhone SE', 375, 667)">iPhone SE (375x667)</button>
+        <button class="test-button" onclick="openInNewWindow('http://healingtouch.da-sign.com', 'iPhone 12', 390, 844)">iPhone 12 (390x844)</button>
+        <button class="test-button" onclick="openInNewWindow('http://healingtouch.da-sign.com', 'iPad', 768, 1024)">iPad (768x1024)</button>
+        <button class="test-button" onclick="openInNewWindow('http://healingtouch.da-sign.com', 'Desktop', 1200, 800)">Desktop (1200x800)</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Feature Detection</h2>
+        <button class="test-button" onclick="testFeatures()">Test Browser Features</button>
+        <div id="feature-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Performance Testing</h2>
+        <button class="test-button" onclick="testPerformance()">Test Loading Performance</button>
+        <div id="performance-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎨 Visual Testing</h2>
+        <button class="test-button" onclick="openInNewWindow('http://healingtouch.da-sign.com', 'Light Theme', 1200, 800)">Test Light Theme</button>
+        <button class="test-button" onclick="openInNewWindow('http://healingtouch.da-sign.com', 'Dark Theme', 1200, 800)">Test Dark Theme</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🔗 External Tools</h2>
+        <p>Use these tools for comprehensive testing:</p>
+        <a href="https://developers.google.com/speed/pagespeed/insights/?url=http://healingtouch.da-sign.com" target="_blank" class="test-button">Google PageSpeed Insights</a>
+        <a href="https://www.webpagetest.org/" target="_blank" class="test-button">WebPageTest</a>
+        <a href="https://validator.w3.org/nu/?doc=http://healingtouch.da-sign.com" target="_blank" class="test-button">HTML Validator</a>
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=http://healingtouch.da-sign.com" target="_blank" class="test-button">CSS Validator</a>
+    </div>
+
+    <script>
+        function openInNewWindow(url, deviceName, width, height) {
+            const windowFeatures = `width=${width},height=${height},scrollbars=yes,resizable=yes`;
+            const newWindow = window.open(url, deviceName, windowFeatures);
+            if (newWindow) {
+                newWindow.focus();
+            } else {
+                alert('Please allow popups to test different device sizes');
+            }
+        }
+
+        function testFeatures() {
+            const results = document.getElementById('feature-results');
+            let html = '<h3>Browser Feature Support:</h3>';
+            
+            // Test CSS Grid
+            const cssGrid = CSS.supports('display', 'grid');
+            html += `<div class="result ${cssGrid ? 'success' : 'error'}">
+                CSS Grid: ${cssGrid ? '✅ Supported' : '❌ Not Supported'}
+            </div>`;
+            
+            // Test CSS Variables
+            const cssVars = CSS.supports('color', 'var(--test)');
+            html += `<div class="result ${cssVars ? 'success' : 'error'}">
+                CSS Variables: ${cssVars ? '✅ Supported' : '❌ Not Supported'}
+            </div>`;
+            
+            // Test Flexbox
+            const flexbox = CSS.supports('display', 'flex');
+            html += `<div class="result ${flexbox ? 'success' : 'error'}">
+                Flexbox: ${flexbox ? '✅ Supported' : '❌ Not Supported'}
+            </div>`;
+            
+            // Test Intersection Observer
+            const intersectionObserver = 'IntersectionObserver' in window;
+            html += `<div class="result ${intersectionObserver ? 'success' : 'error'}">
+                Intersection Observer: ${intersectionObserver ? '✅ Supported' : '❌ Not Supported'}
+            </div>`;
+            
+            // Test Local Storage
+            const localStorage = 'localStorage' in window;
+            html += `<div class="result ${localStorage ? 'success' : 'error'}">
+                Local Storage: ${localStorage ? '✅ Supported' : '❌ Not Supported'}
+            </div>`;
+            
+            // Test Fetch API
+            const fetch = 'fetch' in window;
+            html += `<div class="result ${fetch ? 'success' : 'error'}">
+                Fetch API: ${fetch ? '✅ Supported' : '❌ Not Supported'}
+            </div>`;
+            
+            // Test ES6 Template Literals
+            const templateLiterals = (() => {
+                try {
+                    eval('`test`');
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            })();
+            html += `<div class="result ${templateLiterals ? 'success' : 'error'}">
+                Template Literals: ${templateLiterals ? '✅ Supported' : '❌ Not Supported'}
+            </div>`;
+            
+            results.innerHTML = html;
+        }
+
+        function testPerformance() {
+            const results = document.getElementById('performance-results');
+            let html = '<h3>Performance Metrics:</h3>';
+            
+            if ('performance' in window) {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                if (perfData) {
+                    const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+                    const domContentLoaded = perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart;
+                    
+                    html += `<div class="result info">
+                        Page Load Time: ${loadTime}ms
+                    </div>`;
+                    html += `<div class="result info">
+                        DOM Content Loaded: ${domContentLoaded}ms
+                    </div>`;
+                }
+            }
+            
+            // Test image loading
+            const images = document.querySelectorAll('img');
+            html += `<div class="result info">
+                Images on this page: ${images.length}
+            </div>`;
+            
+            // Test viewport
+            html += `<div class="result info">
+                Viewport Width: ${window.innerWidth}px
+            </div>`;
+            html += `<div class="result info">
+                Viewport Height: ${window.innerHeight}px
+            </div>`;
+            
+            results.innerHTML = html;
+        }
+
+        // Auto-run feature test on page load
+        window.addEventListener('load', testFeatures);
+    </script>
+</body>
+</html> 

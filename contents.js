@@ -56,11 +56,19 @@ window.siteContent = {
 window.testimonials = [
   {
     "text": "Very good massage and practitionner. I'm so surprised of the power of reflexology.",
-    "name": "Aurélie C.",
+    "name": "Aurélie Chiodetti",
     "month": "April",
-    "year": "2025",
+    "year": "2020",
     "rating": 5,
     "type": "Signature Reflexology Massage"
+  },
+  {
+    "text": "Cadê o estresse depois de uma sessão dessas? Sumiu! Simplesmente sumiu! Super recomendo este profissional dos dedos mágicos para aliviar o seu estresse. O Riccardo aporta confiança e lhe ajuda a liberar tensões tanto físicas como emocionais. Eu vou cada semana ♥️🙌💫",
+    "name": "Ariane",
+    "month": "June",
+    "year": "2021",
+    "rating": 5,
+    "type": "Detox Reflexology Massage"
   },
   {
     "text": "Dopo ogni sessione con Riccardo, mi sento più leggero e le tensioni sono sparite. Mi ha aiutato enormemente con il mio nervo sciatico. Lo ricontatterò.",
