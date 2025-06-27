@@ -28,7 +28,7 @@ function setTheme (theme) {
   // Update footer logo
   const footerLogo = document.querySelector(".footer-logo img");
   if (footerLogo) {
-    footerLogo.src = "./logo_wName_transparentBG.png";
+    footerLogo.src = "./logo_wName_transparentBG_newGold.png";
   }
 }
 

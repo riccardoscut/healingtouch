@@ -964,7 +964,7 @@ footer {
 }
 
 .contact-heading {
-    color: var(--cosmic-violet);
+    color: var(--lunar-gold);
     font-size: 1.6rem;
     margin-bottom: 15px;
 }
@@ -982,21 +982,22 @@ footer {
 }
 
 .star-icon {
-    color: var(--cosmic-violet);
+    color: var(--lunar-gold);
     margin-right: 8px;
 }
 
 .contact-link {
-    color: var(--cosmic-violet);
+    color: var(--lunar-gold);
     text-decoration: none;
     transition: all 0.3s;
     padding: 2px 4px;
     border-radius: 3px;
+    position: relative;
 }
 
 .contact-link:hover {
-    color: var(--dark-violet);
-    background-color: rgba(117, 90, 146, 0.1);
+    color: var(--light-gold);
+    background-color: rgba(228, 228, 188, 0.1);
 }
 
 .contact-link::after {
@@ -1006,12 +1007,34 @@ footer {
     height: 1px;
     bottom: -2px;
     left: 0;
-    background-color: var(--cosmic-violet);
+    background-color: var(--lunar-gold);
     transition: width 0.3s ease;
 }
 
 .contact-link:hover::after {
     width: 100%;
+}
+
+/* Light theme overrides for contact section */
+[data-theme="light"] .contact-heading {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .star-icon {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .contact-link {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .contact-link:hover {
+    color: var(--dark-violet);
+    background-color: rgba(117, 90, 146, 0.1);
+}
+
+[data-theme="light"] .contact-link::after {
+    background-color: var(--cosmic-violet);
 }
 
 .quote-container {
@@ -1040,7 +1063,7 @@ footer {
     font-family: 'Rajdhani', sans-serif;
     font-size: 3.5rem;
     font-style: italic;
-    color: var(--lunar-gold);
+    color: var(--aurora-green);
     margin: 0 0 10px;
     line-height: 1.3;
     text-align: center;
@@ -1052,8 +1075,22 @@ footer {
 .copyright {
     margin-top: 40px;
     font-size: 0.9rem;
-    color: var(--lunar-gold);
+    color: var(--aurora-green);
     text-align: center;
+}
+
+/* Light theme overrides for quote text */
+[data-theme="light"] .quote-text {
+    color: var(--cosmic-violet);
+}
+
+/* Dark theme specific styling for quote text */
+.quote-text {
+    color: var(--aurora-green) !important;
+}
+
+[data-theme="light"] .quote-text {
+    color: var(--cosmic-violet) !important;
 }
 
 /* Responsive Styles */
@@ -1722,4 +1759,28 @@ footer {
     .logo-text-img img {
         max-width: 280px;
     }
+}
+
+/* Dark mode: contact info in footer uses #EDD483 except for the heading */
+[data-theme="dark"] .contact-link,
+[data-theme="dark"] .star-icon {
+    color: #EDD483 !important;
+}
+[data-theme="dark"] .contact-link:hover {
+    color: #fff8dc !important;
+    background-color: rgba(237, 212, 131, 0.08) !important;
+}
+[data-theme="dark"] .contact-link::after {
+    background-color: #EDD483 !important;
+}
+[data-theme="dark"] .contact-link:hover::after {
+    background-color: #fff8dc !important;
+}
+
+[data-theme="dark"] .copyright {
+    color: var(--cosmic-violet) !important;
+}
+
+[data-theme="dark"] .services-title {
+    color: var(--lunar-gold) !important;
 }
