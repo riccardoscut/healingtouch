@@ -55,6 +55,14 @@ window.siteContent = {
 // @ts-ignore
 window.testimonials = [
   {
+    "text": "Very good massage and practitionner. I'm so surprised of the power of reflexology.",
+    "name": "Aurélie C.",
+    "month": "April",
+    "year": "2025",
+    "rating": 5,
+    "type": "Signature Reflexology Massage"
+  },
+  {
     "text": "Dopo ogni sessione con Riccardo, mi sento più leggero e le tensioni sono sparite. Mi ha aiutato enormemente con il mio nervo sciatico. Lo ricontatterò.",
     "name": "Luciano F.",
     "month": "May",
