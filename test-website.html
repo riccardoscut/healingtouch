@@ -196,6 +196,12 @@
 
         // Auto-run feature test on page load
         window.addEventListener('load', testFeatures);
+
+        console.log('Modal:', document.getElementById('summerChallengeModal'));
+        console.log('Banner:', document.getElementById('summerChallengeBanner'));
+
+        document.getElementById('summerChallengeBanner').classList.add('show');
+        document.getElementById('summerChallengeModal').classList.add('show');
     </script>
 </body>
 </html> 

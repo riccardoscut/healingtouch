@@ -115,6 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   }
+
+  // Initialize Summer Step-Up Challenge Modal and Banner (at the end)
+  console.log('About to initialize Summer Challenge...');
+  initSummerChallenge();
 });
 
 // Apply content from JSON to the page
@@ -524,60 +528,130 @@ function loadTestimonials (testimonialsData) {
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper initialized.");
 }
 
-// Modal functionality
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("testimonialModal");
-  const openModalBtn = document.getElementById("openTestimonialModal");
-  const closeModalBtn = document.querySelector(".close-modal");
-  const testimonialForm = document.getElementById("testimonialForm");
+// Summer Step-Up Challenge Modal and Banner Functions
+function initSummerChallenge() {
+  console.log('=== SUMMER CHALLENGE INIT START ===');
+  
+  // Get elements
+  const modal = document.getElementById('summerChallengeModal');
+  const banner = document.getElementById('summerChallengeBanner');
+  
+  console.log('Elements found:', { modal: !!modal, banner: !!banner });
+  
+  if (!modal || !banner) {
+    console.error('Modal or banner element not found!');
+    return;
+  }
+  
+  // TEMPORARY: Clear session storage for testing
+  sessionStorage.removeItem('summerChallengeModalShown');
+  sessionStorage.removeItem('summerChallengeBannerClosed');
+  
+  // Check session storage
+  const modalShown = sessionStorage.getItem('summerChallengeModalShown');
+  const bannerClosed = sessionStorage.getItem('summerChallengeBannerClosed');
+  
+  console.log('Session storage after clearing:', { modalShown, bannerClosed });
+  
+  // Show banner immediately if not closed
+  if (!bannerClosed) {
+    console.log('Showing banner...');
+    banner.classList.add('show');
+  }
+  
+  // Show modal after 2 seconds if not shown
+  if (!modalShown) {
+    console.log('Will show modal in 2 seconds...');
+    setTimeout(() => {
+      console.log('Showing modal now!');
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }, 2000);
+  }
+  
+  console.log('=== SUMMER CHALLENGE INIT END ===');
+}
 
-  // Open modal
-  openModalBtn.addEventListener("click", function () {
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden"; // Prevent background scrolling
-  });
+// Test function - run this in browser console to manually trigger modal and banner
+function testSummerChallenge() {
+  console.log('=== TESTING SUMMER CHALLENGE ===');
+  
+  // Clear session storage
+  sessionStorage.removeItem('summerChallengeModalShown');
+  sessionStorage.removeItem('summerChallengeBannerClosed');
+  
+  // Get elements
+  const modal = document.getElementById('summerChallengeModal');
+  const banner = document.getElementById('summerChallengeBanner');
+  
+  console.log('Test elements:', { modal: !!modal, banner: !!banner });
+  
+  if (modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    console.log('Modal shown manually');
+  }
+  
+  if (banner) {
+    banner.classList.add('show');
+    console.log('Banner shown manually');
+  }
+  
+  console.log('=== TEST COMPLETE ===');
+}
 
-  // Close modal
-  closeModalBtn.addEventListener("click", function () {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto"; // Restore background scrolling
-  });
+// Make test function available globally
+window.testSummerChallenge = testSummerChallenge;
 
-  // Close modal when clicking outside
-  window.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
+// Close modal function
+function closeModal() {
+  const modal = document.getElementById('summerChallengeModal');
+  modal.classList.remove('show');
+  document.body.style.overflow = ''; // Restore scrolling
+  sessionStorage.setItem('summerChallengeModalShown', 'true');
+}
+
+// Close banner function
+function closeBanner(event) {
+    if (event) {
+        event.stopPropagation(); // Prevent triggering the banner click
     }
-  });
+    const banner = document.getElementById('summerChallengeBanner');
+    banner.classList.remove('show');
+    sessionStorage.setItem('summerChallengeBannerClosed', 'true');
+}
 
-  // Handle form submission
-  testimonialForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+// Open modal function
+function openModal() {
+    const modal = document.getElementById('summerChallengeModal');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
 
-    // Get form data
-    const formData = {
-      experience: document.getElementById("experience").value,
-      rating: document.getElementById("rating").value,
-      massageType: document.querySelector("input[name=\"massageType\"]:checked").value,
-      name: document.getElementById("name").value,
-      month: document.getElementById("month").value,
-      year: document.getElementById("year").value
-    };
+// Book detox massage function
+function bookDetoxMassage() {
+  // Find the detox massage booking button and trigger it
+  const detoxButton = document.getElementById('detox-foot-massage-30-min');
+  if (detoxButton) {
+    detoxButton.click();
+  }
+  closeModal();
+}
 
-    // Send email using EmailJS
-    emailjs.send("service_vchrwj7", "template_9gsve0p", formData)
-      .then(function (response) {
-        // eslint-disable-next-line no-console
-        console.log("SUCCESS!", response.status, response.text);
-        alert("Thank you for sharing your experience!");
-        testimonialForm.reset();
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }, function (error) {
-        // eslint-disable-next-line no-console
-        console.log("FAILED...", error);
-        alert("Sorry, there was an error submitting your testimonial. Please try again later.");
-      });
-  });
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('summerChallengeModal');
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const modal = document.getElementById('summerChallengeModal');
+    if (modal.classList.contains('show')) {
+      closeModal();
+    }
+  }
 });

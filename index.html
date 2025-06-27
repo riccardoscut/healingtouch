@@ -92,6 +92,51 @@
         </div>
     </header>
 
+    <!-- Summer Step-Up Challenge Banner -->
+    <div id="summerChallengeBanner" class="summer-challenge-banner">
+        <div class="banner-content" onclick="openModal()">
+            <span class="banner-text">🦶 Signature Step-Up: up to €30 OFF Detox Massage • Book now</span>
+            <button class="banner-close-btn" onclick="closeBanner(event)">&times;</button>
+        </div>
+    </div>
+
+    <!-- Summer Step-Up Challenge Modal -->
+    <div id="summerChallengeModal" class="summer-challenge-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">Signature Step-Up Challenge ✨</h2>
+                <h3 class="modal-subtitle">More steps, more savings!<br>Get up to <strong>€30 OFF</strong> our Detox Reflexology Massage.</h3>
+                
+                <div class="modal-description">
+                    <p>Whether you've been trekking, dancing, or simply walking around like crazy, let your feet cash in on the mileage.</p>
+                    
+                    <p>Show <strong>20 000+ steps logged within a single 24-hour period</strong> during the last <strong>10 days</strong> and the discount is applied in-studio.</p>
+                </div>
+                
+                <div class="offer-details">
+                    <p class="offer-detail"><strong>How it works:</strong></p>
+                    <ol class="offer-steps">
+                        <li>Book your Detox Reflexology Massage.</li>
+                        <li>Show proof of 20 000+ steps from your favourite app.</li>
+                        <li>Enjoy your discount applied in-studio.</li>
+                    </ol>
+                </div>
+                
+                <div class="discount-scale">
+                    <p class="discount-title"><strong>Discount rule:</strong></p>
+                    <p class="discount-rule">Each 10 000 steps from 20 000 steps = <strong>€5 OFF</strong> up to <strong>€30 OFF</strong></p>
+                </div>
+                
+                <button class="modal-cta-btn" onclick="bookDetoxMassage()">BOOK DETOX MASSAGE NOW</button>
+                <p class="modal-small-print">Discount applied in person upon proof of at least 20 000 steps completed in a single 24-hour period within 10 days of booking. Offer valid only for Detox Reflexology Massage.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Section Divider -->
     <div class="section-divider"></div>
 
