@@ -264,7 +264,7 @@ function createServiceCard (service) {
   const bookButton = document.createElement("button");
   bookButton.id = service.id;
   bookButton.className = "book-button";
-  bookButton.textContent = "Book Now";
+  bookButton.textContent = "BOOK YOUR MASSAGE";
 
   footer.appendChild(specialOffers);
   footer.appendChild(bookButton);
