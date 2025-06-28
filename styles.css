@@ -572,7 +572,7 @@ header {
 
 /* Adjust header when banner is shown */
 .summer-challenge-banner.show + header {
-    margin-top: 80px; /* Increased height for larger banner + spacing */
+    margin-top: 50px; /* Reduced from 64px to account for more compact banner */
 }
 
 header::after {
@@ -887,6 +887,8 @@ header::after {
     overflow: hidden;
     transition: all 0.3s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 300px;
 }
 
 .book-button::before {
@@ -2466,7 +2468,7 @@ footer {
     animation: gradientShift 3s ease-in-out infinite;
     color: var(--lunar-gold);
     z-index: 1000;
-    padding: 18px 20px;
+    padding: 8px 20px; /* Reduced vertical padding from 14px to 8px, kept horizontal padding */
     box-shadow: 
         0 4px 20px rgba(0, 0, 0, 0.4),
         0 0 30px rgba(228, 228, 188, 0.2);
@@ -2490,11 +2492,11 @@ footer {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 14px; /* Keeping the font size as requested */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 8px 0;
+    padding: 2px 0; /* Reduced vertical padding from 6px to 2px */
 }
 
 .banner-content:hover {
@@ -2533,11 +2535,11 @@ footer {
     background: linear-gradient(145deg, rgba(228, 228, 188, 0.1), rgba(228, 228, 188, 0.05));
     border: 1px solid rgba(228, 228, 188, 0.3);
     color: var(--lunar-gold);
-    font-size: 20px;
+    font-size: 16px; /* Reduced by 20% from 20px */
     cursor: pointer;
-    padding: 6px;
-    width: 32px;
-    height: 32px;
+    padding: 5px; /* Reduced by 20% from 6px */
+    width: 26px; /* Reduced by 20% from 32px */
+    height: 26px; /* Reduced by 20% from 32px */
     display: flex;
     align-items: center;
     justify-content: center;
