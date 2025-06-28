@@ -38,83 +38,54 @@ document.addEventListener("DOMContentLoaded", function () {
   // @ts-ignore
   loadTestimonials(window.testimonials);
 
-  // Modal and Form Handling
-  const modal = document.getElementById("testimonialModal");
-  const openModalBtn = document.querySelector("a[href^=\"mailto:healingtouch@da-sign.com\"]");
-  const closeModalBtn = document.querySelector(".close-modal");
-  const form = document.getElementById("testimonialForm");
+  // Modal and Form Handling - Moved to end of DOMContentLoaded
+  setTimeout(() => {
+    console.log('=== INITIALIZING TESTIMONIAL MODAL ===');
+    
+    const modal = document.getElementById("testimonialModal");
+    const openModalBtn = document.getElementById("openTestimonialModal");
+    const closeModalBtn = document.querySelector(".close-modal");
+    const form = document.getElementById("testimonialForm");
 
-  // Replace mailto link with modal trigger
-  if (openModalBtn) {
-    openModalBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      modal.style.display = "block";
-      document.body.style.overflow = "hidden"; // Prevent background scrolling
-    });
-  }
+    console.log('Modal element:', modal);
+    console.log('Open button element:', openModalBtn);
+    console.log('Close button element:', closeModalBtn);
+    console.log('Form element:', form);
 
-  // Close modal when clicking the X
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", function () {
-      modal.style.display = "none";
-      document.body.style.overflow = ""; // Restore scrolling
-    });
-  }
-
-  // Close modal when clicking outside
-  window.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      document.body.style.overflow = "";
+    // Open modal when clicking the button
+    if (openModalBtn && modal) {
+      console.log('Setting up testimonial modal...');
+      
+      // Remove any existing listeners
+      openModalBtn.removeEventListener('click', openTestimonialModal);
+      
+      // Add new listener
+      openModalBtn.addEventListener("click", openTestimonialModal);
+      
+      console.log('Testimonial modal setup complete');
+    } else {
+      console.error('Missing elements for testimonial modal:', { openModalBtn, modal });
     }
-  });
 
-  // Initialize EmailJS with your public key
-  // @ts-ignore
-  window.emailjs.init("fitJ75sG9o72X64G7");
+    // Close modal when clicking the X
+    if (closeModalBtn && modal) {
+      closeModalBtn.addEventListener("click", closeTestimonialModal);
+    }
 
-  // Handle form submission
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    // Close modal when clicking outside
+    if (modal) {
+      window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+          closeTestimonialModal();
+        }
+      });
+    }
 
-      // Format date from month and year selects
-      const month = document.getElementById("month").value;
-      const year = document.getElementById("year").value;
-      let formattedDate = "Not specified";
-      if (month && year) {
-        formattedDate = `${month}/${year}`;
-      }
-
-      // Get form data
-      const formData = {
-        experience: document.getElementById("experience").value,
-        massageType: Array.from(document.querySelectorAll("input[name=\"massageType\"]:checked"))
-          .map(cb => cb.value)
-          .join(", ") || "Not specified",
-        name: document.getElementById("name").value || "Anonymous",
-        date: formattedDate,
-        rating: document.getElementById("rating").value
-      };
-
-      // Send email using EmailJS
-      // @ts-ignore
-      window.emailjs.send("service_dwed3y6", "template_9gsve0p", formData)
-        .then(function () {
-          // Show success message
-          alert("Thank you for sharing your experience!");
-          // Reset form and close modal
-          form.reset();
-          modal.style.display = "none";
-          document.body.style.overflow = "";
-        })
-        .catch(function (error) {
-          // eslint-disable-next-line no-console
-          console.error("Error sending email:", error);
-          alert("Sorry, there was an error sending your message. Please try again later.");
-        });
-    });
-  }
+    // Handle form submission
+    if (form) {
+      form.addEventListener("submit", handleTestimonialSubmit);
+    }
+  }, 1000); // Wait 1 second to ensure everything is loaded
 
   // Initialize Summer Step-Up Challenge Modal and Banner (at the end)
   console.log('About to initialize Summer Challenge...');
@@ -655,3 +626,131 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
+
+// Test function - run this in browser console to manually trigger testimonial modal
+function testTestimonialModal() {
+  console.log('=== TESTING TESTIMONIAL MODAL ===');
+  
+  const modal = document.getElementById("testimonialModal");
+  const openModalBtn = document.getElementById("openTestimonialModal");
+  
+  console.log('Modal element:', modal);
+  console.log('Open button element:', openModalBtn);
+  
+  if (modal) {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    console.log('Modal shown manually');
+  } else {
+    console.error('Modal element not found!');
+  }
+  
+  if (openModalBtn) {
+    console.log('Button found, triggering click...');
+    openModalBtn.click();
+  } else {
+    console.error('Button element not found!');
+  }
+}
+
+// Make test function available globally
+window.testTestimonialModal = testTestimonialModal;
+
+// Testimonial Modal Functions
+function openTestimonialModal(e) {
+  console.log('Opening testimonial modal...');
+  e.preventDefault();
+  const modal = document.getElementById("testimonialModal");
+  if (modal) {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+    console.log('Testimonial modal opened successfully');
+  } else {
+    console.error('Modal element not found!');
+  }
+}
+
+function closeTestimonialModal() {
+  console.log('Closing testimonial modal...');
+  const modal = document.getElementById("testimonialModal");
+  if (modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+    console.log('Testimonial modal closed successfully');
+  }
+}
+
+function handleTestimonialSubmit(e) {
+  e.preventDefault();
+  console.log('Handling testimonial form submission...');
+
+  // Initialize EmailJS with your public key
+  // @ts-ignore
+  window.emailjs.init("fitJ75sG9o72X64G7");
+
+  const form = document.getElementById("testimonialForm");
+  const modal = document.getElementById("testimonialModal");
+
+  // Format date from month and year selects
+  const month = document.getElementById("month").value;
+  const year = document.getElementById("year").value;
+  let formattedDate = "Not specified";
+  if (month && year) {
+    formattedDate = `${month}/${year}`;
+  }
+
+  // Get form data
+  const formData = {
+    experience: document.getElementById("experience").value,
+    massageType: Array.from(document.querySelectorAll("input[name=\"massageType\"]:checked"))
+      .map(cb => cb.value)
+      .join(", ") || "Not specified",
+    name: document.getElementById("name").value || "Anonymous",
+    date: formattedDate,
+    rating: document.getElementById("rating").value
+  };
+
+  // Send email using EmailJS
+  // @ts-ignore
+  window.emailjs.send("service_dwed3y6", "template_9gsve0p", formData)
+    .then(function () {
+      // Show success message
+      alert("Thank you for sharing your experience!");
+      // Reset form and close modal
+      form.reset();
+      closeTestimonialModal();
+    })
+    .catch(function (error) {
+      // eslint-disable-next-line no-console
+      console.error("Error sending email:", error);
+      alert("Sorry, there was an error sending your message. Please try again later.");
+    });
+}
+
+// Simple test function to force show testimonial modal
+function forceShowTestimonialModal() {
+  console.log('=== FORCE SHOWING TESTIMONIAL MODAL ===');
+  
+  const modal = document.getElementById("testimonialModal");
+  console.log('Modal element:', modal);
+  
+  if (modal) {
+    // Force the modal to be visible
+    modal.style.display = "block";
+    modal.style.zIndex = "9999";
+    document.body.style.overflow = "hidden";
+    console.log('Modal should now be visible with z-index 9999');
+    
+    // Also try clicking the button programmatically
+    const button = document.getElementById("openTestimonialModal");
+    if (button) {
+      console.log('Button found, clicking it...');
+      button.click();
+    }
+  } else {
+    console.error('Modal element not found!');
+  }
+}
+
+// Make test function available globally
+window.forceShowTestimonialModal = forceShowTestimonialModal;

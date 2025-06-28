@@ -95,7 +95,7 @@
     <!-- Summer Step-Up Challenge Banner -->
     <div id="summerChallengeBanner" class="summer-challenge-banner">
         <div class="banner-content" onclick="openModal()">
-            <span class="banner-text">🦶 Signature Step-Up: up to €30 OFF Detox Massage • Book now</span>
+            <span class="banner-text">🦶 Signature STEP-UP Challenge: up to 30€ OFF Detox Massage • Book now</span>
             <button class="banner-close-btn" onclick="closeBanner(event)">&times;</button>
         </div>
     </div>
@@ -109,10 +109,11 @@
             </div>
             <div class="modal-body">
                 <h2 class="modal-title">Signature Step-Up Challenge ✨</h2>
-                <h3 class="modal-subtitle">More steps, more savings!<br>Get up to <strong>€30 OFF</strong> our Detox Reflexology Massage.</h3>
+                <p class="modal-subtitle-small">a moving initiative to promote well-being</p>
+                <h3 class="modal-subtitle">More steps, more savings!<br>Get up to <strong>30€ OFF</strong> our Detox Reflexology Massage.</h3>
                 
                 <div class="modal-description">
-                    <p>Whether you've been trekking, dancing, or simply walking around like crazy, let your feet cash in on the mileage.</p>
+                    <p>Whether you've been trekking, dancing, or simply walking around the city, let your feet cash in on the mileage.</p>
                     
                     <p>Show <strong>20 000+ steps logged within a single 24-hour period</strong> during the last <strong>10 days</strong> and the discount is applied in-studio.</p>
                 </div>
@@ -128,7 +129,11 @@
                 
                 <div class="discount-scale">
                     <p class="discount-title"><strong>Discount rule:</strong></p>
-                    <p class="discount-rule">Each 10 000 steps from 20 000 steps = <strong>€5 OFF</strong> up to <strong>€30 OFF</strong></p>
+                    <ul class="discount-rule-list">
+                        <li>Reach 20 000 steps in 24h timeframe → <strong>10€ OFF</strong></li>
+                        <li>Every extra 10 000 steps adds <strong>5€ OFF</strong></li>
+                        <li>Maximum discount: <strong>30€ OFF</strong></li>
+                    </ul>
                 </div>
                 
                 <button class="modal-cta-btn" onclick="bookDetoxMassage()">BOOK DETOX MASSAGE NOW</button>
@@ -247,13 +252,13 @@
 
     <!-- Button to Collect Testimonials -->
     <div class="container" style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
-        <button id="openTestimonialModal" class="book-button">Share your experience</button>
+        <button id="openTestimonialModal" class="book-button" onclick="document.getElementById('testimonialModal').style.display='block'; document.body.style.overflow='hidden';">Share your experience</button>
     </div>
 
     <!-- Testimonial Modal -->
     <div id="testimonialModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal" onclick="document.getElementById('testimonialModal').style.display='none'; document.body.style.overflow='';">&times;</span>
             <h2>Share Your Experience</h2>
             <form id="testimonialForm">
                 <div class="form-group">

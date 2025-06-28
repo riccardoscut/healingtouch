@@ -1419,7 +1419,7 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    z-index: 3000;
     overflow-y: auto;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
@@ -2039,13 +2039,27 @@ footer {
 
 .modal-title {
     font-size: 32px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     background: linear-gradient(45deg, var(--lunar-gold), #f4d03f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 0 0 20px rgba(228, 228, 188, 0.5);
     font-weight: 700;
+}
+
+.modal-subtitle-small {
+    font-size: 18px !important;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0.9;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.4;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    font-variant: small-caps;
 }
 
 .modal-subtitle {
@@ -2388,21 +2402,52 @@ footer {
     font-weight: 600;
 }
 
-.discount-rule {
-    background: rgba(228, 228, 188, 0.05);
-    border-radius: 8px;
-    padding: 15px;
-    border: 1px solid rgba(228, 228, 188, 0.1);
+.discount-rule-list {
+    list-style: none;
     margin: 0;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--text-color);
-    text-align: center;
+    padding: 0;
 }
 
-.discount-rule strong {
+.discount-rule-list li {
+    margin-bottom: 2px;
+    padding: 2px 0;
+    line-height: 1.2;
+    color: var(--text-color);
+    font-size: 14px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.discount-rule-list li:last-child {
+    margin-bottom: 0;
+}
+
+.discount-rule-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--lunar-gold);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.discount-rule-list strong {
     color: var(--lunar-gold);
     font-weight: 600;
     text-shadow: 0 0 5px rgba(228, 228, 188, 0.2);
-    font-size: 16px;
+    font-size: 15px;
+}
+
+.modal-body .modal-subtitle-small {
+    font-size: 16px !important;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0.9;
+    text-align: center;
+    line-height: 1.4;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    font-variant: small-caps;
 }
