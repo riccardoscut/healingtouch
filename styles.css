@@ -2678,3 +2678,7 @@ footer {
     font-size: 14px;
     opacity: 0.7;
 }
+
+[data-theme="light"] .discount-rules-text {
+    color: var(--cosmic-violet) !important;
+}
