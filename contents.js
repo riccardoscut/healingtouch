@@ -55,6 +55,22 @@ window.siteContent = {
 // @ts-ignore
 window.testimonials = [
   {
+    "text": "Riccardo, té una cura i una gran professionalitat increibles\nA través de la refexologia em va millorar una contractura tensional a les cervicals i em va ajudar a desbloquejar l'estrés que tenia.\nTé unes mans d'or.",
+    "name": "Agnès",
+    "month": "May",
+    "year": "2024",
+    "rating": 5,
+    "type": "Signature Reflexology Massage"
+  },
+  {
+    "text": "Totalment recomanable!!! Les meves molèsties a la part alta de l'esquena van millorar molt després de la primera sessió. En Riccardo té una manera de fer molt professional i mans màgiques..",
+    "name": "Mateo M.",
+    "month": "September",
+    "year": "2023",
+    "rating": 5,
+    "type": "Signature Reflexology Massage"
+  },
+  {
     "text": "Very good massage and practitionner. I'm so surprised of the power of reflexology.",
     "name": "Aurélie Chiodetti",
     "month": "April",
