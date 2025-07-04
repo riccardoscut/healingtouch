@@ -49,7 +49,7 @@ window.siteContent = {
   ],
 
   // Inspirational quote
-  "quote-text": "\"Touch. Balance. Heal.<br><br>Where ancient wisdom meets modern energy healing.\""
+  "quote-text": "\"The feet are the mirror of the body, reflecting the whole person—physically, mentally, emotionally, and spiritually. Through the feet, we can reach the whole.\"<br><br>— Eunice Ingham, the \"mother of modern reflexology\""
 };
 
 // @ts-ignore
