@@ -165,5 +165,13 @@ window.testimonials = [
     "year": "2024",
     "rating": 5,
     "type": "Signature Reflexology Massage"
+  },
+  {
+    "text": "Ricardo neemt echt de tijd en weet wat hij doet. Ik voelde mij als herboren na de sessie!",
+    "name": "Nini",
+    "month": "July",
+    "year": "2023",
+    "rating": 4,
+    "type": "Signature Reflexology Massage"
   }
 ];
