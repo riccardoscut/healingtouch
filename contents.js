@@ -36,6 +36,15 @@ window.siteContent = {
   "promotion": {
     "title": "Step Up Challenge",
     "description": "Walk 10,000+ steps in any 24-hour window and get 10€ off our 30-minute Detox Reflexology Massage (regular price 45€).",
+    "promotional-text": [
+      "LOVE TREKKING? 🥾",
+      "DANCING ALL-NIGHT? 💃",
+      "EXPLORING THE CITY? 🏃‍♀️",
+      "WHATEVER GETS YOU MOVING STEP-UP 👟",
+      "TREAT YOUR FEET TO A DETOX MASSAGE 🦶",
+      "TURN EVERY STEP INTO SAVINGS 👣",
+      "AND ENJOY A 30-MINUTE RESET EXPERIENCE 💫"
+    ],
     "details": [
       "Every additional 10,000 steps takes 10€ more off, up to 30€ total discount.",
       "Show a dated screenshot from your favourite fitness app at check-in.",
