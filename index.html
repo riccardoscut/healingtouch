@@ -398,9 +398,8 @@
 
     <script type="text/javascript" src="/snarkdown-2.0.0.min.js"></script>
     <script>
-      const fiveMinutesInSeconds = 5 * 60; // 300 seconds
-      // Calculate a value that changes every 5 minutes
-      const cacheBustValue = (Date.now() / 1000 / fiveMinutesInSeconds) | 0; 
+      // Force cache refresh by using current timestamp
+      const cacheBustValue = Date.now();
     
       document.write(`<script src="/contents.js?cachebust=${cacheBustValue}"><\/script>`);
     </script>
