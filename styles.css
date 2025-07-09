@@ -2682,3 +2682,163 @@ footer {
 [data-theme="light"] .discount-rules-text {
     color: var(--cosmic-violet) !important;
 }
+
+/* Promotion Section Styles */
+.promotion-section {
+    padding: 60px 0;
+    background: var(--section-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.promotion-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.promotion-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--lunar-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.promotion-description {
+    margin-bottom: 40px;
+}
+
+.promotion-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+.promotional-text {
+    margin-bottom: 40px;
+}
+
+.promotional-line {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--aurora-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: promotionalPulse 3s ease-in-out infinite;
+}
+
+.promotional-line:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.promotional-line:nth-child(even) {
+    animation-delay: 1s;
+}
+
+@keyframes promotionalPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.promotion-details {
+    background: rgba(117, 90, 146, 0.1);
+    border: 1px solid var(--cosmic-violet);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.promotion-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.promotion-details-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(117, 90, 146, 0.2);
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.promotion-details-list li:last-child {
+    border-bottom: none;
+}
+
+.promotion-details-list li::before {
+    content: "✦";
+    color: var(--lunar-gold);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Light theme styles for promotion */
+[data-theme="light"] .promotion-section {
+    background: var(--light-section);
+}
+
+[data-theme="light"] .promotion-title {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .promotion-description p {
+    color: var(--light-text);
+}
+
+[data-theme="light"] .promotional-line {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .promotion-details {
+    background: var(--light-highlight);
+    border-color: var(--light-border);
+}
+
+[data-theme="light"] .promotion-details-list li {
+    color: var(--light-text);
+    border-bottom-color: var(--light-border);
+}
+
+[data-theme="light"] .promotion-details-list li::before {
+    color: var(--cosmic-violet);
+}
+
+/* Responsive styles for promotion */
+@media (max-width: 768px) {
+    .promotion-title {
+        font-size: 2rem;
+    }
+    
+    .promotional-line {
+        font-size: 1.2rem;
+    }
+    
+    .promotion-details {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .promotion-title {
+        font-size: 1.8rem;
+    }
+    
+    .promotional-line {
+        font-size: 1.1rem;
+    }
+    
+    .promotion-description p {
+        font-size: 1rem;
+    }
+}
