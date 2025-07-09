@@ -178,46 +178,7 @@ function applyContentToPage (data) {
     quoteText.innerHTML = data["quote-text"];
   }
 
-  // Update promotion content
-  if (data.promotion) {
-    // Update promotion title
-    const promotionTitle = document.querySelector(".promotion-title");
-    if (promotionTitle && data.promotion.title) {
-      promotionTitle.textContent = data.promotion.title;
-    }
 
-    // Update promotion description
-    const promotionDescription = document.querySelector(".promotion-description p");
-    if (promotionDescription && data.promotion.description) {
-      promotionDescription.textContent = data.promotion.description;
-    }
-
-    // Update promotional text
-    const promotionalTextContainer = document.querySelector(".promotional-text");
-    if (promotionalTextContainer && data.promotion["promotional-text"]) {
-      promotionalTextContainer.innerHTML = ""; // Clear existing content
-      data.promotion["promotional-text"].forEach(text => {
-        const p = document.createElement("p");
-        p.className = "promotional-line";
-        p.textContent = text;
-        promotionalTextContainer.appendChild(p);
-      });
-    }
-
-    // Update promotion details
-    const promotionDetailsContainer = document.querySelector(".promotion-details");
-    if (promotionDetailsContainer && data.promotion.details) {
-      promotionDetailsContainer.innerHTML = ""; // Clear existing content
-      const ul = document.createElement("ul");
-      ul.className = "promotion-details-list";
-      data.promotion.details.forEach(detail => {
-        const li = document.createElement("li");
-        li.textContent = detail;
-        ul.appendChild(li);
-      });
-      promotionDetailsContainer.appendChild(ul);
-    }
-  }
 
   // Initialize Cal.com buttons after content update
   setTimeout(initCalButtons, 500);
