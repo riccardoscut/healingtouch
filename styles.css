@@ -2418,16 +2418,16 @@ footer {
 }
 
 .footer-quote .quote-text {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem !important;
+    line-height: 1.5;
     font-style: italic;
-    color: var(--aurora-green);
+    color: var(--cosmic-violet) !important;
 }
 
 @media (min-width: 768px) {
     .footer-quote .quote-text {
-        font-size: 1.3rem;
+        font-size: 1rem !important;
     }
 }
 [data-theme="dark"] .contact-link:hover {
