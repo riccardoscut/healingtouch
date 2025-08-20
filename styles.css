@@ -2414,6 +2414,7 @@ footer {
 /* Footer quote layout */
 .footer-quote {
     max-width: 520px;
+    text-align: right;
 }
 
 .footer-quote .quote-text {
