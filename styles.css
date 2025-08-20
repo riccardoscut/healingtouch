@@ -2417,7 +2417,8 @@ footer {
     text-align: right;
 }
 
-.footer-quote .quote-text {
+.footer-quote .quote-text,
+.footer-quote .footer-quote-text {
     font-family: 'Barlow', sans-serif;
     font-size: 0.95rem !important;
     line-height: 1.5;
