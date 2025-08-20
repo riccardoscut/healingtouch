@@ -194,5 +194,13 @@ window.testimonials = [
     "year": "2023",
     "rating": 4,
     "type": "Signature Reflexology Massage"
+  },
+  {
+    "text": "Çok rahatlatıcı ve çok iyi! 1,5 saat ‘signature massage’ almıştım ve çok memnun kaldım. Profesyonel bir ayak masajıydı. Kesinlikle tavsiye ederim!",
+    "name": "Elif",
+    "month": "June",
+    "year": "2024",
+    "rating": 5,
+    "type": "Signature Reflexology Massage"
   }
 ];
