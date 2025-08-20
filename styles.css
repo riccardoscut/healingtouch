@@ -2410,6 +2410,25 @@ footer {
 [data-theme="dark"] .star-icon {
     color: #EDD483 !important;
 }
+
+/* Footer quote layout */
+.footer-quote {
+    max-width: 520px;
+}
+
+.footer-quote .quote-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--aurora-green);
+}
+
+@media (min-width: 768px) {
+    .footer-quote .quote-text {
+        font-size: 1.3rem;
+    }
+}
 [data-theme="dark"] .contact-link:hover {
     color: #fff8dc !important;
     background-color: rgba(237, 212, 131, 0.08) !important;
