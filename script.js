@@ -256,7 +256,7 @@ function createServiceCard (service) {
 
   const cryptoOffer = document.createElement("p");
   cryptoOffer.className = "offer-item";
-  cryptoOffer.innerHTML = `<span class="offer-discount">Crypto Payment (<span class="offer-discount-percentage">-40%</span>):</span> <span class="original-price">€${service.price.toFixed(2)}</span> <span class="offer-price">€${cryptoPrice.toFixed(2)}</span> <span class="offer-crypto-payment">(BTC, ADA or USDC/USDT)</span>`;
+  cryptoOffer.innerHTML = `<span class="offer-discount">Crypto Payment (<span class="offer-discount-percentage">-40%</span>):</span> <span class="original-price">€${service.price.toFixed(2)}</span> <span class="offer-price">€${cryptoPrice.toFixed(2)}</span> <span class="offer-crypto-payment">(BTC or ADA)</span>`;
 
   specialOffers.appendChild(offersTitle);
   specialOffers.appendChild(cashOffer);
