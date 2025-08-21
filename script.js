@@ -223,6 +223,17 @@ function createServiceCard (service) {
   price.textContent = `€${service.price}`;
 
   header.appendChild(title);
+  // Inject promotional structure inside the price pill for Signature Reflexology Massage
+  try {
+    const normalizedTitle = (service.title || "").toLowerCase();
+    if (normalizedTitle.includes("signature reflexology")) {
+      price.classList.add("has-promo");
+      price.innerHTML = '<span class="price-label">Promo</span><span class="price-old">90€</span><span class="price-new">60€</span>';
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    if (IS_DEVELOPMENT) console.warn("Could not set promotional price:", e);
+  }
   header.appendChild(duration);
   header.appendChild(price);
 
