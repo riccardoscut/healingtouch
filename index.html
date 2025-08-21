@@ -423,13 +423,14 @@
       const cacheBustValue = Date.now();
     
       document.write(`<script src="/contents.js?cachebust=${cacheBustValue}"><\/script>`);
+      document.write(`<script src="/script.js?cachebust=${cacheBustValue}"><\/script>`);
     </script>
     <script type="text/javascript">
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
     </script>
     <!-- Swiper.js JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="/script.js"></script>
+    
     <script data-goatcounter="https://healingtouch.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
