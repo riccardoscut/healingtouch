@@ -368,6 +368,8 @@ function initCalButtons () {
       button.setAttribute("data-cal-config", "{\"layout\":\"month_view\"}");
       button.removeAttribute("href");
 
+
+
       // @ts-ignore
       window.Cal("init", id, {origin: "https://cal.com"});
       window.Cal.ns[id]("ui", {
@@ -669,10 +671,17 @@ function testTestimonialModal() {
 // Make test function available globally
 window.testTestimonialModal = testTestimonialModal;
 
+
+
+
+
+
+
 // Testimonial Modal Functions
 function openTestimonialModal(e) {
   console.log('Opening testimonial modal...');
   e.preventDefault();
+  
   const modal = document.getElementById("testimonialModal");
   if (modal) {
     modal.style.display = "block";

@@ -82,6 +82,79 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1517659402723971');
     fbq('track', 'PageView');
+    
+    // Enhanced Lead Tracking Events
+    document.addEventListener('DOMContentLoaded', function() {
+      // ---------- TESTIMONIAL FORM ----------
+      const testimonialForm = document.getElementById('testimonialForm');
+      if (testimonialForm) {
+        testimonialForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          fbq('trackCustom', 'testimonial_submitted', {
+            content_name: 'Testimonial Form',
+            content_category: 'Lead Generation'
+          });
+          // Se la testimonianza deve contare come Lead, abilita questa riga:
+          // fbq('track', 'Lead', { content_name: 'Testimonial Submission', value: 1.0, currency: 'EUR' });
+          setTimeout(() => testimonialForm.submit(), 120);
+        });
+      }
+
+      // ---------- BOOKING BUTTONS (INTENZIONE, NON LEAD) ----------
+      const bookingButtons = document.querySelectorAll('.book-button');
+      bookingButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const serviceName = this.closest('.service-card')?.querySelector('.service-title')?.textContent?.trim() || 'Unknown Service';
+          fbq('track', 'InitiateCheckout', {
+            content_name: serviceName,
+            content_category: 'Booking Intent'
+          });
+          fbq('trackCustom', 'booking_button_clicked', {
+            content_name: serviceName,
+            content_category: 'Service Interest'
+          });
+        });
+      });
+
+      // ---------- MODAL OPEN (ENGAGEMENT) ----------
+      const challengeModalOpeners = [
+        document.querySelector('.modal-cta-btn'),
+        document.querySelector('#summerChallengeBanner .banner-content')
+      ].filter(Boolean);
+      challengeModalOpeners.forEach(el => {
+        el.addEventListener('click', function() {
+          fbq('trackCustom', 'modal_opened', {
+            content_name: 'Challenge Modal',
+            content_category: 'User Engagement'
+          });
+        });
+      });
+
+      // ---------- CONTATTI (WHATSAPP / IG / EMAIL) ----------
+      function safeBindClick(selector, handler) {
+        document.querySelectorAll(selector).forEach(el => {
+          el.addEventListener('click', handler);
+        });
+      }
+      safeBindClick('a[href*="wa.me"]', function() {
+        fbq('track', 'Contact', { contact_method: 'WhatsApp' });
+        fbq('trackCustom', 'whatsapp_click');
+      });
+      safeBindClick('a[href*="instagram.com"]', function() {
+        fbq('track', 'Contact', { contact_method: 'Instagram' });
+        fbq('trackCustom', 'instagram_click');
+      });
+      safeBindClick('a[href^="mailto:"]', function() {
+        fbq('track', 'Contact', { contact_method: 'Email' });
+        fbq('trackCustom', 'email_click');
+      });
+
+      // ---------- CAL.COM (INTENZIONE) ----------
+      safeBindClick('a[href*="cal.com"], button[data-cal-link], .cal-embed', function() {
+        fbq('track', 'Schedule', { scheduling_provider: 'Cal.com' });
+        fbq('trackCustom', 'cal_opened');
+      });
+    });
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1517659402723971&ev=PageView&noscript=1"
