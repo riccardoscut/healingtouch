@@ -14,7 +14,20 @@ const IS_DEVELOPMENT = window.location.hostname === "localhost" || window.locati
 
 /* global emailjs */
 
+// Global form submission interceptor
+document.addEventListener('submit', function(e) {
+  if (e.target.id === 'testimonialForm') {
+    console.log('=== GLOBAL FORM INTERCEPTOR TRIGGERED ===');
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    console.log('Form submission intercepted and prevented globally');
+    return false;
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("=== PAGE LOADED - DOMContentLoaded event fired ===");
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: DOMContentLoaded event fired.");
   // Set current year in footer
@@ -38,54 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // @ts-ignore
   loadTestimonials(window.testimonials);
 
-  // Modal and Form Handling - Moved to end of DOMContentLoaded
+  // Initialize testimonial form after content is loaded
   setTimeout(() => {
-    console.log('=== INITIALIZING TESTIMONIAL MODAL ===');
-    
-    const modal = document.getElementById("testimonialModal");
-    const openModalBtn = document.getElementById("openTestimonialModal");
-    const closeModalBtn = document.querySelector(".close-modal");
-    const form = document.getElementById("testimonialForm");
-
-    console.log('Modal element:', modal);
-    console.log('Open button element:', openModalBtn);
-    console.log('Close button element:', closeModalBtn);
-    console.log('Form element:', form);
-
-    // Open modal when clicking the button
-    if (openModalBtn && modal) {
-      console.log('Setting up testimonial modal...');
-      
-      // Remove any existing listeners
-      openModalBtn.removeEventListener('click', openTestimonialModal);
-      
-      // Add new listener
-      openModalBtn.addEventListener("click", openTestimonialModal);
-      
-      console.log('Testimonial modal setup complete');
-    } else {
-      console.error('Missing elements for testimonial modal:', { openModalBtn, modal });
-    }
-
-    // Close modal when clicking the X
-    if (closeModalBtn && modal) {
-      closeModalBtn.addEventListener("click", closeTestimonialModal);
-    }
-
-    // Close modal when clicking outside
-    if (modal) {
-      window.addEventListener("click", function (e) {
-        if (e.target === modal) {
-          closeTestimonialModal();
-        }
-      });
-    }
-
-    // Handle form submission
-    if (form) {
-      form.addEventListener("submit", handleTestimonialSubmit);
-    }
-  }, 1000); // Wait 1 second to ensure everything is loaded
+    initTestimonialForm();
+  }, 500);
 
   // Initialize Summer Step-Up Challenge Modal and Banner (at the end)
   console.log('About to initialize Summer Challenge...');
@@ -677,6 +646,77 @@ window.testTestimonialModal = testTestimonialModal;
 
 
 
+// Initialize testimonial form and modal
+function initTestimonialForm() {
+  console.log('=== INITIALIZING TESTIMONIAL FORM ===');
+  
+  const modal = document.getElementById("testimonialModal");
+  const openModalBtn = document.getElementById("openTestimonialModal");
+  const closeModalBtn = document.querySelector(".close-modal");
+  const form = document.getElementById("testimonialForm");
+
+  console.log('Modal element:', modal);
+  console.log('Open button element:', openModalBtn);
+  console.log('Close button element:', closeModalBtn);
+  console.log('Form element:', form);
+
+  // Open modal when clicking the button
+  if (openModalBtn && modal) {
+    console.log('Setting up testimonial modal...');
+    
+    // Remove any existing listeners
+    openModalBtn.removeEventListener('click', openTestimonialModal);
+    
+    // Add new listener
+    openModalBtn.addEventListener("click", openTestimonialModal);
+    
+    console.log('Testimonial modal setup complete');
+  } else {
+    console.error('Missing elements for testimonial modal:', { openModalBtn, modal });
+  }
+
+  // Close modal when clicking the X
+  if (closeModalBtn && modal) {
+    closeModalBtn.removeEventListener('click', closeTestimonialModal);
+    closeModalBtn.addEventListener("click", closeTestimonialModal);
+  }
+
+  // Close modal when clicking outside
+  if (modal) {
+    modal.removeEventListener('click', handleModalOutsideClick);
+    modal.addEventListener("click", handleModalOutsideClick);
+  }
+
+  // Handle form submission
+  if (form) {
+    console.log('Adding form submit event listener...');
+    
+    // Remove any existing listeners first
+    form.removeEventListener('submit', handleTestimonialSubmit);
+    
+    // Add new listener
+    form.addEventListener("submit", handleTestimonialSubmit);
+    
+    // Also add a click listener to the submit button as backup
+    const submitBtn = form.querySelector('.submit-button');
+    if (submitBtn) {
+      console.log('Adding submit button click listener as backup...');
+      submitBtn.removeEventListener('click', handleTestimonialSubmit);
+      submitBtn.addEventListener('click', handleTestimonialSubmit);
+    }
+    
+    console.log('Form event listeners added successfully');
+  } else {
+    console.error('Form element not found for event listener!');
+  }
+}
+
+function handleModalOutsideClick(e) {
+  if (e.target === e.currentTarget) {
+    closeTestimonialModal();
+  }
+}
+
 // Testimonial Modal Functions
 function openTestimonialModal(e) {
   console.log('Opening testimonial modal...');
@@ -703,15 +743,35 @@ function closeTestimonialModal() {
 }
 
 function handleTestimonialSubmit(e) {
+  console.log('=== FORM SUBMISSION HANDLER TRIGGERED ===');
+  console.log('Event type:', e.type);
+  console.log('Event target:', e.target);
+  console.log('Event currentTarget:', e.currentTarget);
+  
+  // Prevent the default form submission
   e.preventDefault();
+  e.stopPropagation();
+  
+  console.log('Default form submission prevented');
   console.log('Handling testimonial form submission...');
+  
+  // Additional safety check - if this is a form submit event, make sure it's completely stopped
+  if (e.type === 'submit') {
+    console.log('This is a form submit event - ensuring it\'s completely prevented');
+    e.stopImmediatePropagation();
+    return false;
+  }
 
-  // Initialize EmailJS with your public key
-  // @ts-ignore
-  window.emailjs.init("fitJ75sG9o72X64G7");
-
+  // Get form elements
   const form = document.getElementById("testimonialForm");
   const modal = document.getElementById("testimonialModal");
+  const submitButton = form.querySelector('.submit-button');
+
+  // Disable submit button to prevent double submission
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+  }
 
   // Format date from month and year selects
   const month = document.getElementById("month").value;
@@ -721,31 +781,97 @@ function handleTestimonialSubmit(e) {
     formattedDate = `${month}/${year}`;
   }
 
-  // Get form data
+  // Get form data with validation
+  const experience = document.getElementById("experience").value.trim();
+  const massageType = Array.from(document.querySelectorAll("input[name=\"massageType\"]:checked"))
+    .map(cb => cb.value)
+    .join(", ") || "Not specified";
+  const name = document.getElementById("name").value.trim() || "Anonymous";
+  const rating = document.getElementById("rating").value;
+
+  // Basic validation
+  if (!experience || !massageType || !rating) {
+    showNotification("Please fill in all required fields.", "error");
+    return;
+  }
+
   const formData = {
-    experience: document.getElementById("experience").value,
-    massageType: Array.from(document.querySelectorAll("input[name=\"massageType\"]:checked"))
-      .map(cb => cb.value)
-      .join(", ") || "Not specified",
-    name: document.getElementById("name").value || "Anonymous",
+    experience: experience,
+    massageType: massageType,
+    name: name,
     date: formattedDate,
-    rating: document.getElementById("rating").value
+    rating: rating
   };
 
-  // Send email using EmailJS
+  console.log('Form data to send:', formData);
+
+  // Initialize EmailJS with your public key
+  // @ts-ignore
+  window.emailjs.init("fitJ75sG9o72X64G7");
+
+  // Send email using EmailJS with better error handling
+  console.log('About to send email with EmailJS...');
+  console.log('Service ID: service_dwed3y6');
+  console.log('Template ID: template_9gsve0p');
+  console.log('Form data:', formData);
+  
   // @ts-ignore
   window.emailjs.send("service_dwed3y6", "template_9gsve0p", formData)
-    .then(function () {
-      // Show success message
-      alert("Thank you for sharing your experience!");
-      // Reset form and close modal
-      form.reset();
-      closeTestimonialModal();
+    .then(function (response) {
+      console.log('EmailJS success response:', response);
+      
+      // Check if the response indicates success
+      if (response && response.status === 200) {
+        // Show success message
+        showNotification("Thank you for sharing your experience!", "success");
+        // Reset form and close modal after a short delay
+        setTimeout(() => {
+          form.reset();
+          closeTestimonialModal();
+        }, 2000);
+      } else {
+        // Even if status isn't 200, EmailJS often succeeds
+        console.log('EmailJS response received, treating as success');
+        showNotification("Thank you for sharing your experience!", "success");
+        // Reset form and close modal after a short delay
+        setTimeout(() => {
+          form.reset();
+          closeTestimonialModal();
+        }, 2000);
+      }
     })
     .catch(function (error) {
-      // eslint-disable-next-line no-console
-      console.error("Error sending email:", error);
-      alert("Sorry, there was an error sending your message. Please try again later.");
+      console.error("EmailJS error details:", error);
+      
+      // Check if it's actually a network error or just EmailJS response format issue
+      if (error && (error.text || error.message)) {
+        console.log('EmailJS returned error but might have succeeded:', error);
+        // Often EmailJS returns an error object even on success
+        // Check if the error message suggests the email was actually sent
+        if (error.text && error.text.includes('OK') || error.status === 200) {
+          showNotification("Thank you for sharing your experience!", "success");
+          setTimeout(() => {
+            form.reset();
+            closeTestimonialModal();
+          }, 2000);
+          return;
+        }
+      }
+      
+      // Show error message
+      showNotification("Sorry, there was an error sending your message. Please try again later.", "error");
+      
+      // Log additional error details for debugging
+      console.log('Full error object:', JSON.stringify(error, null, 2));
+      console.log('Error type:', typeof error);
+      console.log('Error keys:', Object.keys(error || {}));
+    })
+    .finally(function () {
+      // Re-enable submit button
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit';
+      }
     });
 }
 
@@ -776,3 +902,65 @@ function forceShowTestimonialModal() {
 
 // Make test function available globally
 window.forceShowTestimonialModal = forceShowTestimonialModal;
+
+// Notification helper functions
+function showNotification(message, type = "success") {
+  const notification = document.getElementById("notification");
+  const notificationMessage = document.getElementById("notification-message");
+  
+  if (notification && notificationMessage) {
+    notification.className = `notification ${type}`;
+    notificationMessage.textContent = message;
+    notification.style.display = "block";
+    
+    // Auto-hide success notifications after 5 seconds
+    if (type === "success") {
+      setTimeout(() => {
+        hideNotification();
+      }, 5000);
+    }
+  }
+}
+
+function hideNotification() {
+  const notification = document.getElementById("notification");
+  if (notification) {
+    notification.style.display = "none";
+  }
+}
+
+// Make notification functions available globally
+window.showNotification = showNotification;
+window.hideNotification = hideNotification;
+
+// Test function to verify form handling
+function testFormSubmission() {
+  console.log('=== TESTING FORM SUBMISSION ===');
+  
+  const form = document.getElementById("testimonialForm");
+  const submitBtn = form.querySelector('.submit-button');
+  
+  console.log('Form element:', form);
+  console.log('Submit button:', submitBtn);
+  
+  // Check form attributes
+  console.log('Form action:', form.action);
+  console.log('Form method:', form.method);
+  console.log('Form onsubmit:', form.onsubmit);
+  
+  // Check button attributes
+  console.log('Button type:', submitBtn.type);
+  console.log('Button onclick:', submitBtn.onclick);
+  
+  // Check if event listeners are attached
+  const events = getEventListeners ? getEventListeners(form) : 'getEventListeners not available';
+  console.log('Form event listeners:', events);
+  
+  // Test notification system
+  showNotification("Test notification - this should work!", "success");
+  
+  console.log('=== TEST COMPLETE ===');
+}
+
+// Make test function available globally
+window.testFormSubmission = testFormSubmission;

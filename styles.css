@@ -2474,6 +2474,77 @@ footer {
     left: 100%;
 }
 
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:disabled:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:disabled::before {
+    display: none;
+}
+
+/* Notification Styles */
+.notification {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    position: relative;
+    animation: slideInDown 0.3s ease-out;
+}
+
+.notification.success {
+    background-color: rgba(194, 222, 213, 0.2);
+    border: 1px solid var(--aurora-green);
+    color: var(--aurora-green);
+}
+
+.notification.error {
+    background-color: rgba(204, 0, 0, 0.2);
+    border: 1px solid var(--cosmic-red);
+    color: var(--cosmic-red);
+}
+
+.notification-close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-close:hover {
+    opacity: 0.7;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .modal-content {

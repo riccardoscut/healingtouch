@@ -377,7 +377,14 @@
         <div class="modal-content">
             <span class="close-modal" onclick="document.getElementById('testimonialModal').style.display='none'; document.body.style.overflow='';">&times;</span>
             <h2>Share Your Experience</h2>
-            <form id="testimonialForm">
+            
+            <!-- Notification messages -->
+            <div id="notification" class="notification" style="display: none;">
+                <span id="notification-message"></span>
+                <button class="notification-close" onclick="hideNotification()">&times;</button>
+            </div>
+            
+            <form id="testimonialForm" onsubmit="return false;" action="javascript:void(0);" method="post">
                 <div class="form-group">
                     <label for="experience">Your Experience *</label>
                     <textarea id="experience" name="experience" required rows="4" placeholder="Tell us about your experience..."></textarea>
@@ -445,7 +452,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="submit-button">Submit</button>
+                <button type="button" class="submit-button" onclick="handleTestimonialSubmit(event); return false;">Submit</button>
             </form>
         </div>
     </div>
