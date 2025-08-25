@@ -2243,6 +2243,7 @@ footer {
 }
 
 .form-group input[type="text"],
+.form-group input[type="email"],
 .form-group input[type="month"],
 .form-group textarea,
 .form-group select {
@@ -2266,6 +2267,7 @@ footer {
 }
 
 .form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
 .form-group input[type="month"]:focus,
 .form-group textarea:focus,
 .form-group select:focus {

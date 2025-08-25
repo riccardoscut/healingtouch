@@ -325,7 +325,7 @@ function triggerGoldScan (element) {
 // Initialize Cal.com booking buttons
 function initCalButtons () {
   const ids = [
-    "detox-foot-massage-30-min",
+    "executive-detox-massage-45-min",
     "reflexology-foot-massage-1-hour-30-min"
   ];
 
@@ -586,7 +586,7 @@ function openModal() {
 // Book detox massage function
 function bookDetoxMassage() {
   // Find the detox massage booking button and trigger it
-  const detoxButton = document.getElementById('detox-foot-massage-30-min');
+  const detoxButton = document.getElementById('executive-detox-massage-45-min');
   if (detoxButton) {
     detoxButton.click();
   }

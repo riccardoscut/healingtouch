@@ -24,9 +24,9 @@ window.siteContent = {
     },
     {
       // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
-      "id": "detox-foot-massage-30-min",
-      "title": "Detox Reflexology Massage",
-      "duration": "30 min",
+      "id": "executive-detox-massage-45-min",
+      "title": "Executive Detox Massage",
+      "duration": "45 min",
       "price": 45,
       "description": "<p>**A massage that combines inner cleansing through foot reflex points to restore balance and well-being.**</p><p>We begin with a gentle warm-up using a natural oil to relax the feet and prepare them for deeper work. The session then transitions into a special ritual called <strong>\"The 3 Ways of Purification\"</strong>, designed to support your body's natural cleansing processes. By stimulating specific reflex points, we encourage the elimination of toxins through the digestive, reproductive, and lymphatic systems, promoting a sense of lightness and inner balance.</p>"
     }
@@ -35,7 +35,7 @@ window.siteContent = {
   // Promotion content
   "promotion": {
     "title": "Step Up Challenge",
-    "description": "Walk 10,000+ steps in any 24-hour window and get 10€ off our 30-minute Detox Reflexology Massage (regular price 45€).",
+    "description": "Walk 10,000+ steps in any 24-hour window and get 10€ off our 45-minute Executive Detox Massage (regular price 45€).",
     "promotional-text": [
       "LOVE TREKKING? 🥾",
       "DANCING ALL-NIGHT? 💃",
@@ -43,13 +43,13 @@ window.siteContent = {
       "WHATEVER GETS YOU MOVING STEP-UP 👟",
       "TREAT YOUR FEET TO A DETOX MASSAGE 🦶",
       "TURN EVERY STEP INTO SAVINGS 👣",
-      "AND ENJOY A 30-MINUTE RESET EXPERIENCE 💫"
+      "AND ENJOY A 45-MINUTE RESET EXPERIENCE 💫"
     ],
     "details": [
       "Every additional 10,000 steps takes 10€ more off, up to 30€ total discount.",
       "Show a dated screenshot from your favourite fitness app at check-in.",
       "The qualifying step day must fall within the 10 days before you book, meet that rule and we'll apply the discount in person.",
-      "Offer valid exclusively for the 30-minute Detox Reflexology Massage."
+      "Offer valid exclusively for the 45-minute Executive Detox Massage."
     ]
   },
 
@@ -105,7 +105,7 @@ window.testimonials = [
     "month": "June",
     "year": "2021",
     "rating": 5,
-    "type": "Detox Reflexology Massage"
+    "type": "Executive Detox Massage"
   },
   {
     "text": "Dopo ogni sessione con Riccardo, mi sento più leggero e le tensioni sono sparite. Mi ha aiutato enormemente con il mio nervo sciatico. Lo ricontatterò.",
