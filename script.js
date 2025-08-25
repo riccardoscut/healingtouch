@@ -787,6 +787,7 @@ function handleTestimonialSubmit(e) {
     .map(cb => cb.value)
     .join(", ") || "Not specified";
   const name = document.getElementById("name").value.trim() || "Anonymous";
+  const email = document.getElementById("email").value.trim();
   const rating = document.getElementById("rating").value;
 
   // Basic validation
@@ -799,6 +800,7 @@ function handleTestimonialSubmit(e) {
     experience: experience,
     massageType: massageType,
     name: name,
+    email: email,
     date: formattedDate,
     rating: rating
   };
