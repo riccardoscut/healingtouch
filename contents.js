@@ -76,12 +76,22 @@ window.siteContent = {
 // @ts-ignore
 window.testimonials = [
   {
-    "text": "Riccardo, té una cura i una gran professionalitat increibles\nA través de la refexologia em va millorar una contractura tensional a les cervicals i em va ajudar a desbloquejar l'estrés que tenia.\nTé unes mans d'or.",
-    "name": "Agnès",
-    "month": "May",
-    "year": "2024",
+    "text": "Cadê o estresse depois de uma sessão dessas? Sumiu! Simplesmente sumiu! Super recomendo este profissional dos dedos mágicos para aliviar o seu estresse. O Riccardo aporta confiança e lhe ajuda a liberar tensões tanto físicas como emocionais. Eu vou cada semana ♥️🙌💫",
+    "name": "Ariane",
+    "month": "June",
+    "year": "2021",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": true
+  },
+  {
+    "text": "Riccardo is very skilled: he started with a first massage that worked like a check-up to spot any imbalances, and then continued with a relaxing and detox treatment. It's an excellent way to recharge, whether at the end of the day or even in the middle of it—I went after a morning full of meetings and felt completely renewed, with much more energy and focus for the afternoon.",
+    "name": "Giorgio",
+    "month": "August",
+    "year": "2025",
+    "rating": 5,
+    "type": "Executive Detox Massage",
+    "highlighted": true
   },
   {
     "text": "Totalment recomanable!!! Les meves molèsties a la part alta de l'esquena van millorar molt després de la primera sessió. En Riccardo té una manera de fer molt professional i mans màgiques..",
@@ -89,23 +99,8 @@ window.testimonials = [
     "month": "September",
     "year": "2023",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
-  },
-  {
-    "text": "Very good massage and practitionner. I'm so surprised of the power of reflexology.",
-    "name": "Aurélie Chiodetti",
-    "month": "April",
-    "year": "2020",
-    "rating": 5,
-    "type": "Signature Reflexology Massage"
-  },
-  {
-    "text": "Cadê o estresse depois de uma sessão dessas? Sumiu! Simplesmente sumiu! Super recomendo este profissional dos dedos mágicos para aliviar o seu estresse. O Riccardo aporta confiança e lhe ajuda a liberar tensões tanto físicas como emocionais. Eu vou cada semana ♥️🙌💫",
-    "name": "Ariane",
-    "month": "June",
-    "year": "2021",
-    "rating": 5,
-    "type": "Executive Detox Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": true
   },
   {
     "text": "Dopo ogni sessione con Riccardo, mi sento più leggero e le tensioni sono sparite. Mi ha aiutato enormemente con il mio nervo sciatico. Lo ricontatterò.",
@@ -113,7 +108,8 @@ window.testimonials = [
     "month": "May",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Ottimo trattamento....Persona speciale!!! Se avete dubbi provate! Non ve ne pentirete!!!",
@@ -121,7 +117,8 @@ window.testimonials = [
     "month": "April",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Esperienza interessante, una piacevole scoperta. Allevia le tensioni e ti fa sentire più carico",
@@ -129,7 +126,8 @@ window.testimonials = [
     "month": "April",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Riccardo's dedication to his craft and the genuine compassion he brings to his practice make him a rare find. I wholeheartedly recommend him to anyone seeking not just physical relief, but a deeper sense of balance and wellbeing.\n\nI've had the privilege of knowing Riccardo since the very beginning of his reflexology journey—back when he was still studying and working towards his certification. Watching him grow into the thoughtful, intuitive practitioner he is today has been truly inspiring.",
@@ -137,7 +135,8 @@ window.testimonials = [
     "month": "March",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Ricardo tiene unas manos de oro! Es súper profesional y atento. Lo recomiendo muchísimo. Gracias Riccardo!",
@@ -145,7 +144,8 @@ window.testimonials = [
     "month": "February",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Riccardo mi hizo una sesión de reflexología muy potente. Sabe muy bien como cuidarte, los puntos que hay que trabajar, para maximizar la experiencia. Lo recomendo a 100%",
@@ -153,7 +153,8 @@ window.testimonials = [
     "month": "May",
     "year": "2023",
     "rating": 4,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Great experience. This was my first reflexology massage and I'm really impressed about this technique. Riccardo is very skilled and intuitive. Highly recommended!",
@@ -161,7 +162,8 @@ window.testimonials = [
     "month": "February",
     "year": "2023",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Ho avuto il piacere di rivolgermi a Riccardo per alcune sedute di riflessologia plantare. Fin dal primo incontro si è dimostrato professionale e allo stesso tempo empatico ed attento alle mie esigenze. Durante le sedute, ho notato un miglioramento significativo nel mio livello di stress, nella qualità del sonno e di alcuni piccoli disturbi che mi affliggevano da un po'. Esperienza consigliata!",
@@ -169,7 +171,8 @@ window.testimonials = [
     "month": "January",
     "year": "2020",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "I received a series of foot massages back when Riccardo was still attending his reflexology course a few years ago. It's hard to describe how relieving they felt after a day of intensive trekking. He was skilled back when he was just starting, so I can only imagine how good he must have got by now with the experience he gained over the years. I'm looking forward to finding out. Recommended! :)",
@@ -177,7 +180,8 @@ window.testimonials = [
     "month": "July",
     "year": "2020",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Riccardo is a highly skilled reflexologist with a professional approach and an experienced touch. I can totally recommend the 1h30 session to whom is looking to increase his well being. Grazie Riccardo and see you soon!",
@@ -185,7 +189,8 @@ window.testimonials = [
     "month": "June",
     "year": "2024",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
     "text": "Ricardo neemt echt de tijd en weet wat hij doet. Ik voelde mij als herboren na de sessie!",
@@ -193,14 +198,25 @@ window.testimonials = [
     "month": "July",
     "year": "2023",
     "rating": 4,
-    "type": "Signature Reflexology Massage"
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
   },
   {
-    "text": "Çok rahatlatıcı ve çok iyi! 1,5 saat ‘signature massage’ almıştım ve çok memnun kaldım. Profesyonel bir ayak masajıydı. Kesinlikle tavsiye ederim!",
+    "text": "Çok rahatlatıcı ve çok iyi! 1,5 saat 'signature massage' almıştım ve çok memnun kaldım. Profesyonel bir ayak masajıydı. Kesinlikle tavsiye ederim!",
     "name": "Elif",
     "month": "June",
     "year": "2024",
     "rating": 5,
-    "type": "Signature Reflexology Massage"
-  }
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
+    "text": "Un trattamento che unisce sensibilità e consapevolezza: Riccardo sa guidarti dentro il corpo.",
+    "name": "Daniele",
+    "month": "August",
+    "year": "2025",
+    "rating": 5,
+    "type": "Executive Detox Massage",
+    "highlighted": false
+  },
 ];

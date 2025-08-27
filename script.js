@@ -56,6 +56,18 @@ document.addEventListener("DOMContentLoaded", function () {
     initTestimonialForm();
   }, 500);
 
+  // Initialize testimonials toggle with a slight delay to ensure DOM is ready
+  setTimeout(() => {
+    // eslint-disable-next-line no-console
+    if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Delayed initialization of toggle functionality...");
+    // @ts-ignore
+    if (window.testimonials) {
+      // eslint-disable-next-line no-console
+      if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Re-initializing toggle functionality after delay...");
+      initTestimonialsToggle();
+    }
+  }, 1000);
+
   // Initialize Summer Step-Up Challenge Modal and Banner (at the end)
   console.log('About to initialize Summer Challenge...');
   initSummerChallenge();
@@ -374,29 +386,51 @@ function loadTestimonials (testimonialsData) {
     return;
   }
 
+  // Separate highlighted and regular testimonials
+  const highlightedTestimonials = testimonialsData.filter(t => t.highlighted);
+  const allTestimonials = testimonialsData;
+
   // eslint-disable-next-line no-console
-  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Testimonial data is present, proceeding to populate slider.");
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: About to load featured testimonials...");
+  
+  // Load featured testimonials in carousel
+  loadFeaturedTestimonials(highlightedTestimonials);
+  
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: About to load all testimonials...");
+  
+  // Load all testimonials in expandable list (excluding highlighted ones that are already in carousel)
+  loadAllTestimonials(allTestimonials.filter(t => !t.highlighted));
+  
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: About to initialize toggle functionality...");
+  
+  // Initialize toggle functionality
+  initTestimonialsToggle();
+}
+
+// Load featured testimonials in the carousel
+function loadFeaturedTestimonials(featuredTestimonials) {
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Loading featured testimonials:", featuredTestimonials);
+  
   const swiperWrapper = document.querySelector("#testimonials .swiper-wrapper");
   if (!swiperWrapper) {
     // eslint-disable-next-line no-console
     if (IS_DEVELOPMENT) console.error("TESTIMONIALS: Swiper wrapper '#testimonials .swiper-wrapper' NOT found!");
     return;
   }
-  // eslint-disable-next-line no-console
-  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper wrapper found.", swiperWrapper);
 
   swiperWrapper.innerHTML = ""; // Clear existing slides
-  // eslint-disable-next-line no-console
-  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper wrapper cleared.");
 
-  testimonialsData.forEach((testimonial, index) => {
+  featuredTestimonials.forEach((testimonial, index) => {
     // eslint-disable-next-line no-console
-    if (IS_DEVELOPMENT) console.log(`TESTIMONIALS: Processing testimonial ${index + 1}:`, testimonial);
+    if (IS_DEVELOPMENT) console.log(`TESTIMONIALS: Processing featured testimonial ${index + 1}:`, testimonial);
     const slide = document.createElement("div");
     slide.classList.add("swiper-slide");
 
     const testimonialCard = document.createElement("div");
-    testimonialCard.classList.add("testimonial-card"); // For styling
+    testimonialCard.classList.add("testimonial-card", "featured"); // Add featured class for styling
 
     const textP = document.createElement("p");
     textP.classList.add("testimonial-text");
@@ -447,8 +481,10 @@ function loadTestimonials (testimonialsData) {
     slide.appendChild(testimonialCard);
     swiperWrapper.appendChild(slide);
   });
+
+  // Initialize Swiper for featured testimonials
   // eslint-disable-next-line no-console
-  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: All testimonial slides created and appended.");
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: All featured testimonial slides created and appended.");
 
   // @ts-ignore
   /* global Swiper */
@@ -480,7 +516,135 @@ function loadTestimonials (testimonialsData) {
     }
   });
   // eslint-disable-next-line no-console
-  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper initialized.");
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper initialized for featured testimonials.");
+}
+
+// Load all testimonials in the expandable list
+function loadAllTestimonials(allTestimonials) {
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Loading all testimonials:", allTestimonials);
+  
+  const allTestimonialsList = document.getElementById("allTestimonialsList");
+  if (!allTestimonialsList) {
+    // eslint-disable-next-line no-console
+    if (IS_DEVELOPMENT) console.error("TESTIMONIALS: All testimonials list element NOT found!");
+    return;
+  }
+
+  allTestimonialsList.innerHTML = ""; // Clear existing content
+
+  allTestimonials.forEach((testimonial, index) => {
+    const testimonialItem = document.createElement("div");
+    testimonialItem.classList.add("testimonial-item");
+    if (testimonial.highlighted) {
+      testimonialItem.classList.add("highlighted");
+    }
+
+    const testimonialContent = document.createElement("div");
+    testimonialContent.classList.add("testimonial-content");
+
+    const textP = document.createElement("p");
+    textP.classList.add("testimonial-text");
+    textP.textContent = `"${testimonial.text}"`;
+
+    const nameP = document.createElement("p");
+    nameP.classList.add("testimonial-name");
+    nameP.textContent = `- ${testimonial.name}`;
+
+    const dateP = document.createElement("p");
+    dateP.classList.add("testimonial-date");
+    dateP.textContent = `${testimonial.month} ${testimonial.year}`;
+
+    const typeP = document.createElement("p");
+    typeP.classList.add("testimonial-type");
+    typeP.textContent = testimonial.type || "Not specified";
+
+    // Star Rating
+    if (testimonial.rating && testimonial.rating > 0) {
+      const starsContainer = document.createElement("div");
+      starsContainer.classList.add("testimonial-rating");
+      starsContainer.style.color = "#D4AF37";
+      starsContainer.style.fontSize = "1.2em";
+      starsContainer.style.marginBottom = "10px";
+      starsContainer.style.marginTop = "10px";
+
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.textContent = i <= testimonial.rating ? "★" : "☆";
+        starsContainer.appendChild(star);
+      }
+      testimonialContent.appendChild(starsContainer);
+    }
+
+    testimonialContent.appendChild(nameP);
+    testimonialContent.appendChild(textP);
+    testimonialContent.appendChild(typeP);
+    testimonialContent.appendChild(dateP);
+
+    testimonialItem.appendChild(testimonialContent);
+    allTestimonialsList.appendChild(testimonialItem);
+  });
+
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: All testimonials loaded in expandable list.");
+}
+
+// Initialize testimonials toggle functionality
+function initTestimonialsToggle() {
+  const toggleBtn = document.getElementById("toggleAllTestimonials");
+  const allTestimonialsList = document.getElementById("allTestimonialsList");
+  
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Looking for toggle elements:", {
+    toggleBtn: !!toggleBtn,
+    allTestimonialsList: !!allTestimonialsList
+  });
+
+  if (!toggleBtn || !allTestimonialsList) {
+    // eslint-disable-next-line no-console
+    if (IS_DEVELOPMENT) console.error("TESTIMONIALS: Toggle elements not found!");
+    return;
+  }
+
+  const toggleText = toggleBtn.querySelector(".toggle-text");
+  const toggleIcon = toggleBtn.querySelector(".toggle-icon");
+
+  if (!toggleText || !toggleIcon) {
+    // eslint-disable-next-line no-console
+    if (IS_DEVELOPMENT) console.error("TESTIMONIALS: Toggle text or icon elements not found!");
+    return;
+  }
+
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Adding click event listener to toggle button");
+
+  toggleBtn.addEventListener("click", function() {
+    // eslint-disable-next-line no-console
+    if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Toggle button clicked!");
+    
+    const isVisible = allTestimonialsList.classList.contains("show");
+    
+    if (isVisible) {
+      // Hide testimonials
+      allTestimonialsList.classList.remove("show");
+      toggleText.textContent = "Show All Reviews";
+      toggleIcon.textContent = "▼";
+      toggleBtn.classList.remove("expanded");
+      // eslint-disable-next-line no-console
+      if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Hiding testimonials list");
+    } else {
+      // Show testimonials
+      allTestimonialsList.classList.add("show");
+      toggleText.textContent = "Hide All Reviews";
+      toggleIcon.textContent = "▲";
+      toggleBtn.classList.add("expanded");
+      // eslint-disable-next-line no-console
+      if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Showing testimonials list");
+    }
+  });
+
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Toggle functionality initialized successfully.");
 }
 
 // Summer Step-Up Challenge Modal and Banner Functions

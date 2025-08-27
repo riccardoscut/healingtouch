@@ -353,16 +353,35 @@
     <section id="testimonials" class="testimonials-section">
         <div class="container">
             <h2 class="testimonials-title title-animation">What People Say</h2>
-            <!-- Swiper -->
-            <div class="swiper-container testimonial-slider">
-                <div class="swiper-wrapper">
-                    <!-- Testimonials will be loaded here by JavaScript -->
+            
+            <!-- Featured Testimonials Carousel -->
+            <div class="featured-testimonials">
+                <h3 class="featured-title">Featured Reviews</h3>
+                <!-- Swiper -->
+                <div class="swiper-container testimonial-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Featured testimonials will be loaded here by JavaScript -->
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+            </div>
+            
+            <!-- All Testimonials Section -->
+            <div class="all-testimonials">
+                <div class="all-testimonials-header">
+                    <h3 class="all-testimonials-title">All Reviews</h3>
+                    <button id="toggleAllTestimonials" class="toggle-testimonials-btn">
+                        <span class="toggle-text">Show All Reviews</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                </div>
+                <div id="allTestimonialsList" class="all-testimonials-list">
+                    <!-- All testimonials will be loaded here by JavaScript -->
+                </div>
             </div>
         </div>
     </section>
