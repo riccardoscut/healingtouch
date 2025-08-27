@@ -1650,6 +1650,18 @@ footer {
     padding: 25px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.review-number {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    color: rgba(212, 175, 55, 0.3);
+    font-size: 0.7rem;
+    font-weight: 400;
+    font-style: italic;
+    z-index: 1;
 }
 
 .testimonial-item:hover {
@@ -1810,6 +1822,10 @@ footer {
 [data-theme="light"] .testimonial-item.highlighted::before {
     background: var(--cosmic-violet);
     color: #ffffff;
+}
+
+[data-theme="light"] .review-number {
+    color: rgba(117, 90, 146, 0.3);
 }
 
 [data-theme="light"] .testimonial-content {

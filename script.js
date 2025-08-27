@@ -400,7 +400,11 @@ function loadTestimonials (testimonialsData) {
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: About to load all testimonials...");
   
   // Load all testimonials in expandable list (excluding highlighted ones that are already in carousel)
-  loadAllTestimonials(allTestimonials.filter(t => !t.highlighted));
+  const nonHighlightedTestimonials = allTestimonials.filter(t => !t.highlighted);
+  loadAllTestimonials(nonHighlightedTestimonials);
+  
+  // Update the header with calculated metrics
+  updateTestimonialsMetrics(allTestimonials);
   
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: About to initialize toggle functionality...");
@@ -540,6 +544,12 @@ function loadAllTestimonials(allTestimonials) {
       testimonialItem.classList.add("highlighted");
     }
 
+    // Add review number
+    const reviewNumber = document.createElement("div");
+    reviewNumber.classList.add("review-number");
+    reviewNumber.textContent = `#${index + 1}`;
+    testimonialItem.appendChild(reviewNumber);
+
     const testimonialContent = document.createElement("div");
     testimonialContent.classList.add("testimonial-content");
 
@@ -645,6 +655,31 @@ function initTestimonialsToggle() {
 
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Toggle functionality initialized successfully.");
+}
+
+// Calculate and update testimonials metrics
+function updateTestimonialsMetrics(allTestimonials) {
+  if (!allTestimonials || !allTestimonials.length) return;
+  
+  const totalReviews = allTestimonials.length;
+  const totalRating = allTestimonials.reduce((sum, testimonial) => sum + (testimonial.rating || 0), 0);
+  const averageRating = totalRating / totalReviews;
+  
+  // Round to 1 decimal place
+  const roundedAverage = Math.round(averageRating * 10) / 10;
+  
+  // Update the header title
+  const headerTitle = document.querySelector(".all-testimonials-title");
+  if (headerTitle) {
+    headerTitle.textContent = `All Reviews (${roundedAverage}★)`;
+  }
+  
+  // eslint-disable-next-line no-console
+  if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Metrics updated:", {
+    totalReviews,
+    totalRating,
+    averageRating: roundedAverage
+  });
 }
 
 // Summer Step-Up Challenge Modal and Banner Functions
