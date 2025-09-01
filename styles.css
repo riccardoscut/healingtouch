@@ -1525,6 +1525,8 @@ footer {
     color: var(--aurora-green);
     font-size: 0.9rem;
     margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Light theme specific overrides */
@@ -1564,6 +1566,8 @@ footer {
 
 [data-theme="light"] .testimonial-type {
     color: var(--cosmic-violet);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Featured Testimonials */

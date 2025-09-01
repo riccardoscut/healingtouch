@@ -451,7 +451,7 @@ function loadFeaturedTestimonials(featuredTestimonials) {
     // Add type display
     const typeP = document.createElement("p");
     typeP.classList.add("testimonial-type");
-    typeP.textContent = testimonial.type || "Not specified";
+    typeP.textContent = (testimonial.type || "Not specified").toUpperCase();
 
     // Append elements in the new order:
     // 1. Name
@@ -567,7 +567,7 @@ function loadAllTestimonials(allTestimonials) {
 
     const typeP = document.createElement("p");
     typeP.classList.add("testimonial-type");
-    typeP.textContent = testimonial.type || "Not specified";
+    typeP.textContent = (testimonial.type || "Not specified").toUpperCase();
 
     // Star Rating
     if (testimonial.rating && testimonial.rating > 0) {
