@@ -76,13 +76,31 @@ window.siteContent = {
 // @ts-ignore
 window.testimonials = [
   {
+    "text": "Tuve una sesión de reflexología podal y fue una experiencia excelente. Desde el inicio me sentí en un ambiente de calma y confianza. La técnica fue muy precisa, con la presión adecuada en cada punto, lo que me ayudó a relajarme profundamente y a liberar tensión acumulada. Al terminar, mis pies se sentían ligeros y mi cuerpo en general con más energía y equilibrio. Recomiendo totalmente sus sesiones, se nota la dedicación y el conocimiento con el que trabaja.",
+    "name": "Mariana",
+    "month": "May",
+    "year": "2024",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": true
+  },
+  {
+    "text": "It was my first foot massage: a unique sensation, truly a special treat for both body and mind. Riccardo, with his great professionalism and exquisite technique, gave me a moment of well-being and relief. Thank you, I will definitely repeat.",
+    "name": "Marco V.",
+    "month": "June",
+    "year": "2022",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
     "text": "Cadê o estresse depois de uma sessão dessas? Sumiu! Simplesmente sumiu! Super recomendo este profissional dos dedos mágicos para aliviar o seu estresse. O Riccardo aporta confiança e lhe ajuda a liberar tensões tanto físicas como emocionais. Eu vou cada semana ♥️🙌💫",
     "name": "Ariane",
     "month": "June",
     "year": "2021",
     "rating": 5,
     "type": "Signature Reflexology Massage",
-    "highlighted": true
+    "highlighted": false
   },
   {
     "text": "Riccardo is very skilled: he started with a first massage that worked like a check-up to spot any imbalances, and then continued with a relaxing and detox treatment. It's an excellent way to recharge, whether at the end of the day or even in the middle of it—I went after a morning full of meetings and felt completely renewed, with much more energy and focus for the afternoon.",
