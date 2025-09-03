@@ -1955,6 +1955,20 @@ footer {
     font-variant: small-caps;
 }
 
+.modal-challenge-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--lunar-gold);
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(228, 228, 188, 0.3);
+    background: linear-gradient(90deg, rgba(228, 228, 188, 0.1) 0%, rgba(228, 228, 188, 0.05) 100%);
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(228, 228, 188, 0.2);
+}
+
 .modal-kicker {
     font-size: 26px;
     font-weight: 800;
@@ -2202,6 +2216,13 @@ footer {
     color: var(--light-text);
 }
 
+[data-theme="light"] .modal-challenge-text {
+    color: var(--cosmic-violet);
+    background: linear-gradient(90deg, rgba(117, 90, 146, 0.1) 0%, rgba(117, 90, 146, 0.05) 100%);
+    border: 1px solid rgba(117, 90, 146, 0.2);
+    text-shadow: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .banner-content {
@@ -2229,6 +2250,11 @@ footer {
     .modal-kicker {
         font-size: 16px;
         padding: 12px 15px;
+    }
+    
+    .modal-challenge-text {
+        font-size: 14px;
+        padding: 10px 15px;
     }
     
     .modal-description {
@@ -2285,6 +2311,11 @@ footer {
     .modal-kicker {
         font-size: 14px;
         padding: 10px 12px;
+    }
+    
+    .modal-challenge-text {
+        font-size: 13px;
+        padding: 8px 12px;
     }
     
     .modal-description {
