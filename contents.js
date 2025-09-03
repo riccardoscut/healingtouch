@@ -237,4 +237,13 @@ window.testimonials = [
     "type": "Executive Detox Massage",
     "highlighted": false
   },
+  {
+    "text": "My reflexology massage with Ricardo was simply amazing, he took time to explain every pressure point since I was interested in understanding what he was doing.. and I nearly fell asleep at the end as I was so relaxed! I can't wait for my next session!",
+    "name": "Annya",
+    "month": "July",
+    "year": "2022",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
 ];
