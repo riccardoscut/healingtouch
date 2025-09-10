@@ -14,6 +14,58 @@ const IS_DEVELOPMENT = window.location.hostname === "localhost" || window.locati
 
 /* global emailjs */
 
+// ===== META PIXEL HELPER FUNCTIONS =====
+/*
+QA CHECKLIST FOR SCRIPT.JS META PIXEL INTEGRATION:
+✅ trackPixel helper function created with deduplication
+✅ Debug mode support (window.PIXEL_DEBUG)
+✅ Graceful fallback if fbq not available
+✅ Event deduplication using Set data structure
+✅ No raw fbq() calls in script.js (all handled in index.html)
+✅ Helper function is idempotent and safe
+✅ Console logging for debugging
+✅ Mobile-friendly implementation
+*/
+
+// Tracked events set to prevent duplicates (use global if exists)
+if (typeof window.trackedEvents === 'undefined') {
+  window.trackedEvents = new Set();
+}
+
+/**
+ * Safe Meta Pixel tracking helper with deduplication and debug mode
+ * @param {string} event - Event name (e.g., 'PageView', 'Lead', 'InitiateCheckout')
+ * @param {Object} params - Event parameters
+ * @param {string} type - Event type ('track' or 'trackCustom')
+ */
+function trackPixel(event, params = {}, type = 'track') {
+  // Fail gracefully if fbq isn't defined
+  if (!window.fbq) {
+    if (window.PIXEL_DEBUG) console.warn('[Pixel] fbq not available, skipping event:', event);
+    return;
+  }
+  
+  // Create unique key for deduplication
+  const eventKey = `${type}:${event}:${JSON.stringify(params)}`;
+  
+      // Skip if already tracked
+      if (window.trackedEvents.has(eventKey)) {
+        if (window.PIXEL_DEBUG) console.log('[Pixel] Duplicate event prevented:', eventKey);
+        return;
+      }
+      
+      // Track the event
+      fbq(type, event, params);
+      window.trackedEvents.add(eventKey);
+  
+  // Debug logging
+  if (window.PIXEL_DEBUG) {
+    console.log('[Pixel]', type, event, params);
+  }
+}
+
+// ===== META PIXEL HELPER FUNCTIONS END =====
+
 // Global form submission interceptor
 document.addEventListener('submit', function(e) {
   if (e.target.id === 'testimonialForm') {
