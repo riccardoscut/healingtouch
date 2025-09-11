@@ -339,50 +339,108 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         }
 
         .thanks-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            min-height: 200px;
-            padding: 2rem 0;
-            line-height: 1.2;
+            position: relative;
+            width: 100%;
+            height: 300px;
+            margin: 2rem 0;
+            overflow: hidden;
         }
 
         .thanks-word {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 500;
             color: #C5A572;
-            opacity: 0.8;
-            text-align: center;
-            transition: all 0.3s ease;
+            opacity: 0.85;
+            position: absolute;
             cursor: default;
             user-select: none;
-            display: inline-block;
-            margin: 0.2rem;
-            padding: 0.3rem 0.6rem;
-            border-radius: 20px;
-            background: rgba(197, 165, 114, 0.1);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .thanks-word:hover {
             opacity: 1;
-            transform: scale(1.05);
-            background: rgba(197, 165, 114, 0.2);
+            transform: scale(1.1);
+            z-index: 10;
         }
 
-        /* Weighted font sizes for tag cloud */
-        .thanks-word.weight-1 { font-size: 0.8rem; }
-        .thanks-word.weight-2 { font-size: 1rem; }
-        .thanks-word.weight-3 { font-size: 1.2rem; }
-        .thanks-word.weight-4 { font-size: 1.4rem; }
-        .thanks-word.weight-5 { font-size: 1.6rem; }
-        .thanks-word.weight-6 { font-size: 1.8rem; }
+        /* Weighted font sizes for tag cloud - more dramatic differences */
+        .thanks-word.weight-1 { 
+            font-size: 0.7rem; 
+            opacity: 0.6;
+        }
+        .thanks-word.weight-2 { 
+            font-size: 0.9rem; 
+            opacity: 0.7;
+        }
+        .thanks-word.weight-3 { 
+            font-size: 1.1rem; 
+            opacity: 0.8;
+        }
+        .thanks-word.weight-4 { 
+            font-size: 1.4rem; 
+            opacity: 0.85;
+        }
+        .thanks-word.weight-5 { 
+            font-size: 1.8rem; 
+            opacity: 0.9;
+        }
+        .thanks-word.weight-6 { 
+            font-size: 2.2rem; 
+            opacity: 1;
+            font-weight: 600;
+            background: linear-gradient(45deg, #C5A572, #D4AF37, #C5A572);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: breathe 4s ease-in-out infinite, gradient-shift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px); 
+            }
+            25% { 
+                transform: translateY(-8px) translateX(3px); 
+            }
+            50% { 
+                transform: translateY(-12px) translateX(-2px); 
+            }
+            75% { 
+                transform: translateY(-6px) translateX(4px); 
+            }
         }
+
+        @keyframes gentle-drift {
+            0%, 100% { 
+                transform: translateX(0px) translateY(0px); 
+            }
+            33% { 
+                transform: translateX(5px) translateY(-3px); 
+            }
+            66% { 
+                transform: translateX(-3px) translateY(2px); 
+            }
+        }
+
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% { 
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
 
         /* Compact Reviews Section Styles */
         .compact-reviews-section {
@@ -939,7 +997,7 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12
     };
 
-    // Initialize weighted thanks cloud
+    // Initialize organic weighted thanks cloud
     function initThanksCloud() {
         const cloudContainer = document.getElementById('thanksCloud');
         if (!cloudContainer) return;
@@ -949,27 +1007,110 @@ QA CHECKLIST FOR THANK-YOU.HTML:
 
         // Shuffle words for random distribution
         const shuffledWords = [...thanksWords].sort(() => Math.random() - 0.5);
+        
+        // Track used positions to avoid overlaps
+        const usedPositions = [];
+        const containerWidth = cloudContainer.offsetWidth || 800;
+        const containerHeight = 300;
 
         shuffledWords.forEach((wordObj, index) => {
             const wordElement = document.createElement('div');
             wordElement.className = `thanks-word weight-${wordObj.weight}`;
             wordElement.textContent = wordObj.word;
             
-            // Add subtle rotation and delay based on weight
-            const rotation = prefersReducedMotion ? 0 : (Math.random() - 0.5) * 12; // -6 to +6 degrees
-            const delay = prefersReducedMotion ? 0 : Math.random() * 3; // 0 to 3 seconds
+            // Calculate word dimensions
+            const fontSize = getFontSizeForWeight(wordObj.weight);
+            const wordWidth = wordObj.word.length * fontSize * 0.6; // Approximate width
+            const wordHeight = fontSize * 1.2; // Approximate height
             
+            // Find a good position (avoid overlaps)
+            let position = findGoodPosition(wordWidth, wordHeight, containerWidth, containerHeight, usedPositions);
+            
+            // Add some randomness to make it more organic
+            position.x += (Math.random() - 0.5) * 20;
+            position.y += (Math.random() - 0.5) * 20;
+            
+            // Ensure position is within bounds
+            position.x = Math.max(0, Math.min(position.x, containerWidth - wordWidth));
+            position.y = Math.max(0, Math.min(position.y, containerHeight - wordHeight));
+            
+            // Set position
+            wordElement.style.left = `${position.x}px`;
+            wordElement.style.top = `${position.y}px`;
+            
+            // Add rotation based on weight (heavier words less rotated)
+            const maxRotation = 15 - (wordObj.weight * 2); // 3-15 degrees
+            const rotation = prefersReducedMotion ? 0 : (Math.random() - 0.5) * maxRotation;
             wordElement.style.transform = `rotate(${rotation}deg)`;
-            wordElement.style.animationDelay = `${delay}s`;
             
-            // Add subtle floating animation if motion is allowed
+            // Add floating animation with different speeds and types based on weight
             if (!prefersReducedMotion) {
-                wordElement.style.animation = `float 8s ease-in-out infinite`;
+                const animationDuration = 8 + (wordObj.weight * 3); // 11-26 seconds
+                const delay = Math.random() * 5; // 0 to 5 seconds
+                
+                // Heavier words get gentler, slower animations
+                if (wordObj.weight >= 5) {
+                    wordElement.style.animation = `gentle-drift ${animationDuration}s ease-in-out infinite`;
+                } else {
+                    wordElement.style.animation = `float ${animationDuration}s ease-in-out infinite`;
+                }
+                
                 wordElement.style.animationDelay = `${delay}s`;
             }
             
+            // Store position for overlap detection
+            usedPositions.push({
+                x: position.x,
+                y: position.y,
+                width: wordWidth,
+                height: wordHeight
+            });
+            
             cloudContainer.appendChild(wordElement);
         });
+    }
+
+    // Helper function to get font size for weight
+    function getFontSizeForWeight(weight) {
+        const sizes = { 1: 0.7, 2: 0.9, 3: 1.1, 4: 1.4, 5: 1.8, 6: 2.2 };
+        return sizes[weight] || 1;
+    }
+
+    // Helper function to find a good position avoiding overlaps
+    function findGoodPosition(wordWidth, wordHeight, containerWidth, containerHeight, usedPositions) {
+        const maxAttempts = 50;
+        let attempts = 0;
+        
+        while (attempts < maxAttempts) {
+            // Prefer center area for higher weights
+            const centerBias = Math.random() < 0.7 ? 0.3 : 0.1;
+            const x = (Math.random() * (1 - centerBias) + centerBias) * (containerWidth - wordWidth);
+            const y = (Math.random() * (1 - centerBias) + centerBias) * (containerHeight - wordHeight);
+            
+            // Check for overlaps
+            let hasOverlap = false;
+            for (let pos of usedPositions) {
+                if (x < pos.x + pos.width + 10 && 
+                    x + wordWidth + 10 > pos.x && 
+                    y < pos.y + pos.height + 10 && 
+                    y + wordHeight + 10 > pos.y) {
+                    hasOverlap = true;
+                    break;
+                }
+            }
+            
+            if (!hasOverlap) {
+                return { x, y };
+            }
+            
+            attempts++;
+        }
+        
+        // If no good position found, place randomly
+        return {
+            x: Math.random() * (containerWidth - wordWidth),
+            y: Math.random() * (containerHeight - wordHeight)
+        };
     }
 
     // Sort testimonials by date (newest first)
