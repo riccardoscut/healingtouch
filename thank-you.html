@@ -339,13 +339,14 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         }
 
         .thanks-cloud {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            justify-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
+            gap: 1rem;
             min-height: 200px;
             padding: 2rem 0;
+            line-height: 1.2;
         }
 
         .thanks-word {
@@ -357,26 +358,40 @@ QA CHECKLIST FOR THANK-YOU.HTML:
             transition: all 0.3s ease;
             cursor: default;
             user-select: none;
+            display: inline-block;
+            margin: 0.2rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            background: rgba(197, 165, 114, 0.1);
         }
 
         .thanks-word:hover {
             opacity: 1;
-            transform: scale(1.1);
+            transform: scale(1.05);
+            background: rgba(197, 165, 114, 0.2);
         }
+
+        /* Weighted font sizes for tag cloud */
+        .thanks-word.weight-1 { font-size: 0.8rem; }
+        .thanks-word.weight-2 { font-size: 1rem; }
+        .thanks-word.weight-3 { font-size: 1.2rem; }
+        .thanks-word.weight-4 { font-size: 1.4rem; }
+        .thanks-word.weight-5 { font-size: 1.6rem; }
+        .thanks-word.weight-6 { font-size: 1.8rem; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
 
-        /* All Reviews Section Styles */
-        .all-reviews-section {
+        /* Compact Reviews Section Styles */
+        .compact-reviews-section {
             background: linear-gradient(135deg, #3A2E21 0%, #2D2319 100%);
             padding: 4rem 0;
             position: relative;
         }
 
-        .all-reviews-section::before {
+        .compact-reviews-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -410,6 +425,65 @@ QA CHECKLIST FOR THANK-YOU.HTML:
             font-size: 1.1rem;
             color: #C2DED5;
             margin: 0;
+        }
+
+        .featured-reviews {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 2rem;
+        }
+
+        .all-reviews-toggle {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .toggle-reviews-btn {
+            background: linear-gradient(135deg, #C5A572, #B8941F);
+            color: #3A2E21;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 16px rgba(197, 165, 114, 0.3);
+        }
+
+        .toggle-reviews-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 165, 114, 0.4);
+        }
+
+        .toggle-reviews-btn.expanded {
+            background: linear-gradient(135deg, #B8941F, #A0821A);
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-reviews-btn.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .all-reviews-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+            margin-top: 2rem;
         }
 
         .reviews-grid {
@@ -540,12 +614,24 @@ QA CHECKLIST FOR THANK-YOU.HTML:
 
         /* Responsive Design */
         @media (min-width: 768px) {
+            .featured-reviews {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .all-reviews-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .reviews-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (min-width: 1024px) {
+            .featured-reviews {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .all-reviews-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
             .reviews-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -589,11 +675,11 @@ QA CHECKLIST FOR THANK-YOU.HTML:
             color: #B8941F;
         }
 
-        [data-theme="light"] .all-reviews-section {
+        [data-theme="light"] .compact-reviews-section {
             background: linear-gradient(135deg, #F8F5F0 0%, #E8E8E8 100%);
         }
 
-        [data-theme="light"] .all-reviews-section::before {
+        [data-theme="light"] .compact-reviews-section::before {
             background: radial-gradient(circle at 50% 20%, rgba(197, 165, 114, 0.1) 0%, transparent 50%);
         }
 
@@ -697,15 +783,24 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         </div>
     </section>
 
-    <!-- All Reviews Section -->
-    <section id="all-reviews" class="all-reviews-section">
+    <!-- Compact Reviews Section -->
+    <section id="all-reviews" class="compact-reviews-section">
         <div class="container">
             <h2 class="reviews-section-title">What People Say</h2>
             <div class="reviews-counter" id="reviewsCounter">
                 <!-- Counter will be updated by JavaScript -->
             </div>
-            <div class="reviews-grid" id="reviewsGrid">
-                <!-- Reviews will be loaded by JavaScript -->
+            <div class="featured-reviews" id="featuredReviews">
+                <!-- Featured reviews will be loaded by JavaScript -->
+            </div>
+            <div class="all-reviews-toggle">
+                <button id="toggleAllReviews" class="toggle-reviews-btn">
+                    <span class="toggle-text">Mostra tutte</span>
+                    <span class="toggle-icon">▼</span>
+                </button>
+            </div>
+            <div class="all-reviews-list" id="allReviewsList" style="display: none;">
+                <!-- All reviews will be loaded by JavaScript -->
             </div>
             <div class="no-reviews-message" id="noReviewsMessage" style="display: none;">
                 <p>Le recensioni arriveranno presto 🙏</p>
@@ -788,13 +883,54 @@ QA CHECKLIST FOR THANK-YOU.HTML:
 
     // ===== THANKS CLOUD AND REVIEWS FUNCTIONALITY =====
     
-    // Multilingual "Thank You" words
+    // Multilingual "Thank You" words with weights (frequency)
     const thanksWords = [
-        'Grazie', 'Thank You', 'Merci', 'Gracias', 'Danke', 'Obrigado', 'ありがとう', '谢谢', 'شكراً', 'תודה',
-        'धन्यवाद', 'Спасибо', 'Kiitos', 'Tack', 'Dziękuję', 'Hvala', 'Köszönöm', 'Mulțumesc', 'Ευχαριστώ',
-        'Teşekkürler', 'Faleminderit', 'Ačiū', 'Paldies', 'Aitäh', 'Děkuji', 'Hvala', 'Faleminderit',
-        'Ačiū', 'Paldies', 'Aitäh', 'Děkuji', 'Mahalo', 'Asante', 'Dank je', 'Takk', 'Tack så mycket',
-        'Kiitos paljon', 'Danke schön', 'Merci beaucoup', 'Muchas gracias', 'Muito obrigado', 'Grazie mille'
+        // High frequency (weight 6) - most common
+        { word: 'Grazie', weight: 6 },
+        { word: 'Thank You', weight: 6 },
+        { word: 'Merci', weight: 5 },
+        { word: 'Gracias', weight: 5 },
+        { word: 'Danke', weight: 4 },
+        { word: 'Obrigado', weight: 4 },
+        
+        // Medium-high frequency (weight 4-5)
+        { word: 'ありがとう', weight: 4 },
+        { word: '谢谢', weight: 4 },
+        { word: 'شكراً', weight: 3 },
+        { word: 'תודה', weight: 3 },
+        { word: 'धन्यवाद', weight: 3 },
+        { word: 'Спасибо', weight: 3 },
+        { word: 'Kiitos', weight: 3 },
+        { word: 'Tack', weight: 3 },
+        { word: 'Dziękuję', weight: 3 },
+        { word: 'Hvala', weight: 3 },
+        
+        // Medium frequency (weight 2-3)
+        { word: 'Köszönöm', weight: 2 },
+        { word: 'Mulțumesc', weight: 2 },
+        { word: 'Ευχαριστώ', weight: 2 },
+        { word: 'Teşekkürler', weight: 2 },
+        { word: 'Faleminderit', weight: 2 },
+        { word: 'Ačiū', weight: 2 },
+        { word: 'Paldies', weight: 2 },
+        { word: 'Aitäh', weight: 2 },
+        { word: 'Děkuji', weight: 2 },
+        { word: 'Mahalo', weight: 2 },
+        { word: 'Asante', weight: 2 },
+        { word: 'Dank je', weight: 2 },
+        { word: 'Takk', weight: 2 },
+        
+        // Low frequency (weight 1) - less common
+        { word: 'Tack så mycket', weight: 1 },
+        { word: 'Kiitos paljon', weight: 1 },
+        { word: 'Danke schön', weight: 1 },
+        { word: 'Merci beaucoup', weight: 1 },
+        { word: 'Muchas gracias', weight: 1 },
+        { word: 'Muito obrigado', weight: 1 },
+        { word: 'Grazie mille', weight: 1 },
+        { word: 'Danke sehr', weight: 1 },
+        { word: 'Muchísimas gracias', weight: 1 },
+        { word: 'Muito obrigado mesmo', weight: 1 }
     ];
 
     // Month name to number mapping
@@ -803,7 +939,7 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12
     };
 
-    // Initialize thanks cloud
+    // Initialize weighted thanks cloud
     function initThanksCloud() {
         const cloudContainer = document.getElementById('thanksCloud');
         if (!cloudContainer) return;
@@ -811,23 +947,24 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         // Check for reduced motion preference
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        thanksWords.forEach((word, index) => {
+        // Shuffle words for random distribution
+        const shuffledWords = [...thanksWords].sort(() => Math.random() - 0.5);
+
+        shuffledWords.forEach((wordObj, index) => {
             const wordElement = document.createElement('div');
-            wordElement.className = 'thanks-word';
-            wordElement.textContent = word;
+            wordElement.className = `thanks-word weight-${wordObj.weight}`;
+            wordElement.textContent = wordObj.word;
             
-            // Randomize size and position
-            const size = Math.random() * 0.5 + 0.8; // 0.8 to 1.3
-            const rotation = prefersReducedMotion ? 0 : (Math.random() - 0.5) * 16; // -8 to +8 degrees
-            const delay = prefersReducedMotion ? 0 : Math.random() * 2; // 0 to 2 seconds
+            // Add subtle rotation and delay based on weight
+            const rotation = prefersReducedMotion ? 0 : (Math.random() - 0.5) * 12; // -6 to +6 degrees
+            const delay = prefersReducedMotion ? 0 : Math.random() * 3; // 0 to 3 seconds
             
-            wordElement.style.fontSize = `${size}rem`;
             wordElement.style.transform = `rotate(${rotation}deg)`;
             wordElement.style.animationDelay = `${delay}s`;
             
             // Add subtle floating animation if motion is allowed
             if (!prefersReducedMotion) {
-                wordElement.style.animation = `float 6s ease-in-out infinite`;
+                wordElement.style.animation = `float 8s ease-in-out infinite`;
                 wordElement.style.animationDelay = `${delay}s`;
             }
             
@@ -912,14 +1049,16 @@ QA CHECKLIST FOR THANK-YOU.HTML:
     // Make toggleReadMore globally available
     window.toggleReadMore = toggleReadMore;
 
-    // Load and display reviews
+    // Load and display compact reviews
     function loadReviews() {
-        const reviewsGrid = document.getElementById('reviewsGrid');
+        const featuredReviews = document.getElementById('featuredReviews');
+        const allReviewsList = document.getElementById('allReviewsList');
         const reviewsCounter = document.getElementById('reviewsCounter');
         const noReviewsMessage = document.getElementById('noReviewsMessage');
         
         if (!window.testimonials || !Array.isArray(window.testimonials) || window.testimonials.length === 0) {
-            if (reviewsGrid) reviewsGrid.style.display = 'none';
+            if (featuredReviews) featuredReviews.style.display = 'none';
+            if (allReviewsList) allReviewsList.style.display = 'none';
             if (reviewsCounter) reviewsCounter.style.display = 'none';
             if (noReviewsMessage) noReviewsMessage.style.display = 'block';
             return;
@@ -941,10 +1080,21 @@ QA CHECKLIST FOR THANK-YOU.HTML:
             reviewsCounter.innerHTML = `<p>${sortedTestimonials.length} recensioni</p>`;
         }
         
-        // Generate review cards
-        if (reviewsGrid) {
-            reviewsGrid.innerHTML = sortedTestimonials.map((review, index) => 
+        // Show only 3-5 featured reviews (highlighted first, then most recent)
+        const featuredCount = Math.min(5, Math.max(3, highlighted.length));
+        const featuredTestimonials = sortedTestimonials.slice(0, featuredCount);
+        
+        // Generate featured review cards
+        if (featuredReviews) {
+            featuredReviews.innerHTML = featuredTestimonials.map((review, index) => 
                 createReviewCard(review, index)
+            ).join('');
+        }
+        
+        // Generate all review cards for expandable list
+        if (allReviewsList) {
+            allReviewsList.innerHTML = sortedTestimonials.map((review, index) => 
+                createReviewCard(review, index + 1000) // Use different index to avoid conflicts
             ).join('');
         }
         
@@ -952,6 +1102,34 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         if (noReviewsMessage) {
             noReviewsMessage.style.display = 'none';
         }
+    }
+
+    // Initialize toggle functionality for reviews
+    function initReviewsToggle() {
+        const toggleBtn = document.getElementById('toggleAllReviews');
+        const allReviewsList = document.getElementById('allReviewsList');
+        
+        if (!toggleBtn || !allReviewsList) return;
+        
+        toggleBtn.addEventListener('click', function() {
+            const isVisible = allReviewsList.style.display !== 'none';
+            const toggleText = toggleBtn.querySelector('.toggle-text');
+            const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+            
+            if (isVisible) {
+                // Hide all reviews
+                allReviewsList.style.display = 'none';
+                toggleText.textContent = 'Mostra tutte';
+                toggleIcon.textContent = '▼';
+                toggleBtn.classList.remove('expanded');
+            } else {
+                // Show all reviews
+                allReviewsList.style.display = 'grid';
+                toggleText.textContent = 'Nascondi';
+                toggleIcon.textContent = '▲';
+                toggleBtn.classList.add('expanded');
+            }
+        });
     }
 
     // Intersection Observer for animations
@@ -982,6 +1160,7 @@ QA CHECKLIST FOR THANK-YOU.HTML:
     document.addEventListener('DOMContentLoaded', function() {
         initThanksCloud();
         loadReviews();
+        initReviewsToggle();
         
         // Initialize intersection observer after a short delay to ensure reviews are loaded
         setTimeout(initIntersectionObserver, 100);
