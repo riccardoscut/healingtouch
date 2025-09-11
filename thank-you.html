@@ -69,6 +69,9 @@ QA CHECKLIST FOR THANK-YOU.HTML:
 
     <link rel="stylesheet" href="./styles.css?v=thank-you-page">
 
+    <!-- Load testimonials data -->
+    <script src="./contents.js"></script>
+
     <!-- META PIXEL START -->
     <script>
     // Prevent duplicate pixel loads
@@ -296,6 +299,357 @@ QA CHECKLIST FOR THANK-YOU.HTML:
         [data-theme="light"] .contact-info {
             color: #888888;
         }
+
+        /* Thanks Cloud Section Styles */
+        .thanks-cloud-section {
+            background: linear-gradient(135deg, #2D2319 0%, #3A2E21 100%);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thanks-cloud-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(197, 165, 114, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(197, 165, 114, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .thanks-cloud-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #C5A572;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .thanks-cloud {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            justify-items: center;
+            align-items: center;
+            min-height: 200px;
+            padding: 2rem 0;
+        }
+
+        .thanks-word {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+            color: #C5A572;
+            opacity: 0.8;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+            user-select: none;
+        }
+
+        .thanks-word:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* All Reviews Section Styles */
+        .all-reviews-section {
+            background: linear-gradient(135deg, #3A2E21 0%, #2D2319 100%);
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .all-reviews-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 20%, rgba(197, 165, 114, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .reviews-section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #C5A572;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reviews-counter {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reviews-counter p {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.1rem;
+            color: #C2DED5;
+            margin: 0;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .review-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .review-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #3A2E21;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .review-text.expanded {
+            max-height: none;
+        }
+
+        .review-text.collapsed {
+            max-height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .review-text.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: #C5A572;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            color: #B8941F;
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .review-rating {
+            display: flex;
+            gap: 0.2rem;
+        }
+
+        .star {
+            color: #C5A572;
+            font-size: 1.2rem;
+        }
+
+        .review-author {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3A2E21;
+        }
+
+        .review-date {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .review-type {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.9rem;
+            color: #C5A572;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .no-reviews-message {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .no-reviews-message p {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.2rem;
+            color: #C2DED5;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .thanks-cloud-section,
+            .all-reviews-section {
+                padding: 2rem 0;
+            }
+            
+            .reviews-section-title {
+                font-size: 2rem;
+            }
+            
+            .review-card {
+                padding: 1.5rem;
+            }
+            
+            .review-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Light theme support for new sections */
+        [data-theme="light"] .thanks-cloud-section {
+            background: linear-gradient(135deg, #F8F5F0 0%, #E8E8E8 100%);
+        }
+
+        [data-theme="light"] .thanks-cloud-section::before {
+            background: radial-gradient(circle at 20% 30%, rgba(197, 165, 114, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(197, 165, 114, 0.1) 0%, transparent 50%);
+        }
+
+        [data-theme="light"] .thanks-cloud-title {
+            color: #B8941F;
+        }
+
+        [data-theme="light"] .thanks-word {
+            color: #B8941F;
+        }
+
+        [data-theme="light"] .all-reviews-section {
+            background: linear-gradient(135deg, #F8F5F0 0%, #E8E8E8 100%);
+        }
+
+        [data-theme="light"] .all-reviews-section::before {
+            background: radial-gradient(circle at 50% 20%, rgba(197, 165, 114, 0.1) 0%, transparent 50%);
+        }
+
+        [data-theme="light"] .reviews-section-title {
+            color: #B8941F;
+        }
+
+        [data-theme="light"] .reviews-counter p {
+            color: #666;
+        }
+
+        [data-theme="light"] .review-card {
+            background: #FFFFFF;
+            box-shadow: 0 8px 32px rgba(117, 90, 146, 0.1);
+        }
+
+        [data-theme="light"] .review-text {
+            color: #50406A;
+        }
+
+        [data-theme="light"] .review-author {
+            color: #50406A;
+        }
+
+        [data-theme="light"] .review-type {
+            color: #B8941F;
+        }
+
+        [data-theme="light"] .read-more-btn {
+            color: #B8941F;
+        }
+
+        [data-theme="light"] .read-more-btn:hover {
+            color: #A0821A;
+        }
+
+        [data-theme="light"] .no-reviews-message p {
+            color: #666;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .thanks-word {
+                animation: none;
+                transition: none;
+            }
+            
+            .review-card {
+                transition: none;
+            }
+            
+            .review-card.visible {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -332,6 +686,32 @@ QA CHECKLIST FOR THANK-YOU.HTML:
             </div>
         </div>
     </div>
+
+    <!-- Multilingual Thanks Cloud Section -->
+    <section id="thanks-cloud" class="thanks-cloud-section">
+        <div class="container">
+            <h3 class="thanks-cloud-title">Grazie • Thank You • Merci • Gracias • Danke • Obrigado • ありがとう • 谢谢 • شكراً • תודה • धन्यवाद • Спасибо • Kiitos • Tack • Dziękuję • Hvala • Köszönöm • Mulțumesc • Ευχαριστώ • Teşekkürler • Hvala • Faleminderit • Ačiū • Paldies • Aitäh • Děkuji • Hvala • Faleminderit • Ačiū • Paldies • Aitäh • Děkuji</h3>
+            <div class="thanks-cloud" id="thanksCloud">
+                <!-- Cloud words will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- All Reviews Section -->
+    <section id="all-reviews" class="all-reviews-section">
+        <div class="container">
+            <h2 class="reviews-section-title">What People Say</h2>
+            <div class="reviews-counter" id="reviewsCounter">
+                <!-- Counter will be updated by JavaScript -->
+            </div>
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews will be loaded by JavaScript -->
+            </div>
+            <div class="no-reviews-message" id="noReviewsMessage" style="display: none;">
+                <p>Le recensioni arriveranno presto 🙏</p>
+            </div>
+        </div>
+    </section>
 
     <script>
     // ===== META PIXEL HELPER FUNCTIONS =====
@@ -405,6 +785,209 @@ QA CHECKLIST FOR THANK-YOU.HTML:
     if (typeof window.applyTheme === 'function') {
       window.applyTheme();
     }
+
+    // ===== THANKS CLOUD AND REVIEWS FUNCTIONALITY =====
+    
+    // Multilingual "Thank You" words
+    const thanksWords = [
+        'Grazie', 'Thank You', 'Merci', 'Gracias', 'Danke', 'Obrigado', 'ありがとう', '谢谢', 'شكراً', 'תודה',
+        'धन्यवाद', 'Спасибо', 'Kiitos', 'Tack', 'Dziękuję', 'Hvala', 'Köszönöm', 'Mulțumesc', 'Ευχαριστώ',
+        'Teşekkürler', 'Faleminderit', 'Ačiū', 'Paldies', 'Aitäh', 'Děkuji', 'Hvala', 'Faleminderit',
+        'Ačiū', 'Paldies', 'Aitäh', 'Děkuji', 'Mahalo', 'Asante', 'Dank je', 'Takk', 'Tack så mycket',
+        'Kiitos paljon', 'Danke schön', 'Merci beaucoup', 'Muchas gracias', 'Muito obrigado', 'Grazie mille'
+    ];
+
+    // Month name to number mapping
+    const monthMap = {
+        'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
+        'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12
+    };
+
+    // Initialize thanks cloud
+    function initThanksCloud() {
+        const cloudContainer = document.getElementById('thanksCloud');
+        if (!cloudContainer) return;
+
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        thanksWords.forEach((word, index) => {
+            const wordElement = document.createElement('div');
+            wordElement.className = 'thanks-word';
+            wordElement.textContent = word;
+            
+            // Randomize size and position
+            const size = Math.random() * 0.5 + 0.8; // 0.8 to 1.3
+            const rotation = prefersReducedMotion ? 0 : (Math.random() - 0.5) * 16; // -8 to +8 degrees
+            const delay = prefersReducedMotion ? 0 : Math.random() * 2; // 0 to 2 seconds
+            
+            wordElement.style.fontSize = `${size}rem`;
+            wordElement.style.transform = `rotate(${rotation}deg)`;
+            wordElement.style.animationDelay = `${delay}s`;
+            
+            // Add subtle floating animation if motion is allowed
+            if (!prefersReducedMotion) {
+                wordElement.style.animation = `float 6s ease-in-out infinite`;
+                wordElement.style.animationDelay = `${delay}s`;
+            }
+            
+            cloudContainer.appendChild(wordElement);
+        });
+    }
+
+    // Sort testimonials by date (newest first)
+    function sortTestimonialsByDate(testimonials) {
+        return testimonials.sort((a, b) => {
+            const aYear = parseInt(a.year);
+            const bYear = parseInt(b.year);
+            if (aYear !== bYear) return bYear - aYear;
+            
+            const aMonth = monthMap[a.month] || 0;
+            const bMonth = monthMap[b.month] || 0;
+            return bMonth - aMonth;
+        });
+    }
+
+    // Generate star rating HTML
+    function generateStars(rating) {
+        let stars = '';
+        for (let i = 0; i < 5; i++) {
+            stars += `<span class="star">${i < rating ? '★' : '☆'}</span>`;
+        }
+        return stars;
+    }
+
+    // Truncate text for read more functionality
+    function truncateText(text, maxLength = 300) {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + '...';
+    }
+
+    // Create review card HTML
+    function createReviewCard(review, index) {
+        const isLongText = review.text.length > 300;
+        const displayText = isLongText ? truncateText(review.text) : review.text;
+        
+        return `
+            <article class="review-card" aria-label="Review by ${review.name}" data-index="${index}">
+                <div class="review-meta">
+                    <div class="review-rating">${generateStars(review.rating)}</div>
+                    <div class="review-author">${review.name}</div>
+                    <div class="review-date">${review.month} ${review.year}</div>
+                </div>
+                <div class="review-text ${isLongText ? 'collapsed' : 'expanded'}" id="review-text-${index}">
+                    ${review.text}
+                </div>
+                ${isLongText ? `
+                    <button class="read-more-btn" 
+                            aria-expanded="false" 
+                            aria-controls="review-text-${index}"
+                            onclick="toggleReadMore(${index})">
+                        Leggi tutto
+                    </button>
+                ` : ''}
+                ${review.type ? `<div class="review-type">${review.type}</div>` : ''}
+            </article>
+        `;
+    }
+
+    // Toggle read more functionality
+    function toggleReadMore(index) {
+        const textElement = document.getElementById(`review-text-${index}`);
+        const button = textElement.nextElementSibling;
+        
+        if (textElement.classList.contains('collapsed')) {
+            textElement.classList.remove('collapsed');
+            textElement.classList.add('expanded');
+            button.textContent = 'Leggi meno';
+            button.setAttribute('aria-expanded', 'true');
+        } else {
+            textElement.classList.remove('expanded');
+            textElement.classList.add('collapsed');
+            button.textContent = 'Leggi tutto';
+            button.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    // Make toggleReadMore globally available
+    window.toggleReadMore = toggleReadMore;
+
+    // Load and display reviews
+    function loadReviews() {
+        const reviewsGrid = document.getElementById('reviewsGrid');
+        const reviewsCounter = document.getElementById('reviewsCounter');
+        const noReviewsMessage = document.getElementById('noReviewsMessage');
+        
+        if (!window.testimonials || !Array.isArray(window.testimonials) || window.testimonials.length === 0) {
+            if (reviewsGrid) reviewsGrid.style.display = 'none';
+            if (reviewsCounter) reviewsCounter.style.display = 'none';
+            if (noReviewsMessage) noReviewsMessage.style.display = 'block';
+            return;
+        }
+
+        // Separate highlighted and regular testimonials
+        const highlighted = window.testimonials.filter(t => t.highlighted);
+        const others = window.testimonials.filter(t => !t.highlighted);
+        
+        // Sort each group by date
+        const sortedHighlighted = sortTestimonialsByDate(highlighted);
+        const sortedOthers = sortTestimonialsByDate(others);
+        
+        // Combine: highlighted first, then others
+        const sortedTestimonials = [...sortedHighlighted, ...sortedOthers];
+        
+        // Update counter
+        if (reviewsCounter) {
+            reviewsCounter.innerHTML = `<p>${sortedTestimonials.length} recensioni</p>`;
+        }
+        
+        // Generate review cards
+        if (reviewsGrid) {
+            reviewsGrid.innerHTML = sortedTestimonials.map((review, index) => 
+                createReviewCard(review, index)
+            ).join('');
+        }
+        
+        // Hide no reviews message
+        if (noReviewsMessage) {
+            noReviewsMessage.style.display = 'none';
+        }
+    }
+
+    // Intersection Observer for animations
+    function initIntersectionObserver() {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('review-card')) {
+                        entry.target.classList.add('visible');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe review cards
+        document.querySelectorAll('.review-card').forEach(card => {
+            observer.observe(card);
+        });
+    }
+
+    // Initialize everything when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        initThanksCloud();
+        loadReviews();
+        
+        // Initialize intersection observer after a short delay to ensure reviews are loaded
+        setTimeout(initIntersectionObserver, 100);
+    });
+
+    // ===== THANKS CLOUD AND REVIEWS FUNCTIONALITY END =====
     </script>
 
     <!-- Noscript fallback for Meta Pixel -->
