@@ -335,8 +335,10 @@ QA CHECKLIST FOR THANK-YOU.HTML:
 
     <script>
     // ===== META PIXEL HELPER FUNCTIONS =====
-    // Tracked events set to prevent duplicates
-    const trackedEvents = new Set();
+    // Tracked events set to prevent duplicates (use global if exists)
+    if (typeof window.trackedEvents === 'undefined') {
+      window.trackedEvents = new Set();
+    }
 
     /**
      * Safe Meta Pixel tracking helper with deduplication and debug mode
@@ -355,14 +357,14 @@ QA CHECKLIST FOR THANK-YOU.HTML:
       const eventKey = `${type}:${event}:${JSON.stringify(params)}`;
       
       // Skip if already tracked
-      if (trackedEvents.has(eventKey)) {
+      if (window.trackedEvents.has(eventKey)) {
         if (window.PIXEL_DEBUG) console.log('[Pixel] Duplicate event prevented:', eventKey);
         return;
       }
       
       // Track the event
       fbq(type, event, params);
-      trackedEvents.add(eventKey);
+      window.trackedEvents.add(eventKey);
       
       // Debug logging
       if (window.PIXEL_DEBUG) {
