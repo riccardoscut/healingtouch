@@ -40,7 +40,7 @@ class I18n {
       // Check if we're in a language subdirectory
       const isInSubdir = window.location.pathname.startsWith('/en/') || window.location.pathname.startsWith('/es/');
       const basePath = isInSubdir ? '../' : './';
-      const response = await fetch(`${basePath}locales/${this.currentLanguage}.json`);
+      const response = await fetch(`${basePath}locales/${this.currentLanguage}.json?t=${Date.now()}`);
       if (response.ok) {
         this.translations = await response.json();
       } else {
@@ -61,7 +61,7 @@ class I18n {
       // Check if we're in a language subdirectory
       const isInSubdir = window.location.pathname.startsWith('/en/') || window.location.pathname.startsWith('/es/');
       const basePath = isInSubdir ? '../' : './';
-      const response = await fetch(`${basePath}locales/${this.fallbackLanguage}.json`);
+      const response = await fetch(`${basePath}locales/${this.fallbackLanguage}.json?t=${Date.now()}`);
       if (response.ok) {
         this.translations = await response.json();
         this.currentLanguage = this.fallbackLanguage;
