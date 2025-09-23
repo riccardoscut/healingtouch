@@ -134,6 +134,11 @@ function applyContentToPage (data) {
   if (therapistTitleEl && data["therapist-title"]) {
     therapistTitleEl.textContent = data["therapist-title"];
   }
+  
+  // Update i18n if available
+  if (window.i18n) {
+    window.i18n.updatePage();
+  }
 
   // Update therapist certifications
   const therapistCertEl = document.querySelector(".therapist-cert");
@@ -176,6 +181,11 @@ function applyContentToPage (data) {
 
       // Reinitialize animations
       initServiceCardAnimations();
+      
+      // Update i18n for dynamically created content
+      if (window.i18n) {
+        window.i18n.updatePage();
+      }
     }
   }
 
@@ -246,6 +256,13 @@ function createServiceCard (service) {
   const title = document.createElement("h3");
   title.className = "service-title title-animation";
   title.textContent = service.title;
+  
+  // Add i18n data attribute for dynamic updates
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    title.setAttribute("data-i18n", "services.signature_reflexology.title");
+  } else if (service.id === "executive-detox-massage-45-min") {
+    title.setAttribute("data-i18n", "services.executive_detox.title");
+  }
 
   const duration = document.createElement("p");
   duration.className = "service-duration";
@@ -311,6 +328,13 @@ function createServiceCard (service) {
   bookButton.id = service.id;
   bookButton.className = "book-button";
   bookButton.textContent = "BOOK YOUR MASSAGE";
+  
+  // Add i18n data attribute for dynamic updates
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    bookButton.setAttribute("data-i18n", "services.signature_reflexology.book_button");
+  } else if (service.id === "executive-detox-massage-45-min") {
+    bookButton.setAttribute("data-i18n", "services.executive_detox.book_button");
+  }
 
   footer.appendChild(specialOffers);
   footer.appendChild(bookButton);

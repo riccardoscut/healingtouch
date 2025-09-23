@@ -33,13 +33,13 @@
     <meta name="robots" content="index, follow">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://healingtouch.da-sign.com/">
+    <link rel="canonical" href="http://healingtouch.da-sign.com/en/">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="" data-i18n-attr="content:meta.title">
     <meta property="og:description" content="" data-i18n-attr="content:meta.description">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://healingtouch.da-sign.com/">
+    <meta property="og:url" content="http://healingtouch.da-sign.com/en/">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Signature Healing Touch">
 
@@ -63,39 +63,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- External SVG Logo Definition -->
-    <link rel="preload" href="/logo_white_500x500.png" as="image" type="image/png">
+    <link rel="preload" href="/logo.png" as="image" type="image/png">
 
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="/styles.css?v=footer-quote-green2">
-
-    <!-- Language Detection and Redirect -->
-    <script>
-        // Detect language and redirect
-        (function() {
-            const path = window.location.pathname;
-            const stored = localStorage.getItem('preferred-language');
-            const browserLang = navigator.language.split('-')[0];
-            
-            // If already on a language path, don't redirect
-            if (path.startsWith('/en') || path.startsWith('/es')) {
-                return;
-            }
-            
-            // Determine language preference
-            let lang = 'en'; // default
-            if (stored && ['en', 'es'].includes(stored)) {
-                lang = stored;
-            } else if (browserLang === 'es') {
-                lang = 'es';
-            }
-            
-            // Redirect to language-specific URL
-            const newPath = `/${lang}${path === '/' ? '' : path}`;
-            window.location.replace(newPath);
-        })();
-    </script>
 
     <!-- i18n Scripts -->
     <script src="/i18n.js"></script>
@@ -619,13 +592,13 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="/snarkdown-2.0.0.min.js"></script>
+        <script type="text/javascript" src="/snarkdown-2.0.0.min.js"></script>
     <script>
       // Force cache refresh by using current timestamp
       const cacheBustValue = Date.now();
     
-      document.write(`<script src="/contents.js?cachebust=${cacheBustValue}"><\/script>`);
-      document.write(`<script src="/script.js?cachebust=${cacheBustValue}"><\/script>`);
+        document.write(`<script src="/contents.js?cachebust=${cacheBustValue}"><\/script>`);
+        document.write(`<script src="/script.js?cachebust=${cacheBustValue}"><\/script>`);
     </script>
     <script type="text/javascript">
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i18n Test - Signature Healing Touch</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .language-switcher { margin: 20px 0; }
+        .language-btn { margin: 0 10px; padding: 5px 10px; cursor: pointer; }
+        .language-btn.active { background: #007bff; color: white; }
+    </style>
+    <script src="./i18n.js"></script>
+    <script src="./language-switcher.js"></script>
+</head>
+<body>
+    <h1>i18n Test Page</h1>
+    
+    <div class="language-switcher">
+        <button class="language-btn active" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="es">ES</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Basic Text Tests</h2>
+        <p><strong>Title:</strong> <span data-i18n="meta.title">Loading...</span></p>
+        <p><strong>Description:</strong> <span data-i18n="meta.description">Loading...</span></p>
+        <p><strong>Services Title:</strong> <span data-i18n="services.title">Loading...</span></p>
+        <p><strong>Testimonials Title:</strong> <span data-i18n="testimonials.title">Loading...</span></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Array Tests</h2>
+        <p><strong>Challenge Activities:</strong></p>
+        <div data-i18n-html="modal.challenge_activities">Loading...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Form Tests</h2>
+        <p><strong>Experience Label:</strong> <span data-i18n="testimonial_form.experience_label">Loading...</span></p>
+        <p><strong>Experience Placeholder:</strong> <input type="text" placeholder="" data-i18n="testimonial_form.experience_placeholder"></p>
+        <p><strong>Submit Button:</strong> <button data-i18n="testimonial_form.submit_button">Loading...</button></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Current Language</h2>
+        <p>Current language: <span id="current-lang">Loading...</span></p>
+    </div>
+    
+    <script>
+        // Test the i18n functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for i18n to load
+            const checkI18n = () => {
+                if (window.i18n) {
+                    // Update current language display
+                    document.getElementById('current-lang').textContent = window.i18n.getCurrentLanguage();
+                    
+                    // Test t() function
+                    console.log('Testing t() function:');
+                    console.log('meta.title:', window.t('meta.title'));
+                    console.log('services.title:', window.t('services.title'));
+                    console.log('testimonials.title:', window.t('testimonials.title'));
+                    
+                    // Test array handling
+                    console.log('Challenge activities:', window.t('modal.challenge_activities'));
+                } else {
+                    setTimeout(checkI18n, 100);
+                }
+            };
+            checkI18n();
+        });
+        
+        // Add click handlers for language switching
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('language-btn')) {
+                const lang = e.target.getAttribute('data-lang');
+                if (window.i18n) {
+                    window.i18n.changeLanguage(lang).then(() => {
+                        // Update current language display
+                        document.getElementById('current-lang').textContent = window.i18n.getCurrentLanguage();
+                        
+                        // Update active button
+                        document.querySelectorAll('.language-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        e.target.classList.add('active');
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

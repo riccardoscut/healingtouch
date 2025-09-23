@@ -609,6 +609,101 @@ section {
     100% { left: 200%; opacity: 0; }
 }
 
+/* Language Switcher Styles */
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.language-switcher-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 8px 16px;
+    border: 1px solid var(--header-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.language-btn {
+    background: transparent;
+    border: none;
+    color: var(--lunar-gold);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.language-btn:hover {
+    background: rgba(228, 228, 188, 0.1);
+    transform: translateY(-1px);
+}
+
+.language-btn.active {
+    background: var(--lunar-gold);
+    color: var(--deep-space);
+    box-shadow: 0 2px 8px rgba(228, 228, 188, 0.3);
+}
+
+.language-separator {
+    color: var(--lunar-gold);
+    font-weight: 300;
+    opacity: 0.6;
+}
+
+/* Light theme language switcher */
+[data-theme="light"] .language-switcher-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--light-border);
+    box-shadow: 0 4px 15px rgba(117, 90, 146, 0.2);
+}
+
+[data-theme="light"] .language-btn {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .language-btn:hover {
+    background: rgba(117, 90, 146, 0.1);
+}
+
+[data-theme="light"] .language-btn.active {
+    background: var(--cosmic-violet);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(117, 90, 146, 0.3);
+}
+
+[data-theme="light"] .language-separator {
+    color: var(--cosmic-violet);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .language-switcher {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .language-switcher-container {
+        padding: 6px 12px;
+        gap: 6px;
+    }
+    
+    .language-btn {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
 /* Header Styles */
 header {
     padding: 40px 0;

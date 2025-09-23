@@ -19,16 +19,16 @@ function setTheme (theme) {
   const logoImg = document.querySelector(".logo-img");
   if (logoImg) {
     if (theme === "dark") {
-      logoImg.src = "./logo_white_500x500.png";
+      logoImg.src = "/logo_white_500x500.png?v=3";
     } else {
-      logoImg.src = "./logo_white_500x500.png";
+      logoImg.src = "/logo_white_500x500.png?v=3";
     }
   }
 
   // Update footer logo
   const footerLogo = document.querySelector(".footer-logo img");
   if (footerLogo) {
-    footerLogo.src = "./logo_wName_transparentBG_newGold.png";
+    footerLogo.src = "/logo_wName_transparentBG_newGold.png?v=3";
   }
 }
 

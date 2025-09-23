@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Signature Healing Touch - Reflexología con Riccardo Francescut en Barcelona",
+    "description": "Experimenta tratamientos rejuvenecedores de reflexología y sanación energética con Riccardo Francescut en Barcelona. Masaje desintoxicante de pies, rituales de sanación únicos y más.",
+    "keywords": "reflexología, masaje de pies, Barcelona, desintoxicación, sanación, bienestar, Riccardo Francescut, terapia alternativa"
+  },
+  "header": {
+    "logo_alt": "Logo de Signature Healing Touch",
+    "text_logo_alt": "Logo de texto Signature Healing Touch"
+  },
+  "banner": {
+    "challenge_text": "🦶 Desafío Signature STEP-UP: hasta 30€ de descuento en Masaje Desintoxicante Ejecutivo • Reserva ahora"
+  },
+  "modal": {
+    "challenge_title": "Desafío Signature Step-Up ✨",
+    "challenge_kicker": "Ahorra hasta 30€ en nuestro<br>Masaje Desintoxicante Ejecutivo",
+    "challenge_subtitle": "Una iniciativa en movimiento para promover el bienestar",
+    "challenge_description": "Muestra prueba de 10,000+ pasos en un período de 24 horas para obtener 10€ de descuento; +10€ por cada 10,000 adicionales (máx. 30€)",
+    "challenge_activities": "¿AMAS EL TREKKING? 🥾<br>¿BAILAR TODA LA NOCHE? 💃<br>¿EXPLORAR LA CIUDAD? 🏃‍♀️<br>LO QUE SEA QUE TE HAGA MOVERTE STEP-UP 👟<br>MIMA TUS PIES CON UN MASAJE DESINTOXICANTE 🦶<br>CONVIERTE CADA PASO EN AHORROS 👣<br>Y DISFRUTA DE UNA EXPERIENCIA DE RESET DE 45 MINUTOS 💫",
+    "how_it_works": "Cómo funciona:",
+    "steps": [
+      "Haz 10 000+ pasos en un período de 24 horas",
+      "Reserva tu Masaje Desintoxicante Ejecutivo de 45 minutos",
+      "Ahorra hasta 30€ con la prueba de pasos de tu app"
+    ],
+    "cta_button": "RESERVA TU MASAJE",
+    "discount_rules_title": "Reglas de descuento:",
+    "discount_rules": [
+      "Camina 10 000+ pasos en cualquier ventana de 24 horas y obtén 10€ de descuento en nuestro Masaje Desintoxicante Ejecutivo de 45 minutos (precio regular 45€).",
+      "Cada 10 000 pasos adicionales te dan 10€ más de descuento, hasta 30€ de descuento total.",
+      "Muestra una captura de pantalla fechada de tu app de fitness favorita al registrarte.",
+      "El día de pasos calificado debe caer dentro de los 10 días antes de que reserves, cumple esa regla y aplicaremos el descuento en persona.",
+      "Oferta válida exclusivamente para el Masaje Desintoxicante Ejecutivo de 45 minutos."
+    ]
+  },
+  "about": {
+    "therapist_name": "Riccardo Francescut",
+    "therapist_title": "Reflexólogo",
+    "therapist_cert": "Cert. ISMET - Instituto Superior de Medicinas Tradicionales",
+    "approach_quote": "Con un título en psicología cognitivo-conductual y una profunda curiosidad sobre cómo piensan y actúan las personas, me encontré trabajando en marketing y análisis de datos, explorando comportamientos y tendencias.<br><br>Al mismo tiempo, seguí nutriendo mi verdadera pasión: el movimiento, el equilibrio y la energía. Inspirado por las artes marciales y las tradiciones de sanación orientales, mi enfoque se desplazó naturalmente. Desde 2020, me he dedicado a la reflexología podal, Qi Gong, Yoga y trabajo energético sutil, ayudando a las personas a restaurar la armonía y el bienestar de manera suave y natural."
+  },
+  "services": {
+    "title": "Mis Servicios",
+    "signature_reflexology": {
+      "title": "Masaje de Reflexología Signature",
+      "book_button": "RESERVA TU MASAJE"
+    },
+    "executive_detox": {
+      "title": "Masaje Desintoxicante Ejecutivo",
+      "book_button": "RESERVA TU MASAJE"
+    }
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Las Personas",
+    "featured_title": "Reseñas Destacadas",
+    "all_reviews_title": "Todas Las Reseñas",
+    "show_all": "Mostrar Todas Las Reseñas",
+    "share_experience": "Comparte tu experiencia"
+  },
+  "testimonial_form": {
+    "title": "Comparte Tu Experiencia",
+    "experience_label": "Tu Experiencia *",
+    "experience_placeholder": "Cuéntanos sobre tu experiencia con nuestro masaje...",
+    "rating_label": "Calificación *",
+    "rating_placeholder": "Selecciona una calificación",
+    "rating_options": {
+      "1": "1 - Malo",
+      "2": "2 - Regular",
+      "3": "3 - Bueno",
+      "4": "4 - Muy Bueno",
+      "5": "5 - Excelente"
+    },
+    "massage_type_label": "Tipo de Masaje *",
+    "massage_types": {
+      "signature": "Masaje de Reflexología Signature",
+      "executive": "Masaje Desintoxicante Ejecutivo"
+    },
+    "name_label": "Nombre *",
+    "name_placeholder": "Tu nombre",
+    "email_label": "Email *",
+    "email_placeholder": "tu.email@ejemplo.com",
+    "email_help": "Usaremos esto para enviarte una confirmación de tu testimonio",
+    "date_label": "Fecha del Masaje *",
+    "month_placeholder": "Mes",
+    "year_placeholder": "Año",
+    "submit_button": "Enviar"
+  },
+  "contact": {
+    "heading": "Información de Contacto",
+    "whatsapp": "WhatsApp: +34 652 952 566",
+    "instagram": "@SignatureHealingTouch",
+    "email": "healingtouch@da-sign.com"
+  },
+  "footer": {
+    "quote": "\"Los pies son el espejo del cuerpo, reflejando a toda la persona—física, mental, emocional y espiritualmente. A través de los pies, podemos llegar al todo.\"<br><br>— Eunice Ingham, la \"madre de la reflexología moderna\"",
+    "copyright": "© 2023 Signature Healing Touch. Todos los derechos reservados."
+  }
+}
