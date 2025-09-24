@@ -185,6 +185,7 @@ class I18n {
         const items = this.getTranslationValue(key);
         element.innerHTML = items.map(item => `<p class="discount-rules-text" style="color: #F4E4BC;">${item}</p>`).join('');
       } else {
+        // Service descriptions are now in HTML format, so use directly
         element.innerHTML = value;
       }
     });

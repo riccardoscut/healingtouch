@@ -293,8 +293,17 @@ function createServiceCard (service) {
 
   const description = document.createElement("div");
   description.className = "service-description";
+  
+  // Add i18n data attribute for dynamic updates
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    description.setAttribute("data-i18n-html", "services.signature_reflexology.description");
+  } else if (service.id === "executive-detox-massage-45-min") {
+    description.setAttribute("data-i18n-html", "services.executive_detox.description");
+  }
+  
+  // Set fallback content (will be replaced by i18n system)
   // @ts-ignore
-  description.innerHTML = window.snarkdown(service.description);
+  description.innerHTML = service.description;
 
   // Create service footer with special offers
   const footer = document.createElement("div");
@@ -306,6 +315,13 @@ function createServiceCard (service) {
   const offersTitle = document.createElement("h4");
   offersTitle.className = "special-offers-title";
   offersTitle.textContent = "Special Offers:";
+  
+  // Add i18n data attribute for dynamic updates
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    offersTitle.setAttribute("data-i18n", "services.signature_reflexology.special_offers_title");
+  } else if (service.id === "executive-detox-massage-45-min") {
+    offersTitle.setAttribute("data-i18n", "services.executive_detox.special_offers_title");
+  }
 
   // Calculate special offers
   const cashPrice = Math.round(service.price * 0.8 * 100) / 100;
@@ -313,11 +329,61 @@ function createServiceCard (service) {
 
   const cashOffer = document.createElement("p");
   cashOffer.className = "offer-item";
-  cashOffer.innerHTML = `<span class="offer-discount">Cash Payment (<span class="offer-discount-percentage">-20%</span>):</span> <span class="original-price">€${service.price.toFixed(2)}</span> <span class="offer-price">€${cashPrice.toFixed(2)}</span>`;
+  
+  const cashDiscountSpan = document.createElement("span");
+  cashDiscountSpan.className = "offer-discount";
+  cashDiscountSpan.textContent = "Cash Payment (-20%):";
+  
+  // Add i18n data attribute for dynamic updates
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    cashDiscountSpan.setAttribute("data-i18n", "services.signature_reflexology.cash_payment");
+  } else if (service.id === "executive-detox-massage-45-min") {
+    cashDiscountSpan.setAttribute("data-i18n", "services.executive_detox.cash_payment");
+  }
+  
+  cashOffer.appendChild(cashDiscountSpan);
+  cashOffer.appendChild(document.createTextNode(` €${service.price.toFixed(2)} `));
+  
+  const cashPriceSpan = document.createElement("span");
+  cashPriceSpan.className = "offer-price";
+  cashPriceSpan.textContent = `€${cashPrice.toFixed(2)}`;
+  cashOffer.appendChild(cashPriceSpan);
 
   const cryptoOffer = document.createElement("p");
   cryptoOffer.className = "offer-item";
-  cryptoOffer.innerHTML = `<span class="offer-discount">Crypto Payment (<span class="offer-discount-percentage">-40%</span>):</span> <span class="original-price">€${service.price.toFixed(2)}</span> <span class="offer-price">€${cryptoPrice.toFixed(2)}</span> <span class="offer-crypto-payment">(BTC or ADA)</span>`;
+  
+  const cryptoDiscountSpan = document.createElement("span");
+  cryptoDiscountSpan.className = "offer-discount";
+  cryptoDiscountSpan.textContent = "Crypto Payment (-40%):";
+  
+  // Add i18n data attribute for dynamic updates
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    cryptoDiscountSpan.setAttribute("data-i18n", "services.signature_reflexology.crypto_payment");
+  } else if (service.id === "executive-detox-massage-45-min") {
+    cryptoDiscountSpan.setAttribute("data-i18n", "services.executive_detox.crypto_payment");
+  }
+  
+  cryptoOffer.appendChild(cryptoDiscountSpan);
+  cryptoOffer.appendChild(document.createTextNode(` €${service.price.toFixed(2)} `));
+  
+  const cryptoPriceSpan = document.createElement("span");
+  cryptoPriceSpan.className = "offer-price";
+  cryptoPriceSpan.textContent = `€${cryptoPrice.toFixed(2)}`;
+  cryptoOffer.appendChild(cryptoPriceSpan);
+  cryptoOffer.appendChild(document.createTextNode(" "));
+  
+  const cryptoNoteSpan = document.createElement("span");
+  cryptoNoteSpan.className = "offer-crypto-payment";
+  cryptoNoteSpan.textContent = "(BTC or ADA)";
+  
+  // Add i18n data attribute for dynamic updates
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    cryptoNoteSpan.setAttribute("data-i18n", "services.signature_reflexology.crypto_note");
+  } else if (service.id === "executive-detox-massage-45-min") {
+    cryptoNoteSpan.setAttribute("data-i18n", "services.executive_detox.crypto_note");
+  }
+  
+  cryptoOffer.appendChild(cryptoNoteSpan);
 
   specialOffers.appendChild(offersTitle);
   specialOffers.appendChild(cashOffer);

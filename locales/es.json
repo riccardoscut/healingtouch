@@ -38,12 +38,22 @@
   "services": {
     "title": "Mis Servicios",
     "signature_reflexology": {
-      "title": "Masaje de Reflexología Signature",
-      "book_button": "RESERVA TU MASAJE"
+      "title": "Signature Reflexology Massage",
+      "book_button": "RESERVA TU MASAJE",
+      "description": "<p><strong>\"Un masaje que combina la limpieza interna a través de los puntos reflejos del pie para restaurar el equilibrio y tu paz interior, mientras aborda problemas debilitantes.\"</strong></p><p>Nuestro masaje de reflexología combina reflexología dirigida con técnicas de desintoxicación para un enfoque holístico de la salud. La sesión comienza con una <span class=\"service-highlight\">fase inicial de desintoxicación</span>, usando aceites naturales y masaje para relajar el pie y estimular los puntos reflejos vinculados a los <span class=\"service-highlight\">sistemas urinario, digestivo y linfático</span>, preparando el cuerpo para un trabajo más profundo.</p><p>A continuación, pasamos a la <span class=\"service-highlight\">fase de reflexología</span> que se centra en puntos reflejos específicos para abordar áreas de incomodidad y apoyar la curación natural del cuerpo. El tratamiento concluye con una fase de desintoxicación purificadora <span class=\"service-highlight\">\"Las 3 Formas de Purificación\"</span>, revisitando puntos clave para mejorar sus efectos, dejándote sintiendo ligero, equilibrado y revitalizado.</p><p>Esta combinación única promueve una relajación profunda mientras aborda desequilibrios específicos para el bienestar general.</p>",
+      "special_offers_title": "Ofertas Especiales:",
+      "cash_payment": "Pago en Efectivo (-20%):",
+      "crypto_payment": "Pago en Criptomonedas (-40%):",
+      "crypto_note": "(BTC o ADA)"
     },
     "executive_detox": {
       "title": "Executive Detox Massage",
-      "book_button": "RESERVA TU MASAJE"
+      "book_button": "RESERVA TU MASAJE",
+      "description": "<p><strong>\"Un masaje que combina la limpieza interna a través de los puntos reflejos del pie para restaurar el equilibrio y el bienestar.\"</strong></p><p>Comenzamos con un calentamiento suave usando un aceite natural para relajar los pies y prepararlos para un trabajo más profundo. La sesión luego transiciona a un ritual especial llamado <span class=\"service-highlight\">\"Las 3 Formas de Purificación\"</span>, diseñado para apoyar los procesos naturales de limpieza de tu cuerpo. Al estimular puntos reflejos específicos, fomentamos la eliminación de toxinas a través de los sistemas digestivo, reproductivo y linfático, promoviendo una sensación de ligereza y equilibrio interior.</p>",
+      "special_offers_title": "Ofertas Especiales:",
+      "cash_payment": "Pago en Efectivo (-20%):",
+      "crypto_payment": "Pago en Criptomonedas (-40%):",
+      "crypto_note": "(BTC o ADA)"
     }
   },
   "testimonials": {
@@ -68,7 +78,7 @@
     },
     "massage_type_label": "Tipo de Masaje *",
     "massage_types": {
-      "signature": "Masaje de Reflexología Signature",
+      "signature": "Signature Reflexology Massage",
       "executive": "Executive Detox Massage"
     },
     "name_label": "Nombre *",
