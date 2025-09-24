@@ -1569,6 +1569,17 @@ footer {
     background-color: transparent !important;
 }
 
+/* Ensure Swiper doesn't interfere with other elements */
+.testimonial-slider {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-slider .swiper-button-next,
+.testimonial-slider .swiper-button-prev {
+    z-index: 2;
+}
+
 .testimonial-card {
     background-color: var(--section-bg);
     border: 1px solid var(--cosmic-violet);
@@ -1691,6 +1702,8 @@ footer {
     align-items: center;
     margin-bottom: 30px;
     padding: 0 20px;
+    position: relative;
+    z-index: 5;
 }
 
 .all-testimonials-title {
@@ -1715,6 +1728,11 @@ footer {
     gap: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: relative;
+    z-index: 10;
+    min-height: 44px;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .toggle-testimonials-btn:hover {
@@ -1729,6 +1747,11 @@ footer {
 .toggle-icon {
     font-size: 0.8rem;
     transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.toggle-text {
+    pointer-events: none;
 }
 
 .all-testimonials-list {

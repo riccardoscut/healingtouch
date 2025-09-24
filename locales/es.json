@@ -57,10 +57,11 @@
     }
   },
   "testimonials": {
-    "title": "Lo Que Dicen Las Personas",
+    "title": "Lo Que Dicen De Mi",
     "featured_title": "Reseñas Destacadas",
     "all_reviews_title": "Todas Las Reseñas",
     "show_all": "Mostrar Todas Las Reseñas",
+    "hide_all": "Ocultar Todas Las Reseñas",
     "share_experience": "Comparte tu experiencia"
   },
   "testimonial_form": {

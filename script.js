@@ -779,7 +779,12 @@ function initTestimonialsToggle() {
     if (isVisible) {
       // Hide testimonials
       allTestimonialsList.classList.remove("show");
-      toggleText.textContent = "Show All Reviews";
+      // Use i18n for text updates
+      if (window.i18n) {
+        toggleText.textContent = window.i18n.t('testimonials.show_all');
+      } else {
+        toggleText.textContent = "Show All Reviews";
+      }
       toggleIcon.textContent = "▼";
       toggleBtn.classList.remove("expanded");
       // eslint-disable-next-line no-console
@@ -787,7 +792,12 @@ function initTestimonialsToggle() {
     } else {
       // Show testimonials
       allTestimonialsList.classList.add("show");
-      toggleText.textContent = "Hide All Reviews";
+      // Use i18n for text updates
+      if (window.i18n) {
+        toggleText.textContent = window.i18n.t('testimonials.hide_all');
+      } else {
+        toggleText.textContent = "Hide All Reviews";
+      }
       toggleIcon.textContent = "▲";
       toggleBtn.classList.add("expanded");
       // eslint-disable-next-line no-console
@@ -813,7 +823,13 @@ function updateTestimonialsMetrics(allTestimonials) {
   // Update the header title
   const headerTitle = document.querySelector(".all-testimonials-title");
   if (headerTitle) {
-    headerTitle.textContent = `All Reviews (${roundedAverage}★)`;
+    // Use i18n for the title
+    if (window.i18n) {
+      const baseTitle = window.i18n.t('testimonials.all_reviews_title');
+      headerTitle.textContent = `${baseTitle} (${roundedAverage}★)`;
+    } else {
+      headerTitle.textContent = `All Reviews (${roundedAverage}★)`;
+    }
   }
   
   // eslint-disable-next-line no-console
