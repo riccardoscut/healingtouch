@@ -246,4 +246,58 @@ window.testimonials = [
     "type": "Signature Reflexology Massage",
     "highlighted": false
   },
+  {
+    "text": "Estupendo el trato y la profesionalidad de Ricardo.Totalmente recomendable.Para mí es todo un descubrimiento,soy cocinero y me ayuda a estar mejor.Despues de varias sesiones con él.Lo recomiendo en mi sector.Gracias Ricardo,",
+    "name": "Ángel Camacho",
+    "month": "March",
+    "year": "2025",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
+    "text": "I had a wonderful reflexology session here. The atmosphere was calm and relaxing and Riccardo was very professional and attentive. I left feeling lighter, deeply relaxed and with a great sense of well-being. Highly recommended if you're looking for a truly restorative experience.",
+    "name": "Alessandra",
+    "month": "September",
+    "year": "2025",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
+    "text": "Esperienza molto interessante e utile da fare, e Riccardo è un ottimo professionista con cui realizzarla\nSensibile, empatico e capace, mi ha guidato durante la seduta, dandomi spiegazioni e consigli per mantenere il benessere fisico e mentale, dimostrando così anche profonda competenza e conoscenza\nAlla fine della seduta mi sentivo rilassato fisicamente e più consapevole mentalmente\nLo raccomando vivamente !",
+    "name": "Piero",
+    "month": "March",
+    "year": "2022",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
+    "text": "Super session, tres pro et efficace ! Merci encore !",
+    "name": "Ilona",
+    "month": "February",
+    "year": "2020",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
+    "text": "Це був мій перший досвід рефлекторного масажу стоп — і він перевершив усі очікування! 🌿\nПід час сеансу відчувались усі проблемні зони, а з кожним дотиком ніби оживало все тіло. Це дивовижне відчуття — коли напруга поступово зникає, і ти наче розчиняєшся у спокої.\nПісля масажу — неймовірна легкість, відчуття польоту, ніби виросли крила.\nНоги стали легкими, тіло — розслабленим, а думки стали спокійними.😌\n\nЩиро дякую Рікардо за професіоналізм, тепло та стан справжньої гармонії! 🙏💖",
+    "name": "Anna",
+    "month": "October",
+    "year": "2025",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
+    "text": "Excelente servicio y tratamiento. Muy profesional y sabe tratar a clientes. 100% recomiendo!",
+    "name": "Dominique Chamberlain",
+    "month": "March",
+    "year": "2020",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
 ];
