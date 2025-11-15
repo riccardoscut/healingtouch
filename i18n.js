@@ -8,7 +8,32 @@ class I18n {
     this.currentLanguage = this.detectLanguage();
     this.translations = {};
     this.fallbackLanguage = 'en';
-    this.loadTranslations();
+    this.translationsReady = false;
+    this.translationsPromise = null;
+    this.init();
+  }
+
+  /**
+   * Initialize and load translations
+   */
+  async init() {
+    try {
+      await this.loadTranslations();
+      this.translationsReady = true;
+      
+      // Update page once translations are loaded and DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          this.updatePage();
+        });
+      } else {
+        // DOM is already ready
+        this.updatePage();
+      }
+    } catch (error) {
+      console.error('Error initializing translations:', error);
+      this.translationsReady = true; // Mark as ready even if failed to prevent infinite waiting
+    }
   }
 
   /**
@@ -43,6 +68,7 @@ class I18n {
       const response = await fetch(`${basePath}locales/${this.currentLanguage}.json?t=${Date.now()}`);
       if (response.ok) {
         this.translations = await response.json();
+        console.log(`Translations loaded for language: ${this.currentLanguage}`);
       } else {
         console.warn(`Failed to load ${this.currentLanguage} translations, falling back to ${this.fallbackLanguage}`);
         await this.loadFallbackTranslations();
@@ -131,7 +157,9 @@ class I18n {
     
     this.currentLanguage = lang;
     localStorage.setItem('preferred-language', lang);
+    this.translationsReady = false;
     await this.loadTranslations();
+    this.translationsReady = true;
     
     // Update the page
     this.updatePage();
@@ -141,9 +169,46 @@ class I18n {
   }
 
   /**
+   * Wait for translations to be ready
+   * @returns {Promise} Promise that resolves when translations are loaded
+   */
+  async waitForTranslations() {
+    if (this.translationsReady) {
+      return Promise.resolve();
+    }
+    
+    if (!this.translationsPromise) {
+      this.translationsPromise = new Promise((resolve) => {
+        const checkReady = () => {
+          if (this.translationsReady) {
+            resolve();
+          } else {
+            setTimeout(checkReady, 50);
+          }
+        };
+        checkReady();
+      });
+    }
+    
+    return this.translationsPromise;
+  }
+
+  /**
    * Update the page with new translations
    */
   updatePage() {
+    // Safety check: ensure translations are loaded before updating
+    if (!this.translationsReady || !this.translations || Object.keys(this.translations).length === 0) {
+      console.warn('updatePage() called before translations are loaded. Waiting...');
+      // If DOM is ready, wait for translations and retry
+      if (document.readyState !== 'loading') {
+        this.waitForTranslations().then(() => {
+          this.updatePage();
+        });
+      }
+      return;
+    }
+    
     // Update HTML lang attribute
     document.documentElement.lang = this.currentLanguage;
     

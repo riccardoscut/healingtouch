@@ -78,10 +78,21 @@ document.addEventListener('submit', function(e) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   console.log("=== PAGE LOADED - DOMContentLoaded event fired ===");
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: DOMContentLoaded event fired.");
+  
+  // Wait for translations to be loaded before applying content
+  if (window.i18n && typeof window.i18n.waitForTranslations === 'function') {
+    try {
+      await window.i18n.waitForTranslations();
+      console.log("Translations are ready, applying content...");
+    } catch (error) {
+      console.warn("Error waiting for translations:", error);
+    }
+  }
+  
   // Set current year in footer
   // @ts-ignore
   document.getElementById("current-year").textContent = new Date().getFullYear().toString();
