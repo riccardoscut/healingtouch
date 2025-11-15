@@ -543,6 +543,24 @@ function loadTestimonials (testimonialsData) {
   
   // Load all testimonials in expandable list (excluding highlighted ones that are already in carousel)
   const nonHighlightedTestimonials = allTestimonials.filter(t => !t.highlighted);
+  
+  // Sort non-highlighted testimonials chronologically (most recent first)
+  const monthToNumber = {
+    "January": 1, "February": 2, "March": 3, "April": 4, "May": 5, "June": 6,
+    "July": 7, "August": 8, "September": 9, "October": 10, "November": 11, "December": 12
+  };
+  
+  nonHighlightedTestimonials.sort((a, b) => {
+    // Sort by year first (descending - most recent first)
+    if (b.year !== a.year) {
+      return b.year - a.year;
+    }
+    // If same year, sort by month (descending - most recent first)
+    const monthA = monthToNumber[a.month] || 0;
+    const monthB = monthToNumber[b.month] || 0;
+    return monthB - monthA;
+  });
+  
   loadAllTestimonials(nonHighlightedTestimonials);
   
   // Update the header with calculated metrics
