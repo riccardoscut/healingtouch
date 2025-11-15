@@ -132,8 +132,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   }, 1000);
 
   // Initialize Summer Step-Up Challenge Modal and Banner (at the end)
-  console.log('About to initialize Summer Challenge...');
-  initSummerChallenge();
+  // Wait a bit longer to ensure DOM is fully ready and translations are applied
+  setTimeout(() => {
+    console.log('About to initialize Summer Challenge...');
+    initSummerChallenge();
+  }, 500);
 });
 
 // Apply content from JSON to the page
@@ -873,44 +876,76 @@ function updateTestimonialsMetrics(allTestimonials) {
 function initSummerChallenge() {
   console.log('=== SUMMER CHALLENGE INIT START ===');
   
-  // Get elements
-  const modal = document.getElementById('summerChallengeModal');
-  const banner = document.getElementById('summerChallengeBanner');
+  // Get elements - retry if not found immediately
+  let modal = document.getElementById('summerChallengeModal');
+  let banner = document.getElementById('summerChallengeBanner');
   
-  console.log('Elements found:', { modal: !!modal, banner: !!banner });
-  
+  // If elements not found, try again after a short delay
   if (!modal || !banner) {
-    console.error('Modal or banner element not found!');
+    console.warn('Modal or banner elements not found, retrying...');
+    setTimeout(() => {
+      modal = document.getElementById('summerChallengeModal');
+      banner = document.getElementById('summerChallengeBanner');
+      
+      if (!modal || !banner) {
+        console.error('Modal or banner elements still not found after retry!', {
+          modal: !!modal,
+          banner: !!banner,
+          documentReadyState: document.readyState
+        });
+        return;
+      }
+      
+      // Try again with found elements
+      showBannerAndModal(modal, banner);
+    }, 200);
     return;
   }
   
-  // TEMPORARY: Clear session storage for testing
-  sessionStorage.removeItem('summerChallengeModalShown');
-  sessionStorage.removeItem('summerChallengeBannerClosed');
-  
+  showBannerAndModal(modal, banner);
+  console.log('=== SUMMER CHALLENGE INIT END ===');
+}
+
+function showBannerAndModal(modal, banner) {
   // Check session storage
   const modalShown = sessionStorage.getItem('summerChallengeModalShown');
   const bannerClosed = sessionStorage.getItem('summerChallengeBannerClosed');
   
-  console.log('Session storage after clearing:', { modalShown, bannerClosed });
+  console.log('Session storage before showing:', { modalShown, bannerClosed });
   
   // Show banner immediately if not closed
-  if (!bannerClosed) {
+  if (!bannerClosed && banner) {
     console.log('Showing banner...');
+    // Ensure banner is visible by adding the show class
     banner.classList.add('show');
+    console.log('Banner classes after adding show:', banner.classList.toString());
+    
+    // Double-check that the banner is actually visible
+    const bannerComputed = window.getComputedStyle(banner);
+    console.log('Banner transform:', bannerComputed.transform);
+    console.log('Banner display:', bannerComputed.display);
+  } else if (bannerClosed) {
+    console.log('Banner was previously closed, not showing');
   }
   
   // Show modal after 2 seconds if not shown
-  if (!modalShown) {
+  if (!modalShown && modal) {
     console.log('Will show modal in 2 seconds...');
     setTimeout(() => {
-      console.log('Showing modal now!');
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden';
+      if (modal) {
+        console.log('Showing modal now!');
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        console.log('Modal classes after adding show:', modal.classList.toString());
+        
+        // Double-check that the modal is actually visible
+        const modalComputed = window.getComputedStyle(modal);
+        console.log('Modal display:', modalComputed.display);
+      }
     }, 2000);
+  } else if (modalShown) {
+    console.log('Modal was previously shown, not showing again');
   }
-  
-  console.log('=== SUMMER CHALLENGE INIT END ===');
 }
 
 // Test function - run this in browser console to manually trigger modal and banner
@@ -941,15 +976,29 @@ function testSummerChallenge() {
   console.log('=== TEST COMPLETE ===');
 }
 
-// Make test function available globally
+// Helper function to reset banner and modal (useful for testing)
+function resetSummerChallenge() {
+  console.log('=== RESETTING SUMMER CHALLENGE ===');
+  sessionStorage.removeItem('summerChallengeModalShown');
+  sessionStorage.removeItem('summerChallengeBannerClosed');
+  console.log('Session storage cleared. Banner and modal will show on next page load.');
+}
+
+// Make functions available globally
 window.testSummerChallenge = testSummerChallenge;
+window.resetSummerChallenge = resetSummerChallenge;
 
 // Close modal function
 function closeModal() {
   const modal = document.getElementById('summerChallengeModal');
-  modal.classList.remove('show');
-  document.body.style.overflow = ''; // Restore scrolling
-  sessionStorage.setItem('summerChallengeModalShown', 'true');
+  if (modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+    sessionStorage.setItem('summerChallengeModalShown', 'true');
+    console.log('Modal closed');
+  } else {
+    console.error('Modal element not found in closeModal()');
+  }
 }
 
 // Close banner function
@@ -958,15 +1007,25 @@ function closeBanner(event) {
         event.stopPropagation(); // Prevent triggering the banner click
     }
     const banner = document.getElementById('summerChallengeBanner');
-    banner.classList.remove('show');
-    sessionStorage.setItem('summerChallengeBannerClosed', 'true');
+    if (banner) {
+      banner.classList.remove('show');
+      sessionStorage.setItem('summerChallengeBannerClosed', 'true');
+      console.log('Banner closed');
+    } else {
+      console.error('Banner element not found in closeBanner()');
+    }
 }
 
 // Open modal function
 function openModal() {
     const modal = document.getElementById('summerChallengeModal');
-    modal.classList.add('show');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    if (modal) {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      console.log('Modal opened via openModal()');
+    } else {
+      console.error('Modal element not found in openModal()');
+    }
 }
 
 // Book detox massage function
