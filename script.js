@@ -11,6 +11,7 @@ if (!('IntersectionObserver' in window)) {
 }
 
 const IS_DEVELOPMENT = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const BUILD_VERSION = "2025-11-16-guarded-inits-2";
 
 /* global emailjs */
 
@@ -72,7 +73,7 @@ if (typeof window.trackPixel !== 'function') {
 // (Removed) Global form submission interceptor that blocked testimonial form behavior
 
 document.addEventListener("DOMContentLoaded", async function () {
-  console.log("=== PAGE LOADED - DOMContentLoaded event fired ===");
+  console.log("=== PAGE LOADED - DOMContentLoaded event fired ===", { build: BUILD_VERSION });
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: DOMContentLoaded event fired.");
   
@@ -119,6 +120,30 @@ document.addEventListener("DOMContentLoaded", async function () {
     initSummerChallenge();
   }, 500);
 });
+
+// Extra safety: verify content rendered and retry once after window load
+window.addEventListener("load", function () {
+  try {
+    const servicesGrid = document.querySelector(".services-grid");
+    const testimonialsList = document.getElementById("allTestimonialsList");
+    const needsServices = servicesGrid && servicesGrid.children.length === 0;
+    const needsTestimonials = testimonialsList && testimonialsList.children.length === 0;
+    if (needsServices || needsTestimonials) {
+      console.warn("Post-load verification: content missing, re-applying content and testimonials.");
+      // @ts-ignore
+      applyContentToPage(window.siteContent);
+      // @ts-ignore
+      if (window.testimonials) {
+        // @ts-ignore
+        loadTestimonials(window.testimonials);
+      }
+      initTestimonialForm();
+      initServiceCardAnimations();
+    }
+  } catch (e) {
+    console.error("Post-load verification error:", e);
+  }
+}, { once: true });
 
 // Apply content from JSON to the page
 function applyContentToPage (data) {
