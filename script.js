@@ -488,16 +488,13 @@ function initCalButtons () {
     "reflexology-foot-massage-1-hour-30-min"
   ];
 
-  ids.forEach(id => {
-    const button = document.getElementById(id);
-    if (button) {
-      button.setAttribute("data-cal-link", `signaturehealingtouch/${id}`);
-      button.setAttribute("data-cal-namespace", id);
-      button.setAttribute("data-cal-config", "{\"layout\":\"month_view\"}");
-      button.removeAttribute("href");
-
-
-
+  // Helper to safely init a single button namespace if Cal is present
+  const safeInitCal = (id) => {
+    try {
+      if (!window.Cal || typeof window.Cal !== "function") {
+        if (IS_DEVELOPMENT) console.warn("Cal not ready yet, skipping init for:", id);
+        return false;
+      }
       // @ts-ignore
       window.Cal("init", id, {origin: "https://cal.com"});
       window.Cal.ns[id]("ui", {
@@ -508,6 +505,30 @@ function initCalButtons () {
         "hideEventTypeDetails": false,
         "layout": "month_view"
       });
+      return true;
+    } catch (err) {
+      if (IS_DEVELOPMENT) console.error("Error initializing Cal for id:", id, err);
+      return false;
+    }
+  };
+
+  ids.forEach(id => {
+    const button = document.getElementById(id);
+    if (button) {
+      button.setAttribute("data-cal-link", `signaturehealingtouch/${id}`);
+      button.setAttribute("data-cal-namespace", id);
+      button.setAttribute("data-cal-config", "{\"layout\":\"month_view\"}");
+      button.removeAttribute("href");
+
+
+
+      // Try to initialize immediately, otherwise retry once on window load
+      const initialized = safeInitCal(id);
+      if (!initialized) {
+        window.addEventListener("load", () => {
+          safeInitCal(id);
+        }, { once: true });
+      }
     }
   });
 }
@@ -657,33 +678,85 @@ function loadFeaturedTestimonials(featuredTestimonials) {
 
   // @ts-ignore
   /* global Swiper */
-  new Swiper(".testimonial-slider", {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 30,
-    autoplay: {
-      delay: 7000, // Increased delay for better viewing of initial slides
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 40
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 50
-      }
+  const initSwiper = () => {
+    // eslint-disable-next-line no-console
+    if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Attempting to initialize Swiper...");
+    if (typeof window.Swiper === "function") {
+      // eslint-disable-next-line no-undef
+      new Swiper(".testimonial-slider", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        autoplay: {
+          delay: 7000, // Increased delay for better viewing of initial slides
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50
+          }
+        }
+      });
+      // eslint-disable-next-line no-console
+      if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper initialized successfully.");
+    } else {
+      // eslint-disable-next-line no-console
+      if (IS_DEVELOPMENT) console.warn("TESTIMONIALS: Swiper not yet available. Retrying on window load...");
+      window.addEventListener("load", () => {
+        // eslint-disable-next-line no-console
+        if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Window load event fired. Retrying Swiper init...");
+        if (typeof window.Swiper === "function") {
+          // eslint-disable-next-line no-undef
+          new Swiper(".testimonial-slider", {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: {
+              delay: 7000,
+              disableOnInteraction: false
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev"
+            },
+            breakpoints: {
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 50
+              }
+            }
+          });
+          // eslint-disable-next-line no-console
+          if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper initialized successfully after window load.");
+        } else {
+          // eslint-disable-next-line no-console
+          console.error("TESTIMONIALS: Swiper still not available after window load.");
+        }
+      }, { once: true });
     }
-  });
+  };
+  initSwiper();
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Swiper initialized for featured testimonials.");
 }
