@@ -34,49 +34,42 @@ if (typeof window.trackedEvents === 'undefined') {
 
 /**
  * Safe Meta Pixel tracking helper with deduplication and debug mode
+ * Only define here if not already provided by index.html
  * @param {string} event - Event name (e.g., 'PageView', 'Lead', 'InitiateCheckout')
  * @param {Object} params - Event parameters
  * @param {string} type - Event type ('track' or 'trackCustom')
  */
-function trackPixel(event, params = {}, type = 'track') {
-  // Fail gracefully if fbq isn't defined
-  if (!window.fbq) {
-    if (window.PIXEL_DEBUG) console.warn('[Pixel] fbq not available, skipping event:', event);
-    return;
-  }
-  
-  // Create unique key for deduplication
-  const eventKey = `${type}:${event}:${JSON.stringify(params)}`;
-  
-      // Skip if already tracked
-      if (window.trackedEvents.has(eventKey)) {
-        if (window.PIXEL_DEBUG) console.log('[Pixel] Duplicate event prevented:', eventKey);
-        return;
-      }
-      
-      // Track the event
-      fbq(type, event, params);
-      window.trackedEvents.add(eventKey);
-  
-  // Debug logging
-  if (window.PIXEL_DEBUG) {
-    console.log('[Pixel]', type, event, params);
-  }
+if (typeof window.trackPixel !== 'function') {
+  window.trackPixel = function(event, params = {}, type = 'track') {
+    // Fail gracefully if fbq isn't defined
+    if (!window.fbq) {
+      if (window.PIXEL_DEBUG) console.warn('[Pixel] fbq not available, skipping event:', event);
+      return;
+    }
+    
+    // Create unique key for deduplication
+    const eventKey = `${type}:${event}:${JSON.stringify(params)}`;
+    
+    // Skip if already tracked
+    if (window.trackedEvents.has(eventKey)) {
+      if (window.PIXEL_DEBUG) console.log('[Pixel] Duplicate event prevented:', eventKey);
+      return;
+    }
+    
+    // Track the event
+    fbq(type, event, params);
+    window.trackedEvents.add(eventKey);
+    
+    // Debug logging
+    if (window.PIXEL_DEBUG) {
+      console.log('[Pixel]', type, event, params);
+    }
+  };
 }
 
 // ===== META PIXEL HELPER FUNCTIONS END =====
 
-// Global form submission interceptor
-document.addEventListener('submit', function(e) {
-  if (e.target.id === 'testimonialForm') {
-    console.log('=== GLOBAL FORM INTERCEPTOR TRIGGERED ===');
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-    console.log('Form submission intercepted and prevented globally');
-    return false;
-  }
-});
+// (Removed) Global form submission interceptor that blocked testimonial form behavior
 
 document.addEventListener("DOMContentLoaded", async function () {
   console.log("=== PAGE LOADED - DOMContentLoaded event fired ===");
@@ -111,25 +104,13 @@ document.addEventListener("DOMContentLoaded", async function () {
   applyContentToPage(window.siteContent);
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Attempting to load testimonials after applyContentToPage.", window.testimonials);
-  // @ts-ignore
-  loadTestimonials(window.testimonials);
 
   // Initialize testimonial form after content is loaded
   setTimeout(() => {
     initTestimonialForm();
   }, 500);
 
-  // Initialize testimonials toggle with a slight delay to ensure DOM is ready
-  setTimeout(() => {
-    // eslint-disable-next-line no-console
-    if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Delayed initialization of toggle functionality...");
-    // @ts-ignore
-    if (window.testimonials) {
-      // eslint-disable-next-line no-console
-      if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Re-initializing toggle functionality after delay...");
-      initTestimonialsToggle();
-    }
-  }, 1000);
+  // (Removed) delayed re-initialization of testimonials toggle to avoid duplicate bindings
 
   // Initialize Summer Step-Up Challenge Modal and Banner (at the end)
   // Wait a bit longer to ensure DOM is fully ready and translations are applied
@@ -430,6 +411,16 @@ function createServiceCard (service) {
 }
 
 function initServiceCardAnimations () {
+  // Guard for browsers without IntersectionObserver
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll(".service-card").forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add("visible");
+      }, 300 * index);
+    });
+    return;
+  }
+
   // Use Intersection Observer to detect when service cards come into view
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -799,6 +790,12 @@ function initTestimonialsToggle() {
     return;
   }
 
+  // Prevent duplicate event bindings
+  if (toggleBtn.dataset.bound === 'true') {
+    if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Toggle button already bound, skipping rebind.");
+    return;
+  }
+
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Adding click event listener to toggle button");
 
@@ -836,6 +833,9 @@ function initTestimonialsToggle() {
       if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Showing testimonials list");
     }
   });
+
+  // Mark as bound to prevent duplicates
+  toggleBtn.dataset.bound = 'true';
 
   // eslint-disable-next-line no-console
   if (IS_DEVELOPMENT) console.log("TESTIMONIALS: Toggle functionality initialized successfully.");
@@ -1251,10 +1251,6 @@ function handleTestimonialSubmit(e) {
   };
 
   console.log('Form data to send:', formData);
-
-  // Initialize EmailJS with your public key
-  // @ts-ignore
-  window.emailjs.init("fitJ75sG9o72X64G7");
 
   // Send email using EmailJS with better error handling
   console.log('About to send email with EmailJS...');
