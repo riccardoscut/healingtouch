@@ -13,19 +13,21 @@
   },
   "modal": {
     "challenge_title": "Signature Step-Up Challenge ✨",
-    "challenge_kicker": "Save up to 30% on our<br>Executive Detox Massage",
+    "challenge_kicker": "Turn your steps into savings on our<br>Executive Detox Massage",
     "challenge_subtitle": "A moving initiative to promote well-being",
-    "challenge_description": "Walk 10,000+ steps in 24 hours and get 10% discount.<br>Add 10% for every extra 10,000 steps (maximum 30%).",
-    "challenge_activities": "LOVE TREKKING? 🥾<br>DANCING ALL-NIGHT? 💃<br>EXPLORING THE CITY? 🏃‍♀️<br>WHATEVER GETS YOU MOVING STEP-UP 👟<br>TREAT YOUR FEET TO A DETOX MASSAGE 🦶<br>TURN EVERY STEP INTO SAVINGS 👣<br>AND ENJOY A 45-MINUTE RESET EXPERIENCE 💫",
+    "challenge_description": "Walk more, pay less: show your steps and unlock a special price on your 45-minute Executive Detox Massage.",
+    "challenge_activities": "LOVE TREKKING? 🥾<br>DANCING ALL NIGHT? 💃<br>EXPLORING THE CITY? 🏃‍♀️<br>WHATEVER GETS YOU MOVING, STEP UP 👟<br>TREAT YOUR FEET TO A DETOX MASSAGE 🦶<br>TURN EVERY STEP INTO SAVINGS 👣<br>AND ENJOY A 45-MINUTE RESET EXPERIENCE 💫",
     "how_it_works": "",
     "steps": [],
     "cta_button": "BOOK YOUR MASSAGE",
     "discount_rules_title": "Discount rules:",
     "discount_rules": [
-      "Walk 10 000+ steps in any 24-hour window and get 10% off our 45-minute Executive Detox Massage (regular price 45€).",
-      "Every additional 10 000 steps takes 10% more off, up to 30% total discount.",
-      "Show a dated screenshot from your favourite fitness app at check-in.",
-      "The qualifying step day must fall within the 10 days before you book, meet that rule and we'll apply the discount in person.",
+      "Regular price: 45€ for a 45-minute Executive Detox Massage.",
+      "• 10,000+ steps in any 24-hour period (within the last 10 days): pay 40€ (save 5€, about 11% off).",
+      "• 20,000+ steps in any 24-hour period (within the last 10 days): pay 35€ (save 10€, about 22% off).",
+      "• 30,000+ steps in any 24-hour period (within the last 10 days): pay 30€ (save 15€, about 33% off).",
+      "Show a dated screenshot from your fitness app at check-in (the 24-hour step total must be clearly visible).",
+      "The qualifying step day must fall within the 10 days before your appointment. If you meet the conditions, the discount will be applied in person.",
       "Offer valid exclusively for the 45-minute Executive Detox Massage."
     ]
   },

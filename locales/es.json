@@ -13,19 +13,21 @@
   },
   "modal": {
     "challenge_title": "Desafío Signature Step-Up ✨",
-    "challenge_kicker": "Ahorra hasta 30% en nuestro<br>Executive Detox Massage",
+    "challenge_kicker": "Convierte tus pasos en ahorro en nuestro<br>Executive Detox Massage",
     "challenge_subtitle": "Una iniciativa en movimiento para promover el bienestar",
-    "challenge_description": "Muestra prueba de 10,000+ pasos en un período de 24 horas para obtener 10% de descuento; +10% por cada 10,000 adicionales (máx. 30%)",
-    "challenge_activities": "¿AMAS EL TREKKING? 🥾<br>¿BAILAS TODA LA NOCHE? 💃<br>¿EXPLORAS LA CIUDAD? 🏃‍♀️<br>LO QUE SEA QUE TE HAGA MOVERTE STEP-UP 👟<br>MIMA TUS PIES CON UN DETOX MASSAGE 🦶<br>CONVIERTE CADA PASO EN AHORROS 👣<br>Y DISFRUTA DE UNA EXPERIENCIA DE RESET DE 45 MINUTOS 💫",
+    "challenge_description": "Camina más y paga menos: muestra tus pasos y desbloquea un precio especial para tu Executive Detox Massage de 45 minutos.",
+    "challenge_activities": "¿AMAS EL TREKKING? 🥾<br>¿BAILAS TODA LA NOCHE? 💃<br>¿EXPLORAS LA CIUDAD? 🏃‍♀️<br>LO QUE SEA QUE TE HAGA MOVERTE, STEP UP 👟<br>MIMA TUS PIES CON UN DETOX MASSAGE 🦶<br>CONVIERTE CADA PASO EN AHORROS 👣<br>Y DISFRUTA DE UNA EXPERIENCIA DE RESET DE 45 MINUTOS 💫",
     "how_it_works": "",
     "steps": [],
     "cta_button": "RESERVA TU MASAJE",
     "discount_rules_title": "Reglas de descuento:",
     "discount_rules": [
-      "Camina 10 000+ pasos en cualquier ventana de 24 horas y obtén 10% de descuento en nuestro Executive Detox Massage de 45 minutos (precio regular 45€).",
-      "Cada 10 000 pasos adicionales te dan 10% más de descuento, hasta 30% de descuento total.",
-      "Muestra una captura de pantalla fechada de tu app de fitness favorita al registrarte.",
-      "El día de pasos calificado debe caer dentro de los 10 días antes de que reserves, cumple esa regla y aplicaremos el descuento en persona.",
+      "Precio habitual: 45€ por un Executive Detox Massage de 45 minutos.",
+      "• 10.000+ pasos en cualquier periodo de 24 horas (dentro de los últimos 10 días): pagas 40€ (ahorras 5€, aprox. 11% de descuento).",
+      "• 20.000+ pasos en cualquier periodo de 24 horas (dentro de los últimos 10 días): pagas 35€ (ahorras 10€, aprox. 22% de descuento).",
+      "• 30.000+ pasos en cualquier periodo de 24 horas (dentro de los últimos 10 días): pagas 30€ (ahorras 15€, aprox. 33% de descuento).",
+      "Muestra una captura de pantalla fechada de tu app de pasos en el momento del check-in (el total de pasos en 24 horas debe verse claramente).",
+      "El día que cumple con los pasos debe estar dentro de los 10 días anteriores a tu cita. Si cumples las condiciones, aplicaremos el descuento en persona.",
       "Oferta válida exclusivamente para el Executive Detox Massage de 45 minutos."
     ]
   },

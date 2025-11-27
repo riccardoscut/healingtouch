@@ -1005,29 +1005,16 @@ function initSummerChallenge() {
 }
 
 function showBannerAndModal(modal, banner) {
-  // Check session storage
-  const modalShown = sessionStorage.getItem('summerChallengeModalShown');
-  const bannerClosed = sessionStorage.getItem('summerChallengeBannerClosed');
-  
-  console.log('Session storage before showing:', { modalShown, bannerClosed });
-  
-  // Show banner immediately if not closed
-  if (!bannerClosed && banner) {
+  if (banner) {
     console.log('Showing banner...');
-    // Ensure banner is visible by adding the show class
     banner.classList.add('show');
-    console.log('Banner classes after adding show:', banner.classList.toString());
     
-    // Double-check that the banner is actually visible
     const bannerComputed = window.getComputedStyle(banner);
     console.log('Banner transform:', bannerComputed.transform);
     console.log('Banner display:', bannerComputed.display);
-  } else if (bannerClosed) {
-    console.log('Banner was previously closed, not showing');
   }
   
-  // Show modal after 2 seconds if not shown
-  if (!modalShown && modal) {
+  if (modal) {
     console.log('Will show modal in 2 seconds...');
     setTimeout(() => {
       if (modal) {
@@ -1036,23 +1023,16 @@ function showBannerAndModal(modal, banner) {
         document.body.style.overflow = 'hidden';
         console.log('Modal classes after adding show:', modal.classList.toString());
         
-        // Double-check that the modal is actually visible
         const modalComputed = window.getComputedStyle(modal);
         console.log('Modal display:', modalComputed.display);
       }
     }, 2000);
-  } else if (modalShown) {
-    console.log('Modal was previously shown, not showing again');
   }
 }
 
 // Test function - run this in browser console to manually trigger modal and banner
 function testSummerChallenge() {
   console.log('=== TESTING SUMMER CHALLENGE ===');
-  
-  // Clear session storage
-  sessionStorage.removeItem('summerChallengeModalShown');
-  sessionStorage.removeItem('summerChallengeBannerClosed');
   
   // Get elements
   const modal = document.getElementById('summerChallengeModal');
@@ -1077,9 +1057,19 @@ function testSummerChallenge() {
 // Helper function to reset banner and modal (useful for testing)
 function resetSummerChallenge() {
   console.log('=== RESETTING SUMMER CHALLENGE ===');
-  sessionStorage.removeItem('summerChallengeModalShown');
-  sessionStorage.removeItem('summerChallengeBannerClosed');
-  console.log('Session storage cleared. Banner and modal will show on next page load.');
+  const modal = document.getElementById('summerChallengeModal');
+  const banner = document.getElementById('summerChallengeBanner');
+  
+  if (banner) {
+    banner.classList.add('show');
+  }
+  
+  if (modal) {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  console.log('Banner and modal forced to visible state for testing.');
 }
 
 // Make functions available globally
@@ -1092,7 +1082,6 @@ function closeModal() {
   if (modal) {
     modal.classList.remove('show');
     document.body.style.overflow = ''; // Restore scrolling
-    sessionStorage.setItem('summerChallengeModalShown', 'true');
     console.log('Modal closed');
   } else {
     console.error('Modal element not found in closeModal()');
@@ -1107,7 +1096,6 @@ function closeBanner(event) {
     const banner = document.getElementById('summerChallengeBanner');
     if (banner) {
       banner.classList.remove('show');
-      sessionStorage.setItem('summerChallengeBannerClosed', 'true');
       console.log('Banner closed');
     } else {
       console.error('Banner element not found in closeBanner()');
