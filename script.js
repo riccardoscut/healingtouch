@@ -113,13 +113,29 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // (Removed) delayed re-initialization of testimonials toggle to avoid duplicate bindings
 
-  // Initialize Summer Step-Up Challenge Modal and Banner (at the end)
-  // Wait a bit longer to ensure DOM is fully ready and translations are applied
-  setTimeout(() => {
-    console.log('About to initialize Summer Challenge...');
-    initSummerChallenge();
-  }, 500);
 });
+
+// Ensure Summer Challenge init runs even if other DOMContent handlers fail
+function scheduleSummerChallengeInit() {
+  const startInit = () => {
+    setTimeout(() => {
+      try {
+        console.log('About to initialize Summer Challenge...');
+        initSummerChallenge();
+      } catch (error) {
+        console.error('Summer Challenge init failed:', error);
+      }
+    }, 500);
+  };
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startInit, { once: true });
+  } else {
+    startInit();
+  }
+}
+
+scheduleSummerChallengeInit();
 
 // Extra safety: verify content rendered and retry once after window load
 window.addEventListener("load", function () {
