@@ -23,11 +23,12 @@
     "discount_rules_title": "Reglas de descuento:",
     "discount_rules": [
       "Ahorra hasta 15€ en un Executive Detox Massage de 45 minutos (precio original 45€).",
-      "• Muestra una captura de pantalla fechada de tu app de pasos en el momento del check-in (el total de pasos en 24 horas debe verse claramente).",
+      "• Muestra una captura de pantalla de tu app de fitness favorita en el momento del check-in, mostrando tu total de pasos en 24 horas.",
       "• 10.000+ pasos: pagas 40€ - AHORRAS 5€ (~11% de descuento).",
       "• 20.000+ pasos: pagas 35€ - AHORRAS 10€ (~22% de descuento).",
       "• 30.000+ pasos: pagas 30€ - AHORRAS 15€ (~33% de descuento).",
-      "• El día que cumple con los pasos debe estar dentro de los últimos 10 días antes de tu cita. Si cumples las condiciones, aplicaremos el descuento en persona.",
+      "• El conteo de pasos mostrado en tu captura de pantalla debe ser de los últimos 10 días antes de tu cita.",
+      "• El descuento se aplicará en persona.",
       "• Oferta válida exclusivamente para el Executive Detox Massage de 45 minutos."
     ]
   },
