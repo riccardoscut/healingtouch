@@ -1222,50 +1222,45 @@ header::after {
 
 /* Google Review Badge */
 .google-review-badge {
-    text-align: center;
-    margin-top: 12px;
-    margin-bottom: 0;
-    line-height: 1.4;
     display: block;
-    visibility: visible;
-    opacity: 1;
+    text-align: center;
+    margin: 12px auto 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--header-border);
+    background-color: var(--section-bg);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+.google-review-badge:hover {
+    background-color: rgba(117, 90, 146, 0.1);
+    border-color: var(--cosmic-violet);
+    box-shadow: 0 2px 8px rgba(117, 90, 146, 0.2);
+    transform: translateY(-1px);
 }
 
 .google-review-badge-line1 {
-    font-size: 1rem;
-    margin-bottom: 4px;
-    display: block;
-}
-
-.google-review-badge-line1 a {
-    color: var(--aurora-green) !important;
-    text-decoration: none;
+    font-size: 1.15rem;
     font-weight: 500;
-    transition: opacity 0.2s;
-    display: inline-block;
-}
-
-.google-review-badge-line1 a:hover {
-    opacity: 0.8;
-    text-decoration: underline;
+    margin-bottom: 4px;
+    color: var(--aurora-green) !important;
+    display: block;
 }
 
 .google-review-badge-line2 {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: var(--aurora-green) !important;
-    opacity: 1;
+    opacity: 0.9;
     display: block;
 }
 
-.google-review-badge-line2 a {
-    color: var(--aurora-green) !important;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-.google-review-badge-line2 a:hover {
+.google-description {
+    font-size: 0.75rem;
     opacity: 0.8;
-    text-decoration: underline;
 }
 
 .google-stars {
@@ -1275,17 +1270,29 @@ header::after {
     display: inline-block;
 }
 
-[data-theme="light"] .google-review-badge-line1 a {
+[data-theme="light"] .google-review-badge {
+    background-color: #FFFFFF;
+    border-color: var(--light-border);
+}
+
+[data-theme="light"] .google-review-badge:hover {
+    background-color: #F8F9FA;
+    border-color: var(--cosmic-violet);
+    box-shadow: 0 2px 8px rgba(117, 90, 146, 0.15);
+}
+
+[data-theme="light"] .google-review-badge-line1 {
     color: #1a73e8 !important;
 }
 
 [data-theme="light"] .google-review-badge-line2 {
     color: #5f6368 !important;
-    opacity: 1;
+    opacity: 0.9;
 }
 
-[data-theme="light"] .google-review-badge-line2 a {
-    color: #1a73e8 !important;
+[data-theme="light"] .google-description {
+    color: #5f6368 !important;
+    opacity: 0.7;
 }
 
 /* Footer Styles */
