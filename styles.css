@@ -1226,18 +1226,23 @@ header::after {
     margin-top: 12px;
     margin-bottom: 0;
     line-height: 1.4;
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .google-review-badge-line1 {
     font-size: 1rem;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    display: block;
 }
 
 .google-review-badge-line1 a {
-    color: var(--aurora-green);
+    color: var(--aurora-green) !important;
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
+    display: inline-block;
 }
 
 .google-review-badge-line1 a:hover {
@@ -1247,12 +1252,13 @@ header::after {
 
 .google-review-badge-line2 {
     font-size: 0.8125rem;
-    color: var(--aurora-green);
-    opacity: 0.9;
+    color: var(--aurora-green) !important;
+    opacity: 1;
+    display: block;
 }
 
 .google-review-badge-line2 a {
-    color: var(--aurora-green);
+    color: var(--aurora-green) !important;
     text-decoration: none;
     transition: opacity 0.2s;
 }
@@ -1266,19 +1272,20 @@ header::after {
     font-size: 0.75rem;
     letter-spacing: 1px;
     margin: 0 2px;
+    display: inline-block;
 }
 
 [data-theme="light"] .google-review-badge-line1 a {
-    color: #1a73e8;
+    color: #1a73e8 !important;
 }
 
 [data-theme="light"] .google-review-badge-line2 {
-    color: #5f6368;
-    opacity: 0.9;
+    color: #5f6368 !important;
+    opacity: 1;
 }
 
 [data-theme="light"] .google-review-badge-line2 a {
-    color: #1a73e8;
+    color: #1a73e8 !important;
 }
 
 /* Footer Styles */
