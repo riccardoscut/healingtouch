@@ -1225,14 +1225,14 @@ header::after {
     display: block;
     text-align: center;
     margin: 12px auto 0;
-    padding: 12px 16px;
+    padding: 8px 12px;
     border-radius: 8px;
     border: 1px solid var(--header-border);
     background-color: var(--section-bg);
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    max-width: 300px;
+    max-width: 280px;
     line-height: 1.4;
 }
 
@@ -1244,9 +1244,9 @@ header::after {
 }
 
 .google-review-badge-line1 {
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     font-weight: 500;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     color: var(--aurora-green) !important;
     display: block;
 }
