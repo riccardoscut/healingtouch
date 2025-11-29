@@ -1166,6 +1166,121 @@ header::after {
     left: 100%;
 }
 
+.book-button-secondary {
+    display: block;
+    margin: 20px auto 10px;
+    background: transparent;
+    color: var(--lunar-gold);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid var(--cosmic-violet);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 300px;
+}
+
+.book-button-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(117, 90, 146, 0.2), transparent);
+    transition: all 0.5s;
+}
+
+.book-button-secondary:hover {
+    box-shadow: 0 0 20px var(--cosmic-violet), 0 0 40px rgba(117, 90, 146, 0.5);
+    transform: translateY(-3px);
+    background: rgba(117, 90, 146, 0.1);
+}
+
+.book-button-secondary:hover::before {
+    left: 100%;
+}
+
+[data-theme="light"] .book-button-secondary {
+    color: var(--cosmic-violet);
+    border-color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .book-button-secondary:hover {
+    background: rgba(117, 90, 146, 0.1);
+    box-shadow: 0 0 20px var(--cosmic-violet), 0 0 40px rgba(117, 90, 146, 0.3);
+}
+
+/* Google Review Badge */
+.google-review-badge {
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.google-review-badge-line1 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.google-review-badge-line1 a {
+    color: var(--aurora-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.google-review-badge-line1 a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.google-review-badge-line2 {
+    font-size: 0.8125rem;
+    color: var(--aurora-green);
+    opacity: 0.9;
+}
+
+.google-review-badge-line2 a {
+    color: var(--aurora-green);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.google-review-badge-line2 a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.google-stars {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin: 0 2px;
+}
+
+[data-theme="light"] .google-review-badge-line1 a {
+    color: #1a73e8;
+}
+
+[data-theme="light"] .google-review-badge-line2 {
+    color: #5f6368;
+    opacity: 0.9;
+}
+
+[data-theme="light"] .google-review-badge-line2 a {
+    color: #1a73e8;
+}
+
 /* Footer Styles */
 footer {
     padding: 50px 0;

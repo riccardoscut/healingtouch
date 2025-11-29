@@ -40,6 +40,8 @@
   },
   "services": {
     "title": "Mis Servicios",
+    "google_review_badge": "(1)",
+    "google_business_description": "Experto en Reflexología en Barcelona",
     "signature_reflexology": {
       "title": "Signature Reflexology Massage",
       "book_button": "RESERVA TU MASAJE",
@@ -65,7 +67,8 @@
     "all_reviews_title": "Todas Las Reseñas",
     "show_all": "Mostrar Todas Las Reseñas",
     "hide_all": "Ocultar Todas Las Reseñas",
-    "share_experience": "Comparte tu experiencia"
+    "share_experience": "Comparte tu experiencia",
+    "google_maps_review": "Deja una reseña en Google Maps ⭐"
   },
   "testimonial_form": {
     "title": "Comparte Tu Experiencia",
