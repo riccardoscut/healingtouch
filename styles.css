@@ -1220,6 +1220,31 @@ header::after {
     box-shadow: 0 0 20px var(--cosmic-violet), 0 0 40px rgba(117, 90, 146, 0.3);
 }
 
+/* View All Reviews Link */
+.view-all-reviews-link {
+    display: block;
+    text-align: center;
+    margin: 10px auto 0;
+    font-size: 0.85em;
+    color: #1a73e8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-all-reviews-link:hover {
+    text-decoration: underline;
+    color: #1557b0;
+}
+
+[data-theme="light"] .view-all-reviews-link {
+    color: #1a73e8;
+}
+
+[data-theme="light"] .view-all-reviews-link:hover {
+    color: #1557b0;
+    text-decoration: underline;
+}
+
 /* Google Review Badge */
 .google-review-badge {
     display: block;
