@@ -438,37 +438,16 @@ function createServiceCard (service) {
     bookButton.setAttribute("data-i18n", "services.executive_detox.book_button");
   }
 
-  // Create Google review badge
-  const googleBadge = document.createElement("a");
-  googleBadge.href = "https://share.google/7NGZE7Wp8Jhivp1r4";
-  googleBadge.target = "_blank";
-  googleBadge.rel = "noreferrer noopener";
-  googleBadge.className = "google-review-badge";
-  
-  const badgeLine1 = document.createElement("div");
-  badgeLine1.className = "google-review-badge-line1";
-  badgeLine1.textContent = "Signature Healing Touch";
-  
-  const badgeLine2 = document.createElement("div");
-  badgeLine2.className = "google-review-badge-line2";
-  badgeLine2.innerHTML = '5.0 <span class="google-stars">⭐⭐⭐⭐⭐</span> ';
-  const badgeReviewCount = document.createElement("span");
-  badgeReviewCount.setAttribute("data-i18n", "services.google_review_badge");
-  badgeReviewCount.textContent = "(1)";
-  badgeLine2.appendChild(badgeReviewCount);
-  badgeLine2.appendChild(document.createTextNode(" · "));
-  const badgeDescription = document.createElement("span");
-  badgeDescription.className = "google-description";
-  badgeDescription.setAttribute("data-i18n", "services.google_business_description");
-  badgeDescription.textContent = "Reflexology Expert in Barcelona";
-  badgeLine2.appendChild(badgeDescription);
-  
-  googleBadge.appendChild(badgeLine1);
-  googleBadge.appendChild(badgeLine2);
+  // Create "View all reviews on Google" link
+  const viewReviewsLink = document.createElement("a");
+  viewReviewsLink.href = "#leave-review-section";
+  viewReviewsLink.className = "view-all-reviews-link";
+  viewReviewsLink.setAttribute("data-i18n", "services.view_all_reviews");
+  viewReviewsLink.textContent = "View all reviews on Google";
 
   footer.appendChild(specialOffers);
   footer.appendChild(bookButton);
-  footer.appendChild(googleBadge);
+  footer.appendChild(viewReviewsLink);
 
   body.appendChild(description);
   body.appendChild(footer);
