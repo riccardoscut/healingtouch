@@ -113,7 +113,55 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // (Removed) delayed re-initialization of testimonials toggle to avoid duplicate bindings
 
+  // Setup slow smooth scrolling for review links
+  setupSlowSmoothScroll();
+
 });
+
+// Slow smooth scroll function for anchor links
+function slowSmoothScroll(targetId, duration = 1500) {
+  const targetElement = document.querySelector(targetId);
+  if (!targetElement) return;
+
+  const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    } else {
+      window.scrollTo(0, targetPosition);
+    }
+  }
+
+  // Easing function for smooth acceleration and deceleration
+  function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+  }
+
+  requestAnimationFrame(animation);
+}
+
+// Setup event listeners for slow smooth scrolling
+function setupSlowSmoothScroll() {
+  // Handle clicks on view-all-reviews-link
+  document.addEventListener('click', function(event) {
+    const link = event.target.closest('.view-all-reviews-link');
+    if (link && link.getAttribute('href') === '#leave-review-section') {
+      event.preventDefault();
+      slowSmoothScroll('#leave-review-section', 1500); // 1.5 seconds
+    }
+  });
+}
 
 // Ensure Summer Challenge init runs even if other DOMContent handlers fail
 function scheduleSummerChallengeInit() {

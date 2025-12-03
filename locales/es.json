@@ -40,13 +40,13 @@
   },
   "services": {
     "title": "Mis Servicios",
-    "google_review_badge": "(1)",
+    "google_review_badge": "(2)",
     "google_business_description": "Experto en Reflexología en Barcelona",
     "view_all_reviews": "Ver todas las reseñas en Google",
     "signature_reflexology": {
       "title": "Signature Reflexology Massage",
       "book_button": "RESERVA TU MASAJE",
-      "description": "<p><strong>\"Este poderoso tratamiento de reflexología es para personas que viven con dolor crónico, malestar a largo plazo o condiciones diagnosticadas que buscan un enfoque terapéutico y centrado en su salud, no solo un masaje relajante.\"</strong></p><p>Primero, avanzamos a través de las <span class=\"service-highlight\">\"3 Formas de Purificación\"</span>, despertando puntos reflejos clave y meridianos en los pies para estimular las vías naturales de desintoxicación del cuerpo y fomentar una limpieza general desde dentro.</p><p>Luego, una fase de reflexología profunda e intensa trabaja directamente en puntos vinculados a tus problemas específicos, usando presión fuerte para encontrar el dolor y crear espacio para la liberación. Esta combinación única promueve una sanación profunda y una sensación de relajación arraigada, ayudando a corregir desequilibrios subyacentes y apoyar tu bienestar general.</p>",
+      "description": "<p><strong>\"Este poderoso tratamiento de reflexología es para personas que viven con dolor crónico, malestar a largo plazo o condiciones diagnosticadas que buscan un enfoque terapéutico y centrado en su salud, no solo un masaje relajante.\"</strong></p><p>Primero, avanzamos a través de las <span class=\"service-highlight\">\"3 Formas de Purificación\"</span>, despertando puntos reflejos clave y meridianos en los pies para estimular las vías naturales de desintoxicación del cuerpo y fomentar una limpieza general desde dentro.</p><p>Luego, una fase de reflexología profunda e intensa trabaja directamente en puntos vinculados a tus problemas específicos, usando la presión para encontrar el umbral del dolor y crear espacio para la liberación. Esta combinación única promueve una sanación profunda y una sensación de relajación arraigada, ayudando a corregir desequilibrios subyacentes y apoyar tu bienestar general.</p>",
       "special_offers_title": "Ofertas Especiales:",
       "cash_payment": "Pago en Efectivo (-20%):",
       "crypto_payment": "Pago en Criptomonedas (-40%):",
