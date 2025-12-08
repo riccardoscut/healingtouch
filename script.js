@@ -262,6 +262,9 @@ function applyContentToPage (data) {
         const card = createServiceCard(service);
         servicesGrid.appendChild(card);
       });
+      
+      // Create session packs section after services
+      createSessionPacksSection(data.services);
 
       // Reinitialize animations
       initServiceCardAnimations();
@@ -505,6 +508,179 @@ function createServiceCard (service) {
   card.appendChild(body);
 
   return card;
+}
+
+// Helper function to create the session packs section
+function createSessionPacksSection(services) {
+  // Check if section already exists in HTML
+  let sessionPacksSection = document.getElementById("session-packs");
+  
+  if (!sessionPacksSection) {
+    // Find services section to insert after it
+    const servicesSection = document.querySelector("#services");
+    if (!servicesSection) return;
+    
+    // Create the section structure
+    sessionPacksSection = document.createElement("section");
+    sessionPacksSection.id = "session-packs";
+    sessionPacksSection.className = "session-packs-section";
+    
+    const container = document.createElement("div");
+    container.className = "container";
+    
+    const title = document.createElement("h2");
+    title.className = "session-packs-title title-animation";
+    title.textContent = "Session Packs";
+    
+    const grid = document.createElement("div");
+    grid.className = "session-packs-grid";
+    
+    container.appendChild(title);
+    container.appendChild(grid);
+    sessionPacksSection.appendChild(container);
+    
+    // Insert after services section
+    servicesSection.parentNode.insertBefore(sessionPacksSection, servicesSection.nextSibling);
+    
+    // Add section divider if needed
+    const divider = document.createElement("div");
+    divider.className = "section-divider";
+    sessionPacksSection.parentNode.insertBefore(divider, sessionPacksSection.nextSibling);
+  }
+  
+  const grid = sessionPacksSection.querySelector(".session-packs-grid");
+  if (!grid) return;
+  
+  // Clear existing pack cards
+  grid.innerHTML = "";
+  
+  // Create pack cards for specific services
+  services.forEach(service => {
+    if (service.id === "reflexology-foot-massage-1-hour-30-min" || service.id === "executive-detox-massage-45-min") {
+      const packCard = createPackCard(service);
+      if (packCard) {
+        grid.appendChild(packCard);
+      }
+    }
+  });
+  
+  // Initialize animations for pack cards
+  setTimeout(() => {
+    document.querySelectorAll(".pack-card").forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add("visible");
+      }, 300 * index);
+    });
+  }, 100);
+}
+
+// Helper function to create a single pack card
+function createPackCard(service) {
+  const packCard = document.createElement("div");
+  packCard.className = "pack-card";
+  
+  const packHeader = document.createElement("div");
+  packHeader.className = "pack-header";
+  
+  const packTitle = document.createElement("h3");
+  packTitle.className = "pack-title";
+  
+  const packBody = document.createElement("div");
+  packBody.className = "pack-body";
+  
+  const packDescription = document.createElement("p");
+  packDescription.className = "pack-description";
+  
+  // Create special offers section
+  const specialOffers = document.createElement("div");
+  specialOffers.className = "special-offers";
+  
+  const offersTitle = document.createElement("h4");
+  offersTitle.className = "special-offers-title";
+  offersTitle.textContent = "Special Offers:";
+  
+  // Calculate prices based on pack
+  let basePrice = 0;
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    basePrice = 270;
+  } else if (service.id === "executive-detox-massage-45-min") {
+    basePrice = 135;
+  } else {
+    return null;
+  }
+  
+  const cashPrice = Math.round(basePrice * 0.8 * 100) / 100;
+  const cryptoPrice = Math.round(basePrice * 0.6 * 100) / 100;
+  
+  // Create cash offer
+  const cashOffer = document.createElement("p");
+  cashOffer.className = "offer-item";
+  
+  const cashDiscountSpan = document.createElement("span");
+  cashDiscountSpan.className = "offer-discount";
+  cashDiscountSpan.innerHTML = "Cash Payment (<span class=\"offer-discount-percentage\">-20%</span>):";
+  
+  cashOffer.appendChild(cashDiscountSpan);
+  cashOffer.appendChild(document.createTextNode(` €${basePrice.toFixed(2)} `));
+  
+  const cashPriceSpan = document.createElement("span");
+  cashPriceSpan.className = "offer-price";
+  cashPriceSpan.textContent = `€${cashPrice.toFixed(2)}`;
+  cashOffer.appendChild(cashPriceSpan);
+  
+  // Create crypto offer
+  const cryptoOffer = document.createElement("p");
+  cryptoOffer.className = "offer-item";
+  
+  const cryptoDiscountSpan = document.createElement("span");
+  cryptoDiscountSpan.className = "offer-discount";
+  cryptoDiscountSpan.innerHTML = "Crypto Payment (<span class=\"offer-discount-percentage\">-40%</span>):";
+  
+  cryptoOffer.appendChild(cryptoDiscountSpan);
+  cryptoOffer.appendChild(document.createTextNode(` €${basePrice.toFixed(2)} `));
+  
+  const cryptoPriceSpan = document.createElement("span");
+  cryptoPriceSpan.className = "offer-price";
+  cryptoPriceSpan.textContent = `€${cryptoPrice.toFixed(2)}`;
+  cryptoOffer.appendChild(cryptoPriceSpan);
+  cryptoOffer.appendChild(document.createTextNode(" "));
+  
+  const cryptoNoteSpan = document.createElement("span");
+  cryptoNoteSpan.className = "offer-crypto-payment";
+  cryptoNoteSpan.textContent = "(BTC or ADA)";
+  cryptoOffer.appendChild(cryptoNoteSpan);
+  
+  specialOffers.appendChild(offersTitle);
+  specialOffers.appendChild(cashOffer);
+  specialOffers.appendChild(cryptoOffer);
+  
+  const packButton = document.createElement("a");
+  packButton.className = "pack-button";
+  packButton.target = "_blank";
+  packButton.rel = "noopener noreferrer";
+  
+  // Set pack content based on service
+  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+    packTitle.textContent = "Signature Reflexology Pack 3+1 – 270€";
+    packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.";
+    packButton.href = "https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05";
+    packButton.textContent = "Buy 3+1 pack";
+  } else if (service.id === "executive-detox-massage-45-min") {
+    packTitle.textContent = "Executive Detox Pack 3+1 – 135€";
+    packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.";
+    packButton.href = "https://buy.stripe.com/7sY14n5Xk37L6EHehj7ok04";
+    packButton.textContent = "Buy 3+1 pack";
+  }
+  
+  packHeader.appendChild(packTitle);
+  packBody.appendChild(packDescription);
+  packBody.appendChild(specialOffers);
+  packBody.appendChild(packButton);
+  
+  packCard.appendChild(packHeader);
+  packCard.appendChild(packBody);
+  
+  return packCard;
 }
 
 function initServiceCardAnimations () {

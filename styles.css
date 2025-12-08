@@ -1220,6 +1220,244 @@ header::after {
     box-shadow: 0 0 20px var(--cosmic-violet), 0 0 40px rgba(117, 90, 146, 0.3);
 }
 
+/* Session Packs Section - Styled like Services Section */
+.session-packs-section {
+    padding-top: 70px;
+    position: relative;
+}
+
+.session-packs-title {
+    text-align: center;
+    color: var(--cosmic-violet);
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.session-packs-grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+@media (min-width: 968px) {
+    .session-packs-grid {
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        max-width: 100%;
+    }
+}
+
+.pack-card {
+    background-color: var(--section-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--header-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    box-shadow: var(--cosmic-shadow);
+    opacity: 0;
+    transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.pack-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pack-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(194, 222, 213, 0.1);
+    pointer-events: none;
+    transition: all 0.5s ease;
+    opacity: 0.5;
+}
+
+.pack-header {
+    background-color: var(--section-bg);
+    padding: 20px;
+    border-bottom: 2px solid var(--cosmic-violet);
+    position: relative;
+    overflow: hidden;
+}
+
+.pack-title {
+    color: var(--aurora-green);
+    margin: 0;
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.pack-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+}
+
+.pack-description {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+/* Special offers in pack cards */
+.pack-body .special-offers {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.pack-button {
+    display: block;
+    margin: 30px auto 10px;
+    background: transparent;
+    color: var(--lunar-gold);
+    padding: 10px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid var(--cosmic-violet);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: fit-content;
+    text-align: center;
+}
+
+.pack-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(117, 90, 146, 0.1), transparent);
+    transition: all 0.5s;
+}
+
+.pack-button:hover {
+    background: rgba(117, 90, 146, 0.1);
+    border-color: var(--aurora-green);
+    color: var(--aurora-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(117, 90, 146, 0.2);
+}
+
+.pack-button:hover::before {
+    left: 100%;
+}
+
+/* Light theme styles for session packs section */
+[data-theme="light"] .session-packs-title {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .pack-card {
+    background-color: var(--light-card);
+    border-color: var(--light-border);
+    box-shadow: var(--light-card-shadow);
+}
+
+[data-theme="light"] .pack-header {
+    background-color: var(--light-card);
+    border-bottom-color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .pack-title {
+    color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .pack-description {
+    color: var(--light-text);
+}
+
+[data-theme="light"] .pack-button {
+    color: var(--cosmic-violet);
+    border-color: var(--cosmic-violet);
+}
+
+[data-theme="light"] .pack-button:hover {
+    background: rgba(117, 90, 146, 0.1);
+    border-color: var(--cosmic-violet);
+    color: var(--dark-violet);
+    box-shadow: 0 4px 12px rgba(117, 90, 146, 0.2);
+}
+
+/* Responsive styles for session packs section */
+@media (max-width: 768px) {
+    .session-packs-section {
+        padding-top: 50px;
+    }
+    
+    .session-packs-title {
+        font-size: 2.2rem;
+    }
+    
+    .session-packs-grid {
+        gap: 30px;
+    }
+    
+    .pack-title {
+        font-size: 1.5rem;
+    }
+    
+    .pack-description {
+        font-size: 0.95rem;
+    }
+    
+    .pack-button {
+        font-size: 0.95rem;
+        padding: 8px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .session-packs-section {
+        padding-top: 40px;
+    }
+    
+    .session-packs-title {
+        font-size: 2rem;
+    }
+    
+    .pack-title {
+        font-size: 1.3rem;
+    }
+    
+    .pack-description {
+        font-size: 0.9rem;
+    }
+    
+    .pack-button {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+}
+
 /* View All Reviews Link */
 .view-all-reviews-link {
     display: block;
@@ -3320,6 +3558,10 @@ footer {
 }
 
 [data-theme="dark"] .services-title {
+    color: var(--lunar-gold) !important;
+}
+
+[data-theme="dark"] .session-packs-title {
     color: var(--lunar-gold) !important;
 }
 
