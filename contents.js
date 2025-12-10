@@ -281,4 +281,13 @@ window.testimonials = [
     "type": "Signature Reflexology Massage",
     "highlighted": false
   },
+  {
+    "text": "とても丁寧でプロフェッショナルなマッサージを施術してもらいました。足先全体を程よい強さでしっかりほぐしてくれて、まさに痛気持ちいい感覚が最高です！！とてもリラックスできるのはもちろん、施術がどのように身体に働くのか、どこに不調の可能性があるのかまで、丁寧に説明してくれました。足だけでなく身体全体が軽くなったような感覚があり、翌日は本当に気持ちよく目覚めることができました。また、歩いた歩数によって割引してくれるサービスもあったので、たくさん歩いた日のご褒美にもとてもおすすめです！！",
+    "name": "Erika",
+    "month": "December",
+    "year": "2025",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
 ];

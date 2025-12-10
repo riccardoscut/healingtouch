@@ -1305,6 +1305,15 @@ header::after {
     width: 100%;
 }
 
+.pack-price-info {
+    display: block;
+    text-align: center;
+    margin: 5px auto 0;
+    font-size: 0.85em;
+    color: #1a73e8;
+    text-decoration: none;
+}
+
 .pack-body {
     padding: 20px;
     display: flex;
@@ -1405,6 +1414,10 @@ header::after {
     border-color: var(--cosmic-violet);
     color: var(--dark-violet);
     box-shadow: 0 4px 12px rgba(117, 90, 146, 0.2);
+}
+
+[data-theme="light"] .pack-price-info {
+    color: #1a73e8;
 }
 
 /* Responsive styles for session packs section */

@@ -585,6 +585,9 @@ function createPackCard(service) {
   const packTitle = document.createElement("h3");
   packTitle.className = "pack-title";
   
+  const packPriceInfo = document.createElement("p");
+  packPriceInfo.className = "pack-price-info";
+  
   const packBody = document.createElement("div");
   packBody.className = "pack-body";
   
@@ -662,17 +665,22 @@ function createPackCard(service) {
   // Set pack content based on service
   if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     packTitle.textContent = "Signature Reflexology Pack 3+1 – 270€";
+    packPriceInfo.innerHTML = "<strong>instead of 360€</strong> – Save 90€ (25% off)";
     packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.";
     packButton.href = "https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05";
     packButton.textContent = "Buy 3+1 pack";
   } else if (service.id === "executive-detox-massage-45-min") {
     packTitle.textContent = "Executive Detox Pack 3+1 – 135€";
+    packPriceInfo.innerHTML = "<strong>instead of 180€</strong> – Save 45€ (25% off)";
     packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.";
     packButton.href = "https://buy.stripe.com/7sY14n5Xk37L6EHehj7ok04";
     packButton.textContent = "Buy 3+1 pack";
   }
   
   packHeader.appendChild(packTitle);
+  if (packPriceInfo.textContent || packPriceInfo.innerHTML) {
+    packHeader.appendChild(packPriceInfo);
+  }
   packBody.appendChild(packDescription);
   packBody.appendChild(specialOffers);
   packBody.appendChild(packButton);
