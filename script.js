@@ -565,13 +565,143 @@ function createSessionPacksSection(services) {
   });
   
   // Initialize animations for pack cards
-  setTimeout(() => {
+  initPackCardAnimations();
+}
+
+function initPackCardAnimations() {
+  // Guard for browsers without IntersectionObserver
+  if (!('IntersectionObserver' in window)) {
     document.querySelectorAll(".pack-card").forEach((card, index) => {
       setTimeout(() => {
         card.classList.add("visible");
+        triggerNeonScan(card);
       }, 300 * index);
     });
+    return;
+  }
+
+  // Use Intersection Observer to detect when pack cards come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const delay = parseInt(card.getAttribute("data-animation-delay") || "0");
+
+        setTimeout(() => {
+          card.classList.add("visible");
+          triggerNeonScan(card);
+        }, delay);
+
+        // Stop observing after animation
+        observer.unobserve(card);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  // Observe all pack cards
+  document.querySelectorAll(".pack-card").forEach((card, index) => {
+    card.setAttribute("data-animation-delay", (300 * index).toString());
+    observer.observe(card);
+  });
+}
+
+function triggerNeonScan(element) {
+  // Create a fast, fleeting neon border scan effect
+  const scanLine = document.createElement("div");
+  scanLine.classList.add("neon-border-scan");
+  
+  // Add it to the element
+  if (!element.style.position || element.style.position === "static") {
+    element.style.position = "relative";
+  }
+  if (!element.style.overflow || element.style.overflow === "visible") {
+    element.style.overflow = "visible";
+  }
+  element.appendChild(scanLine);
+
+  // Bright neon colors that will shift rapidly for sparkle effect
+  const neonColors = [
+    "rgba(194, 222, 213, 1)",   // aurora-green - bright
+    "rgba(117, 90, 146, 1)",    // cosmic-violet - bright
+    "rgba(193, 255, 114, 1)",   // lime - bright
+    "rgba(203, 108, 230, 1)",   // purple - bright
+    "rgba(228, 228, 188, 1)"    // lunar-gold - bright
+  ];
+
+  let colorIndex = 0;
+  const updateNeonColor = () => {
+    const currentColor = neonColors[colorIndex];
+    const nextColor = neonColors[(colorIndex + 1) % neonColors.length];
+    scanLine.style.borderColor = currentColor;
+    scanLine.style.boxShadow = `
+      0 0 20px ${currentColor},
+      0 0 40px ${currentColor},
+      0 0 60px ${currentColor},
+      0 0 80px ${nextColor},
+      0 0 100px ${currentColor},
+      0 0 120px ${nextColor}
+    `;
+  };
+
+  // Change colors for sparkle effect (every 100ms - slower for better visibility)
+  updateNeonColor();
+  const colorInterval = setInterval(() => {
+    colorIndex = (colorIndex + 1) % neonColors.length;
+    updateNeonColor();
   }, 100);
+
+  // Get element dimensions for border path calculation
+  const rect = element.getBoundingClientRect();
+  const width = rect.width;
+  const height = rect.height;
+  const perimeter = (width + height) * 2;
+
+  // Animate along the border perimeter
+  // Top -> Right -> Bottom -> Left
+  const animation = scanLine.animate(
+    [
+      { 
+        clipPath: "polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)",
+        opacity: 0
+      },
+      { 
+        clipPath: "polygon(0% 0%, 15% 0%, 15% 0%, 0% 0%)",
+        opacity: 1
+      },
+      { 
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 15%, 0% 15%)",
+        opacity: 1
+      },
+      { 
+        clipPath: "polygon(85% 0%, 100% 0%, 100% 100%, 85% 100%)",
+        opacity: 1
+      },
+      { 
+        clipPath: "polygon(0% 85%, 100% 85%, 100% 100%, 0% 100%)",
+        opacity: 1
+      },
+      { 
+        clipPath: "polygon(0% 0%, 0% 85%, 0% 85%, 0% 0%)",
+        opacity: 1
+      },
+      { 
+        clipPath: "polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)",
+        opacity: 0
+      }
+    ],
+    {
+      duration: 2000, // Slower - 2 seconds for better visibility
+      easing: "linear",
+      fill: "forwards"
+    }
+  );
+
+  animation.onfinish = function () {
+    clearInterval(colorInterval);
+    scanLine.remove();
+  };
 }
 
 // Helper function to create a single pack card
@@ -584,9 +714,6 @@ function createPackCard(service) {
   
   const packTitle = document.createElement("h3");
   packTitle.className = "pack-title";
-  
-  const packPriceInfo = document.createElement("p");
-  packPriceInfo.className = "pack-price-info";
   
   const packBody = document.createElement("div");
   packBody.className = "pack-body";
@@ -665,22 +792,17 @@ function createPackCard(service) {
   // Set pack content based on service
   if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     packTitle.textContent = "Signature Reflexology Pack 3+1 – 270€";
-    packPriceInfo.innerHTML = "<strong>instead of 360€</strong> – Save 90€ (25% off)";
     packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.";
     packButton.href = "https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05";
     packButton.textContent = "Buy 3+1 pack";
   } else if (service.id === "executive-detox-massage-45-min") {
     packTitle.textContent = "Executive Detox Pack 3+1 – 135€";
-    packPriceInfo.innerHTML = "<strong>instead of 180€</strong> – Save 45€ (25% off)";
     packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.";
     packButton.href = "https://buy.stripe.com/7sY14n5Xk37L6EHehj7ok04";
     packButton.textContent = "Buy 3+1 pack";
   }
   
   packHeader.appendChild(packTitle);
-  if (packPriceInfo.textContent || packPriceInfo.innerHTML) {
-    packHeader.appendChild(packPriceInfo);
-  }
   packBody.appendChild(packDescription);
   packBody.appendChild(specialOffers);
   packBody.appendChild(packButton);

@@ -290,4 +290,13 @@ window.testimonials = [
     "type": "Signature Reflexology Massage",
     "highlighted": false
   },
+  {
+    "text": "Profesional y atento. Lo recomiendo 100%",
+    "name": "Alma Infieri",
+    "month": "December",
+    "year": "2019",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
 ];
