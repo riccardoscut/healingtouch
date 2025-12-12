@@ -1342,14 +1342,15 @@ header::after {
 .pack-price-info {
     display: block;
     text-align: center;
-    margin: 0 auto 20px;
-    font-size: 0.85em;
-    color: #1a73e8 !important;
+    margin: 8px auto 0;
+    font-size: 0.95em;
+    color: var(--aurora-green);
     text-decoration: none;
     font-weight: 500;
     position: relative;
     z-index: 2;
-    padding: 5px 0;
+    padding: 0;
+    line-height: 1.4;
 }
 
 .pack-body {
@@ -1363,7 +1364,7 @@ header::after {
     color: var(--text-color);
     font-size: 1rem;
     line-height: 1.6;
-    margin: 0 0 20px 0;
+    margin: 0 0 30px 0;
     text-align: center;
 }
 
