@@ -730,20 +730,24 @@ function createPackCard(service) {
   
   const offersTitle = document.createElement("h4");
   offersTitle.className = "special-offers-title";
-  offersTitle.textContent = "Special Offers:";
+  
+  // Detect current language for title
+  const currentLang = document.documentElement.lang || 'en';
+  const isSpanish = currentLang === 'es' || window.location.pathname.includes('/es/');
+  offersTitle.textContent = isSpanish ? "Ofertas Especiales:" : "Special Offers:";
   
   // Calculate prices based on pack
   let basePrice = 0;
   if (service.id === "reflexology-foot-massage-1-hour-30-min") {
-    basePrice = 270;
+    basePrice = 360;
   } else if (service.id === "executive-detox-massage-45-min") {
-    basePrice = 135;
+    basePrice = 180;
   } else {
     return null;
   }
   
-  const cashPrice = Math.round(basePrice * 0.8 * 100) / 100;
-  const cryptoPrice = Math.round(basePrice * 0.6 * 100) / 100;
+  const cashPrice = Math.round(basePrice * 0.6 * 100) / 100; // 40% discount
+  const cryptoPrice = Math.round(basePrice * 0.45 * 100) / 100; // 55% discount
   
   // Create cash offer
   const cashOffer = document.createElement("p");
@@ -751,10 +755,16 @@ function createPackCard(service) {
   
   const cashDiscountSpan = document.createElement("span");
   cashDiscountSpan.className = "offer-discount";
-  cashDiscountSpan.innerHTML = "Cash Payment (<span class=\"offer-discount-percentage\">-20%</span>):";
+  cashDiscountSpan.innerHTML = "Cash Payment (<span class=\"offer-discount-percentage\">-40%</span>):";
+  
+  const originalPriceSpan = document.createElement("span");
+  originalPriceSpan.className = "original-price";
+  originalPriceSpan.textContent = `€${basePrice.toFixed(2)}`;
   
   cashOffer.appendChild(cashDiscountSpan);
-  cashOffer.appendChild(document.createTextNode(` €${basePrice.toFixed(2)} `));
+  cashOffer.appendChild(document.createTextNode(" "));
+  cashOffer.appendChild(originalPriceSpan);
+  cashOffer.appendChild(document.createTextNode(" "));
   
   const cashPriceSpan = document.createElement("span");
   cashPriceSpan.className = "offer-price";
@@ -767,10 +777,16 @@ function createPackCard(service) {
   
   const cryptoDiscountSpan = document.createElement("span");
   cryptoDiscountSpan.className = "offer-discount";
-  cryptoDiscountSpan.innerHTML = "Crypto Payment (<span class=\"offer-discount-percentage\">-40%</span>):";
+  cryptoDiscountSpan.innerHTML = "Crypto Payment (<span class=\"offer-discount-percentage\">-55%</span>):";
+  
+  const cryptoOriginalPriceSpan = document.createElement("span");
+  cryptoOriginalPriceSpan.className = "original-price";
+  cryptoOriginalPriceSpan.textContent = `€${basePrice.toFixed(2)}`;
   
   cryptoOffer.appendChild(cryptoDiscountSpan);
-  cryptoOffer.appendChild(document.createTextNode(` €${basePrice.toFixed(2)} `));
+  cryptoOffer.appendChild(document.createTextNode(" "));
+  cryptoOffer.appendChild(cryptoOriginalPriceSpan);
+  cryptoOffer.appendChild(document.createTextNode(" "));
   
   const cryptoPriceSpan = document.createElement("span");
   cryptoPriceSpan.className = "offer-price";
@@ -796,15 +812,23 @@ function createPackCard(service) {
   if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     packTitle.textContent = "Signature Reflexology Pack 3+1";
     packPriceInfo.textContent = "Only 270€ instead of 360€";
-    packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.<br><br>Choose one of our Special payment offers.";
+    if (isSpanish) {
+      packDescription.innerHTML = "4 sesiones de reflexología por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para una sanación más profunda, equilibrio y bienestar a largo plazo.<br><br>Y además, aprovecha nuestros descuentos especiales en el pago.";
+    } else {
+      packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.<br><br>And on top of that, take advantage of our special payment discounts.";
+    }
     packButton.href = "https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05";
-    packButton.textContent = "Buy 3+1 pack";
+    packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
   } else if (service.id === "executive-detox-massage-45-min") {
     packTitle.textContent = "Executive Detox Pack 3+1";
     packPriceInfo.textContent = "Only 135€ instead of 180€";
-    packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.<br><br>Choose one of our Special payment offers.";
+    if (isSpanish) {
+      packDescription.innerHTML = "4 sesiones de Executive Detox por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para alivio regular del estrés, recuperación muscular y mantener tu rutina de bienestar.<br><br>Y además, aprovecha nuestros descuentos especiales en el pago.";
+    } else {
+      packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.<br><br>And on top of that, take advantage of our special payment discounts.";
+    }
     packButton.href = "https://buy.stripe.com/7sY14n5Xk37L6EHehj7ok04";
-    packButton.textContent = "Buy 3+1 pack";
+    packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
   }
   
   packHeader.appendChild(packTitle);
