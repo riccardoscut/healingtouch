@@ -365,7 +365,7 @@ function createServiceCard (service) {
     const normalizedTitle = (service.title || "").toLowerCase();
     if (normalizedTitle.includes("signature reflexology")) {
       price.classList.add("has-promo");
-      price.innerHTML = '<span class="price-label">Promo</span><span class="price-old">90€</span><span class="price-new">60€</span>';
+      price.innerHTML = '<span class="price-label">Promo</span><span class="price-old">90€</span><span class="price-new">70€</span>';
     }
   } catch (e) {
     // eslint-disable-next-line no-console
