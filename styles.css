@@ -1369,7 +1369,11 @@ header::after {
 }
 
 /* Special offers in pack cards */
-.pack-body .special-offers {
+.pack-body .special-offers,
+.pack-card .special-offers,
+[data-theme="light"] .pack-body .special-offers,
+[data-theme="light"] .pack-card .special-offers {
+    display: none !important; /* Hide special offer boxes in 3+1 session packs */
     margin-top: 0;
     margin-bottom: 20px;
 }

@@ -813,9 +813,9 @@ function createPackCard(service) {
     packTitle.textContent = "Signature Reflexology Pack 3+1";
     packPriceInfo.textContent = "Only 270€ instead of 360€";
     if (isSpanish) {
-      packDescription.innerHTML = "4 sesiones de reflexología por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para una sanación más profunda, equilibrio y bienestar a largo plazo.<br><br>Y además, aprovecha nuestros descuentos especiales en el pago.";
+      packDescription.innerHTML = "4 sesiones de reflexología por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para una sanación más profunda, equilibrio y bienestar a largo plazo.";
     } else {
-      packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.<br><br>And on top of that, take advantage of our special payment discounts.";
+      packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.";
     }
     packButton.href = "https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05";
     packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
@@ -823,9 +823,9 @@ function createPackCard(service) {
     packTitle.textContent = "Executive Detox Pack 3+1";
     packPriceInfo.textContent = "Only 135€ instead of 180€";
     if (isSpanish) {
-      packDescription.innerHTML = "4 sesiones de Executive Detox por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para alivio regular del estrés, recuperación muscular y mantener tu rutina de bienestar.<br><br>Y además, aprovecha nuestros descuentos especiales en el pago.";
+      packDescription.innerHTML = "4 sesiones de Executive Detox por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para alivio regular del estrés, recuperación muscular y mantener tu rutina de bienestar.";
     } else {
-      packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.<br><br>And on top of that, take advantage of our special payment discounts.";
+      packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.";
     }
     packButton.href = "https://buy.stripe.com/7sY14n5Xk37L6EHehj7ok04";
     packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
@@ -834,7 +834,7 @@ function createPackCard(service) {
   packHeader.appendChild(packTitle);
   packHeader.appendChild(packPriceInfo);
   packBody.appendChild(packDescription);
-  packBody.appendChild(specialOffers);
+  // packBody.appendChild(specialOffers); // Hidden: special offers not shown for 3+1 packs
   packBody.appendChild(packButton);
   
   packCard.appendChild(packHeader);
