@@ -70,6 +70,29 @@ if (typeof window.trackPixel !== 'function') {
 
 // ===== META PIXEL HELPER FUNCTIONS END =====
 
+// ===== SMALL DOM HELPER FUNCTIONS =====
+// These helpers make DOM lookups and text updates safe across pages where
+// some elements may not be present (e.g. pages without a footer year element).
+function qs(selector, root = document) {
+  return root.querySelector(selector);
+}
+
+function qsa(selector, root = document) {
+  return Array.from(root.querySelectorAll(selector));
+}
+
+/**
+ * Safely set textContent on an element selected by CSS selector or passed directly.
+ * This avoids runtime errors like "Cannot set properties of null (setting 'textContent')"
+ * when optional elements are missing on certain pages (as seen in Lighthouse).
+ */
+function setText(target, value) {
+  const el = typeof target === "string" ? qs(target) : target;
+  if (!el) return;
+  el.textContent = value != null ? String(value) : "";
+}
+// ===== SMALL DOM HELPER FUNCTIONS END =====
+
 // (Removed) Global form submission interceptor that blocked testimonial form behavior
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -87,9 +110,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
   
-  // Set current year in footer
-  // @ts-ignore
-  document.getElementById("current-year").textContent = new Date().getFullYear().toString();
+  // Set current year in footer (element is optional on some pages, so guard via helper)
+  // Lighthouse fix: avoid "Cannot set properties of null (setting 'textContent')" when #current-year is missing.
+  setText("#current-year", new Date().getFullYear().toString());
 
   // Initialize service card animations with slight delay
   document.querySelectorAll(".service-card").forEach((card, index) => {

@@ -66,13 +66,13 @@
     <link rel="preload" href="/logo.png" as="image" type="image/png">
 
     <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@12.0.3/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="/styles.css?v=footer-quote-green2">
 
     <!-- i18n Scripts -->
-    <script src="/i18n.js"></script>
-    <script src="/language-switcher.js"></script>
+    <script src="/i18n.js" defer></script>
+    <script src="/language-switcher.js" defer></script>
 
     <!--
     QA CHECKLIST FOR INDEX.HTML META PIXEL INTEGRATION:
@@ -252,8 +252,8 @@
     <header>
         <div class="container">
             <div class="logo-container">
-                <!-- Logo image for Signature Healing Touch -->
-                <img src="/logo_white_500x500.png?v=3" alt="" class="logo-img" width="300" height="300" style="display: block; margin: 0 auto; max-width: 300px;" data-i18n-attr="alt:header.logo_alt">
+            <!-- Logo image for Signature Healing Touch -->
+            <img src="/logo_white_500x500.png?v=3" alt="" class="logo-img" width="300" height="300" style="display: block; margin: 0 auto; max-width: 300px;" fetchpriority="high" loading="eager" data-i18n-attr="alt:header.logo_alt">
             </div>
             <!-- Add the text logo below the rotating logo -->
             <div class="logo-text-img" style="text-align: center; margin-top: 10px;">
@@ -312,9 +312,10 @@
                 
                 <div class="discount-pills">
                     <div class="discount-rules">
-                        <h4 class="discount-rules-title" style="color: #D4AF37;" data-i18n="modal.discount_rules_title">
+                        <!-- Changed from h4 to h3 to preserve a valid heading hierarchy under the modal h2 title (Lighthouse heading-order fix). -->
+                        <h3 class="discount-rules-title" style="color: #D4AF37;" data-i18n="modal.discount_rules_title">
                             Discount rules:
-                        </h4>
+                        </h3>
                         
                         <div data-i18n-html="modal.discount_rules">
                             <p class="discount-rules-text" style="color: #F4E4BC;">
