@@ -16,6 +16,14 @@ window.siteContent = {
   "services": [
     {
       // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
+      "id": "balance-reflexology-massage-60-min-60",
+      "title": "Balance Reflexology Massage",
+      "duration": "60 min",
+      "price": 60,
+      "description": "<p><strong>\"A restorative reflexology experience designed to calm the nervous system, center the mind, and reconnect you to your natural state of balance.\"</strong></p><p>The session begins with mindful pressure along the key reflex zones of the feet, harmonizing the flow of energy through the body’s main meridians. As tension melts away, gentle yet precise reflexology techniques help release energetic blockages and support internal stability.</p><p>Warm oils and grounding touch cultivate deep presence, helping you feel centered, lighter, and rebalanced from within. Ideal for those seeking renewal, emotional clarity, and a deep sense of calm after periods of stress or imbalance.</p>"
+    },
+    {
+      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
       "id": "reflexology-foot-massage-1-hour-30-min",
       "title": "Signature Reflexology Massage",
       "duration": "1 hour 30 min",

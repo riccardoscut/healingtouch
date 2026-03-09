@@ -876,6 +876,15 @@ header::after {
     }
 }
 
+@media (min-width: 1200px) {
+    .services-grid {
+        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        max-width: 100%;
+    }
+}
+
 .service-card {
     background-color: var(--section-bg);
     border-radius: 10px;
@@ -1080,6 +1089,29 @@ header::after {
 .service-footer {
     padding: 0;
     margin: 0 20px;
+}
+
+.service-payment-details {
+    margin: 15px 20px 0;
+    padding: 15px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--header-border);
+    background-color: rgba(0, 0, 0, 0.35);
+    font-size: 0.95rem;
+}
+
+.service-payment-details p {
+    margin-bottom: 0.6rem;
+}
+
+.service-payment-details a {
+    color: var(--aurora-green);
+    text-decoration: underline;
+}
+
+[data-theme="light"] .service-payment-details {
+    background-color: #FFFDEB;
+    border-color: var(--light-border);
 }
 
 .special-offers {

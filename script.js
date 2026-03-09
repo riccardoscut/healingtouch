@@ -335,6 +335,9 @@ function applyContentToPage (data) {
 
   // Initialize Cal.com buttons after content update
   setTimeout(initCalButtons, 500);
+  
+  // Fix Stripe payment links to ensure they open correctly
+  setTimeout(fixStripeLinks, 1000);
 
   // If testimonials are also part of the main data object, load them
   // @ts-ignore
@@ -414,6 +417,7 @@ function createServiceCard (service) {
   // Set fallback content (will be replaced by i18n system)
   // @ts-ignore
   description.innerHTML = service.description;
+  body.appendChild(description);
 
   // Create service footer with special offers
   const footer = document.createElement("div");
@@ -523,7 +527,6 @@ function createServiceCard (service) {
   footer.appendChild(bookButton);
   footer.appendChild(viewReviewsLink);
 
-  body.appendChild(description);
   body.appendChild(footer);
 
   // Assemble the card
@@ -937,9 +940,117 @@ function triggerGoldScan (element) {
   };
 }
 
+/**
+ * Fix Stripe payment links to ensure they work correctly
+ * This function ensures all Stripe payment links have proper attributes
+ * and handles links inside Cal.com iframes/popups
+ */
+function fixStripeLinks() {
+  // Find all links containing buy.stripe.com
+  const stripeLinkPattern = /buy\.stripe\.com/i;
+  
+  function fixLink(link) {
+    if (stripeLinkPattern.test(link.href)) {
+      // Ensure link opens in new tab
+      link.target = '_blank';
+      link.rel = link.rel ? link.rel + ' noopener noreferrer' : 'noopener noreferrer';
+      
+      // Ensure noopener and noreferrer are present
+      if (!link.rel.includes('noopener')) {
+        link.rel += ' noopener';
+      }
+      if (!link.rel.includes('noreferrer')) {
+        link.rel += ' noreferrer';
+      }
+      
+      // Remove any trailing spaces from rel
+      link.rel = link.rel.trim().replace(/\s+/g, ' ');
+    }
+  }
+  
+  // Fix existing links in service descriptions and elsewhere
+  document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+  
+  // Use MutationObserver to watch for dynamically added links (e.g., from Cal.com)
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) { // Element node
+          // Check if the added node is a link
+          if (node.tagName === 'A' && stripeLinkPattern.test(node.href)) {
+            fixLink(node);
+          }
+          // Check for links inside the added node
+          const links = node.querySelectorAll ? node.querySelectorAll('a[href*="buy.stripe.com"]') : [];
+          links.forEach(fixLink);
+        }
+      });
+    });
+  });
+  
+  // Observe the entire document for changes
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+  // Also fix links after a delay to catch Cal.com loaded content
+  setTimeout(() => {
+    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+    
+    // Try to access Cal.com iframe if it exists
+    try {
+      const calIframes = document.querySelectorAll('iframe[src*="cal.com"], iframe[src*="calendly"], iframe[id*="cal"]');
+      calIframes.forEach((iframe) => {
+        try {
+          // Note: Cross-origin restrictions may prevent accessing iframe content
+          // But we can at least try
+          if (iframe.contentDocument || iframe.contentWindow) {
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            if (iframeDoc) {
+              iframeDoc.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+            }
+          }
+        } catch (e) {
+          // Cross-origin access denied - this is expected for Cal.com iframes
+          // The links should still work if they have proper target attributes
+          console.log('Cannot access Cal.com iframe content (cross-origin restriction - this is normal)');
+        }
+      });
+    } catch (e) {
+      console.warn('Error accessing iframes:', e);
+    }
+  }, 2000);
+  
+  // Fix links again after Cal.com modal/popup opens (if any)
+  // Listen for Cal.com events or DOM changes that might indicate modal opening
+  const checkInterval = setInterval(() => {
+    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+  }, 3000);
+  
+  // Stop checking after 60 seconds to avoid performance issues
+  setTimeout(() => {
+    clearInterval(checkInterval);
+  }, 60000);
+  
+  // Add global click handler for Stripe links as a fallback
+  // This ensures links open correctly even if target attribute is missing
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (link && stripeLinkPattern.test(link.href)) {
+      // If link doesn't have target="_blank", open in new window
+      if (link.target !== '_blank') {
+        e.preventDefault();
+        window.open(link.href, '_blank', 'noopener,noreferrer');
+      }
+    }
+  }, true); // Use capture phase to catch events early
+}
+
 // Initialize Cal.com booking buttons
 function initCalButtons () {
   const ids = [
+    "balance-reflexology-massage-60-min-60",
     "executive-detox-massage-45-min",
     "reflexology-foot-massage-1-hour-30-min"
   ];
