@@ -580,13 +580,22 @@ function createSessionPacksSection(services) {
   // Clear existing pack cards
   grid.innerHTML = "";
   
-  // Create pack cards for specific services
-  services.forEach(service => {
-    if (service.id === "reflexology-foot-massage-1-hour-30-min" || service.id === "executive-detox-massage-45-min") {
-      const packCard = createPackCard(service);
-      if (packCard) {
-        grid.appendChild(packCard);
-      }
+  // Create pack cards for specific services in a defined order:
+  // 1) Signature Reflexology (1h30)
+  // 2) Balance Reflexology (60 min)
+  // 3) Executive Detox (45 min)
+  const packOrder = [
+    "reflexology-foot-massage-1-hour-30-min",
+    "balance-reflexology-massage-60-min-60",
+    "executive-detox-massage-45-min"
+  ];
+
+  packOrder.forEach(serviceId => {
+    const service = services.find(s => s.id === serviceId);
+    if (!service) return;
+    const packCard = createPackCard(service);
+    if (packCard) {
+      grid.appendChild(packCard);
     }
   });
   
@@ -766,6 +775,8 @@ function createPackCard(service) {
   let basePrice = 0;
   if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     basePrice = 360;
+  } else if (service.id === "balance-reflexology-massage-60-min-60") {
+    basePrice = 240;
   } else if (service.id === "executive-detox-massage-45-min") {
     basePrice = 180;
   } else {
@@ -837,17 +848,27 @@ function createPackCard(service) {
   // Set pack content based on service
   if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     packTitle.textContent = "Signature Reflexology Pack 3+1";
-    packPriceInfo.textContent = "Only 270€ instead of 360€";
+    packPriceInfo.innerHTML = 'Only <span class="pack-final-price">270€</span> instead of 360€';
     if (isSpanish) {
-      packDescription.innerHTML = "4 sesiones de reflexología por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para una sanación más profunda, equilibrio y bienestar a largo plazo.";
+      packDescription.innerHTML = "4 sesiones de reflexología por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para una sanación más profunda, aliviar el dolor crónico y un bienestar duradero.";
     } else {
-      packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, balance, and long-term well-being.";
+      packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, targeting chronic pain, and long-term well-being.";
     }
     packButton.href = "https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05";
     packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
+  } else if (service.id === "balance-reflexology-massage-60-min-60") {
+    packTitle.textContent = "Balance Reflexology Pack 3+1";
+    packPriceInfo.innerHTML = 'Only <span class="pack-final-price">180€</span> instead of 240€';
+    if (isSpanish) {
+      packDescription.innerHTML = "4 sesiones de Balance Reflexology por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para un reinicio profundo del sistema nervioso, equilibrio continuo y bienestar sostenido.";
+    } else {
+      packDescription.innerHTML = "4 Balance Reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deep nervous system reset, ongoing balance, and sustained well‑being.";
+    }
+    packButton.href = "https://buy.stripe.com/9B69ATbhEaAd6EHehj7ok08";
+    packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
   } else if (service.id === "executive-detox-massage-45-min") {
     packTitle.textContent = "Executive Detox Pack 3+1";
-    packPriceInfo.textContent = "Only 135€ instead of 180€";
+    packPriceInfo.innerHTML = 'Only <span class="pack-final-price">135€</span> instead of 180€';
     if (isSpanish) {
       packDescription.innerHTML = "4 sesiones de Executive Detox por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para alivio regular del estrés, recuperación muscular y mantener tu rutina de bienestar.";
     } else {

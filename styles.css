@@ -1285,6 +1285,15 @@ header::after {
     }
 }
 
+@media (min-width: 1200px) {
+    .session-packs-grid {
+        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        max-width: 100%;
+    }
+}
+
 .pack-card {
     background-color: var(--section-bg);
     border-radius: 10px;
@@ -1408,6 +1417,13 @@ header::after {
     display: none !important; /* Hide special offer boxes in 3+1 session packs */
     margin-top: 0;
     margin-bottom: 20px;
+}
+
+/* Highlight final pack price (amount to pay) */
+.session-packs-section .offer-price,
+.session-packs-section .pack-final-price {
+    color: #ff4d4f;
+    font-weight: 700;
 }
 
 .pack-button {
