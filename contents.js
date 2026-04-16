@@ -20,7 +20,7 @@ window.siteContent = {
       "title": "Balance Reflexology Massage",
       "duration": "60 min",
       "price": 60,
-      "description": "<p><strong>\"Una experiencia restauradora de reflexología diseñada para calmar el sistema nervioso, centrar la mente y reconectarte con tu estado natural de equilibrio.\"</strong></p><p>La sesión comienza con una presión consciente sobre las principales zonas reflejas de los pies, armonizando el flujo de energía a través de los meridianos principales del cuerpo. A medida que la tensión se disuelve, técnicas de reflexología suaves pero precisas ayudan a liberar bloqueos energéticos y a sostener la estabilidad interna.</p><p>Los aceites cálidos y un contacto enraizante cultivan una presencia profunda, ayudándote a sentirte centrado, más ligero y reequilibrado desde dentro. Ideal para quienes buscan renovación, claridad emocional y una profunda sensación de calma tras periodos de estrés o desequilibrio.</p>"
+      "description": "<p><strong>\"Una experiencia restauradora de reflexología diseñada para calmar el sistema nervioso, centrar la mente y reconectarte con tu estado natural de equilibrio.\"</strong></p><p>La sesión comienza con una presión consciente sobre las principales zonas reflejas de los pies, armonizando el flujo de energía a través de los meridianos principales del cuerpo. A medida que la tensión se disuelve, técnicas de reflexología precisas ayudan a liberar bloqueos energéticos y a sostener la estabilidad interna.</p><p>Los aceites y un contacto enraizante cultivan una presencia profunda, ayudándote a sentirte centrado, más ligero y reequilibrado desde dentro. Ideal para quienes buscan renovación, claridad emocional y una profunda sensación de calma tras periodos de estrés o desequilibrio.</p>"
     },
     {
       // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
@@ -294,6 +294,15 @@ window.testimonials = [
     "name": "Erika",
     "month": "December",
     "year": "2025",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
+    "text": "Mi primera experiencia de reflexología con Riccardo ha sido excelente de principio a fin. Desde el primer momento, la gestión de la cita fue fluida y muy bien organizada, lo que ya generó una muy buena impresión.\n\nDurante la sesión, Riccardo fue muy atento y profesional. Fue explicando paso a paso todo lo que iba realizando, lo que me hizo sentir cómodo y en confianza en todo momento. Se nota claramente la pasión que tiene por su trabajo, y eso se refleja en la calidad de la experiencia.\n\nEn general, ha sido una experiencia muy positiva y relajante. Sin duda repetiré. Recomiendo esta experiencia a todo el mundo que busque un momento de conexión consigo mismo.",
+    "name": "Alejo",
+    "month": "April",
+    "year": "2026",
     "rating": 5,
     "type": "Signature Reflexology Massage",
     "highlighted": false
