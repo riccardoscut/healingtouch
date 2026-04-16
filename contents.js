@@ -71,7 +71,7 @@ window.testimonials = [
     "year": "2024",
     "rating": 5,
     "type": "Signature Reflexology Massage",
-    "highlighted": true
+    "highlighted": false
   },
   {
     "text": "It was my first foot massage: a unique sensation, truly a special treat for both body and mind. Riccardo, with his great professionalism and exquisite technique, gave me a moment of well-being and relief. Thank you, I will definitely repeat.",
@@ -305,7 +305,7 @@ window.testimonials = [
     "year": "2026",
     "rating": 5,
     "type": "Signature Reflexology Massage",
-    "highlighted": false
+    "highlighted": true
   },
   {
     "text": "Profesional y atento. Lo recomiendo 100%",
