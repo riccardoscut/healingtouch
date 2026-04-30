@@ -43,6 +43,15 @@
     "google_review_badge": "(8)",
   "google_business_description": "Reflexology Expert in Barcelona",
     "view_all_reviews": "View all reviews on Google",
+    "balance_reflexology": {
+      "title": "Balance Reflexology Massage",
+      "book_button": "BOOK YOUR MASSAGE",
+      "description": "<p><strong>\"A restorative reflexology experience designed to calm the nervous system, center the mind, and reconnect you with your natural state of balance.\"</strong></p><p>The session begins with conscious pressure on key foot reflex zones, helping to harmonize energy flow through the body's main meridians. As tension softens, precise reflexology techniques support the release of energetic blockages and reinforce internal stability.</p><p>Natural oils and grounding touch encourage deep presence, helping you feel centered, lighter, and rebalanced from within. Ideal for anyone seeking renewal, emotional clarity, and a profound sense of calm after periods of stress or imbalance.</p>",
+      "special_offers_title": "Special Offers:",
+      "cash_payment": "Cash Payment (-20%):",
+      "crypto_payment": "Crypto Payment (-40%):",
+      "crypto_note": "(BTC or ADA)"
+    },
     "signature_reflexology": {
       "title": "Signature Reflexology Massage",
       "book_button": "BOOK YOUR MASSAGE",

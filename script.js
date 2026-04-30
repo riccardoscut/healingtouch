@@ -371,7 +371,9 @@ function createServiceCard (service) {
   title.textContent = service.title;
   
   // Add i18n data attribute for dynamic updates
-  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+  if (service.id === "balance-reflexology-massage-60-min-60") {
+    title.setAttribute("data-i18n", "services.balance_reflexology.title");
+  } else if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     title.setAttribute("data-i18n", "services.signature_reflexology.title");
   } else if (service.id === "executive-detox-massage-45-min") {
     title.setAttribute("data-i18n", "services.executive_detox.title");
@@ -408,7 +410,9 @@ function createServiceCard (service) {
   description.className = "service-description";
   
   // Add i18n data attribute for dynamic updates
-  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+  if (service.id === "balance-reflexology-massage-60-min-60") {
+    description.setAttribute("data-i18n-html", "services.balance_reflexology.description");
+  } else if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     description.setAttribute("data-i18n-html", "services.signature_reflexology.description");
   } else if (service.id === "executive-detox-massage-45-min") {
     description.setAttribute("data-i18n-html", "services.executive_detox.description");
@@ -431,7 +435,9 @@ function createServiceCard (service) {
   offersTitle.textContent = "Special Offers:";
   
   // Add i18n data attribute for dynamic updates
-  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+  if (service.id === "balance-reflexology-massage-60-min-60") {
+    offersTitle.setAttribute("data-i18n", "services.balance_reflexology.special_offers_title");
+  } else if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     offersTitle.setAttribute("data-i18n", "services.signature_reflexology.special_offers_title");
   } else if (service.id === "executive-detox-massage-45-min") {
     offersTitle.setAttribute("data-i18n", "services.executive_detox.special_offers_title");
@@ -449,7 +455,9 @@ function createServiceCard (service) {
   cashDiscountSpan.textContent = "Cash Payment (-20%):";
   
   // Add i18n data attribute for dynamic updates
-  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+  if (service.id === "balance-reflexology-massage-60-min-60") {
+    cashDiscountSpan.setAttribute("data-i18n", "services.balance_reflexology.cash_payment");
+  } else if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     cashDiscountSpan.setAttribute("data-i18n", "services.signature_reflexology.cash_payment");
   } else if (service.id === "executive-detox-massage-45-min") {
     cashDiscountSpan.setAttribute("data-i18n", "services.executive_detox.cash_payment");
@@ -471,7 +479,9 @@ function createServiceCard (service) {
   cryptoDiscountSpan.textContent = "Crypto Payment (-40%):";
   
   // Add i18n data attribute for dynamic updates
-  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+  if (service.id === "balance-reflexology-massage-60-min-60") {
+    cryptoDiscountSpan.setAttribute("data-i18n", "services.balance_reflexology.crypto_payment");
+  } else if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     cryptoDiscountSpan.setAttribute("data-i18n", "services.signature_reflexology.crypto_payment");
   } else if (service.id === "executive-detox-massage-45-min") {
     cryptoDiscountSpan.setAttribute("data-i18n", "services.executive_detox.crypto_payment");
@@ -491,7 +501,9 @@ function createServiceCard (service) {
   cryptoNoteSpan.textContent = "(BTC or ADA)";
   
   // Add i18n data attribute for dynamic updates
-  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+  if (service.id === "balance-reflexology-massage-60-min-60") {
+    cryptoNoteSpan.setAttribute("data-i18n", "services.balance_reflexology.crypto_note");
+  } else if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     cryptoNoteSpan.setAttribute("data-i18n", "services.signature_reflexology.crypto_note");
   } else if (service.id === "executive-detox-massage-45-min") {
     cryptoNoteSpan.setAttribute("data-i18n", "services.executive_detox.crypto_note");
@@ -510,7 +522,9 @@ function createServiceCard (service) {
   bookButton.textContent = "BOOK YOUR MASSAGE";
   
   // Add i18n data attribute for dynamic updates
-  if (service.id === "reflexology-foot-massage-1-hour-30-min") {
+  if (service.id === "balance-reflexology-massage-60-min-60") {
+    bookButton.setAttribute("data-i18n", "services.balance_reflexology.book_button");
+  } else if (service.id === "reflexology-foot-massage-1-hour-30-min") {
     bookButton.setAttribute("data-i18n", "services.signature_reflexology.book_button");
   } else if (service.id === "executive-detox-massage-45-min") {
     bookButton.setAttribute("data-i18n", "services.executive_detox.book_button");
