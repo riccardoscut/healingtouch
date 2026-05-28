@@ -280,10 +280,50 @@ function applyContentToPage (data) {
     if (servicesGrid) {
       servicesGrid.innerHTML = ""; // Clear existing services
 
-      // Create and append service cards
+      const categoryOrder = [
+        "Reflexology Essentials",
+        "Sport Specific Protocol",
+        "Signature Ritual Experience"
+      ];
+      const categoryI18nMap = {
+        "Reflexology Essentials": "services.categories.reflexology_essentials",
+        "Sport Specific Protocol": "services.categories.sport_specific_protocol",
+        "Signature Ritual Experience": "services.categories.signature_ritual_experience"
+      };
+
+      const groupedServices = new Map();
+
       data.services.forEach(service => {
-        const card = createServiceCard(service);
-        servicesGrid.appendChild(card);
+        const category = service.category || "Reflexology Essentials";
+        if (!groupedServices.has(category)) {
+          groupedServices.set(category, []);
+        }
+        groupedServices.get(category).push(service);
+      });
+
+      const sortedCategories = Array.from(groupedServices.keys()).sort((a, b) => {
+        const indexA = categoryOrder.indexOf(a);
+        const indexB = categoryOrder.indexOf(b);
+        const rankA = indexA === -1 ? Number.MAX_SAFE_INTEGER : indexA;
+        const rankB = indexB === -1 ? Number.MAX_SAFE_INTEGER : indexB;
+        if (rankA !== rankB) return rankA - rankB;
+        return a.localeCompare(b);
+      });
+
+      sortedCategories.forEach(category => {
+        const categoryTitle = document.createElement("h3");
+        categoryTitle.className = "session-packs-title title-animation";
+        categoryTitle.style.gridColumn = "1 / -1";
+        categoryTitle.style.flexBasis = "100%";
+        categoryTitle.style.width = "100%";
+        const categoryKey = categoryI18nMap[category];
+        categoryTitle.textContent = (window.i18n && categoryKey) ? window.i18n.t(categoryKey) : category;
+        servicesGrid.appendChild(categoryTitle);
+
+        groupedServices.get(category).forEach(service => {
+          const card = createServiceCard(service);
+          servicesGrid.appendChild(card);
+        });
       });
       
       // Create session packs section after services
@@ -377,6 +417,10 @@ function createServiceCard (service) {
     title.setAttribute("data-i18n", "services.signature_reflexology.title");
   } else if (service.id === "executive-detox-massage-45-min") {
     title.setAttribute("data-i18n", "services.executive_detox.title");
+  } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
+    title.setAttribute("data-i18n", "services.athlete_recovery.title");
+  } else if (service.id === "signature-full-body-ritual-experience-120-min") {
+    title.setAttribute("data-i18n", "services.signature_full_body_ritual.title");
   }
 
   const duration = document.createElement("p");
@@ -416,6 +460,10 @@ function createServiceCard (service) {
     description.setAttribute("data-i18n-html", "services.signature_reflexology.description");
   } else if (service.id === "executive-detox-massage-45-min") {
     description.setAttribute("data-i18n-html", "services.executive_detox.description");
+  } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
+    description.setAttribute("data-i18n-html", "services.athlete_recovery.description");
+  } else if (service.id === "signature-full-body-ritual-experience-120-min") {
+    description.setAttribute("data-i18n-html", "services.signature_full_body_ritual.description");
   }
   
   // Set fallback content (will be replaced by i18n system)
@@ -441,6 +489,10 @@ function createServiceCard (service) {
     offersTitle.setAttribute("data-i18n", "services.signature_reflexology.special_offers_title");
   } else if (service.id === "executive-detox-massage-45-min") {
     offersTitle.setAttribute("data-i18n", "services.executive_detox.special_offers_title");
+  } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
+    offersTitle.setAttribute("data-i18n", "services.athlete_recovery.special_offers_title");
+  } else if (service.id === "signature-full-body-ritual-experience-120-min") {
+    offersTitle.setAttribute("data-i18n", "services.signature_full_body_ritual.special_offers_title");
   }
 
   // Calculate special offers
@@ -461,6 +513,10 @@ function createServiceCard (service) {
     cashDiscountSpan.setAttribute("data-i18n", "services.signature_reflexology.cash_payment");
   } else if (service.id === "executive-detox-massage-45-min") {
     cashDiscountSpan.setAttribute("data-i18n", "services.executive_detox.cash_payment");
+  } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
+    cashDiscountSpan.setAttribute("data-i18n", "services.athlete_recovery.cash_payment");
+  } else if (service.id === "signature-full-body-ritual-experience-120-min") {
+    cashDiscountSpan.setAttribute("data-i18n", "services.signature_full_body_ritual.cash_payment");
   }
   
   cashOffer.appendChild(cashDiscountSpan);
@@ -485,6 +541,10 @@ function createServiceCard (service) {
     cryptoDiscountSpan.setAttribute("data-i18n", "services.signature_reflexology.crypto_payment");
   } else if (service.id === "executive-detox-massage-45-min") {
     cryptoDiscountSpan.setAttribute("data-i18n", "services.executive_detox.crypto_payment");
+  } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
+    cryptoDiscountSpan.setAttribute("data-i18n", "services.athlete_recovery.crypto_payment");
+  } else if (service.id === "signature-full-body-ritual-experience-120-min") {
+    cryptoDiscountSpan.setAttribute("data-i18n", "services.signature_full_body_ritual.crypto_payment");
   }
   
   cryptoOffer.appendChild(cryptoDiscountSpan);
@@ -507,6 +567,10 @@ function createServiceCard (service) {
     cryptoNoteSpan.setAttribute("data-i18n", "services.signature_reflexology.crypto_note");
   } else if (service.id === "executive-detox-massage-45-min") {
     cryptoNoteSpan.setAttribute("data-i18n", "services.executive_detox.crypto_note");
+  } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
+    cryptoNoteSpan.setAttribute("data-i18n", "services.athlete_recovery.crypto_note");
+  } else if (service.id === "signature-full-body-ritual-experience-120-min") {
+    cryptoNoteSpan.setAttribute("data-i18n", "services.signature_full_body_ritual.crypto_note");
   }
   
   cryptoOffer.appendChild(cryptoNoteSpan);
@@ -520,6 +584,10 @@ function createServiceCard (service) {
   bookButton.id = service.id;
   bookButton.className = "book-button";
   bookButton.textContent = "BOOK YOUR MASSAGE";
+  const stripeCheckoutMap = {
+    "athlete-recovery-reflexology-leg-release-80-min": "https://book.stripe.com/bJe5kDclI4bP8MPfln7ok09",
+    "signature-full-body-ritual-experience-120-min": "https://book.stripe.com/9B6dR92L84bP2or6OR7ok0a"
+  };
   
   // Add i18n data attribute for dynamic updates
   if (service.id === "balance-reflexology-massage-60-min-60") {
@@ -528,6 +596,18 @@ function createServiceCard (service) {
     bookButton.setAttribute("data-i18n", "services.signature_reflexology.book_button");
   } else if (service.id === "executive-detox-massage-45-min") {
     bookButton.setAttribute("data-i18n", "services.executive_detox.book_button");
+  } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
+    bookButton.setAttribute("data-i18n", "services.athlete_recovery.book_button");
+  } else if (service.id === "signature-full-body-ritual-experience-120-min") {
+    bookButton.setAttribute("data-i18n", "services.signature_full_body_ritual.book_button");
+  }
+
+  if (stripeCheckoutMap[service.id]) {
+    const stripeUrl = stripeCheckoutMap[service.id];
+    bookButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.open(stripeUrl, "_blank", "noopener,noreferrer");
+    });
   }
 
   // Create "View all reviews on Google" link
@@ -982,7 +1062,7 @@ function triggerGoldScan (element) {
  */
 function fixStripeLinks() {
   // Find all links containing buy.stripe.com
-  const stripeLinkPattern = /buy\.stripe\.com/i;
+  const stripeLinkPattern = /(buy|book)\.stripe\.com/i;
   
   function fixLink(link) {
     if (stripeLinkPattern.test(link.href)) {
@@ -1004,7 +1084,7 @@ function fixStripeLinks() {
   }
   
   // Fix existing links in service descriptions and elsewhere
-  document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+  document.querySelectorAll('a[href*="buy.stripe.com"], a[href*="book.stripe.com"]').forEach(fixLink);
   
   // Use MutationObserver to watch for dynamically added links (e.g., from Cal.com)
   const observer = new MutationObserver((mutations) => {
@@ -1016,7 +1096,7 @@ function fixStripeLinks() {
             fixLink(node);
           }
           // Check for links inside the added node
-          const links = node.querySelectorAll ? node.querySelectorAll('a[href*="buy.stripe.com"]') : [];
+          const links = node.querySelectorAll ? node.querySelectorAll('a[href*="buy.stripe.com"], a[href*="book.stripe.com"]') : [];
           links.forEach(fixLink);
         }
       });
@@ -1031,7 +1111,7 @@ function fixStripeLinks() {
   
   // Also fix links after a delay to catch Cal.com loaded content
   setTimeout(() => {
-    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+    document.querySelectorAll('a[href*="buy.stripe.com"], a[href*="book.stripe.com"]').forEach(fixLink);
     
     // Try to access Cal.com iframe if it exists
     try {
@@ -1043,7 +1123,7 @@ function fixStripeLinks() {
           if (iframe.contentDocument || iframe.contentWindow) {
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
             if (iframeDoc) {
-              iframeDoc.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+              iframeDoc.querySelectorAll('a[href*="buy.stripe.com"], a[href*="book.stripe.com"]').forEach(fixLink);
             }
           }
         } catch (e) {
@@ -1060,7 +1140,7 @@ function fixStripeLinks() {
   // Fix links again after Cal.com modal/popup opens (if any)
   // Listen for Cal.com events or DOM changes that might indicate modal opening
   const checkInterval = setInterval(() => {
-    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(fixLink);
+    document.querySelectorAll('a[href*="buy.stripe.com"], a[href*="book.stripe.com"]').forEach(fixLink);
   }, 3000);
   
   // Stop checking after 60 seconds to avoid performance issues

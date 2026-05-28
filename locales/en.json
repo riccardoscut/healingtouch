@@ -40,9 +40,14 @@
   },
   "services": {
   "title": "My Services",
-    "google_review_badge": "(8)",
+    "google_review_badge": "(13)",
   "google_business_description": "Reflexology Expert in Barcelona",
     "view_all_reviews": "View all reviews on Google",
+    "categories": {
+      "reflexology_essentials": "Reflexology Essentials",
+      "sport_specific_protocol": "Sport Specific Protocol",
+      "signature_ritual_experience": "Signature Ritual Experience"
+    },
     "balance_reflexology": {
       "title": "Balance Reflexology Massage",
       "book_button": "BOOK YOUR MASSAGE",
@@ -65,6 +70,24 @@
       "title": "Executive Detox Massage",
       "book_button": "BOOK YOUR MASSAGE",
       "description": "<p><strong>\"A massage that combines inner cleansing through foot reflex points to restore balance and well-being.\"</strong></p><p>We begin with a gentle warm-up using a natural oil to relax the feet and prepare them for deeper work. The session then transitions into a special ritual called <span class=\"service-highlight\">\"The 3 Ways of Purification\"</span>, designed to support your body's natural cleansing processes. By stimulating specific reflex points, we encourage the elimination of toxins through the digestive, reproductive, and lymphatic systems, promoting a sense of lightness and inner balance.</p>",
+      "special_offers_title": "Special Offers:",
+      "cash_payment": "Cash Payment (-20%):",
+      "crypto_payment": "Crypto Payment (-40%):",
+      "crypto_note": "(BTC or ADA)"
+    },
+    "athlete_recovery": {
+      "title": "Athlete Recovery Reflexology & Leg Release",
+      "book_button": "BOOK YOUR MASSAGE",
+      "description": "<p>A sport-focused protocol that combines targeted foot reflexology with a decontracting leg massage. We work calves and quadriceps to release heavy legs, support recovery after training, and then use reflexology to address the most important points for your sport and your current condition.</p><p><em>Note: only offered as a complete sport-specific protocol.</em></p>",
+      "special_offers_title": "Special Offers:",
+      "cash_payment": "Cash Payment (-20%):",
+      "crypto_payment": "Crypto Payment (-40%):",
+      "crypto_note": "(BTC or ADA)"
+    },
+    "signature_full_body_ritual": {
+      "title": "Signature Full Body Ritual Experience",
+      "book_button": "BOOK YOUR MASSAGE",
+      "description": "<p>A two-hour slow ritual that combines full-body massage and reflexology, with warm towels subtle aromatherapy and energy flow. Created for those who need a complete reset of body and mind: a gentle, continuous touch to release tension, invite silence, and reconnect with a feeling of inner peace.</p>",
       "special_offers_title": "Special Offers:",
       "cash_payment": "Cash Payment (-20%):",
       "crypto_payment": "Crypto Payment (-40%):",

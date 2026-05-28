@@ -40,9 +40,14 @@
   },
   "services": {
     "title": "Mis Servicios",
-    "google_review_badge": "(8)",
+    "google_review_badge": "(13)",
     "google_business_description": "Experto en Reflexología en Barcelona",
     "view_all_reviews": "Ver todas las reseñas en Google",
+    "categories": {
+      "reflexology_essentials": "Reflexology Essentials",
+      "sport_specific_protocol": "Sport Specific Protocol",
+      "signature_ritual_experience": "Signature Ritual Experience"
+    },
     "balance_reflexology": {
       "title": "Balance Reflexology Massage",
       "book_button": "RESERVA TU MASAJE",
@@ -65,6 +70,24 @@
       "title": "Executive Detox Massage",
       "book_button": "RESERVA TU MASAJE",
       "description": "<p><strong>\"Un masaje que combina la limpieza interna a través de los puntos reflejos del pie para restaurar el equilibrio y el bienestar.\"</strong></p><p>Comenzamos con un calentamiento suave usando un aceite natural para relajar los pies y prepararlos para un trabajo más profundo. La sesión luego transiciona a un ritual especial llamado <span class=\"service-highlight\">\"Las 3 Formas de Purificación\"</span>, diseñado para apoyar los procesos naturales de limpieza de tu cuerpo. Al estimular puntos reflejos específicos, fomentamos la eliminación de toxinas a través de los sistemas digestivo, reproductivo y linfático, promoviendo una sensación de ligereza y equilibrio interior.</p>",
+      "special_offers_title": "Ofertas Especiales:",
+      "cash_payment": "Pago en Efectivo (-20%):",
+      "crypto_payment": "Pago en Criptomonedas (-40%):",
+      "crypto_note": "(BTC o ADA)"
+    },
+    "athlete_recovery": {
+      "title": "Athlete Recovery Reflexology & Leg Release",
+      "book_button": "RESERVA TU MASAJE",
+      "description": "<p>Un protocolo enfocado al deporte que combina reflexología podal específica con un masaje descontracturante de piernas. Trabajamos gemelos y cuádriceps para liberar piernas pesadas, apoyar la recuperación después del entrenamiento y usamos la reflexología para abordar los puntos clave según tu deporte y tu estado actual.</p><p><em>Nota: solo se ofrece como protocolo deportivo completo.</em></p>",
+      "special_offers_title": "Ofertas Especiales:",
+      "cash_payment": "Pago en Efectivo (-20%):",
+      "crypto_payment": "Pago en Criptomonedas (-40%):",
+      "crypto_note": "(BTC o ADA)"
+    },
+    "signature_full_body_ritual": {
+      "title": "Signature Full Body Ritual Experience",
+      "book_button": "RESERVA TU MASAJE",
+      "description": "<p>Un ritual lento de dos horas que combina masaje de cuerpo completo y reflexología podal, con toallas calientes, aromaterapia sutil y flujo energetico. Creado para quienes necesitan un reseteo completo de cuerpo y mente: un masaje continuo y suave de contacto para soltar tensiones, invitar al silencio y reconectar con una sensación de paz interior.</p>",
       "special_offers_title": "Ofertas Especiales:",
       "cash_payment": "Pago en Efectivo (-20%):",
       "crypto_payment": "Pago en Criptomonedas (-40%):",

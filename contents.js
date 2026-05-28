@@ -16,7 +16,17 @@ window.siteContent = {
   "services": [
     {
       // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
+      "id": "executive-detox-massage-45-min",
+      "category": "Reflexology Essentials",
+      "title": "Executive Detox Massage",
+      "duration": "45 min",
+      "price": 45,
+      "description": "<p>**A massage that combines inner cleansing through foot reflex points to restore balance and well-being.**</p><p>We begin with a gentle warm-up using a natural oil to relax the feet and prepare them for deeper work. The session then transitions into a special ritual called <strong>\"The 3 Ways of Purification\"</strong>, designed to support your body's natural cleansing processes. By stimulating specific reflex points, we encourage the elimination of toxins through the digestive, reproductive, and lymphatic systems, promoting a sense of lightness and inner balance.</p>"
+    },
+    {
+      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
       "id": "balance-reflexology-massage-60-min-60",
+      "category": "Reflexology Essentials",
       "title": "Balance Reflexology Massage",
       "duration": "60 min",
       "price": 60,
@@ -25,18 +35,27 @@ window.siteContent = {
     {
       // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
       "id": "reflexology-foot-massage-1-hour-30-min",
+      "category": "Reflexology Essentials",
       "title": "Signature Reflexology Massage",
       "duration": "1 hour 30 min",
       "price": 70,
       "description": "<p><strong>\"This powerful reflexology treatment is for people living with chronic pain, long‑term discomfort or diagnosed conditions who want a focused, therapeutic approach to their health, not just a relaxing massage.\"</strong></p><p>First, we move through the <strong>\"3 Ways of Purification\"</strong>, awakening key reflex points and meridians in the feet to stimulate the body's natural detox pathways and encourage a general cleansing from within.</p><p>Then, a deep and intense reflexology phase works directly on points linked to your specific issues, using strong pressure to meet the pain and create space for release. This unique combination promotes profound healing and a grounded sense of relaxation, helping to correct underlying imbalances and support your overall well‑being.</p>"
     },
     {
-      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
-      "id": "executive-detox-massage-45-min",
-      "title": "Executive Detox Massage",
-      "duration": "45 min",
-      "price": 45,
-      "description": "<p>**A massage that combines inner cleansing through foot reflex points to restore balance and well-being.**</p><p>We begin with a gentle warm-up using a natural oil to relax the feet and prepare them for deeper work. The session then transitions into a special ritual called <strong>\"The 3 Ways of Purification\"</strong>, designed to support your body's natural cleansing processes. By stimulating specific reflex points, we encourage the elimination of toxins through the digestive, reproductive, and lymphatic systems, promoting a sense of lightness and inner balance.</p>"
+      "id": "athlete-recovery-reflexology-leg-release-80-min",
+      "category": "Sport Specific Protocol",
+      "title": "Athlete Recovery Reflexology & Leg Release",
+      "duration": "80 min",
+      "price": 110,
+      "description": "<p>A sport-focused protocol that combines targeted foot reflexology with a decontracting leg massage. We work calves and quadriceps to release heavy legs, support recovery after training, and then use reflexology to address the most important points for your sport and your current condition.</p><p><em>Note: only offered as a complete sport-specific protocol.</em></p>"
+    },
+    {
+      "id": "signature-full-body-ritual-experience-120-min",
+      "category": "Signature Ritual Experience",
+      "title": "Signature Full Body Ritual Experience",
+      "duration": "120 min",
+      "price": 240,
+      "description": "<p>A two-hour slow ritual that combines full-body massage and reflexology, with warm towels subtle aromatherapy and energy flow. Created for those who need a complete reset of body and mind: a gentle, continuous touch to release tension, invite silence, and reconnect with a feeling of inner peace.</p>"
     }
   ],
 
