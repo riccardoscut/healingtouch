@@ -419,6 +419,8 @@ function createServiceCard (service) {
     title.setAttribute("data-i18n", "services.executive_detox.title");
   } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
     title.setAttribute("data-i18n", "services.athlete_recovery.title");
+  } else if (service.id === "pure-body-massage-60-min") {
+    title.setAttribute("data-i18n", "services.pure_body_massage.title");
   } else if (service.id === "signature-full-body-ritual-experience-120-min") {
     title.setAttribute("data-i18n", "services.signature_full_body_ritual.title");
   }
@@ -462,6 +464,8 @@ function createServiceCard (service) {
     description.setAttribute("data-i18n-html", "services.executive_detox.description");
   } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
     description.setAttribute("data-i18n-html", "services.athlete_recovery.description");
+  } else if (service.id === "pure-body-massage-60-min") {
+    description.setAttribute("data-i18n-html", "services.pure_body_massage.description");
   } else if (service.id === "signature-full-body-ritual-experience-120-min") {
     description.setAttribute("data-i18n-html", "services.signature_full_body_ritual.description");
   }
@@ -491,6 +495,8 @@ function createServiceCard (service) {
     offersTitle.setAttribute("data-i18n", "services.executive_detox.special_offers_title");
   } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
     offersTitle.setAttribute("data-i18n", "services.athlete_recovery.special_offers_title");
+  } else if (service.id === "pure-body-massage-60-min") {
+    offersTitle.setAttribute("data-i18n", "services.pure_body_massage.special_offers_title");
   } else if (service.id === "signature-full-body-ritual-experience-120-min") {
     offersTitle.setAttribute("data-i18n", "services.signature_full_body_ritual.special_offers_title");
   }
@@ -515,6 +521,8 @@ function createServiceCard (service) {
     cashDiscountSpan.setAttribute("data-i18n", "services.executive_detox.cash_payment");
   } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
     cashDiscountSpan.setAttribute("data-i18n", "services.athlete_recovery.cash_payment");
+  } else if (service.id === "pure-body-massage-60-min") {
+    cashDiscountSpan.setAttribute("data-i18n", "services.pure_body_massage.cash_payment");
   } else if (service.id === "signature-full-body-ritual-experience-120-min") {
     cashDiscountSpan.setAttribute("data-i18n", "services.signature_full_body_ritual.cash_payment");
   }
@@ -543,6 +551,8 @@ function createServiceCard (service) {
     cryptoDiscountSpan.setAttribute("data-i18n", "services.executive_detox.crypto_payment");
   } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
     cryptoDiscountSpan.setAttribute("data-i18n", "services.athlete_recovery.crypto_payment");
+  } else if (service.id === "pure-body-massage-60-min") {
+    cryptoDiscountSpan.setAttribute("data-i18n", "services.pure_body_massage.crypto_payment");
   } else if (service.id === "signature-full-body-ritual-experience-120-min") {
     cryptoDiscountSpan.setAttribute("data-i18n", "services.signature_full_body_ritual.crypto_payment");
   }
@@ -569,6 +579,8 @@ function createServiceCard (service) {
     cryptoNoteSpan.setAttribute("data-i18n", "services.executive_detox.crypto_note");
   } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
     cryptoNoteSpan.setAttribute("data-i18n", "services.athlete_recovery.crypto_note");
+  } else if (service.id === "pure-body-massage-60-min") {
+    cryptoNoteSpan.setAttribute("data-i18n", "services.pure_body_massage.crypto_note");
   } else if (service.id === "signature-full-body-ritual-experience-120-min") {
     cryptoNoteSpan.setAttribute("data-i18n", "services.signature_full_body_ritual.crypto_note");
   }
@@ -586,6 +598,7 @@ function createServiceCard (service) {
   bookButton.textContent = "BOOK YOUR MASSAGE";
   const stripeCheckoutMap = {
     "athlete-recovery-reflexology-leg-release-80-min": "https://book.stripe.com/bJe5kDclI4bP8MPfln7ok09",
+    "pure-body-massage-60-min": "https://book.stripe.com/00w3cvdpMeQtaUXddf7ok0b",
     "signature-full-body-ritual-experience-120-min": "https://book.stripe.com/9B6dR92L84bP2or6OR7ok0a"
   };
   
@@ -598,6 +611,8 @@ function createServiceCard (service) {
     bookButton.setAttribute("data-i18n", "services.executive_detox.book_button");
   } else if (service.id === "athlete-recovery-reflexology-leg-release-80-min") {
     bookButton.setAttribute("data-i18n", "services.athlete_recovery.book_button");
+  } else if (service.id === "pure-body-massage-60-min") {
+    bookButton.setAttribute("data-i18n", "services.pure_body_massage.book_button");
   } else if (service.id === "signature-full-body-ritual-experience-120-min") {
     bookButton.setAttribute("data-i18n", "services.signature_full_body_ritual.book_button");
   }
