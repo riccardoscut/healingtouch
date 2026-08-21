@@ -281,9 +281,9 @@ function applyContentToPage (data) {
       servicesGrid.innerHTML = ""; // Clear existing services
 
       const categoryOrder = [
-        "Reflexology Essentials",
+        "Signature Ritual Experience",
         "Sport Specific Protocol",
-        "Signature Ritual Experience"
+        "Reflexology Essentials"
       ];
       const categoryI18nMap = {
         "Reflexology Essentials": "services.categories.reflexology_essentials",

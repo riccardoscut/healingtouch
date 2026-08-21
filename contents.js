@@ -15,41 +15,6 @@ window.siteContent = {
   // Service offerings
   "services": [
     {
-      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
-      "id": "executive-detox-massage-45-min",
-      "category": "Reflexology Essentials",
-      "title": "Executive Detox Massage",
-      "duration": "45 min",
-      "price": 45,
-      "description": "<p>**A massage that combines inner cleansing through foot reflex points to restore balance and well-being.**</p><p>We begin with a gentle warm-up using a natural oil to relax the feet and prepare them for deeper work. The session then transitions into a special ritual called <strong>\"The 3 Ways of Purification\"</strong>, designed to support your body's natural cleansing processes. By stimulating specific reflex points, we encourage the elimination of toxins through the digestive, reproductive, and lymphatic systems, promoting a sense of lightness and inner balance.</p>"
-    },
-    {
-      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
-      "id": "balance-reflexology-massage-60-min-60",
-      "category": "Reflexology Essentials",
-      "title": "Balance Reflexology Massage",
-      "duration": "60 min",
-      "price": 60,
-      "description": "<p><strong>\"Una experiencia restauradora de reflexología diseñada para calmar el sistema nervioso, centrar la mente y reconectarte con tu estado natural de equilibrio.\"</strong></p><p>La sesión comienza con una presión consciente sobre las principales zonas reflejas de los pies, armonizando el flujo de energía a través de los meridianos principales del cuerpo. A medida que la tensión se disuelve, técnicas de reflexología precisas ayudan a liberar bloqueos energéticos y a sostener la estabilidad interna.</p><p>Los aceites y un contacto enraizante cultivan una presencia profunda, ayudándote a sentirte centrado, más ligero y reequilibrado desde dentro. Ideal para quienes buscan renovación, claridad emocional y una profunda sensación de calma tras periodos de estrés o desequilibrio.</p>"
-    },
-    {
-      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
-      "id": "reflexology-foot-massage-1-hour-30-min",
-      "category": "Reflexology Essentials",
-      "title": "Signature Reflexology Massage",
-      "duration": "1 hour 30 min",
-      "price": 70,
-      "description": "<p><strong>\"This powerful reflexology treatment is for people living with chronic pain, long‑term discomfort or diagnosed conditions who want a focused, therapeutic approach to their health, not just a relaxing massage.\"</strong></p><p>First, we move through the <strong>\"3 Ways of Purification\"</strong>, awakening key reflex points and meridians in the feet to stimulate the body's natural detox pathways and encourage a general cleansing from within.</p><p>Then, a deep and intense reflexology phase works directly on points linked to your specific issues, using strong pressure to meet the pain and create space for release. This unique combination promotes profound healing and a grounded sense of relaxation, helping to correct underlying imbalances and support your overall well‑being.</p>"
-    },
-    {
-      "id": "athlete-recovery-reflexology-leg-release-80-min",
-      "category": "Sport Specific Protocol",
-      "title": "Athlete Recovery Reflexology & Leg Release",
-      "duration": "80 min",
-      "price": 110,
-      "description": "<p><strong>\"A sport-focused recovery protocol combining deep leg release with targeted foot reflexology — designed to restore lightness, ease, and balance after training.\"</strong></p><p>Built for bodies that work hard. We begin with decontracting work on calves and quadriceps, releasing the heaviness and tightness that build up in the legs after effort — whether from running, strength training, or long days on your feet.</p><p>Then the session moves to the feet: precise reflexology on the points most connected to your sport and your current condition, supporting circulation, recovery, and whole-body balance from the ground up.</p><p><em>Note: only offered as a complete sport-specific protocol.</em></p>"
-    },
-    {
       "id": "pure-body-massage-60-min",
       "category": "Signature Ritual Experience",
       "title": "Pure Body Massage",
@@ -64,6 +29,41 @@ window.siteContent = {
       "duration": "120 min",
       "price": 240,
       "description": "<p><strong>\"A two-hour ritual uniting full-body massage and deep foot reflexology — a slow-motion escape designed to release tension, quiet the mind, and restore inner balance.\"</strong></p><p>A warm, flowing full-body massage melts tension from shoulders, back and legs, while deep foot reflexology gently rebalances your inner landscape.</p><p>Soft towels wrap you in heat, the air carries a light hint of essential oils, and your breath begins to deepen without effort. With two steady hands, the massage travels from shoulders to lower back and out toward every limb, using a touch that is both gentle and firm to soften knots, clear hidden blocks, and help your muscles remember how to move with ease again.</p><p>Then the focus drops to your feet: precise reflexology points are held and released, sending gentle waves through the whole body and helping your nervous system switch from alert to calm. Time stretches. Thoughts quiet. You feel heavy and safe on the table, as if the ground is holding you from beneath.</p><p>This experience is designed to leave you lighter, quieter inside, and deeply at peace: like waking up after a long, restorative sleep, but fully aware and present.</p><p>A signature experience for this exact moment in your life.</p>"
+    },
+    {
+      "id": "athlete-recovery-reflexology-leg-release-80-min",
+      "category": "Sport Specific Protocol",
+      "title": "Athlete Recovery Reflexology & Leg Release",
+      "duration": "80 min",
+      "price": 110,
+      "description": "<p><strong>\"A sport-focused recovery protocol combining deep leg release with targeted foot reflexology — designed to restore lightness, ease, and balance after training.\"</strong></p><p>Built for bodies that work hard. We begin with decontracting work on calves and quadriceps, releasing the heaviness and tightness that build up in the legs after effort — whether from running, strength training, or long days on your feet.</p><p>Then the session moves to the feet: precise reflexology on the points most connected to your sport and your current condition, supporting circulation, recovery, and whole-body balance from the ground up.</p><p><em>Note: only offered as a complete sport-specific protocol.</em></p>"
+    },
+    {
+      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
+      "id": "reflexology-foot-massage-1-hour-30-min",
+      "category": "Reflexology Essentials",
+      "title": "Signature Reflexology Massage",
+      "duration": "1 hour 30 min",
+      "price": 70,
+      "description": "<p><strong>\"This powerful reflexology treatment is for people living with chronic pain, long‑term discomfort or diagnosed conditions who want a focused, therapeutic approach to their health, not just a relaxing massage.\"</strong></p><p>First, we move through the <strong>\"3 Ways of Purification\"</strong>, awakening key reflex points and meridians in the feet to stimulate the body's natural detox pathways and encourage a general cleansing from within.</p><p>Then, a deep and intense reflexology phase works directly on points linked to your specific issues, using strong pressure to meet the pain and create space for release. This unique combination promotes profound healing and a grounded sense of relaxation, helping to correct underlying imbalances and support your overall well‑being.</p>"
+    },
+    {
+      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
+      "id": "balance-reflexology-massage-60-min-60",
+      "category": "Reflexology Essentials",
+      "title": "Balance Reflexology Massage",
+      "duration": "60 min",
+      "price": 60,
+      "description": "<p><strong>\"Una experiencia restauradora de reflexología diseñada para calmar el sistema nervioso, centrar la mente y reconectarte con tu estado natural de equilibrio.\"</strong></p><p>La sesión comienza con una presión consciente sobre las principales zonas reflejas de los pies, armonizando el flujo de energía a través de los meridianos principales del cuerpo. A medida que la tensión se disuelve, técnicas de reflexología precisas ayudan a liberar bloqueos energéticos y a sostener la estabilidad interna.</p><p>Los aceites y un contacto enraizante cultivan una presencia profunda, ayudándote a sentirte centrado, más ligero y reequilibrado desde dentro. Ideal para quienes buscan renovación, claridad emocional y una profunda sensación de calma tras periodos de estrés o desequilibrio.</p>"
+    },
+    {
+      // Make sure that this ID is the same as the cal.com URL (cal.com/signaturehealingtouch/$ID)
+      "id": "executive-detox-massage-45-min",
+      "category": "Reflexology Essentials",
+      "title": "Executive Detox Massage",
+      "duration": "45 min",
+      "price": 45,
+      "description": "<p>**A massage that combines inner cleansing through foot reflex points to restore balance and well-being.**</p><p>We begin with a gentle warm-up using a natural oil to relax the feet and prepare them for deeper work. The session then transitions into a special ritual called <strong>\"The 3 Ways of Purification\"</strong>, designed to support your body's natural cleansing processes. By stimulating specific reflex points, we encourage the elimination of toxins through the digestive, reproductive, and lymphatic systems, promoting a sense of lightness and inner balance.</p>"
     }
   ],
 
