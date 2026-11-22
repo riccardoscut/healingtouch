@@ -8,13 +8,15 @@ web
 
 ## Users
 
-Three primary audiences, weighted equally:
+Primary audiences, weighted equally:
 
-- **Tourists in Barcelona.** Short stay, find the site via Instagram, Google or Airbnb Experiences, usually book a single session, often in their hotel room. Mostly on mobile, often reading in English.
+- **Tourists in Barcelona.** Short stay, find the site via Instagram, Google or Airbnb Experiences, usually book a single session, often in their hotel room. Mostly on mobile, often reading in English. Includes visitors who come to Barcelona for its night life, clubs and festivals and dance all night (internal reference only: never call them "ravers" on the site).
 - **Residents of Barcelona.** Come back for repeated sessions and session packs; many arrive with stress, chronic pain or long-term discomfort and want a focused, therapeutic approach.
+- **Night-shift workers** (e.g. hospital staff) who need to recover after a night on their feet.
+- **Managers and office workers** taking a break between morning and afternoon meetings.
 - **Athletes and active people.** Runners, gym-goers, people on their feet all day, looking for leg release and recovery after training (Athlete Recovery protocol).
 
-Their job on the site: understand what the treatments are, trust Riccardo, pick a service, and book or contact him quickly.
+Their job on the site: recognise their own situation, understand which treatment fits it, trust Riccardo, and book or contact him quickly.
 
 ## Product Purpose
 
@@ -48,6 +50,20 @@ Booking and payment flow: service cards → Cal.com booking (event slug = servic
 - Tracking: Google Analytics + Meta Pixel; consent banner still to be done (EU).
 - The repo is public: nothing private goes in it.
 
+### Which service answers which need (confirmed by Riccardo, 22/11/2026)
+
+- **Tired (danced all night, night shift, sightseeing all day, break between meetings) → Executive Detox Massage 45 min.** Works on the muscular system plus a short detox procedure. Paired with the Step-Up Challenge.
+- **Trained hard (runners, athletes) → Athlete Recovery Reflexology & Leg Release 80 min.**
+- **Stressed or anxious → Balance Reflexology Massage 60 min.** Works on the nervous system.
+- **Personal ailments → Signature Reflexology Massage 90 min.** Personalised: starts with a personal anamnesis, then a deep detox procedure and specific work on the client's issue.
+- Pure Body Massage 60 min and Signature Full Body Ritual 120 min: premium experiences outside the need-based path.
+
+**Step-Up Challenge:** clients who show they walked more than 10,000 steps get €5 to €15 off the Executive Detox. Purpose: promote walking as a simple way to stay fit.
+
+**Availability:** sessions are possible in the morning, afternoon and evening, but every client must ask for availability to confirm there is a free slot. Never imply guaranteed times.
+
+**Health wording rules:** never mention panic attacks. Never promise to cure or treat medical conditions; describe what the session works on (muscles, nervous system, reflex points) and what it aims at (rest, calm, balance). Use "gentle, non-invasive and adapted to you"; never "risk-free" or "cannot hurt".
+
 **Open decisions:**
 
 - Whether SLK Alkalina's address can be shown on the site and on Google Business Profile (needed for local SEO).
@@ -72,7 +88,7 @@ Booking and payment flow: service cards → Cal.com booking (event slug = servic
 ## Product Principles
 
 1. Booking is always one tap away, especially on mobile.
-2. Speak to each audience's real need (relax on holiday, relief from chronic discomfort, recovery after sport) without overpromising health results.
+2. Speak to each audience's real situation (a long night, a long day, hard training, stress, a personal ailment) and lead it to the one service that fits, without overpromising health results.
 3. Trust comes from real people: Riccardo himself, his training and real reviews.
 4. English and Spanish are first-class: never a half-translated page.
 5. Light, static and fast.
