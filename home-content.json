@@ -209,7 +209,7 @@
     "faq": [
       [
         "Where do sessions take place?",
-        "In your hotel or at your home within Barcelona city, with a travel supplement of only €6, or in the studio. Tell me where you are on WhatsApp and we find the best option."
+        "In your hotel or at your home within Barcelona city, with a travel supplement of only €6, or in the studio at SLK Alkalina, Carrer de Sardenya 371. Tell me where you are on WhatsApp and we find the best option."
       ],
       [
         "How do I book?",
@@ -280,7 +280,17 @@
     ],
     "lock_open": "Theme unlocked: the logo switches light and dark. Click to lock the theme.",
     "lock_closed": "Theme locked: the logo shows the next headline. Click to unlock.",
-    "logo_next": "Show the next headline"
+    "logo_next": "Show the next headline",
+    "find_title": [
+      "Find",
+      "the studio."
+    ],
+    "find_place": "SLK Alkalina",
+    "find_address": "Carrer de Sardenya 371, 08025 Barcelona",
+    "find_lead": "Studio sessions take place at SLK Alkalina. I also come to your hotel or your home in Barcelona (€6 travel supplement). Always ask for availability.",
+    "find_gmaps": "Open in Google Maps",
+    "find_amaps": "Open in Apple Maps",
+    "find_map_label": "Open Signature Healing Touch on Google Maps: the light point marks Carrer de Sardenya 371, Barcelona"
   },
   "es": {
     "lang": "es",
@@ -491,7 +501,7 @@
     "faq": [
       [
         "¿Dónde se hacen las sesiones?",
-        "En tu hotel o en tu casa dentro de la ciudad de Barcelona, con un suplemento de solo 6 € por el desplazamiento, o en el estudio. Dime por WhatsApp dónde estás y buscamos la mejor opción."
+        "En tu hotel o en tu casa dentro de la ciudad de Barcelona, con un suplemento de solo 6 € por el desplazamiento, o en el estudio de SLK Alkalina, Carrer de Sardenya 371. Dime por WhatsApp dónde estás y buscamos la mejor opción."
       ],
       [
         "¿Cómo reservo?",
@@ -562,6 +572,16 @@
     ],
     "lock_open": "Tema desbloqueado: el logo cambia entre claro y oscuro. Haz clic para bloquear el tema.",
     "lock_closed": "Tema bloqueado: el logo muestra el siguiente titular. Haz clic para desbloquear.",
-    "logo_next": "Mostrar el siguiente titular"
+    "logo_next": "Mostrar el siguiente titular",
+    "find_title": [
+      "Encuentra",
+      "el estudio."
+    ],
+    "find_place": "SLK Alkalina",
+    "find_address": "Carrer de Sardenya 371, 08025 Barcelona",
+    "find_lead": "Las sesiones en el estudio son en SLK Alkalina. También voy a tu hotel o a tu casa en Barcelona (suplemento de 6 € por el desplazamiento). Pregunta siempre por la disponibilidad.",
+    "find_gmaps": "Abrir en Google Maps",
+    "find_amaps": "Abrir en Apple Maps",
+    "find_map_label": "Abrir Signature Healing Touch en Google Maps: el punto de luz marca Carrer de Sardenya 371, Barcelona"
   }
 }

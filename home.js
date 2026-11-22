@@ -127,7 +127,7 @@
       var f = Math.min(1, Math.max(0, (pt.y - ys[k]) / ((ys[k + 1] - ys[k]) || 1)));
       var inS = inside.some(function (y0) { return pt.y >= y0 - 1 && pt.y <= y0 + (mob ? 101 : 209); });
       var quiet = pts[k + 1] && pts[k + 1][2], last = pts[k + 1] && pts[k + 1][3], sh = Math.pow(Math.sin(Math.PI * f), 2.2);
-      if (last) return [-dy / m, dx / m, f, sh * .55];
+      if (last) return [-dy / m, dx / m, f, sh];
       if (quiet) return [1, 0, f, (inS || pt.y <= ys[1]) ? 0 : sh * gutterScale];
       return [-dy / m, dx / m, f, (inS || pt.y <= ys[1]) ? 0 : sh];
     });

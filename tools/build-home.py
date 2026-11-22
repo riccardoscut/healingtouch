@@ -80,6 +80,26 @@ def treatment(side, key, s, extra=''):
 '''
 
 
+GMAPS = 'https://share.google/fibJMihBEMmJxMQ5v'  # Riccardo's Google business profile (Sardenya 371)
+AMAPS = f'https://maps.apple.com/?q=SLK+Alkalina&address=Carrer+de+Sardenya+371,+08025+Barcelona'
+
+
+def find_map():
+    """A drawn, abstract map (no real streets or landmarks): chamfered city blocks on a rotated grid,
+    like the Eixample. The page's own light thread crosses it and converges on the light point at its centre."""
+    blocks, step, size, cut = [], 58, 44, 10
+    for i in range(-5, 6):
+        for j in range(-5, 6):
+            x, y = i * step - size / 2, j * step - size / 2
+            if i == 0 and j == 0:
+                continue  # the studio block is the light point
+            pts = [(x + cut, y), (x + size - cut, y), (x + size, y + cut), (x + size, y + size - cut),
+                   (x + size - cut, y + size), (x + cut, y + size), (x, y + size - cut), (x, y + cut)]
+            blocks.append('<path d="M' + ' L'.join(f'{a:.0f} {b:.0f}' for a, b in pts) + 'Z"/>')
+    return ('<svg viewBox="0 0 400 400" aria-hidden="true" focusable="false">'
+            '<g class="blocks" transform="translate(200 200) rotate(45)">' + ''.join(blocks) + '</g></svg>')
+
+
 def page(s, other, is_root=False):
     L = s['lang']
     url = f'{SITE}/{L}/'
@@ -113,7 +133,7 @@ def page(s, other, is_root=False):
         '@context': 'https://schema.org', '@type': 'HealthAndBeautyBusiness', 'name': 'Signature Healing Touch',
         'url': SITE + '/', 'image': SITE + '/logo_wName_transparentBG_newGold.png', 'telephone': '+34652952566',
         'email': 'healingtouch@da-sign.com', 'priceRange': '€45–€240',
-        'address': {'@type': 'PostalAddress', 'addressLocality': 'Barcelona', 'addressRegion': 'Catalonia', 'addressCountry': 'ES'},
+        'address': {'@type': 'PostalAddress', 'streetAddress': 'Carrer de Sardenya 371', 'postalCode': '08025', 'addressLocality': 'Barcelona', 'addressRegion': 'Catalonia', 'addressCountry': 'ES'},
         'areaServed': 'Barcelona', 'sameAs': ['https://instagram.com/SignatureHealingTouch'], 'description': s['description'],
         'founder': {'@type': 'Person', 'name': 'Riccardo Francescut', 'jobTitle': 'Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist'},
         'makesOffer': [{'@type': 'Offer', 'price': str(p), 'priceCurrency': 'EUR', 'itemOffered': {'@type': 'Service', 'name': (s['treatments'][k]['name1'] + ' ' + s['treatments'][k]['name2']).strip(), 'description': f'{m} min'}} for k, (_, m, p) in SERVICES.items()],
@@ -195,12 +215,12 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
   <svg class="spine" id="spine" aria-hidden="true" preserveAspectRatio="none"><path id="spineBase" fill="none" stroke="none"/><g id="strands"></g></svg><div class="curtain" id="curtain" aria-hidden="true"></div>
   <div class="origin"><span class="node big"><span class="anchor"></span></span></div>
 {journey}
-  <section class="section" id="packs" aria-labelledby="packs-h"><span class="node sec-node r"><span class="anchor" data-quiet></span></span>
+  <section class="section" id="packs" aria-labelledby="packs-h"><span class="node sec-node r"><span class="anchor"></span></span>
     <div class="section-head"><h2 id="packs-h"><em>{e(s["packs_title"][0])}</em> <strong>{e(s["packs_title"][1])}</strong></h2><p>{e(s["packs_lead"])}</p></div>
     <div class="packs">{packs}</div>
   </section>
 
-  <section class="section" id="reviews" aria-labelledby="reviews-h"><span class="node sec-node r"><span class="anchor" data-quiet></span></span>
+  <section class="section" id="reviews" aria-labelledby="reviews-h"><span class="node sec-node l"><span class="anchor"></span></span>
     <div class="section-head"><h2 id="reviews-h"><em>{e(s["reviews_title"][0])}</em> <strong>{e(s["reviews_title"][1])}</strong></h2><div class="score"><span id="reviewScore">4.9</span><span class="of">/5 · <span id="reviewCount">28</span> {e(s["fact_reviews"])}</span><small>{e(s["reviews_lead"])}</small></div></div>
     <div class="reviews" id="reviewsTop"></div>
     <div class="reviews reviews-more" id="reviewsMore"></div>
@@ -227,9 +247,19 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
     </div>
   </section>
 
-  <section class="section" id="faq" aria-labelledby="faq-h"><span class="node sec-node r"><span class="anchor" data-quiet></span></span>
+  <section class="section" id="faq" aria-labelledby="faq-h"><span class="node sec-node r"><span class="anchor"></span></span>
     <div class="section-head"><h2 id="faq-h"><em>{e(s["faq_title"][0])}</em> <strong>{e(s["faq_title"][1])}</strong></h2></div>
     <div class="faq">{faq}</div>
+  </section>
+
+  <section class="section find" id="find" aria-labelledby="find-h">
+    <div class="find-txt">
+      <h2 id="find-h"><em>{e(s["find_title"][0])}</em> <strong>{e(s["find_title"][1])}</strong></h2>
+      <p class="find-place"><strong>{e(s["find_place"])}</strong><span>{e(s["find_address"])}</span></p>
+      <p>{e(s["find_lead"])}</p>
+      <div class="actions"><a class="btn btn-primary" href="{GMAPS}" target="_blank" rel="noopener noreferrer">{e(s["find_gmaps"])}</a><a class="btn btn-ghost" href="{AMAPS}" target="_blank" rel="noopener noreferrer">{e(s["find_amaps"])}</a></div>
+    </div>
+    <a class="find-map" href="{GMAPS}" target="_blank" rel="noopener noreferrer" aria-label="{e(s["find_map_label"])}">{find_map()}<span class="node big find-point" aria-hidden="true"><span class="anchor"></span></span></a>
   </section>
 
   <section class="section contact" id="contact" aria-labelledby="contact-h">
@@ -239,7 +269,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
     <ul class="contact-list"><li><a href="https://instagram.com/SignatureHealingTouch" target="_blank" rel="noopener noreferrer">Instagram @SignatureHealingTouch</a></li><li><a href="mailto:healingtouch@da-sign.com">healingtouch@da-sign.com</a></li></ul>
   </section>
 
-  <footer class="foot"><span class="anchor" data-quiet data-gutter style="left:50%;top:0"></span><span class="anchor" data-end style="left:50%;top:194px"></span>
+  <footer class="foot"><span class="anchor" data-end style="left:50%;top:194px"></span>
     <div class="disc foot-disc"><img src="/logo_white_500x500.png" alt="" width="68" height="68"></div>
     <img class="foot-word" src="/logo_onlyWords_newGold.png" alt="Signature Healing Touch" width="131" height="30">
     <p>{e(s["footer_line"])}</p>

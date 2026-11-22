@@ -190,6 +190,20 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .faq summary .plus{flex:none;width:18px;height:18px;color:var(--muted);transition:transform .3s;margin-top:.35em}
 .faq details[open] summary .plus{transform:rotate(45deg)}
 .faq details p{margin:0 0 26px;max-width:70ch;color:var(--body)}
+/* where to find me: drawn map (abstract Eixample blocks, no real streets) crossed by the page thread, whose light point at the centre links to the Google business profile */
+.find{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:5vw;align-items:center}
+.find h2{margin:0 0 26px}
+.find-place{margin:0 0 18px;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.find-place strong{display:block;font-family:'Bodoni Moda',serif;font-size:clamp(28px,2.6vw,36px);font-weight:800;letter-spacing:0;text-transform:none;color:var(--ink-hi);margin:0 0 6px}
+.find-txt > p:not(.find-place){color:var(--body);max-width:46ch;margin:0 0 30px}
+.find-map{position:relative;display:block;width:100%;max-width:520px;aspect-ratio:1;margin-left:auto;color:inherit;text-decoration:none;
+  -webkit-mask-image:radial-gradient(circle,#000 52%,transparent 71%);mask-image:radial-gradient(circle,#000 52%,transparent 71%)}
+.find-map svg{width:100%;height:100%;display:block}
+.find-map .blocks path{fill:var(--panel);stroke:var(--line);stroke-width:1}
+.find-point{left:50%;top:50%}
+.find-point{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.find-map:hover .find-point,.find-map:focus-visible .find-point{transform:scale(1.35)}
+.find-map:hover .blocks path{stroke:color-mix(in srgb,var(--c1) 35%,var(--line))}
 .contact{text-align:center}
 .contact p{max-width:52ch;margin:16px auto 30px;color:var(--body)}
 .contact .actions{justify-content:center}
@@ -254,8 +268,9 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .stop h2{font-size:42px}.stop h3{font-size:44px}
   .stop .hook{font-size:38px}
   .section{padding:0 22px 0 44px}
-  .sec-node.r,.sec-node.l,.sec-node.c{left:14px}
+  .sec-node.r{left:calc(100% - 16px)}.sec-node.l{left:16px}.sec-node.c{left:50%}
   .packs,.reviews{grid-template-columns:1fr}
+  .find{grid-template-columns:1fr;gap:34px}.find-map{max-width:360px;margin:0 auto}
   .pack+.pack{border-left:0}
   .about{grid-template-columns:1fr}.deck{max-width:320px}
   .lightbox figure{padding:70px 16px 20px}.lb-btn{top:auto;bottom:18px;transform:none}

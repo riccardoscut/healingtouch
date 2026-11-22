@@ -38,7 +38,7 @@ Where sessions take place:
 - **Hotels**: Riccardo is sent to hotel guests by the **Karuna** centre.
 - **At home**: house calls to clients within Barcelona city.
 - **Travel supplement**: €6 for hotel and home sessions (confirmed 22/11/2026).
-- **SLK Alkalina centre**: a treatment room Riccardo rents.
+- **SLK Alkalina centre**: a treatment room Riccardo rents, Carrer de Sardenya 371, 08025 Barcelona. The address is public (confirmed 22/11/2026): shown on the home "Find the studio" section, in the FAQ and in the schema.org address; use the same NAP on Google Business Profile.
 - **Private space by arrangement**: for friends and Airbnb Experiences guests. Never publish its address.
 
 Booking and payment flow: service cards → Cal.com booking (event slug = service `id` in `contents.js`) → Stripe payment links for sessions and packs → `thank-you.html`. Direct contact via WhatsApp, Instagram (@SignatureHealingTouch) and email.
@@ -69,7 +69,6 @@ Booking and payment flow: service cards → Cal.com booking (event slug = servic
 
 **Open decisions:**
 
-- Whether SLK Alkalina's address can be shown on the site and on Google Business Profile (needed for local SEO).
 - Exact public name of the Karuna centre and whether to name it on the site.
 
 ## Brand Commitments
