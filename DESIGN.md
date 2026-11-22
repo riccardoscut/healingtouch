@@ -1,218 +1,278 @@
 ---
 name: Signature Healing Touch
-description: Reflexology and massage in Barcelona, guided by a neon rainbow foot.
+description: Reflexology in Barcelona as a charge of light, one thread from the neon foot logo to the booking.
 colors:
-  deep-space: "#000000"
+  void-black: "#000000"
   lunar-gold: "#E4E4BC"
-  light-gold: "#EFEFD4"
-  dark-gold: "#C5C59F"
-  cosmic-violet: "#755A92"
-  dark-violet: "#50406A"
-  light-violet: "#9B7CB8"
-  aurora-green: "#C2DED5"
-  medium-green: "#A3C9BF"
-  light-green: "#E8F3F0"
-  off-white: "#F8F5F0"
-  white: "#FFFFFF"
-  light-highlight: "#F0EDE0"
-  wordmark-gold: "#EDD483"
-  neon-cyan: "#1AE9F0"
-  neon-aqua: "#5FF7F2"
-  neon-teal: "#29C9AF"
-  neon-lime: "#D6D152"
-  neon-violet: "#8F7EB5"
-  cosmic-red: "#CC0000"
+  moonlight-highlight: "#FFF8D6"
+  body-cream: "#EFEEDD"
+  aurora: "#C2DED5"
+  thread-cyan: "#1AE9F0"
+  dusk-violet: "#9B7CB8"
+  lime-glint: "#D6D152"
+  light-point: "#FFFFFF"
+  padlock-amber: "#A8792A"
+  paper-white: "#FBFAF5"
+  night-ink: "#2A1F3A"
+  night-ink-highlight: "#120B1C"
+  body-ink: "#2E2838"
+  muted-violet: "#5E4A7A"
+  thread-cyan-deep: "#00A3AD"
+  lunar-gold-deep: "#A8902A"
+  dusk-violet-deep: "#6A4C93"
+  lime-glint-deep: "#7F8E12"
+  aurora-deep: "#3E8C79"
+  padlock-amber-deep: "#7A5414"
 typography:
   display:
-    fontFamily: "Rajdhani, sans-serif"
-    fontSize: "2.8rem"
-    fontWeight: 600
-    letterSpacing: "1px"
+    fontFamily: "'Bodoni Moda', serif"
+    fontSize: "clamp(52px, min(6.6vw, 11.5vh), 108px)"
+    fontWeight: 500
+    lineHeight: 0.92
+    letterSpacing: "-0.03em"
+  display-heavy:
+    fontFamily: "'Bodoni Moda', serif"
+    fontSize: "1.2em"
+    fontWeight: 900
+    lineHeight: 0.95
+    letterSpacing: "-0.04em"
   headline:
-    fontFamily: "Rajdhani, sans-serif"
-    fontSize: "2.2rem"
-    fontWeight: 600
-    letterSpacing: "1px"
+    fontFamily: "'Bodoni Moda', serif"
+    fontSize: "clamp(44px, 6vw, 96px)"
+    fontWeight: 500
+    lineHeight: 0.95
+    letterSpacing: "-0.03em"
+  headline-section:
+    fontFamily: "'Bodoni Moda', serif"
+    fontSize: "clamp(40px, 4.8vw, 76px)"
+    fontWeight: 500
+    lineHeight: 0.95
+    letterSpacing: "-0.03em"
   title:
-    fontFamily: "Rajdhani, sans-serif"
-    fontSize: "1.8rem"
-    fontWeight: 600
-    letterSpacing: "1px"
+    fontFamily: "'Bodoni Moda', serif"
+    fontSize: "28px"
+    fontWeight: 800
+    lineHeight: 1.05
   body:
-    fontFamily: "Barlow, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-    fontSize: "1rem"
+    fontFamily: "Barlow, system-ui, sans-serif"
+    fontSize: "18px"
     fontWeight: 400
-    lineHeight: 1.6
-  quote:
-    fontFamily: "Barlow, sans-serif"
-    fontSize: "1.2rem"
+    lineHeight: 1.55
+  lede:
+    fontFamily: "Barlow, system-ui, sans-serif"
+    fontSize: "20px"
     fontWeight: 400
-    lineHeight: 1.7
+    lineHeight: 1.55
   label:
-    fontFamily: "Rajdhani, sans-serif"
-    fontSize: "1.2rem"
+    fontFamily: "Barlow, system-ui, sans-serif"
+    fontSize: "13px"
+    fontWeight: 400
+    letterSpacing: "0.18em"
+  button:
+    fontFamily: "Barlow, system-ui, sans-serif"
+    fontSize: "15px"
     fontWeight: 600
-    letterSpacing: "1px"
+    lineHeight: 1
+    letterSpacing: "0.16em"
 rounded:
-  sm: "8px"
-  md: "10px"
-  pill: "50px"
-  circle: "50%"
+  none: "0px"
+  pill: "30px"
+  full: "50%"
 spacing:
-  gutter: "20px"
-  card: "30px"
-  section: "70px"
-  container: "1200px"
+  frame-inset: "14px"
+  frame-inset-mobile: "8px"
+  gutter: "62px"
+  gutter-mobile: "22px"
+  thread-lane-mobile: "44px"
+  stack-sm: "12px"
+  stack-md: "22px"
+  stack-lg: "34px"
 components:
   button-primary:
-    backgroundColor: "{colors.cosmic-violet}"
+    backgroundColor: "{colors.moonlight-highlight}"
+    textColor: "{colors.void-black}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "21px 32px"
+  button-primary-light:
+    backgroundColor: "{colors.night-ink}"
+    textColor: "{colors.moonlight-highlight}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "21px 32px"
+  button-ghost:
+    backgroundColor: "transparent"
     textColor: "{colors.lunar-gold}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "12px 30px"
-    width: "100%"
-  price-badge:
-    backgroundColor: "{colors.aurora-green}"
-    textColor: "{colors.deep-space}"
-    rounded: "{rounded.pill}"
-    padding: "5px 15px"
-  service-card:
-    rounded: "{rounded.md}"
-    padding: "{spacing.card}"
-  testimonial-card:
-    rounded: "{rounded.md}"
-    padding: "{spacing.card}"
-  quote-panel:
-    rounded: "{rounded.sm}"
-    padding: "20px"
-  language-switcher:
-    backgroundColor: "{colors.deep-space}"
+    typography: "{typography.button}"
+    rounded: "{rounded.none}"
+    padding: "21px 32px"
+  logo-disc:
+    backgroundColor: "{colors.void-black}"
+    rounded: "{rounded.full}"
+    size: "52px"
+  light-point:
+    backgroundColor: "{colors.light-point}"
+    rounded: "{rounded.full}"
+    size: "12px"
+  language-switch:
     textColor: "{colors.lunar-gold}"
     rounded: "{rounded.pill}"
-    padding: "8px 16px"
+    padding: "3px"
+  input:
+    textColor: "{colors.lunar-gold}"
+    rounded: "{rounded.none}"
+    padding: "12px"
 ---
 
 # Design System: Signature Healing Touch
 
 ## Overview
 
-**Creative North Star: "The Sole as a Map"**
+**Creative North Star: "The Charge of Light"**
 
-In reflexology the sole is a map of the whole body: every zone answers to an organ, a system, a feeling. The site borrows that idea. The neon rainbow foot in the logo is the map's legend: one continuous glowing line, colours shifting from violet through lime and gold to cyan, as if energy were flowing through the reflex zones. Everything else on the page should feel like a calm reading of that map: dark, quiet ground; a few luminous lines; clear stations (the services) that the visitor can locate and reach.
+The page is a dark field crossed by one thread of light. It is born under the neon rainbow foot logo, sweeps down the hero as a lattice of many thin close sine curves, gathers into white light points at each situation, draws each treatment's mark in a single gold stroke, and ends at the footer logo. Everything else (type, buttons, frame) stays quiet and thin so the thread carries the movement.
 
-Today the site is a single long page, dark by default (`deep-space` ground, `lunar-gold` text) with a light theme (white ground, violet text). Density is low and the tone is soft: rounded cards, pill buttons, italic quotes, thin gradient dividers that scan slowly like a beam of light. Typography pairs a technical, slightly squared display face (Rajdhani) with a plain humanist body face (Barlow).
+The world is premium and nocturnal by default: pure black ground, lunar gold text, a highlight cream for the one heavy word in each headline. A light theme exists as a full mirror (paper-white ground, violet night ink, deepened strands) and is reached through the logo itself. Density is low: large Bodoni Moda display set italic with one heavy upright word, Barlow body at a comfortable 18px, generous vertical room between stops.
 
-These rules describe the current system and are to be followed for any change until the planned redesign replaces this file. The redesign must keep the **neon rainbow foot logo and its glowing-line style**; everything else may change.
+The only photographs are Riccardo's own portraits, feathered into the ground with soft masks. There is no situation photography, stock or AI-generated.
 
 **Key Characteristics:**
-- Neon rainbow foot logo as the one binding visual asset.
-- Dark ground by default, light theme available (toggle + system preference).
-- Three working colours: Lunar Gold, Cosmic Violet, Aurora Green.
-- Rounded, soft containers; pill-shaped actions.
-- Slow, light-beam motion (section divider scan, cards rising on scroll).
+- One braided thread of five strand colours on black, never under body copy.
+- White light points with a soft pulsing ring mark each stop.
+- One-stroke gold treatment marks drawn by scroll, brighter than the strands, which fuse into the mark at its top and bottom.
+- Bodoni Moda italic display with one heavy upright word; Barlow body and tracked uppercase labels.
+- Thin fixed page frame with two marked corners; square buttons; round logo disc and points.
+- Binding neon rainbow foot logo, doubling as the theme switch, governed by a padlock.
 
 ## Colors
 
-A night palette: black ground, pale moon-gold text, violet for action, misty green for prices and links, with the logo's neon spectrum as the brand's signature.
+A black night field lit by a lunar gold voice and a five-colour thread (cyan, gold, violet, lime, aurora) that only the thread, points and marks may wear.
 
 ### Primary
-- **Cosmic Violet** (`cosmic-violet`): the action colour. Booking buttons (gradient from Dark Violet), section titles, quote borders, testimonial borders, text colour of the light theme.
-- **Dark Violet** (`dark-violet`): start of the button gradient; deep violet text in the light theme.
+- **Lunar Gold** (lunar-gold): the default text colour, frame corners, ghost button border and one of the five strands. The voice of the page.
+- **Moonlight Highlight** (moonlight-highlight): the heavy upright headline word, prices, key figures, and the light end of the metallic primary button gradient.
 
 ### Secondary
-- **Aurora Green** (`aurora-green`): price badges, links, service titles in dark theme, the green end of section dividers. **Medium Green** (`medium-green`) for durations and secondary card text; **Light Green** (`light-green`) as a pale tint.
+- **Thread Cyan** (thread-cyan): lead strand colour, the glow of the light points, the focus ring, the short line inside the treatment link, the top of each mark's gradient.
+- **Dusk Violet** (dusk-violet): strand colour and the outer halo of the light points; the hero wash deepens toward a violet black behind the lattice.
 
 ### Tertiary
-- **Lunar Gold** (`lunar-gold`): the default text colour of the dark theme and the text on violet buttons. **Light Gold** and **Dark Gold** are its tints for glows and borders.
-- **Wordmark Gold** (`wordmark-gold`): the colour of the script wordmark "Signature Healing Touch". Lives in the logo images, not in CSS.
-
-### Brand neon (logo spectrum)
-- **Neon Cyan, Neon Aqua, Neon Teal, Neon Lime, Neon Violet**: sampled from `logo_white_500x500.png`. The glowing line of the foot moves violet → lime/gold → cyan. Not used in the CSS today; they are the reference for any future use of the logo's light.
+- **Lime Glint** (lime-glint): strand colour, the Step-Up box border and step figures, review stars.
+- **Aurora** (aurora): strand colour and, on dark, the muted text colour for labels, facts and secondary lines.
+- **Padlock Amber** (padlock-amber): only the locked padlock state. Light theme uses padlock-amber-deep.
 
 ### Neutral
-- **Deep Space** (`deep-space`): dark-theme background.
-- **White** and **Off-White** (`off-white`): light-theme background and cards.
-- **Light Highlight** (`light-highlight`): warm pale fill behind quotes in the light theme.
-- **Cosmic Red** (`cosmic-red`): discounted prices only.
+- **Void Black** (void-black): dark ground, logo disc fill, primary button ink.
+- **Body Cream** (body-cream): paragraph text on dark, a step softer than lunar gold.
+- **Light Point White** (light-point): core of every light point and the bright inner line of each mark.
+- **Hairline**: lunar gold at 26% alpha (dark) or night ink at 22% (light) for the frame, dividers, card and pack rules.
+
+### Light theme
+- **Paper White** (paper-white) ground, **Night Ink** (night-ink) text, **Night Ink Highlight** for the heavy word, **Body Ink** for paragraphs, **Muted Violet** for labels.
+- Strands deepen to thread-cyan-deep, lunar-gold-deep, dusk-violet-deep, lime-glint-deep, aurora-deep; strands draw with normal compositing instead of additive light. Light points take a cyan core.
 
 ### Named Rules
-**The Three Lights Rule.** Interface colour comes from Lunar Gold, Cosmic Violet and Aurora Green only. Any other hex needs approval (the CSS currently holds about 30 stray values such as `#F4D03F`, `#B8860B`, `#1A73E8`: do not add more).
+**The Thread Owns the Spectrum Rule.** Cyan, violet, lime and aurora appear as strands, point glows, marks and tiny signals (focus ring, link line, stars, Step-Up border). They never fill a surface or a button.
 
-**The Logo Owns the Rainbow Rule.** The full neon spectrum belongs to the foot logo. Interface elements never reproduce the rainbow gradient as decoration.
-
-**The Gold-on-White Ban.** Lunar Gold on white fails contrast (about 1.3:1). In the light theme, text is violet; gold may appear only as a fill or a glow behind darker text.
+**The One Bright Word Rule.** Moonlight Highlight is reserved for the heavy word of a headline, prices and key figures. Body text never takes it.
 
 ## Typography
 
-**Display Font:** Rajdhani (with sans-serif)
-**Body Font:** Barlow (with system sans-serif stack)
+**Display Font:** Bodoni Moda (serif fallback), optical sizes 6-96, weights 400-900, italic and upright
+**Body Font:** Barlow (system-ui, sans-serif fallback), weights 400, 500, 600
 
-**Character:** Rajdhani is squared and slightly technical, Barlow is open and plain. The pairing reads modern and calm, never ornamental; all handwritten feeling is left to the logo wordmark.
+**Character:** A high-contrast didone set mostly italic and light (500), broken by one heavy upright word (900) that carries the meaning; a plain, slightly condensed grotesque underneath that never competes.
 
 ### Hierarchy
-- **Display** (600, 2.8rem, letter-spacing 1px): section titles ("My Services", "What People Say").
-- **Headline** (600, 2.2rem): Riccardo's name in the About card; category titles.
-- **Title** (600, 1.8rem): service names on cards.
-- **Body** (400, 1rem, line-height 1.6): descriptions, contact info.
-- **Quote** (400 italic, 1.2rem, line-height 1.7): the approach quote and testimonials.
-- **Label** (600, 1.2rem, uppercase, letter-spacing 1px, Rajdhani): button text ("BOOK YOUR MASSAGE").
+- **Display** (500 italic, clamp 52-108px, line 0.92, -0.03em): hero headline, balanced wrap. Its strong word is upright 900 at 1.2em on its own line.
+- **Headline** (500, clamp 44-96px, line 0.95): situation and treatment stops, same italic plus heavy-word pattern.
+- **Headline Section** (500, clamp 40-76px): packs, reviews, about, FAQ, contact.
+- **Title** (Bodoni Moda 800, 28px): pack names; Step-Up titles are Bodoni Moda italic 600 at 30px; FAQ questions Bodoni Moda clamp 22-30px.
+- **Lede** (Barlow 400, 20px, max 44ch): the one-line offer under a headline.
+- **Body** (Barlow 400, 18px, line 1.55, max 52ch): paragraphs. Supporting copy drops to 16px.
+- **Label** (Barlow, 13px, 0.18em, uppercase): navigation, facts row, price units, treatment links, captions. Figures use tabular numerals.
 
 ### Named Rules
-**The One Script Rule.** The only script lettering is the wordmark inside the logo image. Never set live text in a script or handwritten font.
+**The Italic With One Heavy Word Rule.** Every major headline is Bodoni Moda italic at 500 with exactly one upright 900 word in the highlight colour. Not two, not none.
+
+**The Grotesque Stays Quiet Rule.** Barlow never goes above 600 or larger than 22px; emphasis in body is carried by the highlight colour, not weight.
 
 ## Layout
 
-Single long page, centred container of 1200px with 20px side gutters. Sections have 70px vertical padding and are separated by a 3px gradient divider (transparent → Cosmic Violet → Aurora Green → transparent). Order: promo banner, centred logo and wordmark, About card, services grouped by category (Signature Ritual Experience, Sport Specific Protocol, Reflexology Essentials), Session Packs, testimonials, review form, footer with contacts and quote.
+A full-bleed single column on a fixed page frame inset 14px (8px on mobile). Copy sits on a left gutter of 62px; the hero copy column is at most 66% wide (max 1000px) so the right third belongs to the lattice. Stops alternate left and right inside a 1320px container, each about 62vh tall (treatments 78vh), copy at 72% width; the light point sits on the opposite side (88% or 12%). Content sections sit in a 1180px container with 16vh between them.
 
-Breakpoints in use: 480px, 768px, 968px, 1200px. On mobile everything stacks in one column; from 968px service cards sit side by side at natural height. Mobile is the main context (Instagram traffic).
+The thread moves in two registers. Through the situations and treatments it travels freely between anchors. From the lower content sections onward the anchors are quiet: the thread is held in the right gutter and swells only a little between anchors, so it never runs under text.
 
-Known weakness to respect until the redesign: the logo block plus About card push services well below the fold. Do not add more content above the services.
+Below 820px: the header loses the wordmark and all nav items except the language switch; copy moves to a 22px right / 44px left padding so the thread runs in a 14px lane along the left gutter; actions go full width; treatment marks become 150px blocks above their copy; a sticky two-part bar (metallic Book, WhatsApp) holds the bottom edge.
 
 ## Elevation & Depth
 
-Soft and ambient. Cards carry a diffuse shadow (`0 5px 15px` violet-tinted in dark, `0 4px 15px` at 10% violet in light). Glow is reserved for accents: Aurora Green halo around price badges, gold glow on the logo, violet halo on focused or hovered accents. Depth also comes from the dark ground itself: cards sit on a translucent black (`rgba(0,0,0,0.5)`).
+Flat, with depth made of light rather than shadow. Surfaces never lift. Depth comes from the hero's radial violet-black wash, additive blending of the lattice on dark, the glow of light points, and a soft halo around the marks. Copy over the journey carries a ground-coloured text halo so it reads cleanly near the thread.
+
+### Shadow Vocabulary
+- **Button glow** (`box-shadow: 0 12px 36px -14px rgba(255,248,214,.7)`, hover `0 18px 40px -14px rgba(255,248,214,.85)`): primary button only.
+- **Light point halo** (`0 0 0 3px rgba(255,255,255,.12), 0 0 18px 6px cyan 70%, 0 0 60px 22px violet 35%`): every light point.
+- **Mark halo** (`drop-shadow(0 0 4px rgba(255,248,214,.55)) drop-shadow(0 0 14px cyan 45%)`): treatment marks on dark only.
 
 ### Named Rules
-**The Glow Is Light, Not Shadow Rule.** Glows are coloured light (green, gold, violet) and only around small accents. Large surfaces get soft dark shadows, never neon halos.
+**The No Blur on Strands Rule.** Strands and the hero lattice are drawn as plain 1px lines at partial opacity with no blur or glow filter, for performance. Glow belongs to points and marks only.
 
 ## Shapes
 
-Gently curved, never sharp. Cards and panels: 10px (quotes 8px). Buttons, price badges, language switcher: full pills (50px). Portrait photo: circle. Thin 1px borders in translucent gold (dark) or translucent violet (light). The circle and the continuous curved line echo the logo.
+Hairline geometry. Buttons, pack cells, the Step-Up box, the form and inputs are square (0 radius) with 1px rules. Circles are reserved for the light: the logo disc, the light points and their rings, the portrait chip, the lightbox arrows. The language switch is the one pill (30px). The page frame has two marked corners, top-left and bottom-right, drawn as 18px brackets in the ink colour.
+
+Portraits never show a hard edge: the hero chip uses a radial mask, the About deck a horizontal and vertical feather.
 
 ## Components
 
 ### Buttons
-- **Shape:** full pill (`rounded.pill`), up to 300px wide, full width on mobile.
-- **Primary:** 45° gradient Dark Violet → Cosmic Violet, Lunar Gold uppercase Rajdhani label, 12px 30px padding, soft dark shadow.
-- **Hover / Focus:** 0.3s ease transition; lift and brighter glow. Focus must stay visible.
-- **Secondary:** "Show all reviews" and "Share your experience" use the same violet pill at smaller size.
+Metallic and quiet: one bright object per action group.
+- **Shape:** square corners (0), uppercase Barlow 600 at 15px, 0.16em tracking, 21px by 32px.
+- **Primary:** on dark a gold metallic gradient (115deg, #d9d6a6, moonlight highlight, lunar gold, #c9c58f) with black ink and the button glow. On light it becomes a night-ink violet gradient with cream ink.
+- **Hover / Focus:** lifts 2px and the glow strengthens; focus is a 2px cyan outline offset 4px.
+- **Ghost:** 1px ink border, transparent, a faint neutral tint on hover. Used for WhatsApp and secondary actions.
 
-### Price badge
-Aurora Green pill, black bold text (1.6rem), pinned to the top-right corner of the service card, with a soft green glow. Discounted prices show the original value and the new one in Cosmic Red.
+### Navigation and logo
+- **Header:** fixed inside the frame, fading from the ground to transparent. Tracked 13px uppercase links, 34px apart, a pill language switch with the current language filled in ink.
+- **Logo disc:** 52px black circle holding the neon rainbow foot logo (40px); hover adds a faint cyan ring; it spins once when used. In light theme the disc is transparent and the logo lines are deepened by filter so they read on paper white. The footer repeats it at 88px.
+- **Padlock:** a 30px line icon beside the disc. Unlocked (open shackle, muted colour): the logo switches theme. Locked (closed shackle, padlock amber): the logo keeps the theme and shows the next headline. The choice persists.
+
+### Light points
+A 12px white core (18px for major stops) with the light point halo, and a ring in lunar gold that pulses outward over 3.2s. On light the core turns cyan. Reduced motion stops the pulse.
+
+### Treatment marks (signature)
+Six one-stroke figures on a 400 unit canvas, each one continuous line from the top centre to the bottom centre: drop (detox), recovering circle with arrow (athlete), balanced halves (balance), fingerprint spiral (signature), essential figure (pure body), lotus (ritual). Each is drawn as a faint hairline ghost, then a 2.6 width stroke in a cyan to gold to cyan gradient, then a 0.9 width white core, revealed by scroll progress. The thread's strands converge into the mark at its top and bottom anchors and stay clear inside it. Marks sit on a ground-coloured disc (260px desktop, 150px mobile).
+
+### The thread
+Eighteen strands on desktop (five on mobile) cycling cyan, gold, violet, aurora, lime at 0.9 width and 60% opacity, braided around one curve through every anchor. A ground-coloured curtain with a soft top fade slides away by transform as the visitor scrolls, revealing the thread. The hero lattice (38 curves desktop, 16 mobile) blends cyan to gold to violet, animates slowly and pauses off-screen.
 
 ### Cards / Containers
-- **Service card:** 10px corners, translucent black (dark) or white (light), 1px translucent border, soft shadow; title, duration, divider, description, special-offers box, booking button. Rises 30px and fades in when scrolled into view.
-- **Testimonial card:** 10px corners, 1px Cosmic Violet border (Lunar Gold when featured), 30px padding, centred italic text, gold stars, service and date in small caps. Lifts 5px on hover.
-- **Quote panel (About):** 8px corners, 3px Cosmic Violet left border, italic text.
+- **Packs:** three cells in a ruled grid, separated by hairlines, no fill beyond the ground, no radius. Price in highlight at 30px, full-width button.
+- **Reviews:** top rule only, Bodoni italic key line, small lime stars.
+- **Step-Up:** a square box with a 1px lime border and lime step figures notched into its top edge.
 
-### Navigation
-No menu. A floating pill language switcher (EN | ES) top-right: translucent black with blur, Lunar Gold text, active language in a violet pill. Theme toggle alongside. A dismissible violet promo banner sits above everything.
+### Inputs / Fields
+Square, 1px hairline border, a 3-4% tint panel, Barlow 16px, labels in tracked 13px uppercase muted. Focus uses the global cyan outline.
 
-### Signature: the neon foot
-The logo (`logo_white_500x500.png` in the header, `logo_wName_transparentBG_newGold.png` with wordmark in the footer, `logo_onlyWords_newGold.png` for the wordmark alone) is centred at the top, max 300px. It is the brand's single most recognisable element.
+### Portraits
+Hero chip: 64px circle with radial feather, linking to About. About: a stacked deck of portraits with feathered edges, back cards fanned and faded, opening a lightbox.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep the neon rainbow foot logo and its glowing continuous-line style in every version of the site, including the redesign.
-- **Do** use Cosmic Violet for every booking action, so the next step is always the same colour.
-- **Do** keep price badges in Aurora Green with black text.
-- **Do** check every text colour against both themes (WCAG AA).
-- **Do** keep motion slow and soft (0.3s ease for states, 8s for the divider scan) and respect `prefers-reduced-motion`.
+- **Do** keep the ground pure black (void-black) by default and offer the light theme only through the logo disc and padlock.
+- **Do** keep the neon rainbow foot logo, unaltered on dark and filter-deepened on a transparent disc in light theme.
+- **Do** set every major headline in Bodoni Moda italic 500 with exactly one upright 900 word in the highlight colour.
+- **Do** mark each situation with a white light point and pulsing ring, and each treatment with its one-stroke gold mark drawn by scroll.
+- **Do** keep the thread in the right gutter (left lane on mobile) through the lower sections, swelling only gently between anchors.
+- **Do** show everything complete under reduced motion: thread revealed, marks fully drawn, no pulse, lattice still.
+- **Do** keep primary actions as the gold metallic button and secondary actions as the ghost button.
+- **Do** feather every portrait edge.
 
 ### Don't:
-- **Don't** put Lunar Gold or Wordmark Gold text on a white background.
-- **Don't** paint gradient bands behind headings that cut through the text (current light-theme category and card titles do this; do not copy it).
-- **Don't** reproduce the logo's rainbow as a decorative gradient on buttons, cards or backgrounds.
-- **Don't** add new colours, radii or breakpoints outside this file without approval.
-- **Don't** use a script font for live text.
+- **Don't** let strands or the lattice cross body copy, headlines or buttons.
+- **Don't** use stock or AI-generated photography of situations, treatments or places; the only photos are Riccardo's portraits.
+- **Don't** apply blur or glow filters to strands or the lattice.
+- **Don't** fill surfaces or buttons with cyan, violet, lime or aurora; they belong to the thread.
+- **Don't** round buttons, cards or inputs; circles are for the logo disc, points and portraits.
+- **Don't** replace, recolour or redraw the logo.

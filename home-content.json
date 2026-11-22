@@ -1,0 +1,567 @@
+{
+  "_note": "Texts of the home page (en/es). After editing, run: python3 tools/build-home.py",
+  "en": {
+    "lang": "en",
+    "locale": "en_US",
+    "title": "Foot reflexology in Barcelona · Signature Healing Touch",
+    "description": "Foot reflexology and massage in Barcelona by Riccardo Francescut. In your hotel, at home or in the studio. Executive Detox from €45. Ask for availability on WhatsApp.",
+    "skip": "Skip to content",
+    "nav_treatments": "Treatments",
+    "nav_reviews": "Reviews",
+    "nav_faq": "FAQ",
+    "nav_contact": "Contact",
+    "theme_to_light": "Switch to light theme",
+    "theme_to_dark": "Switch to dark theme",
+    "headlines": [
+      [
+        "Long day sightseeing?",
+        "Reset",
+        "in 45 minutes."
+      ],
+      [
+        "Walk all day.",
+        "Reset",
+        "by evening."
+      ],
+      [
+        "Dance all night.",
+        "Reset",
+        "by afternoon."
+      ],
+      [
+        "Night shift done?",
+        "Reset",
+        "before you rest."
+      ],
+      [
+        "Between two meetings?",
+        "Reset",
+        "your mind."
+      ],
+      [
+        "Train hard.",
+        "Recover",
+        "faster."
+      ],
+      [
+        "Walk more,",
+        "Pay less.",
+        ""
+      ]
+    ],
+    "lede": "Foot reflexology in Barcelona: a gentle charge from the reflex points of your feet that rebalances the whole body. In your hotel, at home or in the studio.",
+    "book": "Book a session",
+    "whatsapp": "WhatsApp",
+    "fact_min": "min",
+    "fact_from": "from",
+    "fact_reviews": "reviews",
+    "avail": "Mornings, afternoons and evenings. Ask for availability.",
+    "who_role": "Reflexologist in Barcelona · About me",
+    "journey_label": "Find your reset",
+    "situations": [
+      [
+        "Danced all night?",
+        "Reset",
+        "by afternoon.",
+        "Your feet carried you through the whole party. Forty-five minutes on the reflex points of your feet release the tired muscles and bring you back."
+      ],
+      [
+        "Night shift done?",
+        "Reset",
+        "before you rest.",
+        "Twelve hours on your feet, then the city wakes up while you go to bed. A short, deep reset first helps the body let go of the night."
+      ],
+      [
+        "Walked the city all day?",
+        "Reset",
+        "by evening.",
+        "Gothic Quarter, Sagrada Família, the beach and back. Give your feet back what Barcelona took from them."
+      ],
+      [
+        "Between two meetings?",
+        "Reset",
+        "your mind.",
+        "Forty-five minutes in the middle of the day: the body lets go, the head clears, and you go back in with your focus."
+      ]
+    ],
+    "detox_tag": "Executive Detox · 45 min",
+    "bridge1": [
+      "Four different days.",
+      "One reset."
+    ],
+    "bridge2": [
+      "Or simply",
+      "treat yourself."
+    ],
+    "ask": "Ask availability",
+    "book_prefix": "Book",
+    "offers": "Pay in cash −20% · in crypto −40% (BTC or ADA)",
+    "treatments": {
+      "detox": {
+        "name1": "Executive",
+        "name2": "Detox",
+        "text": "One answer for every kind of tired. Muscular release on feet and legs, then a short detox sequence on the reflex points of the feet: “The 3 Ways of Purification”. You walk out lighter, with your focus back."
+      },
+      "athlete": {
+        "hook": [
+          "Train hard.",
+          "Recover",
+          "faster."
+        ],
+        "lead": "Runs, matches, long sessions at the gym: your legs keep the score.",
+        "name1": "Athlete",
+        "name2": "Recovery",
+        "text": "Decontracting work on calves and quadriceps, then precise reflexology on the points most connected to your sport. Only offered as a complete protocol."
+      },
+      "balance": {
+        "hook": [
+          "Stressed?",
+          "Slow",
+          "down."
+        ],
+        "lead": "When the head never stops and the body stays on alert, the feet are the quietest way back to calm.",
+        "name1": "Balance",
+        "name2": "Reflexology",
+        "text": "For stress and anxiety. Conscious pressure on the main reflex zones calms the nervous system and brings you back to your natural balance."
+      },
+      "signature": {
+        "hook": [
+          "Something hurts?",
+          "Go",
+          "deeper."
+        ],
+        "lead": "A long-standing discomfort deserves time and attention. We look at it together, then work on it.",
+        "name1": "Personalized",
+        "name2": "Signature",
+        "text": "We start with a short personal anamnesis. Then “The 3 Ways of Purification” and a deep, specific phase on the reflex points linked to your issue."
+      },
+      "purebody": {
+        "name1": "Pure Body",
+        "name2": "Massage",
+        "text": "A refined full body massage: continuous, flowing, enveloping touch, with no reflexology and no added ritual. The essence of my signature touch."
+      },
+      "ritual": {
+        "name1": "Signature",
+        "name2": "Ritual",
+        "text": "Two hours uniting full-body massage and deep foot reflexology. A slow-motion escape to release tension, quiet the mind and restore inner balance."
+      }
+    },
+    "stepup_title": "Walk more, pay less.",
+    "stepup_text": "Show a dated screenshot of your steps in any 24 hours within the 10 days before your appointment:",
+    "stepup_rules": [
+      "10,000+ steps: €40",
+      "20,000+ steps: €35",
+      "30,000+ steps: €30"
+    ],
+    "stepup_note": "Only for the 45-minute Executive Detox. The discount is applied in person.",
+    "packs_title": [
+      "Session",
+      "packs"
+    ],
+    "packs_lead": "Four sessions for the price of three. Flexible booking with a unique voucher code, valid 4 months from purchase.",
+    "packs_buy": "Buy 3+1 pack",
+    "packs_instead": "instead of",
+    "packs": [
+      [
+        "Signature Reflexology",
+        "Deeper work on chronic discomfort and long-term well-being."
+      ],
+      [
+        "Balance Reflexology",
+        "A deep reset of the nervous system and ongoing balance."
+      ],
+      [
+        "Executive Detox",
+        "Regular stress relief, muscle recovery and a steady wellness routine."
+      ]
+    ],
+    "reviews_title": [
+      "What people",
+      "say."
+    ],
+    "reviews_lead": "Real reviews from clients since 2020, in their own language.",
+    "reviews_all": "Show all reviews",
+    "reviews_less": "Show fewer reviews",
+    "reviews_google": "Leave a review on Google",
+    "reviews_share": "Share your experience",
+    "about_hi": "Hi, I'm",
+    "about_role": "Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist",
+    "about_p1": "A degree in Cognitive Psychology and a curiosity for how people think and act. Inspired by martial arts and Eastern healing traditions, since 2020 I dedicate myself to foot reflexology, Qi Gong, Yoga and subtle energy work.",
+    "about_p2": "Yoga teacher, practitioner of Tai Chi, Qi Gong, Pa Kua Chang, breathwork and meditation. Certified reflexologist, ISMET (Instituto Superior de Medicinas Tradicionales).",
+    "about_langs": "I speak Italiano · Español · English · Français",
+    "deck_label": "Open photo gallery",
+    "deck_hint": "photos · tap to open",
+    "gallery": [
+      "Riccardo Francescut, reflexologist in Barcelona",
+      "Certified reflexologist, ISMET",
+      "Barcelona is home",
+      "Yoga teacher, Tai Chi, Qi Gong and Pa Kua Chang practitioner",
+      "Precise work on the reflex points of the feet",
+      "Gentle, non-invasive and adapted to you"
+    ],
+    "lb_prev": "Previous photo",
+    "lb_next": "Next photo",
+    "lb_close": "Close",
+    "faq_title": [
+      "Questions,",
+      "answered."
+    ],
+    "faq": [
+      [
+        "Where do sessions take place?",
+        "In your hotel or at your home within Barcelona city, with a travel supplement of only €6, or in the studio. Tell me where you are on WhatsApp and we find the best option."
+      ],
+      [
+        "How do I book?",
+        "Book online from each treatment, or write to me on WhatsApp. Sessions are possible in the morning, afternoon and evening: always ask for availability to confirm your slot."
+      ],
+      [
+        "How can I pay?",
+        "By card when you book online, or in person. On single sessions, paying in cash saves 20% and paying in crypto (BTC or ADA) saves 40%."
+      ],
+      [
+        "How does the Step-Up Challenge work?",
+        "Show a dated screenshot from your fitness app with your step total for any 24 hours within the 10 days before the appointment. 10,000+ steps: €40, 20,000+: €35, 30,000+: €30. Valid only for the 45-minute Executive Detox."
+      ],
+      [
+        "Which languages do you speak?",
+        "Italian, Spanish, English and French."
+      ]
+    ],
+    "contact_title": [
+      "Let's find",
+      "your slot."
+    ],
+    "contact_lead": "Write to me with the treatment you would like and where you are. I answer as soon as I can.",
+    "footer_line": "Foot reflexology in Barcelona",
+    "quote": "“The feet are the mirror of the body. Through the feet, we can reach the whole.” — Eunice Ingham",
+    "privacy": "Privacy",
+    "copyright": "Signature Healing Touch",
+    "bar_book": "Book",
+    "form": {
+      "title": "Share your experience",
+      "experience": "Your experience *",
+      "rating": "Rating *",
+      "rating_ph": "Select a rating",
+      "ratings": [
+        "1 · Poor",
+        "2 · Fair",
+        "3 · Good",
+        "4 · Very good",
+        "5 · Excellent"
+      ],
+      "type": "Treatment *",
+      "name": "Name *",
+      "email": "Email *",
+      "email_help": "Only to confirm your review. Never published.",
+      "date": "Date of the session *",
+      "month": "Month",
+      "year": "Year",
+      "submit": "Send",
+      "sending": "Sending…",
+      "ok": "Thank you for sharing your experience!",
+      "err": "Sorry, something went wrong. Please try again later or write on WhatsApp.",
+      "missing": "Please fill in all required fields.",
+      "close": "Close"
+    },
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "lock_open": "Theme unlocked: the logo switches light and dark. Click to lock the theme.",
+    "lock_closed": "Theme locked: the logo shows the next headline. Click to unlock.",
+    "logo_next": "Show the next headline"
+  },
+  "es": {
+    "lang": "es",
+    "locale": "es_ES",
+    "title": "Reflexología podal en Barcelona · Signature Healing Touch",
+    "description": "Reflexología podal y masajes en Barcelona con Riccardo Francescut. En tu hotel, en casa o en el estudio. Executive Detox desde 45 €. Consulta disponibilidad por WhatsApp.",
+    "skip": "Ir al contenido",
+    "nav_treatments": "Tratamientos",
+    "nav_reviews": "Opiniones",
+    "nav_faq": "FAQ",
+    "nav_contact": "Contacto",
+    "theme_to_light": "Cambiar a tema claro",
+    "theme_to_dark": "Cambiar a tema oscuro",
+    "headlines": [
+      [
+        "¿Un largo día de turismo?",
+        "Renuévate",
+        "en 45 minutos."
+      ],
+      [
+        "Camina todo el día.",
+        "Renuévate",
+        "al atardecer."
+      ],
+      [
+        "Baila toda la noche.",
+        "Renuévate",
+        "por la tarde."
+      ],
+      [
+        "¿Turno de noche terminado?",
+        "Renuévate",
+        "antes de descansar."
+      ],
+      [
+        "¿Entre dos reuniones?",
+        "Despeja",
+        "la mente."
+      ],
+      [
+        "Entrena duro.",
+        "Recupérate",
+        "más rápido."
+      ],
+      [
+        "Camina más,",
+        "paga menos.",
+        ""
+      ]
+    ],
+    "lede": "Reflexología podal en Barcelona: una carga suave desde los puntos reflejos de tus pies que reequilibra todo el cuerpo. En tu hotel, en casa o en el estudio.",
+    "book": "Reservar sesión",
+    "whatsapp": "WhatsApp",
+    "fact_min": "min",
+    "fact_from": "desde",
+    "fact_reviews": "opiniones",
+    "avail": "Mañanas, tardes y noches. Consulta disponibilidad.",
+    "who_role": "Reflexólogo en Barcelona · Sobre mí",
+    "journey_label": "Encuentra tu reset",
+    "situations": [
+      [
+        "¿Bailaste toda la noche?",
+        "Renuévate",
+        "por la tarde.",
+        "Tus pies te llevaron durante toda la fiesta. Cuarenta y cinco minutos sobre los puntos reflejos de tus pies sueltan los músculos cansados y te devuelven a ti."
+      ],
+      [
+        "¿Turno de noche terminado?",
+        "Renuévate",
+        "antes de descansar.",
+        "Doce horas de pie y luego la ciudad despierta mientras tú te vas a dormir. Un reset breve y profundo ayuda al cuerpo a soltar la noche."
+      ],
+      [
+        "¿Recorriste la ciudad todo el día?",
+        "Renuévate",
+        "al atardecer.",
+        "Barrio Gótico, Sagrada Família, la playa y vuelta. Devuelve a tus pies lo que Barcelona les ha quitado."
+      ],
+      [
+        "¿Entre dos reuniones?",
+        "Despeja",
+        "la mente.",
+        "Cuarenta y cinco minutos a mitad del día: el cuerpo se suelta, la cabeza se aclara y vuelves con toda tu concentración."
+      ]
+    ],
+    "detox_tag": "Executive Detox · 45 min",
+    "bridge1": [
+      "Cuatro días distintos.",
+      "Un solo reset."
+    ],
+    "bridge2": [
+      "O simplemente",
+      "date un capricho."
+    ],
+    "ask": "Consultar disponibilidad",
+    "book_prefix": "Reservar",
+    "offers": "Pago en efectivo −20% · en cripto −40% (BTC o ADA)",
+    "treatments": {
+      "detox": {
+        "name1": "Executive",
+        "name2": "Detox",
+        "text": "Una respuesta para cada tipo de cansancio. Descarga muscular en pies y piernas y luego una breve secuencia detox en los puntos reflejos: “Las 3 Vías de Purificación”. Sales más ligero y con la mente despejada."
+      },
+      "athlete": {
+        "hook": [
+          "Entrena duro.",
+          "Recupérate",
+          "más rápido."
+        ],
+        "lead": "Carreras, partidos, largas sesiones de gimnasio: tus piernas llevan la cuenta.",
+        "name1": "Athlete",
+        "name2": "Recovery",
+        "text": "Trabajo descontracturante en gemelos y cuádriceps y luego reflexología precisa en los puntos más ligados a tu deporte. Solo como protocolo completo."
+      },
+      "balance": {
+        "hook": [
+          "¿Estrés?",
+          "Baja",
+          "el ritmo."
+        ],
+        "lead": "Cuando la cabeza no para y el cuerpo sigue en alerta, los pies son el camino más tranquilo hacia la calma.",
+        "name1": "Balance",
+        "name2": "Reflexology",
+        "text": "Para el estrés y la ansiedad. Una presión consciente sobre las principales zonas reflejas calma el sistema nervioso y te devuelve a tu equilibrio natural."
+      },
+      "signature": {
+        "hook": [
+          "¿Algo te duele?",
+          "Ve",
+          "más profundo."
+        ],
+        "lead": "Una molestia de largo tiempo merece tiempo y atención. La miramos juntos y luego trabajamos sobre ella.",
+        "name1": "Personalized",
+        "name2": "Signature",
+        "text": "Empezamos con una breve anamnesis personal. Luego “Las 3 Vías de Purificación” y una fase profunda y específica en los puntos reflejos ligados a tu molestia."
+      },
+      "purebody": {
+        "name1": "Pure Body",
+        "name2": "Massage",
+        "text": "Un masaje de cuerpo completo refinado: un toque continuo, fluido y envolvente, sin reflexología ni ritual añadido. La esencia de mi toque."
+      },
+      "ritual": {
+        "name1": "Signature",
+        "name2": "Ritual",
+        "text": "Dos horas que unen masaje de cuerpo completo y reflexología podal profunda. Una escapada a cámara lenta para soltar tensiones, calmar la mente y recuperar el equilibrio."
+      }
+    },
+    "stepup_title": "Camina más, paga menos.",
+    "stepup_text": "Muestra una captura con fecha de tus pasos en cualquier periodo de 24 horas dentro de los 10 días antes de tu cita:",
+    "stepup_rules": [
+      "10.000+ pasos: 40 €",
+      "20.000+ pasos: 35 €",
+      "30.000+ pasos: 30 €"
+    ],
+    "stepup_note": "Solo para el Executive Detox de 45 minutos. El descuento se aplica en persona.",
+    "packs_title": [
+      "Packs de",
+      "sesiones"
+    ],
+    "packs_lead": "Cuatro sesiones por el precio de tres. Reserva flexible con un código de cupón único, válido 4 meses desde la compra.",
+    "packs_buy": "Comprar pack 3+1",
+    "packs_instead": "en lugar de",
+    "packs": [
+      [
+        "Signature Reflexology",
+        "Un trabajo más profundo para molestias crónicas y un bienestar duradero."
+      ],
+      [
+        "Balance Reflexology",
+        "Un reset profundo del sistema nervioso y un equilibrio constante."
+      ],
+      [
+        "Executive Detox",
+        "Alivio regular del estrés, recuperación muscular y una rutina de bienestar."
+      ]
+    ],
+    "reviews_title": [
+      "Lo que dice",
+      "la gente."
+    ],
+    "reviews_lead": "Opiniones reales de clientes desde 2020, en su propio idioma.",
+    "reviews_all": "Ver todas las opiniones",
+    "reviews_less": "Ver menos opiniones",
+    "reviews_google": "Deja una opinión en Google",
+    "reviews_share": "Comparte tu experiencia",
+    "about_hi": "Hola, soy",
+    "about_role": "Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist",
+    "about_p1": "Licenciado en Psicología Cognitiva y con curiosidad por cómo piensan y actúan las personas. Inspirado por las artes marciales y las tradiciones orientales de sanación, desde 2020 me dedico a la reflexología podal, el Qi Gong, el Yoga y el trabajo energético sutil.",
+    "about_p2": "Profesor de Yoga, practicante de Tai Chi, Qi Gong, Pa Kua Chang, respiración y meditación. Reflexólogo certificado por ISMET (Instituto Superior de Medicinas Tradicionales).",
+    "about_langs": "Hablo Italiano · Español · English · Français",
+    "deck_label": "Abrir galería de fotos",
+    "deck_hint": "fotos · toca para abrir",
+    "gallery": [
+      "Riccardo Francescut, reflexólogo en Barcelona",
+      "Reflexólogo certificado, ISMET",
+      "Barcelona es mi casa",
+      "Profesor de Yoga, practicante de Tai Chi, Qi Gong y Pa Kua Chang",
+      "Trabajo preciso en los puntos reflejos de los pies",
+      "Suave, no invasivo y adaptado a ti"
+    ],
+    "lb_prev": "Foto anterior",
+    "lb_next": "Foto siguiente",
+    "lb_close": "Cerrar",
+    "faq_title": [
+      "Preguntas,",
+      "respondidas."
+    ],
+    "faq": [
+      [
+        "¿Dónde se hacen las sesiones?",
+        "En tu hotel o en tu casa dentro de la ciudad de Barcelona, con un suplemento de solo 6 € por el desplazamiento, o en el estudio. Dime por WhatsApp dónde estás y buscamos la mejor opción."
+      ],
+      [
+        "¿Cómo reservo?",
+        "Reserva online desde cada tratamiento o escríbeme por WhatsApp. Hay sesiones por la mañana, por la tarde y por la noche: consulta siempre la disponibilidad para confirmar tu hora."
+      ],
+      [
+        "¿Cómo puedo pagar?",
+        "Con tarjeta al reservar online o en persona. En las sesiones sueltas, pagando en efectivo ahorras un 20% y en cripto (BTC o ADA) un 40%."
+      ],
+      [
+        "¿Cómo funciona el Step-Up Challenge?",
+        "Muestra una captura con fecha de tu app de actividad con el total de pasos de cualquier periodo de 24 horas dentro de los 10 días antes de la cita. 10.000+ pasos: 40 €, 20.000+: 35 €, 30.000+: 30 €. Válido solo para el Executive Detox de 45 minutos."
+      ],
+      [
+        "¿Qué idiomas hablas?",
+        "Italiano, español, inglés y francés."
+      ]
+    ],
+    "contact_title": [
+      "Busquemos",
+      "tu hora."
+    ],
+    "contact_lead": "Escríbeme con el tratamiento que te interesa y dónde estás. Te respondo lo antes posible.",
+    "footer_line": "Reflexología podal en Barcelona",
+    "quote": "“Los pies son el espejo del cuerpo. A través de los pies podemos llegar al todo.” — Eunice Ingham",
+    "privacy": "Privacidad",
+    "copyright": "Signature Healing Touch",
+    "bar_book": "Reservar",
+    "form": {
+      "title": "Comparte tu experiencia",
+      "experience": "Tu experiencia *",
+      "rating": "Valoración *",
+      "rating_ph": "Elige una valoración",
+      "ratings": [
+        "1 · Mala",
+        "2 · Regular",
+        "3 · Buena",
+        "4 · Muy buena",
+        "5 · Excelente"
+      ],
+      "type": "Tratamiento *",
+      "name": "Nombre *",
+      "email": "Email *",
+      "email_help": "Solo para confirmar tu opinión. Nunca se publica.",
+      "date": "Fecha de la sesión *",
+      "month": "Mes",
+      "year": "Año",
+      "submit": "Enviar",
+      "sending": "Enviando…",
+      "ok": "¡Gracias por compartir tu experiencia!",
+      "err": "Lo siento, algo ha fallado. Inténtalo más tarde o escríbeme por WhatsApp.",
+      "missing": "Rellena todos los campos obligatorios.",
+      "close": "Cerrar"
+    },
+    "months": [
+      "enero",
+      "febrero",
+      "marzo",
+      "abril",
+      "mayo",
+      "junio",
+      "julio",
+      "agosto",
+      "septiembre",
+      "octubre",
+      "noviembre",
+      "diciembre"
+    ],
+    "lock_open": "Tema desbloqueado: el logo cambia entre claro y oscuro. Haz clic para bloquear el tema.",
+    "lock_closed": "Tema bloqueado: el logo muestra el siguiente titular. Haz clic para desbloquear.",
+    "logo_next": "Mostrar el siguiente titular"
+  }
+}

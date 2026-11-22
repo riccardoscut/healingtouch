@@ -37,6 +37,7 @@ Where sessions take place:
 
 - **Hotels**: Riccardo is sent to hotel guests by the **Karuna** centre.
 - **At home**: house calls to clients within Barcelona city.
+- **Travel supplement**: €6 for hotel and home sessions (confirmed 22/11/2026).
 - **SLK Alkalina centre**: a treatment room Riccardo rents.
 - **Private space by arrangement**: for friends and Airbnb Experiences guests. Never publish its address.
 
@@ -59,6 +60,8 @@ Booking and payment flow: service cards → Cal.com booking (event slug = servic
 - Pure Body Massage 60 min and Signature Full Body Ritual 120 min: premium experiences outside the need-based path.
 
 **Step-Up Challenge:** clients who show they walked more than 10,000 steps get €5 to €15 off the Executive Detox. Purpose: promote walking as a simple way to stay fit.
+
+**Payment discounts:** cash −20% and crypto (BTC/ADA) −40% apply to single sessions only; session packs have no cash/crypto discount (confirmed 22/11/2026).
 
 **Availability:** sessions are possible in the morning, afternoon and evening, but every client must ask for availability to confirm there is a free slot. Never imply guaranteed times.
 
