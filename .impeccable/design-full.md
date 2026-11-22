@@ -241,10 +241,10 @@ Metallic and quiet: one bright object per action group.
 A 12px white core (18px for major stops) with the light point halo, and a ring in lunar gold that pulses outward over 3.2s. On light the core turns cyan. Reduced motion stops the pulse.
 
 ### Treatment marks (signature)
-Six one-stroke figures on a 400 unit canvas, each one continuous line from the top centre to the bottom centre: drop (detox), recovering circle with arrow (athlete), balanced halves (balance), fingerprint spiral (signature), essential figure (pure body), lotus (ritual). Each is drawn as a faint hairline ghost, then a 2.6 width stroke in a cyan to gold to cyan gradient, then a 0.9 width white core, revealed by scroll progress. The thread's strands converge into the mark at its top and bottom anchors and stay clear inside it. Marks sit on a ground-coloured disc (260px desktop, 150px mobile).
+Six one-stroke figures on a 400 unit canvas, each one continuous line from the top centre to the bottom centre: drop (detox), recovering circle with arrow (athlete), balanced halves (balance), fingerprint spiral (signature), essential figure (pure body), lotus (ritual). Each is drawn as a faint hairline ghost, then a 2.6 width stroke in a cyan to gold to cyan gradient, then a 0.9 width white core, revealed by scroll progress. The thread's strands converge into the mark at its top and bottom anchors and stay clear inside it. Marks sit on a ground-coloured disc (260px desktop, 124px mobile). On mobile each mark floats beside its text, alternating sides (right for left stops, left for right stops), with the copy wrapping around its circle.
 
 ### The thread
-Eighteen strands on desktop (five on mobile) cycling cyan, gold, violet, aurora, lime at 0.9 width and 60% opacity, braided around one curve through every anchor. A ground-coloured curtain with a soft top fade slides away by transform as the visitor scrolls, revealing the thread. The hero lattice (38 curves desktop, 16 mobile) blends cyan to gold to violet, animates slowly and pauses off-screen.
+Eighteen strands on desktop (five on mobile) cycling cyan, gold, violet, aurora, lime at 0.9 width and 60% opacity, braided around one curve through every anchor. A ground-coloured curtain with a soft top fade slides away by transform as the visitor scrolls, revealing the thread. The hero lattice (38 curves desktop, 16 mobile) blends cyan to gold to violet, animates slowly and pauses off-screen. On mobile the light points of the situations alternate sides too, so the braid (wider than a hairline: 22px spread) zig-zags under the text from side to side and through every mark. The texts of situations and treatments (headings, copy, prices, buttons, bridge lines) are written in by the same light: each is revealed top to bottom by a soft mask at the curtain's edge as the visitor scrolls; with reduced motion or without JavaScript everything is visible at once.
 
 ### Cards / Containers
 - **Packs:** three cells in a ruled grid, separated by hairlines, no fill beyond the ground, no radius. Price in highlight at 30px, full-width button.
@@ -264,13 +264,13 @@ Hero chip: 64px circle with radial feather, linking to About. About: a stacked d
 - **Do** keep the neon rainbow foot logo, unaltered on dark and filter-deepened on a transparent disc in light theme.
 - **Do** set every major headline in Bodoni Moda italic 500 with exactly one upright 900 word in the highlight colour.
 - **Do** mark each situation with a white light point and pulsing ring, and each treatment with its one-stroke gold mark drawn by scroll.
-- **Do** keep the thread in the right gutter (left lane on mobile) through the lower sections, swelling only gently between anchors.
+- **Do** keep the thread in the right gutter through the lower content sections (left lane on mobile), swelling only gently between anchors; in the situations and treatments it zig-zags between alternating light points and marks on every width.
 - **Do** show everything complete under reduced motion: thread revealed, marks fully drawn, no pulse, lattice still.
 - **Do** keep primary actions as the gold metallic button and secondary actions as the ghost button.
 - **Do** feather every portrait edge.
 
 ### Don't:
-- **Don't** let strands or the lattice cross body copy, headlines or buttons.
+- **Don't** reroute the thread to keep it away from text: strands and the lattice pass under body copy, headlines and buttons (always below them, with the copy's ground-coloured halo keeping it legible), on desktop and above all on mobile.
 - **Don't** use stock or AI-generated photography of situations, treatments or places; the only photos are Riccardo's portraits.
 - **Don't** apply blur or glow filters to strands or the lattice.
 - **Don't** fill surfaces or buttons with cyan, violet, lime or aurora; they belong to the thread.

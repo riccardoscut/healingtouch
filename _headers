@@ -11,12 +11,6 @@
 /thank-you.html
   Cache-Control: public, max-age=0, must-revalidate
 
-/test-i18n.html
-  Cache-Control: public, max-age=0, must-revalidate
-
-/test-website.html
-  Cache-Control: public, max-age=0, must-revalidate
-
 # Long-lived, immutable caching for static assets (safe because URLs are versioned with ?v=... when needed)
 /*.css
   Cache-Control: public, max-age=31536000, immutable

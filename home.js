@@ -104,7 +104,11 @@
     if (!sec) return;
     var r = sec.getBoundingClientRect(), Wd = r.width, mob = Wd < 820, pts = [[mob ? 14 : Wd * .72, 0]], inside = [];
     var endPt = null;
-    $$('.anchor', sec).forEach(function (a) { var b = a.getBoundingClientRect(), y = b.top - r.top; pts.push([(mob && !a.hasAttribute('data-end')) ? 14 : b.left - r.left, y, a.hasAttribute('data-quiet'), a.hasAttribute('data-end')]); if (a.classList.contains('a-top')) inside.push(y); });
+    $$('.anchor', sec).forEach(function (a) {
+      var b = a.getBoundingClientRect(), y = b.top - r.top, x = b.left - r.left, top = a.classList.contains('a-top'), bot = a.classList.contains('a-bot');
+      pts.push([x, y, a.hasAttribute('data-quiet'), a.hasAttribute('data-end')]);
+      if (top) inside.push(y);
+    });
     pts.sort(function (a, b) { return a[1] - b[1]; });
     $$('[data-gutter]', sec).forEach(function (g) { var y = g.getBoundingClientRect().top - r.top; for (var q = 1; q < pts.length; q++) if (Math.abs(pts[q][1] - y) < 1) pts[q][0] = pts[q - 1][0]; });
     SH = r.height;
@@ -114,14 +118,14 @@
     base.setAttribute('d', d);
     var L = base.getTotalLength(), S = mob ? 5 : 18, cols = ['--c1', '--c2', '--c3', '--c5', '--c4'], out = '';
     var ys = pts.map(function (p) { return p[1]; });
-    var spreadMax = mob ? 10 : Wd * .26, wob = mob ? 3 : 24, smp = [], l, i;
+    var spreadMax = mob ? 22 : Wd * .26, wob = mob ? 6 : 24, smp = [], l, i;
     var gutterScale = mob ? .9 : Math.min(.22, 70 / spreadMax);
     for (l = 0; l <= L; l += 12) smp.push(base.getPointAtLength(l));
     var nrm = smp.map(function (pt, i) {
       var a = smp[Math.max(0, i - 10)], b = smp[Math.min(smp.length - 1, i + 10)], dx = b.x - a.x, dy = b.y - a.y, m = Math.hypot(dx, dy) || 1, k = 0;
       while (k < ys.length - 2 && pt.y > ys[k + 1]) k++;
       var f = Math.min(1, Math.max(0, (pt.y - ys[k]) / ((ys[k + 1] - ys[k]) || 1)));
-      var inS = inside.some(function (y0) { return pt.y >= y0 - 1 && pt.y <= y0 + 209; });
+      var inS = inside.some(function (y0) { return pt.y >= y0 - 1 && pt.y <= y0 + (mob ? 101 : 209); });
       var quiet = pts[k + 1] && pts[k + 1][2], last = pts[k + 1] && pts[k + 1][3], sh = Math.pow(Math.sin(Math.PI * f), 2.2);
       if (last) return [-dy / m, dx / m, f, sh * .55];
       if (quiet) return [1, 0, f, (inS || pt.y <= ys[1]) ? 0 : sh * gutterScale];
@@ -148,7 +152,15 @@
     if (reduce) { cur.style.transform = 'translateY(' + (SH + 200) + 'px)'; return; }
     var r = sec.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .75 - r.top) / r.height));
     cur.style.transform = 'translateY(' + (p * (SH + 200)) + 'px)';
+    /* the texts beside situations and treatments are written in by the same light: revealed top to bottom at the curtain's edge */
+    var edge = r.top + p * (SH + 200) - 40;
+    for (var i = 0; i < reveal.length; i++) {
+      var el = reveal[i], b = el.getBoundingClientRect(), q = b.height ? Math.min(1, Math.max(0, (edge - b.top) / b.height)) : 1;
+      if (el._r !== q) { el._r = q; el.style.setProperty('--r', q.toFixed(3)); el.classList.toggle('lit', q >= 1); }
+    }
   }
+  var reveal = (reduce || !sec) ? [] : $$('.stop .txt > :not(.node), .bridge', sec);
+  if (reveal.length) sec.classList.add('reveal-on');
   if (sec) {
     var raf = 0;
     addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; tick(); }); }, { passive: true });

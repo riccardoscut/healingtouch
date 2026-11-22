@@ -144,7 +144,7 @@ Elevation:
 - Light point halo: 0 0 0 3px rgba(255,255,255,.12), 0 0 18px 6px cyan 70%, 0 0 60px 22px violet 35%
 - Mark halo: drop-shadow(0 0 4px rgba(255,248,214,.55)) drop-shadow(0 0 14px cyan 45%)
 Don't:
-- Don't let strands or the lattice cross body copy, headlines or buttons.
+- Don't reroute the thread to keep it away from text: strands and the lattice pass under body copy, headlines and buttons (always below them, with the copy's ground-coloured halo keeping it legible), on desktop and above all on mobile.
 - Don't use stock or AI-generated photography of situations, treatments or places; the only photos are Riccardo's portraits.
 - Don't apply blur or glow filters to strands or the lattice.
 - Don't fill surfaces or buttons with cyan, violet, lime or aurora; they belong to the thread.

@@ -83,6 +83,10 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .curtain{position:absolute;left:0;right:0;top:0;height:100%;z-index:1;background:var(--ground);will-change:transform;pointer-events:none}
 .curtain:before{content:"";position:absolute;left:0;right:0;top:-160px;height:160px;background:linear-gradient(transparent,var(--ground))}
 .anchor{position:absolute;width:1px;height:1px}
+/* texts appear with the thread: home.js sets --r (0..1) from the curtain's edge; without JS or with reduced motion nothing is hidden */
+.reveal-on .stop .txt > :not(.node):not(.lit),.reveal-on .bridge:not(.lit){
+  -webkit-mask-image:linear-gradient(#000 calc(var(--r,1) * (100% + 3em) - 3em),transparent calc(var(--r,1) * (100% + 3em)));
+  mask-image:linear-gradient(#000 calc(var(--r,1) * (100% + 3em) - 3em),transparent calc(var(--r,1) * (100% + 3em)))}
 .origin{position:relative;height:120px}
 .origin .node{left:72%;top:0}
 .node{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;z-index:2;
@@ -237,15 +241,18 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .facts{width:100%;justify-content:space-between}.facts span{padding:0 8px;font-size:11px}
   .who{position:static;margin:24px 22px 0 32px}
   .origin .node{left:14px}
-  .stop{padding:0 22px 0 44px;min-height:auto;margin:0 0 14vh;display:block}
+  /* mobile: light points and marks alternate sides, so the thread zig-zags under the text */
+  .stop{padding:0 24px;min-height:auto;margin:0 0 14vh;display:block}
   .stop .txt{width:auto}
   .stop.right .txt{text-align:left}.stop.right .txt p{margin-left:0}.stop.right .actions,.stop.right .price{justify-content:flex-start}
   .stop.right .stepup{margin-left:0}
-  .stop.left .node,.stop.right .node{left:14px;top:30px}
-  .stop.treat .sym-node{position:relative;display:block;left:auto!important;top:auto!important;width:150px;height:150px;margin:0 0 18px}
-  .sym-node .sym{left:0;top:0;width:150px;height:150px}
-  .sym-node .anchor.a-top{left:75px;top:15px}.sym-node .anchor.a-bot{left:75px;top:135px}
+  .stop.left .node{left:calc(100% - 16px);top:30px}.stop.right .node{left:16px;top:30px}
+  .stop.treat .sym-node{position:relative;display:block;float:right;left:auto!important;top:auto!important;width:124px;height:124px;margin:-6px -10px 8px 10px;shape-outside:circle(50%)}
+  .stop.treat.right .sym-node{float:left;margin:-6px 10px 8px -10px}
+  .sym-node .sym{left:0;top:0;width:124px;height:124px}
+  .sym-node .anchor.a-top{left:62px;top:12px}.sym-node .anchor.a-bot{left:62px;top:112px}
   .stop h2{font-size:42px}.stop h3{font-size:44px}
+  .stop .hook{font-size:38px}
   .section{padding:0 22px 0 44px}
   .sec-node.r,.sec-node.l,.sec-node.c{left:14px}
   .packs,.reviews{grid-template-columns:1fr}
