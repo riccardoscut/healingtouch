@@ -1,7 +1,9 @@
 # Local working files, never published (this repo is public and served by GitHub Pages)
 _privato/
 .claude/
-.impeccable/
+.impeccable/*
+# Full design system (DESIGN.md is only its map): keep it on GitHub
+!.impeccable/design-full.md
 
 # OS files
 .DS_Store
