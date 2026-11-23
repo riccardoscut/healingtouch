@@ -13,18 +13,31 @@
   /* ---------- tracking helper (Meta Pixel helper defined in <head>) ---------- */
   function track(ev, params, type) { if (typeof window.trackPixel === 'function') window.trackPixel(ev, params || {}, type || 'track'); }
 
-  /* ---------- headline: one of the approved lines at random on each visit ---------- */
-  var h1 = $('#h'), hi = 0;
-  function setHeadline(i) {
-    if (!h1 || !H.headlines || !H.headlines.length) return;
-    hi = (i + H.headlines.length) % H.headlines.length; var x = H.headlines[hi];
-    $$('[data-dup]').forEach(function (el) { el.hidden = el.getAttribute('data-dup') === String(hi); });
-    h1.innerHTML = '<em>' + x[0] + '</em> <strong>' + x[1] + '</strong>' + (x[2] ? ' <em>' + x[2] + '</em>' : '');
+  /* ---------- hero: situations in random order (one on each visit; the logo shows another one) ---------- */
+  /* slides come from home-content.json: the page's own language plus the extra languages in slide_langs (lang attribute set) */
+  var h1 = $('#h'), SL = H.slides || [], hi = 0, slBox = $('#slides'), bag = [];
+  function slideHTML(x) { return '<em>' + esc(x[0]) + '</em> <strong>' + esc(x[1]) + '</strong>' + (x[2] ? ' <em>' + esc(x[2]) + '</em>' : ''); }
+  function setHeadline(i, dir) {
+    if (!h1 || !SL.length) return;
+    hi = (i + SL.length) % SL.length; var x = SL[hi];
+    h1.innerHTML = slideHTML(x.t);
+    if (x.l) h1.setAttribute('lang', x.l); else h1.removeAttribute('lang');
+    if (dir && !reduce) { h1.classList.remove('sl-in'); void h1.offsetWidth; h1.classList.add('sl-in'); }
   }
-  if (H.headlines) setHeadline(Math.floor(Math.random() * H.headlines.length));
+  /* shuffled bag: every situation comes up once, in random order, before any repeats */
+  function nextRandom() {
+    if (SL.length < 2) return hi;
+    if (!bag.length) { for (var q = 0; q < SL.length; q++) if (q !== hi) bag.push(q); for (var r = bag.length - 1; r > 0; r--) { var k = Math.floor(Math.random() * (r + 1)), t = bag[r]; bag[r] = bag[k]; bag[k] = t; } }
+    return bag.pop();
+  }
+  if (SL.length) setHeadline(Math.floor(Math.random() * SL.length));
+  if (slBox && SL.length > 1) {
+    /* invisible copies of every slide share the grid cell, so the hero keeps the tallest slide's height and nothing jumps */
+    SL.forEach(function (x) { var g = document.createElement('p'); g.className = 'sl-size'; g.setAttribute('aria-hidden', 'true'); g.innerHTML = slideHTML(x.t); slBox.appendChild(g); });
+  }
 
   /* ---------- theme: the logo disc rotates and toggles light/dark ---------- */
-  /* the padlock decides what the logo does: unlocked = switch theme; locked = keep theme, show next headline */
+  /* the padlock decides what the logo does: unlocked = switch theme and show the next headline; locked = keep theme, show next headline */
   var tbtn = $('#themeToggle'), lbtn = $('#lockToggle'), locked = false;
   try { locked = localStorage.getItem('theme-lock') === '1'; } catch (e) {}
   function tlabel() { if (tbtn) tbtn.setAttribute('aria-label', locked ? H.logo_next : (root.dataset.theme === 'dark' ? H.theme_to_light : H.theme_to_dark)); }
@@ -33,18 +46,30 @@
   if (lbtn) lbtn.addEventListener('click', function () { locked = !locked; try { localStorage.setItem('theme-lock', locked ? '1' : '0'); } catch (e) {} llabel(); });
   if (tbtn) tbtn.addEventListener('click', function () {
     tbtn.classList.toggle('spin');
-    if (locked) { setHeadline(hi + 1); setTimeout(build, 60); return; }
+    setHeadline(nextRandom(), 1);
+    if (locked) return;
     root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
     try { localStorage.setItem('preferred-theme', root.dataset.theme); } catch (e) {}
     tlabel(); drawLattice();
   });
+
+  /* ---------- mobile booking bar: appears while the visitor scrolls or touches the page, hides again when idle ---------- */
+  var bar = $('.bar'), barT = 0;
+  if (bar) {
+    var wake = function () { bar.classList.remove('idle'); clearTimeout(barT); barT = setTimeout(function () { if (!bar.contains(document.activeElement)) bar.classList.add('idle'); }, 3500); };
+    bar.classList.add('idle');
+    addEventListener('scroll', wake, { passive: true });
+    addEventListener('touchstart', wake, { passive: true });
+    addEventListener('pointerdown', wake, { passive: true });
+    bar.addEventListener('focusin', wake);
+  }
 
   /* ---------- language links remember the choice ---------- */
   $$('[data-lang]').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('preferred-language', a.dataset.lang); } catch (e) {} }); });
 
   /* ---------- hero lattice: a family of close sine curves on one canvas ---------- */
   var cv = $('#heroLattice'), ctx = cv && cv.getContext('2d'), W = 0, Hh = 0, t = 0, run = false, last = 0;
-  function size() { if (!cv) return; var fn = $('#journey .stop .node'); if (innerWidth < 820 && fn) { var hb = cv.parentNode.getBoundingClientRect(), fb = fn.getBoundingClientRect(); cv.style.height = Math.round(fb.top + fb.height / 2 - hb.top + 40) + 'px'; } else cv.style.height = ''; var dpr = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; Hh = cv.clientHeight; cv.width = W * dpr; cv.height = Hh * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function size() { if (!cv) return; var fn = $('#journey .anchor'); if (innerWidth < 820 && fn) { var hb = cv.parentNode.getBoundingClientRect(), fb = fn.getBoundingClientRect(); cv.style.height = Math.round(fb.top - hb.top + 40) + 'px'; } else cv.style.height = ''; var dpr = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; Hh = cv.clientHeight; cv.width = W * dpr; cv.height = Hh * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
   function hex(h) { h = h.replace('#', ''); return [parseInt(h.substr(0, 2), 16), parseInt(h.substr(2, 2), 16), parseInt(h.substr(4, 2), 16)]; }
   function mix(a, b, u) { return [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u]; }
   function bz(p0, p1, p2, p3, q) { var m = 1 - q; return [m * m * m * p0[0] + 3 * m * m * q * p1[0] + 3 * m * q * q * p2[0] + q * q * q * p3[0], m * m * m * p0[1] + 3 * m * m * q * p1[1] + 3 * m * q * q * p2[1] + q * q * q * p3[1]]; }
@@ -56,7 +81,7 @@
     var lg = tbtn.getBoundingClientRect(), cr = cv.getBoundingClientRect();
     var P0 = mob ? [lg.left - cr.left + 4, lg.bottom - cr.top + 4] : [lg.left + lg.width / 2 - cr.left, lg.bottom - cr.top + 6];
     var P1 = mob ? [6, P0[1] + 40] : [W * .62, P0[1] + 10], P2 = mob ? [6, Hh * .7] : [W * .8, Hh * .6], P3 = mob ? [6, Hh] : [W * .72, Hh];
-    var wn = mob ? $('#journey .stop .node') : $('.who .node'); if (wn) { var nb = wn.getBoundingClientRect(); P3 = [nb.left + nb.width / 2 - cr.left, nb.top + nb.height / 2 - cr.top]; if (mob) { P1 = [W * .1, P0[1] + Hh * .3]; P2 = [W * .95, P3[1] - Hh * .3]; } } /* desktop: the lattice flows into the portrait's light point; mobile: on to the first hook's point */
+    var wn = mob ? $('#journey .anchor') : $('.who .node'); if (wn) { var nb = wn.getBoundingClientRect(); P3 = [nb.left + nb.width / 2 - cr.left, nb.top + nb.height / 2 - cr.top]; if (mob) { P1 = [W * .1, P0[1] + Hh * .3]; P2 = [W * .95, P3[1] - Hh * .3]; } } /* desktop: the lattice flows into the portrait's light point; mobile: on to the first hook's point */
     var spread = mob ? W * .22 : Hh * .26, amp = mob ? 8 : Hh * .08, base = [], k;
     ctx.globalCompositeOperation = dark ? 'lighter' : 'source-over'; ctx.lineWidth = 1;
     for (k = 0; k <= S; k++) base.push(bz(P0, P1, P2, P3, k / S));

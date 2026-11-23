@@ -29,7 +29,7 @@
 <script>(function(){var t;try{t=localStorage.getItem('preferred-theme')}catch(e){}if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=2026-11-23b">
+<link rel="stylesheet" href="/home.css?v=2026-11-23e">
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1517659402723971');fbq('track','PageView');
@@ -46,7 +46,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
   <div class="brand">
     <button class="disc" id="themeToggle" type="button" aria-label="Cambiar a tema claro"><img src="/logo_white_500x500.png" alt="" width="40" height="40"></button>
     <button class="lock" id="lockToggle" type="button" aria-pressed="false" aria-label="Tema desbloqueado: el logo cambia entre claro y oscuro. Haz clic para bloquear el tema." title="Tema desbloqueado: el logo cambia entre claro y oscuro. Haz clic para bloquear el tema."><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path class="shackle-open" d="M8 11V8a4 4 0 0 1 7.6-1.7"/><path class="shackle-closed" d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></svg></button>
-    <img class="word" src="/logo_onlyWords_newGold.png" alt="Signature Healing Touch" width="105" height="24">
+    <span class="word" role="img" aria-label="Signature Healing Touch"></span>
   </div>
   <nav class="site-nav" aria-label="Main"><ul>
     <li><a href="#detox">Tratamientos</a></li><li><a href="#reviews">Opiniones</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contacto</a></li>
@@ -58,7 +58,8 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
 <section class="hero" aria-labelledby="h">
   <canvas class="lattice" id="heroLattice" aria-hidden="true"></canvas>
   <div class="hero-copy">
-    <h1 id="h"><em>¿Un largo día de turismo?</em> <strong>Renuévate</strong> en 45 minutos.</h1>
+    <div class="slides" id="slides"><h1 id="h" aria-live="polite"><em>Tus pies han dado 20.000 pasos hoy.</em> <strong>Devuélveles</strong> <em>45 minutos.</em></h1></div>
+    <p class="pact"><a href="#detox">Executive Detox, 45 minutos: 45 €. Cuanto más caminas, menos pagas, hasta 30 €.</a></p>
     <p class="lede">Reflexología podal en Barcelona: una carga suave desde los puntos reflejos de tus pies que reequilibra todo el cuerpo. En tu hotel, en casa o en el estudio.</p>
     <div class="actions">
       <button type="button" class="btn btn-primary" data-book data-service="Executive Detox" data-cal-link="signaturehealingtouch/executive-detox-massage-45-min" data-cal-namespace="executive-detox-massage-45-min" data-cal-config='{"layout":"month_view"}'>Reservar sesión</button>
@@ -72,19 +73,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
 
 <section class="journey" id="journey" aria-label="Encuentra tu reset">
   <svg class="spine" id="spine" aria-hidden="true" preserveAspectRatio="none"><path id="spineBase" fill="none" stroke="none"/><g id="strands"></g></svg><div class="curtain-clip" aria-hidden="true"><div class="curtain" id="curtain"></div></div>
-  <article class="stop sit left"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="2"><em>¿Bailaste toda la noche?</em> <strong>Renuévate</strong> por la tarde.</h2><p>Tus pies te llevaron durante toda la fiesta. Cuarenta y cinco minutos sobre los puntos reflejos de tus pies sueltan los músculos cansados y te devuelven a ti.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <article class="stop sit right"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="3"><em>¿Turno de noche terminado?</em> <strong>Renuévate</strong> antes de descansar.</h2><p>Doce horas de pie y luego la ciudad despierta mientras tú te vas a dormir. Un reset breve y profundo ayuda al cuerpo a soltar la noche.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <article class="stop sit left"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="1"><em>¿Recorriste la ciudad todo el día?</em> <strong>Renuévate</strong> al atardecer.</h2><p>Barrio Gótico, Sagrada Família, la playa y vuelta. Devuelve a tus pies lo que Barcelona les ha quitado.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <article class="stop sit right"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="4"><em>¿Entre dos reuniones?</em> <strong>Despeja</strong> la mente.</h2><p>Cuarenta y cinco minutos a mitad del día: el cuerpo se suelta, la cabeza se aclara y vuelves con toda tu concentración.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <p class="bridge">Cuatro días distintos. <strong>Un solo reset.</strong></p>
+  <h2 class="sr-only">Tratamientos</h2>
   <article class="stop treat left" id="detox">
     <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="detox"></span></span><h3><strong>Executive</strong> Detox</h3>
       <div class="price"><span><b>45</b> min</span><span><b>€45</b></span></div>
@@ -92,11 +81,11 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
       <div class="actions"><button type="button" class="btn btn-primary" data-book data-service="Executive Detox" data-cal-link="signaturehealingtouch/executive-detox-massage-45-min" data-cal-namespace="executive-detox-massage-45-min" data-cal-config='{"layout":"month_view"}'>Reservar Executive Detox</button><a class="btn btn-ghost" href="https://wa.me/34652952566" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a></div>
 
       <div class="stepup"><div class="steps" aria-hidden="true"><svg viewBox="0 0 16 22"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg><svg viewBox="0 0 16 22" style="transform:translateY(-6px)"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg><svg viewBox="0 0 16 22"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg></div>
-        <h4 data-dup="6">Camina más, paga menos.</h4><p>Muestra una captura con fecha de tus pasos en cualquier periodo de 24 horas dentro de los 10 días antes de tu cita:</p><ul><li>10.000+ pasos: 40 €</li><li>20.000+ pasos: 35 €</li><li>30.000+ pasos: 30 €</li></ul><small>Solo para el Executive Detox de 45 minutos. El descuento se aplica en persona.</small></div>
+        <h4>Camina más, paga menos.</h4><p>Muestra una captura con fecha de tus pasos en cualquier periodo de 24 horas dentro de los 10 días antes de tu cita:</p><ul><li>10.000+ pasos: 40 €</li><li>20.000+ pasos: 35 €</li><li>30.000+ pasos: 30 €</li></ul><small>Solo para el Executive Detox de 45 minutos. El descuento se aplica en persona.</small></div>
     </div>
   </article>
   <article class="stop treat right" id="athlete">
-    <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="athlete"></span></span><h2 class="hook" data-dup="5"><em>Entrena duro.</em> <strong>Recupérate</strong> más rápido.</h2><p class="lead">Carreras, partidos, largas sesiones de gimnasio: tus piernas llevan la cuenta.</p><h3><strong>Athlete</strong> Recovery</h3>
+    <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="athlete"></span></span><h2 class="hook"><em>Entrena duro.</em> <strong>Recupérate</strong> más rápido.</h2><p class="lead">Carreras, partidos, largas sesiones de gimnasio: tus piernas llevan la cuenta.</p><h3><strong>Athlete</strong> Recovery</h3>
       <div class="price"><span><b>80</b> min</span><span><b>€110</b></span></div>
       <p>Trabajo descontracturante en gemelos y cuádriceps y luego reflexología precisa en los puntos más ligados a tu deporte. Solo como protocolo completo.</p>
       <div class="actions"><a class="btn btn-primary" data-book data-service="Athlete Recovery" href="https://book.stripe.com/bJe5kDclI4bP8MPfln7ok09" target="_blank" rel="noopener noreferrer">Reservar Athlete Recovery</a><a class="btn btn-ghost" href="https://wa.me/34652952566" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a></div>
@@ -113,7 +102,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
   </article>
   <article class="stop treat right" id="signature">
     <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="signature"></span></span><h2 class="hook"><em>¿Algo te duele?</em> <strong>Ve</strong> más profundo.</h2><p class="lead">Una molestia de largo tiempo merece tiempo y atención. La miramos juntos y luego trabajamos sobre ella.</p><h3><strong>Personalized</strong> Signature</h3>
-      <div class="price"><span><b>90</b> min</span><span><b>€70</b></span></div>
+      <div class="price"><span><b>90</b> min</span><span><b>€70</b> <s>€90</s> <em class="promo">Oferta de lanzamiento</em></span></div>
       <p>Empezamos con una breve anamnesis personal. Luego “Las 3 Vías de Purificación” y una fase profunda y específica en los puntos reflejos ligados a tu molestia.</p>
       <div class="actions"><button type="button" class="btn btn-primary" data-book data-service="Personalized Signature" data-cal-link="signaturehealingtouch/reflexology-foot-massage-1-hour-30-min" data-cal-namespace="reflexology-foot-massage-1-hour-30-min" data-cal-config='{"layout":"month_view"}'>Reservar Personalized Signature</button><a class="btn btn-ghost" href="https://wa.me/34652952566" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a></div>
 
@@ -196,7 +185,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
 
   <footer class="foot"><span class="anchor" data-end style="left:50%;top:194px"></span>
     <div class="disc foot-disc"><img src="/logo_white_500x500.png" alt="" width="68" height="68"></div>
-    <img class="foot-word" src="/logo_onlyWords_newGold.png" alt="Signature Healing Touch" width="131" height="30">
+    <span class="word foot-word" role="img" aria-label="Signature Healing Touch"></span>
     <p>Reflexología podal en Barcelona</p>
     <p class="quote">“Los pies son el espejo del cuerpo. A través de los pies podemos llegar al todo.” — Eunice Ingham</p>
     <p class="small">© <span data-year>2026</span> Signature Healing Touch · <a href="/privacy.html">Privacidad</a> · <a href="/en/" hreflang="en" data-lang="en">EN</a></p>
@@ -230,9 +219,9 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
   </form>
 </dialog>
 
-<script>window.HOME={"headlines": [["¿Un largo día de turismo?", "Renuévate", "en 45 minutos."], ["Camina todo el día.", "Renuévate", "al atardecer."], ["Baila toda la noche.", "Renuévate", "por la tarde."], ["¿Turno de noche terminado?", "Renuévate", "antes de descansar."], ["¿Entre dos reuniones?", "Despeja", "la mente."], ["Entrena duro.", "Recupérate", "más rápido."], ["Camina más,", "paga menos.", ""]], "theme_to_light": "Cambiar a tema claro", "theme_to_dark": "Cambiar a tema oscuro", "reviews_all": "Ver todas las opiniones", "reviews_less": "Ver menos opiniones", "gallery": ["Riccardo Francescut, reflexólogo en Barcelona", "Reflexólogo certificado, ISMET", "Barcelona es mi casa", "Profesor de Yoga, practicante de Tai Chi, Qi Gong y Pa Kua Chang", "Trabajo preciso en los puntos reflejos de los pies", "Suave, no invasivo y adaptado a ti"], "form": {"title": "Comparte tu experiencia", "experience": "Tu experiencia *", "rating": "Valoración *", "rating_ph": "Elige una valoración", "ratings": ["1 · Mala", "2 · Regular", "3 · Buena", "4 · Muy buena", "5 · Excelente"], "type": "Tratamiento *", "name": "Nombre *", "email": "Email *", "email_help": "Solo para confirmar tu opinión. Nunca se publica.", "date": "Fecha de la sesión *", "month": "Mes", "year": "Año", "submit": "Enviar", "sending": "Enviando…", "ok": "¡Gracias por compartir tu experiencia!", "err": "Lo siento, algo ha fallado. Inténtalo más tarde o escríbeme por WhatsApp.", "missing": "Rellena todos los campos obligatorios.", "close": "Cerrar"}, "months": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"], "lock_open": "Tema desbloqueado: el logo cambia entre claro y oscuro. Haz clic para bloquear el tema.", "lock_closed": "Tema bloqueado: el logo muestra el siguiente titular. Haz clic para desbloquear.", "logo_next": "Mostrar el siguiente titular"};</script>
-<script src="/contents.js?v=2026-11-23b"></script>
-<script src="/home.js?v=2026-11-23b"></script>
+<script>window.HOME={"slides": [{"t": ["Tus pies han dado 20.000 pasos hoy.", "Devuélveles", "45 minutos."]}, {"t": ["Mañana vuelves a caminar. Tus pies necesitan", "esta noche.", ""]}, {"t": ["¿Bailaste toda la noche? Tus pies", "pagan", "la cuenta."]}, {"t": ["¿Sales a las 7 y no logras desconectar?", "Empieza", "por los pies."]}, {"t": ["¿Diez pestañas abiertas en la cabeza?", "Ciérralas", "desde los pies."]}, {"t": ["Los kilómetros de hoy se pagan mañana.", "Recupérate", "esta noche."]}, {"t": ["¿Ocho horas de pie en la cocina?", "Siéntate,", "ahora les toca a ellos."]}, {"t": ["¿Bajaste de la montaña? Tus pies", "siguen", "arriba."]}, {"t": ["Camina más,", "paga menos.", ""]}, {"t": ["Els teus peus han fet 20.000 passes avui.", "Torna'ls", "45 minuts."], "l": "ca"}, {"t": ["Demà tornes a caminar. Els teus peus necessiten", "aquesta nit.", ""], "l": "ca"}, {"t": ["Has ballat tota la nit? Els teus peus", "paguen", "el compte."], "l": "ca"}, {"t": ["Surts a les 7 i no aconsegueixes desconnectar?", "Comença", "pels peus."], "l": "ca"}, {"t": ["Deu pestanyes obertes al cap?", "Tanca-les", "des dels peus."], "l": "ca"}, {"t": ["Els quilòmetres d'avui es paguen demà.", "Recupera't", "aquesta nit."], "l": "ca"}, {"t": ["Vuit hores dempeus a la cuina?", "Seu,", "ara els toca a ells."], "l": "ca"}, {"t": ["Has baixat de la muntanya? Els teus peus", "encara", "són a dalt."], "l": "ca"}, {"t": ["Camina més,", "paga menys.", ""], "l": "ca"}], "theme_to_light": "Cambiar a tema claro", "theme_to_dark": "Cambiar a tema oscuro", "reviews_all": "Ver todas las opiniones", "reviews_less": "Ver menos opiniones", "gallery": ["Riccardo Francescut, reflexólogo en Barcelona", "Reflexólogo certificado, ISMET", "Barcelona es mi casa", "Profesor de Yoga, practicante de Tai Chi, Qi Gong y Pa Kua Chang", "Trabajo preciso en los puntos reflejos de los pies", "Suave, no invasivo y adaptado a ti"], "form": {"title": "Comparte tu experiencia", "experience": "Tu experiencia *", "rating": "Valoración *", "rating_ph": "Elige una valoración", "ratings": ["1 · Mala", "2 · Regular", "3 · Buena", "4 · Muy buena", "5 · Excelente"], "type": "Tratamiento *", "name": "Nombre *", "email": "Email *", "email_help": "Solo para confirmar tu opinión. Nunca se publica.", "date": "Fecha de la sesión *", "month": "Mes", "year": "Año", "submit": "Enviar", "sending": "Enviando…", "ok": "¡Gracias por compartir tu experiencia!", "err": "Lo siento, algo ha fallado. Inténtalo más tarde o escríbeme por WhatsApp.", "missing": "Rellena todos los campos obligatorios.", "close": "Cerrar"}, "months": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"], "lock_open": "Tema desbloqueado: el logo cambia entre claro y oscuro. Haz clic para bloquear el tema.", "lock_closed": "Tema bloqueado: el logo muestra el siguiente titular. Haz clic para desbloquear.", "logo_next": "Mostrar el siguiente titular"};</script>
+<script src="/contents.js?v=2026-11-23e"></script>
+<script src="/home.js?v=2026-11-23e"></script>
 <script>(function(C,A,L){let p=function(a,ar){a.q.push(ar);};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

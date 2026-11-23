@@ -43,8 +43,7 @@ img{max-width:100%}
 .lock[aria-pressed=true]{color:#A8792A}
 [data-theme=light] .lock[aria-pressed=true]{color:#7A5414}
 .lock[aria-pressed=true] .shackle-closed{display:inline}.lock[aria-pressed=true] .shackle-open{display:none}
-.brand .word{height:24px;width:auto;filter:brightness(1.18)}
-[data-theme=light] .brand .word,[data-theme=light] .foot-word{filter:brightness(.45) sepia(.5) saturate(2) hue-rotate(10deg)}
+.word{display:block;width:105px;height:24px;background:var(--ink);-webkit-mask:url(/logo_onlyWords_newGold.png) center/contain no-repeat;mask:url(/logo_onlyWords_newGold.png) center/contain no-repeat;transition:background .5s}
 .site-nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:13px;letter-spacing:.18em;text-transform:uppercase;align-items:center}
 .site-nav a{text-decoration:none}
 .site-nav a:hover{color:var(--ink-hi)}
@@ -57,9 +56,21 @@ img{max-width:100%}
 .lattice{position:absolute;left:0;top:0;width:100%;height:100%;display:block;pointer-events:none}
 .hero-copy{position:relative;z-index:3;padding:max(120px,16vh) 0 9vh 62px;width:min(1000px,66%)}
 .hero-copy .lede,.hero-copy .actions,.hero-copy .facts,.hero-copy .avail{max-width:620px}
-h1{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(52px,min(6.6vw,11.5vh),108px);line-height:.92;letter-spacing:-.03em;margin:0 0 28px;text-wrap:balance}
-h1 em{font-style:italic}
-h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);letter-spacing:-.04em;line-height:.95}
+h1,.sl-size{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(44px,min(4.8vw,7.6vh),80px);line-height:.92;letter-spacing:-.03em;margin:0 0 28px;text-wrap:balance}
+h1 em,.sl-size em{font-style:italic}
+h1 strong,.sl-size strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);letter-spacing:-.04em;line-height:.95}
+/* hero situations: they stack in one grid cell (invisible copies reserve the tallest height) */
+.slides{display:grid}
+.slides > *{grid-area:1/1;align-self:start}
+.sl-size{visibility:hidden;pointer-events:none;user-select:none}
+@keyframes slIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+h1.sl-in{animation:slIn .55s cubic-bezier(.2,.7,.2,1)}
+/* the steps pact, fixed under every situation */
+.pact{font-size:18px;max-width:44ch;margin:0 0 14px}
+.pact a{color:var(--ink-hi);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--c1) 60%,transparent);padding-bottom:2px}
+.pact a:hover{border-bottom-color:var(--ink-hi)}
+.price s{color:var(--muted);font-size:15px;letter-spacing:0;margin-left:8px}
+.price .promo{font-style:normal;color:var(--ink-hi);margin-left:10px}
 .lede{font-size:20px;max-width:44ch;color:var(--body);margin:0 0 32px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 15px/1 Barlow;letter-spacing:.16em;text-transform:uppercase;padding:21px 32px;text-decoration:none;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
@@ -89,6 +100,7 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .curtain{position:absolute;left:0;right:0;top:0;height:100%;z-index:1;background:var(--ground);will-change:transform;pointer-events:none}
 .curtain:before{content:"";position:absolute;left:0;right:0;top:-160px;height:160px;background:linear-gradient(transparent,var(--ground))}
 .anchor{position:absolute;width:1px;height:1px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 /* texts appear with the thread: home.js sets --r (0..1) from the curtain's edge; without JS or with reduced motion nothing is hidden */
 .reveal-on .stop .txt > :not(.node):not(.lit),.reveal-on .bridge:not(.lit){
   -webkit-mask-image:linear-gradient(#000 calc(var(--r,1) * (100% + 3em) - 3em),transparent calc(var(--r,1) * (100% + 3em)));
@@ -229,7 +241,7 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 /* ---------- footer ---------- */
 .foot{position:relative;z-index:2;text-align:center;padding:150px 24px 40px;color:var(--muted);font-size:14px}
 .foot-disc{margin:0 auto 18px;width:88px;height:88px;cursor:default}.foot-disc img{width:68px;height:68px}
-.foot-word{height:30px;width:auto;margin:0 auto 18px;display:block}
+.foot-word{width:131px;height:30px;margin:0 auto 18px}
 .foot .quote{font-style:italic;max-width:60ch;margin:18px auto}
 .foot .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-top:26px}
 
@@ -266,7 +278,7 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .brand .word{display:none}
   .hero{min-height:auto;padding-bottom:20px;overflow-x:clip;overflow-y:visible}
   .hero-copy{width:auto;padding:120px 22px 0 32px}
-  h1{font-size:46px;margin-bottom:18px}
+  h1,.sl-size{font-size:38px;margin-bottom:18px}
   .lede{font-size:17px}
   .actions .btn{flex:1 1 100%}
   .facts{width:100%;justify-content:space-between}.facts span{padding:0 8px;font-size:11px}
@@ -297,6 +309,8 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--ground);border-top:1px solid var(--line)}
   .bar a,.bar button{display:flex;justify-content:center;align-items:center;gap:8px;padding:18px 10px calc(18px + env(safe-area-inset-bottom));font:600 14px Barlow;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer}
   .bar .bar-book{background:var(--gold-btn);color:var(--btn-ink)}
+  .bar{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .bar.idle{transform:translateY(110%)}
   body{padding-bottom:64px}
 }
 @media (prefers-reduced-motion:reduce){

@@ -26,6 +26,7 @@ SERVICES = {  # id used by Cal.com / Stripe, minutes, price (from contents.js, c
     'purebody': ('pure-body-massage-60-min', 60, 100),
     'ritual': ('signature-full-body-ritual-experience-120-min', 120, 240),
 }
+PROMO = {'signature': 90}  # treatment key -> regular price shown struck through next to the launch price
 PACKS = [  # name index in strings, pack price, regular price, Stripe link
     (0, 270, 360, 'https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05'),
     (1, 180, 240, 'https://buy.stripe.com/9B69ATbhEaAd6EHehj7ok08'),
@@ -65,13 +66,13 @@ def treatment(side, key, s, extra=''):
     sid, mins, price = SERVICES[key]
     t = s['treatments'][key]
     name = (t['name1'] + ' ' + t['name2']).strip()
+    promo = f' <s>€{PROMO[key]}</s> <em class="promo">{e(s["promo_label"])}</em>' if key in PROMO else ''
     head = ''
     if 'hook' in t:
-        dup = ' data-dup="5"' if key == 'athlete' else ''
-        head = f'<h2 class="hook"{dup}>{hook(t["hook"])}</h2><p class="lead">{e(t["lead"])}</p>'
+        head = f'<h2 class="hook">{hook(t["hook"])}</h2><p class="lead">{e(t["lead"])}</p>'
     return f'''  <article class="stop treat {side}" id="{key}">
     <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="{key}"></span></span>{head}<h3><strong>{e(t["name1"])}</strong> {e(t["name2"])}</h3>
-      <div class="price"><span><b>{mins}</b> min</span><span><b>€{price}</b></span></div>
+      <div class="price"><span><b>{mins}</b> min</span><span><b>€{price}</b>{promo}</span></div>
       <p>{e(t["text"])}</p>
       <div class="actions">{book_button(key, s, s["book_prefix"] + " " + name)}<a class="btn btn-ghost" href="{WA}" target="_blank" rel="noopener noreferrer">{e(s["ask"])}</a></div>
 {extra}
@@ -100,17 +101,16 @@ def find_map():
             '<g class="blocks" transform="translate(200 200) rotate(45)">' + ''.join(blocks) + '</g></svg>')
 
 
+DATA = {}
+
+
 def page(s, other, is_root=False):
     L = s['lang']
     url = f'{SITE}/{L}/'
     stepup = f'''
       <div class="stepup"><div class="steps" aria-hidden="true"><svg viewBox="0 0 16 22"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg><svg viewBox="0 0 16 22" style="transform:translateY(-6px)"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg><svg viewBox="0 0 16 22"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg></div>
-        <h4 data-dup="6">{e(s["stepup_title"])}</h4><p>{e(s["stepup_text"])}</p><ul>{"".join(f"<li>{e(r)}</li>" for r in s["stepup_rules"])}</ul><small>{e(s["stepup_note"])}</small></div>'''
-    sides = ['left', 'right', 'left', 'right']
-    dups = [2, 3, 1, 4]  # hero headline index that tells the same story as each situation
-    journey = ''.join(situation(sides[i], sit, s, dups[i]) for i, sit in enumerate(s['situations']))
-    journey += f'  <p class="bridge">{e(s["bridge1"][0])} <strong>{e(s["bridge1"][1])}</strong></p>\n'
-    journey += treatment('left', 'detox', s, stepup)
+        <h4>{e(s["stepup_title"])}</h4><p>{e(s["stepup_text"])}</p><ul>{"".join(f"<li>{e(r)}</li>" for r in s["stepup_rules"])}</ul><small>{e(s["stepup_note"])}</small></div>'''
+    journey = treatment('left', 'detox', s, stepup)  # the hero carousel tells the situations; the journey starts with the 45-minute massage
     journey += treatment('right', 'athlete', s) + treatment('left', 'balance', s) + treatment('right', 'signature', s)
     journey += f'  <p class="bridge">{e(s["bridge2"][0])} <strong>{e(s["bridge2"][1])}</strong></p>\n'
     journey += treatment('left', 'purebody', s) + treatment('right', 'ritual', s)
@@ -128,7 +128,8 @@ def page(s, other, is_root=False):
 
     redirect = '''<script>(function(){var p=location.pathname;if(p.indexOf('/en')===0||p.indexOf('/es')===0)return;var l='en';try{var s=localStorage.getItem('preferred-language');if(s==='es'||s==='en')l=s;else if((navigator.language||'').slice(0,2)==='es')l='es';}catch(e){}location.replace('/'+l+'/'+location.search+location.hash);})();</script>''' if is_root else ''
 
-    home_json = json.dumps({k: s[k] for k in ['headlines', 'theme_to_light', 'theme_to_dark', 'reviews_all', 'reviews_less', 'gallery', 'form', 'months', 'lock_open', 'lock_closed', 'logo_next']}, ensure_ascii=False)
+    slides = [{'t': x} for x in s['slides']] + [{'t': x, 'l': lg} for lg in s['slide_langs'] for x in DATA['slides_extra'][lg]]
+    home_json = json.dumps({'slides': slides, **{k: s[k] for k in [ 'theme_to_light', 'theme_to_dark', 'reviews_all', 'reviews_less', 'gallery', 'form', 'months', 'lock_open', 'lock_closed', 'logo_next']}}, ensure_ascii=False)
     ld = {
         '@context': 'https://schema.org', '@type': 'HealthAndBeautyBusiness', 'name': 'Signature Healing Touch',
         'url': SITE + '/', 'image': SITE + '/logo_wName_transparentBG_newGold.png', 'telephone': '+34652952566',
@@ -170,7 +171,7 @@ def page(s, other, is_root=False):
 <script>(function(){{var t;try{{t=localStorage.getItem('preferred-theme')}}catch(e){{}}if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=2026-11-23b">
+<link rel="stylesheet" href="/home.css?v=2026-11-23e">
 <script>
 !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1517659402723971');fbq('track','PageView');
@@ -187,7 +188,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
   <div class="brand">
     <button class="disc" id="themeToggle" type="button" aria-label="{e(s["theme_to_light"])}"><img src="/logo_white_500x500.png" alt="" width="40" height="40"></button>
     <button class="lock" id="lockToggle" type="button" aria-pressed="false" aria-label="{e(s["lock_open"])}" title="{e(s["lock_open"])}"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path class="shackle-open" d="M8 11V8a4 4 0 0 1 7.6-1.7"/><path class="shackle-closed" d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></svg></button>
-    <img class="word" src="/logo_onlyWords_newGold.png" alt="Signature Healing Touch" width="105" height="24">
+    <span class="word" role="img" aria-label="Signature Healing Touch"></span>
   </div>
   <nav class="site-nav" aria-label="Main"><ul>
     <li><a href="#detox">{e(s["nav_treatments"])}</a></li><li><a href="#reviews">{e(s["nav_reviews"])}</a></li><li><a href="#faq">{e(s["nav_faq"])}</a></li><li><a href="#contact">{e(s["nav_contact"])}</a></li>
@@ -199,7 +200,8 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 <section class="hero" aria-labelledby="h">
   <canvas class="lattice" id="heroLattice" aria-hidden="true"></canvas>
   <div class="hero-copy">
-    <h1 id="h">{hook(s["headlines"][0]) if s["headlines"][0][2] else hook(s["headlines"][0])}</h1>
+    <div class="slides" id="slides"><h1 id="h" aria-live="polite"><em>{e(s["slides"][0][0])}</em> <strong>{e(s["slides"][0][1])}</strong> <em>{e(s["slides"][0][2])}</em></h1></div>
+    <p class="pact"><a href="#detox">{e(s["pact"])}</a></p>
     <p class="lede">{e(s["lede"])}</p>
     <div class="actions">
       {book_button("detox", s, s["book"])}
@@ -213,6 +215,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 
 <section class="journey" id="journey" aria-label="{e(s["journey_label"])}">
   <svg class="spine" id="spine" aria-hidden="true" preserveAspectRatio="none"><path id="spineBase" fill="none" stroke="none"/><g id="strands"></g></svg><div class="curtain-clip" aria-hidden="true"><div class="curtain" id="curtain"></div></div>
+  <h2 class="sr-only">{e(s["nav_treatments"])}</h2>
 {journey}
   <section class="section" id="packs" aria-labelledby="packs-h"><span class="node sec-node r"><span class="anchor"></span></span>
     <div class="section-head"><h2 id="packs-h"><em>{e(s["packs_title"][0])}</em> <strong>{e(s["packs_title"][1])}</strong></h2><p>{e(s["packs_lead"])}</p></div>
@@ -270,7 +273,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 
   <footer class="foot"><span class="anchor" data-end style="left:50%;top:194px"></span>
     <div class="disc foot-disc"><img src="/logo_white_500x500.png" alt="" width="68" height="68"></div>
-    <img class="foot-word" src="/logo_onlyWords_newGold.png" alt="Signature Healing Touch" width="131" height="30">
+    <span class="word foot-word" role="img" aria-label="Signature Healing Touch"></span>
     <p>{e(s["footer_line"])}</p>
     <p class="quote">{e(s["quote"])}</p>
     <p class="small">© <span data-year>2026</span> {e(s["copyright"])} · <a href="/privacy.html">{e(s["privacy"])}</a> · <a href="{other_url}" hreflang="{other["lang"]}" data-lang="{other["lang"]}">{other["lang"].upper()}</a></p>
@@ -305,8 +308,8 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 </dialog>
 
 <script>window.HOME={home_json};</script>
-<script src="/contents.js?v=2026-11-23b"></script>
-<script src="/home.js?v=2026-11-23b"></script>
+<script src="/contents.js?v=2026-11-23e"></script>
+<script src="/home.js?v=2026-11-23e"></script>
 <script>(function(C,A,L){{let p=function(a,ar){{a.q.push(ar);}};let d=C.document;C.Cal=C.Cal||function(){{let cal=C.Cal;let ar=arguments;if(!cal.loaded){{cal.ns={{}};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}}if(ar[0]===L){{const api=function(){{p(api,arguments);}};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){{cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}}else p(cal,ar);return;}}p(cal,ar);}};}})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -318,6 +321,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 def main():
     data = json.load(open(os.path.join(ROOT, 'home-content.json'), encoding='utf-8'))
     en, es = data['en'], data['es']
+    DATA['slides_extra'] = data.get('slides_extra', {})
     out = {'en/index.html': page(en, es), 'es/index.html': page(es, en), 'index.html': page(en, es, is_root=True)}
     for path, content in out.items():
         with open(os.path.join(ROOT, path), 'w', encoding='utf-8') as f:

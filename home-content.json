@@ -12,36 +12,46 @@
     "nav_contact": "Contact",
     "theme_to_light": "Switch to light theme",
     "theme_to_dark": "Switch to dark theme",
-    "headlines": [
+    "slides": [
       [
-        "Long day sightseeing?",
-        "Reset",
-        "in 45 minutes."
+        "Your feet took 20,000 steps today.",
+        "Give",
+        "them 45 minutes back."
       ],
       [
-        "Walk all day.",
-        "Reset",
-        "by evening."
+        "Tomorrow you'll walk again. Your feet need",
+        "tonight.",
+        ""
       ],
       [
-        "Dance all night.",
-        "Reset",
-        "by afternoon."
+        "Danced all night? Your feet",
+        "paid",
+        "the bill."
       ],
       [
-        "Night shift done?",
-        "Reset",
-        "before you rest."
+        "Home at 7am and can't switch off?",
+        "Start",
+        "with your feet."
       ],
       [
-        "Between two meetings?",
-        "Reset",
-        "your mind."
+        "Ten tabs open in your head?",
+        "Close",
+        "them from your feet."
       ],
       [
-        "Train hard.",
+        "Today's kilometres get paid tomorrow.",
         "Recover",
-        "faster."
+        "tonight."
+      ],
+      [
+        "Eight hours on your feet in the kitchen?",
+        "Sit",
+        "down, they're next."
+      ],
+      [
+        "Came down the mountain? Your feet are",
+        "still",
+        "up there."
       ],
       [
         "Walk more,",
@@ -49,6 +59,14 @@
         ""
       ]
     ],
+    "slide_langs": [
+      "ca"
+    ],
+    "pact": "Executive Detox, 45 minutes: €45. The more you walk, the less you pay, down to €30.",
+    "slide_prev": "Previous situation",
+    "slide_next": "Next situation",
+    "slide_label": "Situations",
+    "promo_label": "Launch offer",
     "lede": "Foot reflexology in Barcelona: a gentle charge from the reflex points of your feet that rebalances the whole body. In your hotel, at home or in the studio.",
     "book": "Book a session",
     "whatsapp": "WhatsApp",
@@ -58,37 +76,7 @@
     "avail": "Mornings, afternoons and evenings. Ask for availability.",
     "who_role": "Reflexologist in Barcelona · About me",
     "journey_label": "Find your reset",
-    "situations": [
-      [
-        "Danced all night?",
-        "Reset",
-        "by afternoon.",
-        "Your feet carried you through the whole party. Forty-five minutes on the reflex points of your feet release the tired muscles and bring you back."
-      ],
-      [
-        "Night shift done?",
-        "Reset",
-        "before you rest.",
-        "Twelve hours on your feet, then the city wakes up while you go to bed. A short, deep reset first helps the body let go of the night."
-      ],
-      [
-        "Walked the city all day?",
-        "Reset",
-        "by evening.",
-        "Gothic Quarter, Sagrada Família, the beach and back. Give your feet back what Barcelona took from them."
-      ],
-      [
-        "Between two meetings?",
-        "Reset",
-        "your mind.",
-        "Forty-five minutes in the middle of the day: the body lets go, the head clears, and you go back in with your focus."
-      ]
-    ],
     "detox_tag": "Executive Detox · 45 min",
-    "bridge1": [
-      "Four different days.",
-      "One reset."
-    ],
     "bridge2": [
       "Or simply",
       "treat yourself."
@@ -304,36 +292,46 @@
     "nav_contact": "Contacto",
     "theme_to_light": "Cambiar a tema claro",
     "theme_to_dark": "Cambiar a tema oscuro",
-    "headlines": [
+    "slides": [
       [
-        "¿Un largo día de turismo?",
-        "Renuévate",
-        "en 45 minutos."
+        "Tus pies han dado 20.000 pasos hoy.",
+        "Devuélveles",
+        "45 minutos."
       ],
       [
-        "Camina todo el día.",
-        "Renuévate",
-        "al atardecer."
+        "Mañana vuelves a caminar. Tus pies necesitan",
+        "esta noche.",
+        ""
       ],
       [
-        "Baila toda la noche.",
-        "Renuévate",
-        "por la tarde."
+        "¿Bailaste toda la noche? Tus pies",
+        "pagan",
+        "la cuenta."
       ],
       [
-        "¿Turno de noche terminado?",
-        "Renuévate",
-        "antes de descansar."
+        "¿Sales a las 7 y no logras desconectar?",
+        "Empieza",
+        "por los pies."
       ],
       [
-        "¿Entre dos reuniones?",
-        "Despeja",
-        "la mente."
+        "¿Diez pestañas abiertas en la cabeza?",
+        "Ciérralas",
+        "desde los pies."
       ],
       [
-        "Entrena duro.",
+        "Los kilómetros de hoy se pagan mañana.",
         "Recupérate",
-        "más rápido."
+        "esta noche."
+      ],
+      [
+        "¿Ocho horas de pie en la cocina?",
+        "Siéntate,",
+        "ahora les toca a ellos."
+      ],
+      [
+        "¿Bajaste de la montaña? Tus pies",
+        "siguen",
+        "arriba."
       ],
       [
         "Camina más,",
@@ -341,6 +339,14 @@
         ""
       ]
     ],
+    "slide_langs": [
+      "ca"
+    ],
+    "pact": "Executive Detox, 45 minutos: 45 €. Cuanto más caminas, menos pagas, hasta 30 €.",
+    "slide_prev": "Situación anterior",
+    "slide_next": "Situación siguiente",
+    "slide_label": "Situaciones",
+    "promo_label": "Oferta de lanzamiento",
     "lede": "Reflexología podal en Barcelona: una carga suave desde los puntos reflejos de tus pies que reequilibra todo el cuerpo. En tu hotel, en casa o en el estudio.",
     "book": "Reservar sesión",
     "whatsapp": "WhatsApp",
@@ -350,37 +356,7 @@
     "avail": "Mañanas, tardes y noches. Consulta disponibilidad.",
     "who_role": "Reflexólogo en Barcelona · Sobre mí",
     "journey_label": "Encuentra tu reset",
-    "situations": [
-      [
-        "¿Bailaste toda la noche?",
-        "Renuévate",
-        "por la tarde.",
-        "Tus pies te llevaron durante toda la fiesta. Cuarenta y cinco minutos sobre los puntos reflejos de tus pies sueltan los músculos cansados y te devuelven a ti."
-      ],
-      [
-        "¿Turno de noche terminado?",
-        "Renuévate",
-        "antes de descansar.",
-        "Doce horas de pie y luego la ciudad despierta mientras tú te vas a dormir. Un reset breve y profundo ayuda al cuerpo a soltar la noche."
-      ],
-      [
-        "¿Recorriste la ciudad todo el día?",
-        "Renuévate",
-        "al atardecer.",
-        "Barrio Gótico, Sagrada Família, la playa y vuelta. Devuelve a tus pies lo que Barcelona les ha quitado."
-      ],
-      [
-        "¿Entre dos reuniones?",
-        "Despeja",
-        "la mente.",
-        "Cuarenta y cinco minutos a mitad del día: el cuerpo se suelta, la cabeza se aclara y vuelves con toda tu concentración."
-      ]
-    ],
     "detox_tag": "Executive Detox · 45 min",
-    "bridge1": [
-      "Cuatro días distintos.",
-      "Un solo reset."
-    ],
     "bridge2": [
       "O simplemente",
       "date un capricho."
@@ -583,5 +559,55 @@
     "find_gmaps": "Abrir en Google Maps",
     "find_amaps": "Abrir en Apple Maps",
     "find_map_label": "Abrir Signature Healing Touch en Google Maps: el punto de luz marca Carrer de Sardenya 371, Barcelona"
+  },
+  "slides_extra": {
+    "_note": "Extra rotating hero lines by language. A page shows them when its slide_langs lists the language. ca = DRAFT, to be checked by a native speaker.",
+    "ca": [
+      [
+        "Els teus peus han fet 20.000 passes avui.",
+        "Torna'ls",
+        "45 minuts."
+      ],
+      [
+        "Demà tornes a caminar. Els teus peus necessiten",
+        "aquesta nit.",
+        ""
+      ],
+      [
+        "Has ballat tota la nit? Els teus peus",
+        "paguen",
+        "el compte."
+      ],
+      [
+        "Surts a les 7 i no aconsegueixes desconnectar?",
+        "Comença",
+        "pels peus."
+      ],
+      [
+        "Deu pestanyes obertes al cap?",
+        "Tanca-les",
+        "des dels peus."
+      ],
+      [
+        "Els quilòmetres d'avui es paguen demà.",
+        "Recupera't",
+        "aquesta nit."
+      ],
+      [
+        "Vuit hores dempeus a la cuina?",
+        "Seu,",
+        "ara els toca a ells."
+      ],
+      [
+        "Has baixat de la muntanya? Els teus peus",
+        "encara",
+        "són a dalt."
+      ],
+      [
+        "Camina més,",
+        "paga menys.",
+        ""
+      ]
+    ]
   }
 }

@@ -29,7 +29,7 @@
 <script>(function(){var t;try{t=localStorage.getItem('preferred-theme')}catch(e){}if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=2026-11-23b">
+<link rel="stylesheet" href="/home.css?v=2026-11-23e">
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1517659402723971');fbq('track','PageView');
@@ -46,7 +46,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
   <div class="brand">
     <button class="disc" id="themeToggle" type="button" aria-label="Switch to light theme"><img src="/logo_white_500x500.png" alt="" width="40" height="40"></button>
     <button class="lock" id="lockToggle" type="button" aria-pressed="false" aria-label="Theme unlocked: the logo switches light and dark. Click to lock the theme." title="Theme unlocked: the logo switches light and dark. Click to lock the theme."><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path class="shackle-open" d="M8 11V8a4 4 0 0 1 7.6-1.7"/><path class="shackle-closed" d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></svg></button>
-    <img class="word" src="/logo_onlyWords_newGold.png" alt="Signature Healing Touch" width="105" height="24">
+    <span class="word" role="img" aria-label="Signature Healing Touch"></span>
   </div>
   <nav class="site-nav" aria-label="Main"><ul>
     <li><a href="#detox">Treatments</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li>
@@ -58,7 +58,8 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
 <section class="hero" aria-labelledby="h">
   <canvas class="lattice" id="heroLattice" aria-hidden="true"></canvas>
   <div class="hero-copy">
-    <h1 id="h"><em>Long day sightseeing?</em> <strong>Reset</strong> in 45 minutes.</h1>
+    <div class="slides" id="slides"><h1 id="h" aria-live="polite"><em>Your feet took 20,000 steps today.</em> <strong>Give</strong> <em>them 45 minutes back.</em></h1></div>
+    <p class="pact"><a href="#detox">Executive Detox, 45 minutes: €45. The more you walk, the less you pay, down to €30.</a></p>
     <p class="lede">Foot reflexology in Barcelona: a gentle charge from the reflex points of your feet that rebalances the whole body. In your hotel, at home or in the studio.</p>
     <div class="actions">
       <button type="button" class="btn btn-primary" data-book data-service="Executive Detox" data-cal-link="signaturehealingtouch/executive-detox-massage-45-min" data-cal-namespace="executive-detox-massage-45-min" data-cal-config='{"layout":"month_view"}'>Book a session</button>
@@ -72,19 +73,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
 
 <section class="journey" id="journey" aria-label="Find your reset">
   <svg class="spine" id="spine" aria-hidden="true" preserveAspectRatio="none"><path id="spineBase" fill="none" stroke="none"/><g id="strands"></g></svg><div class="curtain-clip" aria-hidden="true"><div class="curtain" id="curtain"></div></div>
-  <article class="stop sit left"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="2"><em>Danced all night?</em> <strong>Reset</strong> by afternoon.</h2><p>Your feet carried you through the whole party. Forty-five minutes on the reflex points of your feet release the tired muscles and bring you back.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <article class="stop sit right"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="3"><em>Night shift done?</em> <strong>Reset</strong> before you rest.</h2><p>Twelve hours on your feet, then the city wakes up while you go to bed. A short, deep reset first helps the body let go of the night.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <article class="stop sit left"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="1"><em>Walked the city all day?</em> <strong>Reset</strong> by evening.</h2><p>Gothic Quarter, Sagrada Família, the beach and back. Give your feet back what Barcelona took from them.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <article class="stop sit right"><span class="node"><span class="anchor"></span></span>
-    <div class="txt"><h2 data-dup="4"><em>Between two meetings?</em> <strong>Reset</strong> your mind.</h2><p>Forty-five minutes in the middle of the day: the body lets go, the head clears, and you go back in with your focus.</p><a class="tag" href="#detox"><i></i>Executive Detox · 45 min<svg class="arr" viewBox="0 0 16 10" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a></div>
-  </article>
-  <p class="bridge">Four different days. <strong>One reset.</strong></p>
+  <h2 class="sr-only">Treatments</h2>
   <article class="stop treat left" id="detox">
     <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="detox"></span></span><h3><strong>Executive</strong> Detox</h3>
       <div class="price"><span><b>45</b> min</span><span><b>€45</b></span></div>
@@ -92,11 +81,11 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
       <div class="actions"><button type="button" class="btn btn-primary" data-book data-service="Executive Detox" data-cal-link="signaturehealingtouch/executive-detox-massage-45-min" data-cal-namespace="executive-detox-massage-45-min" data-cal-config='{"layout":"month_view"}'>Book Executive Detox</button><a class="btn btn-ghost" href="https://wa.me/34652952566" target="_blank" rel="noopener noreferrer">Ask availability</a></div>
 
       <div class="stepup"><div class="steps" aria-hidden="true"><svg viewBox="0 0 16 22"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg><svg viewBox="0 0 16 22" style="transform:translateY(-6px)"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg><svg viewBox="0 0 16 22"><ellipse cx="8" cy="13" rx="5" ry="8"/></svg></div>
-        <h4 data-dup="6">Walk more, pay less.</h4><p>Show a dated screenshot of your steps in any 24 hours within the 10 days before your appointment:</p><ul><li>10,000+ steps: €40</li><li>20,000+ steps: €35</li><li>30,000+ steps: €30</li></ul><small>Only for the 45-minute Executive Detox. The discount is applied in person.</small></div>
+        <h4>Walk more, pay less.</h4><p>Show a dated screenshot of your steps in any 24 hours within the 10 days before your appointment:</p><ul><li>10,000+ steps: €40</li><li>20,000+ steps: €35</li><li>30,000+ steps: €30</li></ul><small>Only for the 45-minute Executive Detox. The discount is applied in person.</small></div>
     </div>
   </article>
   <article class="stop treat right" id="athlete">
-    <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="athlete"></span></span><h2 class="hook" data-dup="5"><em>Train hard.</em> <strong>Recover</strong> faster.</h2><p class="lead">Runs, matches, long sessions at the gym: your legs keep the score.</p><h3><strong>Athlete</strong> Recovery</h3>
+    <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="athlete"></span></span><h2 class="hook"><em>Train hard.</em> <strong>Recover</strong> faster.</h2><p class="lead">Runs, matches, long sessions at the gym: your legs keep the score.</p><h3><strong>Athlete</strong> Recovery</h3>
       <div class="price"><span><b>80</b> min</span><span><b>€110</b></span></div>
       <p>Decontracting work on calves and quadriceps, then precise reflexology on the points most connected to your sport. Only offered as a complete protocol.</p>
       <div class="actions"><a class="btn btn-primary" data-book data-service="Athlete Recovery" href="https://book.stripe.com/bJe5kDclI4bP8MPfln7ok09" target="_blank" rel="noopener noreferrer">Book Athlete Recovery</a><a class="btn btn-ghost" href="https://wa.me/34652952566" target="_blank" rel="noopener noreferrer">Ask availability</a></div>
@@ -113,7 +102,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
   </article>
   <article class="stop treat right" id="signature">
     <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="signature"></span></span><h2 class="hook"><em>Something hurts?</em> <strong>Go</strong> deeper.</h2><p class="lead">A long-standing discomfort deserves time and attention. We look at it together, then work on it.</p><h3><strong>Personalized</strong> Signature</h3>
-      <div class="price"><span><b>90</b> min</span><span><b>€70</b></span></div>
+      <div class="price"><span><b>90</b> min</span><span><b>€70</b> <s>€90</s> <em class="promo">Launch offer</em></span></div>
       <p>We start with a short personal anamnesis. Then “The 3 Ways of Purification” and a deep, specific phase on the reflex points linked to your issue.</p>
       <div class="actions"><button type="button" class="btn btn-primary" data-book data-service="Personalized Signature" data-cal-link="signaturehealingtouch/reflexology-foot-massage-1-hour-30-min" data-cal-namespace="reflexology-foot-massage-1-hour-30-min" data-cal-config='{"layout":"month_view"}'>Book Personalized Signature</button><a class="btn btn-ghost" href="https://wa.me/34652952566" target="_blank" rel="noopener noreferrer">Ask availability</a></div>
 
@@ -196,7 +185,7 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
 
   <footer class="foot"><span class="anchor" data-end style="left:50%;top:194px"></span>
     <div class="disc foot-disc"><img src="/logo_white_500x500.png" alt="" width="68" height="68"></div>
-    <img class="foot-word" src="/logo_onlyWords_newGold.png" alt="Signature Healing Touch" width="131" height="30">
+    <span class="word foot-word" role="img" aria-label="Signature Healing Touch"></span>
     <p>Foot reflexology in Barcelona</p>
     <p class="quote">“The feet are the mirror of the body. Through the feet, we can reach the whole.” — Eunice Ingham</p>
     <p class="small">© <span data-year>2026</span> Signature Healing Touch · <a href="/privacy.html">Privacy</a> · <a href="/es/" hreflang="es" data-lang="es">ES</a></p>
@@ -230,9 +219,9 @@ window.trackPixel=function(ev,p,type){p=p||{};type=type||'track';if(!window.fbq)
   </form>
 </dialog>
 
-<script>window.HOME={"headlines": [["Long day sightseeing?", "Reset", "in 45 minutes."], ["Walk all day.", "Reset", "by evening."], ["Dance all night.", "Reset", "by afternoon."], ["Night shift done?", "Reset", "before you rest."], ["Between two meetings?", "Reset", "your mind."], ["Train hard.", "Recover", "faster."], ["Walk more,", "Pay less.", ""]], "theme_to_light": "Switch to light theme", "theme_to_dark": "Switch to dark theme", "reviews_all": "Show all reviews", "reviews_less": "Show fewer reviews", "gallery": ["Riccardo Francescut, reflexologist in Barcelona", "Certified reflexologist, ISMET", "Barcelona is home", "Yoga teacher, Tai Chi, Qi Gong and Pa Kua Chang practitioner", "Precise work on the reflex points of the feet", "Gentle, non-invasive and adapted to you"], "form": {"title": "Share your experience", "experience": "Your experience *", "rating": "Rating *", "rating_ph": "Select a rating", "ratings": ["1 · Poor", "2 · Fair", "3 · Good", "4 · Very good", "5 · Excellent"], "type": "Treatment *", "name": "Name *", "email": "Email *", "email_help": "Only to confirm your review. Never published.", "date": "Date of the session *", "month": "Month", "year": "Year", "submit": "Send", "sending": "Sending…", "ok": "Thank you for sharing your experience!", "err": "Sorry, something went wrong. Please try again later or write on WhatsApp.", "missing": "Please fill in all required fields.", "close": "Close"}, "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "lock_open": "Theme unlocked: the logo switches light and dark. Click to lock the theme.", "lock_closed": "Theme locked: the logo shows the next headline. Click to unlock.", "logo_next": "Show the next headline"};</script>
-<script src="/contents.js?v=2026-11-23b"></script>
-<script src="/home.js?v=2026-11-23b"></script>
+<script>window.HOME={"slides": [{"t": ["Your feet took 20,000 steps today.", "Give", "them 45 minutes back."]}, {"t": ["Tomorrow you'll walk again. Your feet need", "tonight.", ""]}, {"t": ["Danced all night? Your feet", "paid", "the bill."]}, {"t": ["Home at 7am and can't switch off?", "Start", "with your feet."]}, {"t": ["Ten tabs open in your head?", "Close", "them from your feet."]}, {"t": ["Today's kilometres get paid tomorrow.", "Recover", "tonight."]}, {"t": ["Eight hours on your feet in the kitchen?", "Sit", "down, they're next."]}, {"t": ["Came down the mountain? Your feet are", "still", "up there."]}, {"t": ["Walk more,", "Pay less.", ""]}, {"t": ["Els teus peus han fet 20.000 passes avui.", "Torna'ls", "45 minuts."], "l": "ca"}, {"t": ["Demà tornes a caminar. Els teus peus necessiten", "aquesta nit.", ""], "l": "ca"}, {"t": ["Has ballat tota la nit? Els teus peus", "paguen", "el compte."], "l": "ca"}, {"t": ["Surts a les 7 i no aconsegueixes desconnectar?", "Comença", "pels peus."], "l": "ca"}, {"t": ["Deu pestanyes obertes al cap?", "Tanca-les", "des dels peus."], "l": "ca"}, {"t": ["Els quilòmetres d'avui es paguen demà.", "Recupera't", "aquesta nit."], "l": "ca"}, {"t": ["Vuit hores dempeus a la cuina?", "Seu,", "ara els toca a ells."], "l": "ca"}, {"t": ["Has baixat de la muntanya? Els teus peus", "encara", "són a dalt."], "l": "ca"}, {"t": ["Camina més,", "paga menys.", ""], "l": "ca"}], "theme_to_light": "Switch to light theme", "theme_to_dark": "Switch to dark theme", "reviews_all": "Show all reviews", "reviews_less": "Show fewer reviews", "gallery": ["Riccardo Francescut, reflexologist in Barcelona", "Certified reflexologist, ISMET", "Barcelona is home", "Yoga teacher, Tai Chi, Qi Gong and Pa Kua Chang practitioner", "Precise work on the reflex points of the feet", "Gentle, non-invasive and adapted to you"], "form": {"title": "Share your experience", "experience": "Your experience *", "rating": "Rating *", "rating_ph": "Select a rating", "ratings": ["1 · Poor", "2 · Fair", "3 · Good", "4 · Very good", "5 · Excellent"], "type": "Treatment *", "name": "Name *", "email": "Email *", "email_help": "Only to confirm your review. Never published.", "date": "Date of the session *", "month": "Month", "year": "Year", "submit": "Send", "sending": "Sending…", "ok": "Thank you for sharing your experience!", "err": "Sorry, something went wrong. Please try again later or write on WhatsApp.", "missing": "Please fill in all required fields.", "close": "Close"}, "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "lock_open": "Theme unlocked: the logo switches light and dark. Click to lock the theme.", "lock_closed": "Theme locked: the logo shows the next headline. Click to unlock.", "logo_next": "Show the next headline"};</script>
+<script src="/contents.js?v=2026-11-23e"></script>
+<script src="/home.js?v=2026-11-23e"></script>
 <script>(function(C,A,L){let p=function(a,ar){a.q.push(ar);};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
