@@ -208,12 +208,11 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
     <div class="facts"><span><b>45–120</b> {e(s["fact_min"])}</span><span>{e(s["fact_from"])} <b>€45</b></span><span><b data-score>4.9/5</b> {e(s["fact_reviews"])}</span></div>
     <p class="avail">{e(s["avail"])}</p>
   </div>
-  <a class="who" href="#about"><img src="/assets/home/riccardo-face.webp" alt="" width="240" height="223"><span><b>Riccardo Francescut</b>{e(s["who_role"])} {ARR}</span></a>
+  <a class="who" href="#about"><span class="node" aria-hidden="true"><span class="anchor"></span></span><img src="/assets/home/riccardo-face.webp" alt="" width="240" height="223"><span><b>Riccardo Francescut</b>{e(s["who_role"])} {ARR}</span></a>
 </section>
 
 <section class="journey" id="journey" aria-label="{e(s["journey_label"])}">
   <svg class="spine" id="spine" aria-hidden="true" preserveAspectRatio="none"><path id="spineBase" fill="none" stroke="none"/><g id="strands"></g></svg><div class="curtain" id="curtain" aria-hidden="true"></div>
-  <div class="origin"><span class="node big"><span class="anchor"></span></span></div>
 {journey}
   <section class="section" id="packs" aria-labelledby="packs-h"><span class="node sec-node r"><span class="anchor"></span></span>
     <div class="section-head"><h2 id="packs-h"><em>{e(s["packs_title"][0])}</em> <strong>{e(s["packs_title"][1])}</strong></h2><p>{e(s["packs_lead"])}</p></div>

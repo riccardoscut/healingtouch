@@ -56,6 +56,7 @@
     var lg = tbtn.getBoundingClientRect(), cr = cv.getBoundingClientRect();
     var P0 = mob ? [lg.left - cr.left + 4, lg.bottom - cr.top + 4] : [lg.left + lg.width / 2 - cr.left, lg.bottom - cr.top + 6];
     var P1 = mob ? [6, P0[1] + 40] : [W * .62, P0[1] + 10], P2 = mob ? [6, Hh * .7] : [W * .8, Hh * .6], P3 = mob ? [6, Hh] : [W * .72, Hh];
+    var wn = $('.who .node'); if (wn) { var nb = wn.getBoundingClientRect(); P3 = [nb.left + nb.width / 2 - cr.left, nb.top + nb.height / 2 - cr.top]; if (mob) P2 = [6, P3[1] - 60]; } /* the lattice flows into the portrait's light point */
     var spread = mob ? 5 : Hh * .26, amp = mob ? 2 : Hh * .08, base = [], k;
     ctx.globalCompositeOperation = dark ? 'lighter' : 'source-over'; ctx.lineWidth = 1;
     for (k = 0; k <= S; k++) base.push(bz(P0, P1, P2, P3, k / S));
@@ -103,6 +104,7 @@
   function build() {
     if (!sec) return;
     var r = sec.getBoundingClientRect(), Wd = r.width, mob = Wd < 820, pts = [[mob ? 14 : Wd * .72, 0]], inside = [];
+    var wa = $('.who .anchor'); if (wa) { var wb = wa.getBoundingClientRect(); pts[0] = [wb.left - r.left, wb.top - r.top]; } /* home: start at the portrait's light point */
     var endPt = null;
     $$('.anchor', sec).forEach(function (a) {
       var b = a.getBoundingClientRect(), y = b.top - r.top, x = b.left - r.left, top = a.classList.contains('a-top'), bot = a.classList.contains('a-bot');
@@ -128,8 +130,8 @@
       var inS = inside.some(function (y0) { return pt.y >= y0 - 1 && pt.y <= y0 + (mob ? 101 : 209); });
       var quiet = pts[k + 1] && pts[k + 1][2], last = pts[k + 1] && pts[k + 1][3], sh = Math.pow(Math.sin(Math.PI * f), 2.2);
       if (last) return [-dy / m, dx / m, f, sh];
-      if (quiet) return [1, 0, f, (inS || pt.y <= ys[1]) ? 0 : sh * gutterScale];
-      return [-dy / m, dx / m, f, (inS || pt.y <= ys[1]) ? 0 : sh];
+      if (quiet) return [1, 0, f, (inS || pt.y <= ys[0]) ? 0 : sh * gutterScale];
+      return [-dy / m, dx / m, f, (inS || pt.y <= ys[0]) ? 0 : sh];
     });
     var lim = nrm.map(function (n, i) { var p = nrm[Math.max(0, i - 3)], q = nrm[Math.min(nrm.length - 1, i + 3)]; var dt = Math.acos(Math.max(-1, Math.min(1, p[0] * q[0] + p[1] * q[1]))) || 1e-4; return .85 * 72 / dt; });
     for (i = 1; i < lim.length; i++) lim[i] = Math.min(lim[i], lim[i - 1] + 6);

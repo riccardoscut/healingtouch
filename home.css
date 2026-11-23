@@ -75,6 +75,10 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .who img{width:64px;height:64px;object-fit:cover;object-position:50% 20%;border-radius:50%;-webkit-mask-image:radial-gradient(circle,#000 55%,transparent 72%);mask-image:radial-gradient(circle,#000 55%,transparent 72%)}
 .who b{display:block;color:var(--ink-hi);font-weight:600;font-size:16px;letter-spacing:.02em}
 .who:hover b{text-decoration:underline}
+.who .node{position:relative;flex:none;margin:0 6px 0 0}
+.who:hover .node:after,.who:focus-visible .node:after{animation-duration:1.6s}
+/* home: the thread starts at the light point beside the portrait, so the journey lets strands rise into the hero */
+.hero + .journey{overflow-x:clip;overflow-y:visible}
 
 /* ---------- journey: thread, light points, stops ---------- */
 .journey{position:relative;padding:10vh 0 6vh;overflow:clip}
@@ -147,9 +151,10 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .section h2{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(40px,4.8vw,76px);line-height:.95;letter-spacing:-.03em;margin:0}
 .section h2 em{font-style:italic}.section h2 strong{font-weight:900;color:var(--ink-hi)}
 .section-head p{max-width:46ch;color:var(--body);margin:0}
-.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
-.pack{padding:30px 28px 34px;border-bottom:1px solid var(--line);background:var(--ground)}
-.pack+.pack{border-left:1px solid var(--line)}
+/* packs stand apart like the reviews, so the thread shows in the gaps between them */
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.pack{display:flex;flex-direction:column;padding:26px 0 0;border-top:1px solid var(--line);background:var(--ground)}
+.pack .btn{margin-top:auto}
 .pack h3{font-family:'Bodoni Moda',serif;font-weight:800;font-size:28px;line-height:1.05;margin:0 0 10px;color:var(--ink-hi)}
 .pack .pp{font-variant-numeric:tabular-nums;margin:0 0 14px;color:var(--muted);font-size:15px}
 .pack .pp b{font-size:30px;color:var(--ink-hi);font-weight:600;margin-right:8px}
@@ -247,13 +252,14 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .site-header{top:8px;left:8px;right:8px;padding:14px 18px}
   .site-nav ul li:not(.l){display:none}
   .brand .word{display:none}
-  .hero{min-height:auto;padding-bottom:300px}
+  .hero{min-height:auto;padding-bottom:56px}
   .hero-copy{width:auto;padding:120px 22px 0 32px}
   h1{font-size:46px;margin-bottom:18px}
   .lede{font-size:17px}
   .actions .btn{flex:1 1 100%}
   .facts{width:100%;justify-content:space-between}.facts span{padding:0 8px;font-size:11px}
   .who{position:static;margin:24px 22px 0 32px}
+  .hero + .journey{padding-top:7vh}
   .origin .node{left:14px}
   /* mobile: light points and marks alternate sides, so the thread zig-zags under the text */
   .stop{padding:0 24px;min-height:auto;margin:0 0 14vh;display:block}
@@ -271,7 +277,6 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .sec-node.r{left:calc(100% - 16px)}.sec-node.l{left:16px}.sec-node.c{left:50%}
   .packs,.reviews{grid-template-columns:1fr}
   .find{grid-template-columns:1fr;gap:34px}.find-map{max-width:360px;margin:0 auto}
-  .pack+.pack{border-left:0}
   .about{grid-template-columns:1fr}.deck{max-width:320px}
   .lightbox figure{padding:70px 16px 20px}.lb-btn{top:auto;bottom:18px;transform:none}
   .form-row{grid-template-columns:1fr}
