@@ -158,7 +158,7 @@
       "Session",
       "packs"
     ],
-    "packs_lead": "Four sessions for the price of three. Flexible booking with a unique voucher code, valid 4 months from purchase.",
+    "packs_lead": "Four sessions for the price of three. Flexible booking with a unique voucher code, valid 1 year from purchase.",
     "packs_buy": "Buy 3+1 pack",
     "packs_instead": "instead of",
     "packs": [
@@ -450,7 +450,7 @@
       "Packs de",
       "sesiones"
     ],
-    "packs_lead": "Cuatro sesiones por el precio de tres. Reserva flexible con un código de cupón único, válido 4 meses desde la compra.",
+    "packs_lead": "Cuatro sesiones por el precio de tres. Reserva flexible con un código de cupón único, válido 1 año desde la compra.",
     "packs_buy": "Comprar pack 3+1",
     "packs_instead": "en lugar de",
     "packs": [

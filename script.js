@@ -959,9 +959,9 @@ function createPackCard(service) {
     packTitle.textContent = "Signature Reflexology Pack 3+1";
     packPriceInfo.innerHTML = 'Only <span class="pack-final-price">270€</span> instead of 360€';
     if (isSpanish) {
-      packDescription.innerHTML = "4 sesiones de reflexología por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para una sanación más profunda, aliviar el dolor crónico y un bienestar duradero.";
+      packDescription.innerHTML = "4 sesiones de reflexología por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 1 año desde la compra.<br>Ideal para una sanación más profunda, aliviar el dolor crónico y un bienestar duradero.";
     } else {
-      packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deeper healing, targeting chronic pain, and long-term well-being.";
+      packDescription.innerHTML = "4 reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 1 year from purchase.<br>Ideal for deeper healing, targeting chronic pain, and long-term well-being.";
     }
     packButton.href = "https://buy.stripe.com/5kQ8wPfxUbEhe793CF7ok05";
     packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
@@ -969,9 +969,9 @@ function createPackCard(service) {
     packTitle.textContent = "Balance Reflexology Pack 3+1";
     packPriceInfo.innerHTML = 'Only <span class="pack-final-price">180€</span> instead of 240€';
     if (isSpanish) {
-      packDescription.innerHTML = "4 sesiones de Balance Reflexology por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para un reinicio profundo del sistema nervioso, equilibrio continuo y bienestar sostenido.";
+      packDescription.innerHTML = "4 sesiones de Balance Reflexology por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 1 año desde la compra.<br>Ideal para un reinicio profundo del sistema nervioso, equilibrio continuo y bienestar sostenido.";
     } else {
-      packDescription.innerHTML = "4 Balance Reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for deep nervous system reset, ongoing balance, and sustained well‑being.";
+      packDescription.innerHTML = "4 Balance Reflexology sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 1 year from purchase.<br>Ideal for deep nervous system reset, ongoing balance, and sustained well‑being.";
     }
     packButton.href = "https://buy.stripe.com/9B69ATbhEaAd6EHehj7ok08";
     packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
@@ -979,9 +979,9 @@ function createPackCard(service) {
     packTitle.textContent = "Executive Detox Pack 3+1";
     packPriceInfo.innerHTML = 'Only <span class="pack-final-price">135€</span> instead of 180€';
     if (isSpanish) {
-      packDescription.innerHTML = "4 sesiones de Executive Detox por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 4 meses desde la compra.<br>Ideal para alivio regular del estrés, recuperación muscular y mantener tu rutina de bienestar.";
+      packDescription.innerHTML = "4 sesiones de Executive Detox por el precio de 3.<br>Reserva flexible con un código de cupón único, válido 1 año desde la compra.<br>Ideal para alivio regular del estrés, recuperación muscular y mantener tu rutina de bienestar.";
     } else {
-      packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 4 months from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.";
+      packDescription.innerHTML = "4 Executive Detox sessions for the price of 3.<br>Flexible booking with a unique voucher code, valid 1 year from purchase.<br>Ideal for regular stress relief, muscle recovery, and maintaining your wellness routine.";
     }
     packButton.href = "https://buy.stripe.com/7sY14n5Xk37L6EHehj7ok04";
     packButton.textContent = isSpanish ? "Comprar pack 3+1" : "Buy 3+1 pack";
