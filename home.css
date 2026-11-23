@@ -157,16 +157,16 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .pack{display:flex;flex-direction:column;padding:30px 28px 28px;border:1px solid var(--line);background:var(--ground)}
 .pack .btn{margin-top:auto}
-.pack{transition:border-color .5s cubic-bezier(.2,.7,.2,1),box-shadow .6s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),background-color .5s}
+.pack,.review{transition:border-color .5s cubic-bezier(.2,.7,.2,1),box-shadow .6s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),background-color .5s}
 /* hover / keyboard focus: a soft moonlight warmth rises from the box, so it reads as something to choose */
-.pack:hover,.pack:focus-within,.pack.glow{transform:translateY(-4px);border-color:color-mix(in srgb,var(--ink-hi) 65%,transparent);
+.pack:hover,.pack:focus-within,.pack.glow,.review:hover,.review:focus-within,.review.glow{transform:translateY(-4px);border-color:color-mix(in srgb,var(--ink-hi) 65%,transparent);
   background-color:color-mix(in srgb,var(--gold-a) 7%,var(--ground));
   box-shadow:0 18px 64px -16px color-mix(in srgb,var(--gold-a) 42%,transparent),0 10px 34px -16px color-mix(in srgb,var(--c1) 40%,transparent),inset 0 1px 0 color-mix(in srgb,var(--gold-a) 55%,transparent)}
 .pack:hover .btn,.pack:focus-within .btn,.pack.glow .btn{border-color:var(--ink-hi);color:var(--ink-hi)}
-[data-theme=light] .pack:hover,[data-theme=light] .pack:focus-within,[data-theme=light] .pack.glow{border-color:color-mix(in srgb,var(--c3) 70%,transparent);
+[data-theme=light] .pack:hover,[data-theme=light] .pack:focus-within,[data-theme=light] .pack.glow,[data-theme=light] .review:hover,[data-theme=light] .review:focus-within,[data-theme=light] .review.glow{border-color:color-mix(in srgb,var(--c3) 70%,transparent);
   background-color:color-mix(in srgb,var(--c3) 3%,var(--ground));
   box-shadow:0 22px 54px -26px color-mix(in srgb,var(--c3) 55%,transparent),0 8px 26px -18px color-mix(in srgb,var(--c1) 30%,transparent)}
-@media (prefers-reduced-motion:reduce){.pack{transition:border-color .2s,box-shadow .2s}.pack:hover,.pack:focus-within,.pack.glow{transform:none}}
+@media (prefers-reduced-motion:reduce){.pack,.review{transition:border-color .2s,box-shadow .2s}.pack:hover,.pack:focus-within,.pack.glow,.review:hover,.review:focus-within,.review.glow{transform:none}}
 .pack h3{font-family:'Bodoni Moda',serif;font-weight:800;font-size:28px;line-height:1.05;margin:0 0 10px;color:var(--ink-hi)}
 .pack .pp{font-variant-numeric:tabular-nums;margin:0 0 14px;color:var(--muted);font-size:15px}
 .pack .pp b{font-size:30px;color:var(--ink-hi);font-weight:600;margin-right:8px}
@@ -175,9 +175,9 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .pack .btn{width:100%;padding:18px}
 .packs-note{color:var(--muted);font-size:14px;margin:18px 0 0}
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.review{margin:0;padding:26px 0 0;border-top:1px solid var(--line);background:var(--ground)}
+.review{margin:0;padding:30px 28px 28px;border:1px solid var(--line);background:var(--ground)}
 .review blockquote{margin:0 0 16px;font-size:16px;color:var(--body)}
-.review blockquote .key{display:block;font-family:'Bodoni Moda',serif;font-style:italic;font-size:22px;line-height:1.2;color:var(--ink-hi);margin:0 0 10px}
+.review .pull{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:500;font-size:22px;line-height:1.25;color:var(--ink-hi);margin:0 0 16px;text-wrap:balance}
 .review figcaption{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .review .stars{display:inline-flex;gap:2px;vertical-align:-1px;color:var(--c4)}.review .stars svg{width:11px;height:11px}
 .reviews-more{display:none}
@@ -289,7 +289,7 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .section{padding:0 22px 0 44px}
   .sec-node.r{left:calc(100% - 16px)}.sec-node.l{left:16px}.sec-node.c{left:50%}
   .packs,.reviews{grid-template-columns:1fr}
-  .pack{padding:24px 20px 20px}
+  .pack,.review{padding:24px 20px 20px}
   .find{grid-template-columns:1fr;gap:34px}.find-map{max-width:360px;margin:0 auto}
   .about{grid-template-columns:1fr}.deck{max-width:320px}
   .lightbox figure{padding:70px 16px 20px}.lb-btn{top:auto;bottom:18px;transform:none}

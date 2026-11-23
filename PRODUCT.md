@@ -76,7 +76,7 @@ Booking and payment flow: service cards → Cal.com booking (event slug = servic
 - Name: **Signature Healing Touch**. Gold logo `logo_wName_transparentBG_newGold.png`.
 - **Neon rainbow foot logo** (`logo_white_500x500.png`; with gold wordmark in `logo_wName_transparentBG_newGold.png`): binding. Every version of the site, including the planned redesign, keeps this logo and its glowing continuous-line style.
 - Tone: calm, premium, wellness, warm and personal (first person, Riccardo speaking).
-- Riccardo's descriptor where it appears: `Data Scientist | AI Modeler | Cognitive Psychologist | Reflexologist`.
+- Riccardo's descriptor where it appears: `Cognitive Psychologist | Yoga Master | Reflexologist & Masseur`.
 - Instagram: signaturehealingtouch.
 
 ## Evidence on Hand

@@ -177,7 +177,7 @@
   /* ---------- packs on touch screens: no hover, so the box lights up while it crosses the middle of the screen ---------- */
   if ('IntersectionObserver' in window && matchMedia('(hover: none)').matches) {
     var po = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('glow', e.isIntersecting); }); }, { rootMargin: '-40% 0px -40% 0px' });
-    $$('.pack').forEach(function (el) { po.observe(el); });
+    $$('.pack, .review').forEach(function (el) { po.observe(el); });
   }
 
   /* ---------- booking: Cal.com popup for three services, Stripe booking pages for the others ---------- */
@@ -207,10 +207,10 @@
   /* ---------- reviews (real testimonials from contents.js) ---------- */
   var mo = { January: 1, February: 2, March: 3, April: 4, May: 5, June: 6, July: 7, August: 8, September: 9, October: 10, November: 11, December: 12 };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function keyLine(text) { var m = String(text).split(/(?<=[.!?…])\s+/); return m[0].length < 140 ? [m[0], m.slice(1).join(' ')] : ['', text]; }
   function card(r) {
-    var k = keyLine(r.text), n = r.rating || 5, stars = ''; for (var z = 0; z < n; z++) stars += '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 .8l1.6 3.4 3.7.4-2.8 2.5.8 3.7L6 9 2.7 10.8l.8-3.7L.7 4.6l3.7-.4z" fill="currentColor"/></svg>';
-    return '<figure class="review"><blockquote>' + (k[0] ? '<span class="key">' + esc(k[0]) + '</span>' : '') + esc(k[1]).replace(/\n+/g, '<br>') + '</blockquote>' +
+    var n = r.rating || 5, stars = ''; for (var z = 0; z < n; z++) stars += '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 .8l1.6 3.4 3.7.4-2.8 2.5.8 3.7L6 9 2.7 10.8l.8-3.7L.7 4.6l3.7-.4z" fill="currentColor"/></svg>';
+    /* every review: its memorable phrase in quotes (copied word for word from the review, `quote` in contents.js), then the full text */
+    return '<figure class="review">' + (r.quote ? '<p class="pull" aria-hidden="true">\u201C' + esc(r.quote) + '\u201D</p>' : '') + '<blockquote>' + esc(r.text).replace(/\n+/g, '<br>') + '</blockquote>' +
       '<figcaption><span class="stars" aria-label="' + (r.rating || 5) + '/5">' + stars + '</span> · ' + esc(r.name) + ' · ' + esc(r.type) + ' · ' + esc((H.months && mo[r.month]) ? H.months[mo[r.month] - 1] : r.month) + ' ' + esc(r.year) + '</figcaption></figure>';
   }
   var T = (window.testimonials || []).slice();
