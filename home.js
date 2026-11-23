@@ -44,7 +44,7 @@
 
   /* ---------- hero lattice: a family of close sine curves on one canvas ---------- */
   var cv = $('#heroLattice'), ctx = cv && cv.getContext('2d'), W = 0, Hh = 0, t = 0, run = false, last = 0;
-  function size() { if (!cv) return; var dpr = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; Hh = cv.clientHeight; cv.width = W * dpr; cv.height = Hh * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function size() { if (!cv) return; var fn = $('#journey .stop .node'); if (innerWidth < 820 && fn) { var hb = cv.parentNode.getBoundingClientRect(), fb = fn.getBoundingClientRect(); cv.style.height = Math.round(fb.top + fb.height / 2 - hb.top + 40) + 'px'; } else cv.style.height = ''; var dpr = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; Hh = cv.clientHeight; cv.width = W * dpr; cv.height = Hh * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
   function hex(h) { h = h.replace('#', ''); return [parseInt(h.substr(0, 2), 16), parseInt(h.substr(2, 2), 16), parseInt(h.substr(4, 2), 16)]; }
   function mix(a, b, u) { return [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u]; }
   function bz(p0, p1, p2, p3, q) { var m = 1 - q; return [m * m * m * p0[0] + 3 * m * m * q * p1[0] + 3 * m * q * q * p2[0] + q * q * q * p3[0], m * m * m * p0[1] + 3 * m * m * q * p1[1] + 3 * m * q * q * p2[1] + q * q * q * p3[1]]; }
@@ -52,12 +52,12 @@
     if (!ctx) return;
     ctx.clearRect(0, 0, W, Hh);
     var dark = root.dataset.theme === 'dark', cols = ['--c1', '--c2', '--c3'].map(function (v) { return hex(css(v)); });
-    var mob = W < 820, N = mob ? 16 : 38, S = mob ? 90 : 160;
+    var mob = W < 820, N = mob ? 26 : 38, S = mob ? 120 : 160;
     var lg = tbtn.getBoundingClientRect(), cr = cv.getBoundingClientRect();
     var P0 = mob ? [lg.left - cr.left + 4, lg.bottom - cr.top + 4] : [lg.left + lg.width / 2 - cr.left, lg.bottom - cr.top + 6];
     var P1 = mob ? [6, P0[1] + 40] : [W * .62, P0[1] + 10], P2 = mob ? [6, Hh * .7] : [W * .8, Hh * .6], P3 = mob ? [6, Hh] : [W * .72, Hh];
-    var wn = $('.who .node'); if (wn) { var nb = wn.getBoundingClientRect(); P3 = [nb.left + nb.width / 2 - cr.left, nb.top + nb.height / 2 - cr.top]; if (mob) P2 = [6, P3[1] - 60]; } /* the lattice flows into the portrait's light point */
-    var spread = mob ? 5 : Hh * .26, amp = mob ? 2 : Hh * .08, base = [], k;
+    var wn = mob ? $('#journey .stop .node') : $('.who .node'); if (wn) { var nb = wn.getBoundingClientRect(); P3 = [nb.left + nb.width / 2 - cr.left, nb.top + nb.height / 2 - cr.top]; if (mob) { P1 = [W * .1, P0[1] + Hh * .3]; P2 = [W * .95, P3[1] - Hh * .3]; } } /* desktop: the lattice flows into the portrait's light point; mobile: on to the first hook's point */
+    var spread = mob ? W * .22 : Hh * .26, amp = mob ? 8 : Hh * .08, base = [], k;
     ctx.globalCompositeOperation = dark ? 'lighter' : 'source-over'; ctx.lineWidth = 1;
     for (k = 0; k <= S; k++) base.push(bz(P0, P1, P2, P3, k / S));
     for (var i = 0; i < N; i++) {
@@ -103,8 +103,9 @@
   var marks = $$('.sym-node .sym');
   function build() {
     if (!sec) return;
+    if (cv && innerWidth < 820) { size(); drawLattice(); }
     var r = sec.getBoundingClientRect(), Wd = r.width, mob = Wd < 820, pts = [[mob ? 14 : Wd * .72, 0]], inside = [];
-    var wa = $('.who .anchor'); if (wa) { var wb = wa.getBoundingClientRect(); pts[0] = [wb.left - r.left, wb.top - r.top]; } /* home: start at the portrait's light point */
+    if (mob) pts = []; var wa = !mob && $('.who .anchor'); if (wa) { var wb = wa.getBoundingClientRect(); pts[0] = [wb.left - r.left, wb.top - r.top]; } /* home: start at the portrait's light point */
     var endPt = null;
     $$('.anchor', sec).forEach(function (a) {
       var b = a.getBoundingClientRect(), y = b.top - r.top, x = b.left - r.left, top = a.classList.contains('a-top'), bot = a.classList.contains('a-bot');
@@ -118,9 +119,9 @@
     var d = 'M' + pts[0][0] + ' ' + pts[0][1];
     for (var k = 1; k < pts.length; k++) { var p = pts[k - 1], n = pts[k], my = (n[1] - p[1]) * .42; d += ' C ' + p[0] + ' ' + (p[1] + my) + ', ' + n[0] + ' ' + (n[1] - my) + ', ' + n[0] + ' ' + n[1]; }
     base.setAttribute('d', d);
-    var L = base.getTotalLength(), S = mob ? 5 : 18, cols = ['--c1', '--c2', '--c3', '--c5', '--c4'], out = '';
+    var L = base.getTotalLength(), S = mob ? 9 : 18, cols = ['--c1', '--c2', '--c3', '--c5', '--c4'], out = '';
     var ys = pts.map(function (p) { return p[1]; });
-    var spreadMax = mob ? 22 : Wd * .26, wob = mob ? 6 : 24, smp = [], l, i;
+    var spreadMax = mob ? Wd * .36 : Wd * .26, wob = mob ? 14 : 24, smp = [], l, i;
     var gutterScale = mob ? .9 : Math.min(.22, 70 / spreadMax);
     for (l = 0; l <= L; l += 12) smp.push(base.getPointAtLength(l));
     var nrm = smp.map(function (pt, i) {

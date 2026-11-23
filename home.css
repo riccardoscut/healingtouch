@@ -262,14 +262,15 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
   .site-header{top:8px;left:8px;right:8px;padding:14px 18px}
   .site-nav ul li:not(.l){display:none}
   .brand .word{display:none}
-  .hero{min-height:auto;padding-bottom:56px}
+  .hero{min-height:auto;padding-bottom:20px;overflow-x:clip;overflow-y:visible}
   .hero-copy{width:auto;padding:120px 22px 0 32px}
   h1{font-size:46px;margin-bottom:18px}
   .lede{font-size:17px}
   .actions .btn{flex:1 1 100%}
   .facts{width:100%;justify-content:space-between}.facts span{padding:0 8px;font-size:11px}
-  .who{position:static;margin:24px 22px 0 32px}
-  .hero + .journey{padding-top:7vh}
+  .who{position:static;display:flex;margin:24px 22px 0 32px}
+  .who .node{order:3;margin:0 4px 0 auto}
+  .hero + .journey{padding-top:12px}
   .origin .node{left:14px}
   /* mobile: light points and marks alternate sides, so the thread zig-zags under the text */
   .stop{padding:0 24px;min-height:auto;margin:0 0 14vh;display:block}
