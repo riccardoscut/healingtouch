@@ -7,6 +7,7 @@ Writes en/index.html, es/index.html and index.html (English + redirect to the
 visitor's language, like before). Edit texts in home-content.json, never in the
 generated HTML.
 """
+import re
 import html, json, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -49,6 +50,32 @@ def book_button(key, s, label, primary=True):
             f'data-cal-namespace="{sid}" data-cal-config=\'{{"layout":"month_view"}}\'>{e(label)}</button>')
 
 
+HERO_BOOK = ['detox', 'balance', 'athlete']  # treatments a hero situation can book
+
+
+def name_of(key, s):
+    t = s['treatments'][key]
+    return (t['name1'] + ' ' + t['name2']).strip()
+
+
+def pact_line(key, s):
+    first = key == DATA['slides_book'][0]
+    if key == 'detox':
+        txt = s['pact']
+    else:
+        _, mins, price = SERVICES[key]
+        word, money = ('minutos', f'{price} €') if s['lang'] == 'es' else ('minutes', f'€{price}')
+        txt = f"{name_of(key, s)}, {mins} {word}: {money}. {s['treatments'][key]['lead']}"
+    return f'<p class="pact' + (' on' if first else '') + f'" data-pact="{key}"' + ('' if first else ' aria-hidden="true"') + f'><a href="#{key}"' + ('' if first else ' tabindex="-1"') + f'>{e(txt)}</a></p>'
+
+
+def hero_h1(parts):
+    """Hero situation: italic text, one heavy word; the heavy word takes its own line only when it starts a new sentence."""
+    a, b, c = parts
+    cls = '' if re.search(r'[.?!]$', a.strip()) else ' class="in"'
+    return f'<em>{e(a)}</em> <strong{cls}>{e(b)}</strong>' + (f' <em>{e(c)}</em>' if c else '')
+
+
 def hook(parts):
     a, b, c = parts
     return f'<em>{e(a)}</em> <strong>{e(b)}</strong> {e(c)}'
@@ -66,13 +93,13 @@ def treatment(side, key, s, extra=''):
     sid, mins, price = SERVICES[key]
     t = s['treatments'][key]
     name = (t['name1'] + ' ' + t['name2']).strip()
-    promo = f' <s>€{PROMO[key]}</s> <em class="promo">{e(s["promo_label"])}</em>' if key in PROMO else ''
+    promo = (f' <s>€{PROMO[key]}</s>', f'<em class="promo">{e(s["promo_label"])}</em>') if key in PROMO else ('', '')
     head = ''
     if 'hook' in t:
         head = f'<h2 class="hook">{hook(t["hook"])}</h2><p class="lead">{e(t["lead"])}</p>'
     return f'''  <article class="stop treat {side}" id="{key}">
     <div class="txt"><span class="node sym-node"><span class="anchor a-top"></span><span class="anchor a-bot"></span><span class="sym" data-symbol="{key}"></span></span>{head}<h3><strong>{e(t["name1"])}</strong> {e(t["name2"])}</h3>
-      <div class="price"><span><b>{mins}</b> min</span><span><b>€{price}</b>{promo}</span></div>
+      <div class="price"><span><b>{mins}</b> min</span><span><b>€{price}</b>{promo[0]}</span>{promo[1]}</div>
       <p>{e(t["text"])}</p>
       <div class="actions">{book_button(key, s, s["book_prefix"] + " " + name)}<a class="btn btn-ghost" href="{WA}" target="_blank" rel="noopener noreferrer">{e(s["ask"])}</a></div>
 {extra}
@@ -128,7 +155,8 @@ def page(s, other, is_root=False):
 
     redirect = '''<script>(function(){var p=location.pathname;if(p.indexOf('/en')===0||p.indexOf('/es')===0)return;var l='en';try{var s=localStorage.getItem('preferred-language');if(s==='es'||s==='en')l=s;else if((navigator.language||'').slice(0,2)==='es')l='es';}catch(e){}location.replace('/'+l+'/'+location.search+location.hash);})();</script>''' if is_root else ''
 
-    slides = [{'t': x} for x in s['slides']] + [{'t': x, 'l': lg} for lg in s['slide_langs'] for x in DATA['slides_extra'][lg]]
+    bk = DATA['slides_book']
+    slides = [{'t': x, 'b': bk[i]} for i, x in enumerate(s['slides'])] + [{'t': x, 'l': lg, 'b': bk[i]} for lg in s['slide_langs'] for i, x in enumerate(DATA['slides_extra'][lg])]
     home_json = json.dumps({'slides': slides, **{k: s[k] for k in [ 'theme_to_light', 'theme_to_dark', 'reviews_all', 'reviews_less', 'gallery', 'form', 'months', 'lock_open', 'lock_closed', 'logo_next']}}, ensure_ascii=False)
     ld = {
         '@context': 'https://schema.org', '@type': 'HealthAndBeautyBusiness', 'name': 'Signature Healing Touch',
@@ -171,7 +199,7 @@ def page(s, other, is_root=False):
 <script>(function(){{var t;try{{t=localStorage.getItem('preferred-theme')}}catch(e){{}}if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=2026-11-23f">
+<link rel="stylesheet" href="/home.css?v=2026-11-23g">
 <script>
 !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1517659402723971');fbq('track','PageView');
@@ -200,14 +228,14 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 <section class="hero" aria-labelledby="h">
   <canvas class="lattice" id="heroLattice" aria-hidden="true"></canvas>
   <div class="hero-copy">
-    <div class="slides" id="slides"><h1 id="h" aria-live="polite"><em>{e(s["slides"][0][0])}</em> <strong>{e(s["slides"][0][1])}</strong> <em>{e(s["slides"][0][2])}</em></h1></div>
-    <p class="pact"><a href="#detox">{e(s["pact"])}</a></p>
+    <div class="slides" id="slides"><h1 id="h">{hero_h1(s["slides"][0])}</h1></div>
+    <div class="pacts">{"".join(pact_line(k, s) for k in HERO_BOOK)}</div>
     <p class="lede">{e(s["lede"])}</p>
     <div class="actions">
-      {book_button("detox", s, s["book"])}
+      {"".join(book_button(k, s, s["book_prefix"] + " " + name_of(k, s) + "\u00a0·\u00a0€" + str(SERVICES[k][2])).replace("<a class=", f"<a data-for=\"{k}\"" + (" hidden" if k != DATA["slides_book"][0] else "") + " class=", 1).replace("<button type=", f"<button data-for=\"{k}\"" + (" hidden" if k != DATA["slides_book"][0] else "") + " type=", 1) for k in HERO_BOOK)}
       <a class="btn btn-ghost" href="{WA}" target="_blank" rel="noopener noreferrer">{WA_ICON}{e(s["whatsapp"])}</a>
     </div>
-    <div class="facts"><span><b>45–120</b> {e(s["fact_min"])}</span><span>{e(s["fact_from"])} <b>€45</b></span><span><b data-score>4.9/5</b> {e(s["fact_reviews"])}</span></div>
+    <div class="facts"><span><b>45–120</b> {e(s["fact_min"])}</span><span>{e(s["fact_from"])} <b>€45</b></span><a href="#reviews"><b data-score>4.9/5</b> {e(s["fact_reviews"])}</a></div>
     <p class="avail">{e(s["avail"])}</p>
   </div>
   <a class="who" href="#about"><span class="node" aria-hidden="true"><span class="anchor"></span></span><img src="/assets/home/riccardo-face.webp" alt="" width="240" height="223"><span><b>Riccardo Francescut</b>{e(s["who_role"])} {ARR}</span></a>
@@ -223,7 +251,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
   </section>
 
   <section class="section" id="reviews" aria-labelledby="reviews-h"><span class="node sec-node l"><span class="anchor"></span></span>
-    <div class="section-head"><h2 id="reviews-h"><em>{e(s["reviews_title"][0])}</em> <strong>{e(s["reviews_title"][1])}</strong></h2><div class="score"><span id="reviewScore">4.9</span><span class="of">/5 · <span id="reviewCount">28</span> {e(s["fact_reviews"])}</span><small>{e(s["reviews_lead"])}</small></div></div>
+    <div class="section-head"><h2 id="reviews-h"><em>{e(s["reviews_title"][0])}</em> <strong>{e(s["reviews_title"][1])}</strong></h2><div class="score"><span id="reviewScore">4.9</span><span class="of">/5 · <span id="reviewCount">{DATA["reviews"]}</span> {e(s["fact_reviews"])}</span><small>{e(s["reviews_lead"])}</small></div></div>
     <div class="reviews" id="reviewsTop"></div>
     <div class="reviews reviews-more" id="reviewsMore"></div>
     <div class="reviews-actions">
@@ -281,7 +309,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 </section>
 </main>
 
-<nav class="bar" aria-label="Quick booking">{book_button("detox", s, s["bar_book"]).replace('class="btn btn-primary"', 'class="bar-book"')}<a href="{WA}" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav>
+<nav class="bar" aria-label="Quick booking">{"".join(book_button(k, s, s["bar_book"] + "\u00a0·\u00a0€" + str(SERVICES[k][2])).replace('class="btn btn-primary"', 'class="bar-book"').replace("<a class=", f"<a data-for=\"{k}\"" + (" hidden" if k != DATA["slides_book"][0] else "") + " class=", 1).replace("<button type=", f"<button data-for=\"{k}\"" + (" hidden" if k != DATA["slides_book"][0] else "") + " type=", 1) for k in HERO_BOOK)}<a href="{WA}" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav>
 
 <dialog class="lightbox" id="lightbox" aria-label="{e(s["deck_label"])}">
   <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
@@ -308,8 +336,8 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 </dialog>
 
 <script>window.HOME={home_json};</script>
-<script src="/contents.js?v=2026-11-23f"></script>
-<script src="/home.js?v=2026-11-23f"></script>
+<script src="/contents.js?v=2026-11-23g"></script>
+<script src="/home.js?v=2026-11-23g"></script>
 <script>(function(C,A,L){{let p=function(a,ar){{a.q.push(ar);}};let d=C.document;C.Cal=C.Cal||function(){{let cal=C.Cal;let ar=arguments;if(!cal.loaded){{cal.ns={{}};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}}if(ar[0]===L){{const api=function(){{p(api,arguments);}};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){{cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}}else p(cal,ar);return;}}p(cal,ar);}};}})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -322,6 +350,8 @@ def main():
     data = json.load(open(os.path.join(ROOT, 'home-content.json'), encoding='utf-8'))
     en, es = data['en'], data['es']
     DATA['slides_extra'] = data.get('slides_extra', {})
+    DATA['slides_book'] = data['slides_book']
+    DATA['reviews'] = open(os.path.join(ROOT, 'contents.js'), encoding='utf-8').read().count('"quote":')
     out = {'en/index.html': page(en, es), 'es/index.html': page(es, en), 'index.html': page(en, es, is_root=True)}
     for path, content in out.items():
         with open(os.path.join(ROOT, path), 'w', encoding='utf-8') as f:

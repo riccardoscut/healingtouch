@@ -98,7 +98,7 @@ window.testimonials = [
     "month": "June",
     "year": "2026",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -108,7 +108,7 @@ window.testimonials = [
     "month": "May",
     "year": "2024",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -118,7 +118,7 @@ window.testimonials = [
     "month": "June",
     "year": "2022",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -128,7 +128,7 @@ window.testimonials = [
     "month": "June",
     "year": "2021",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -148,7 +148,7 @@ window.testimonials = [
     "month": "September",
     "year": "2023",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": true
   },
   {
@@ -158,7 +158,7 @@ window.testimonials = [
     "month": "May",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -168,7 +168,7 @@ window.testimonials = [
     "month": "April",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -178,7 +178,7 @@ window.testimonials = [
     "month": "April",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -188,7 +188,7 @@ window.testimonials = [
     "month": "March",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -198,7 +198,7 @@ window.testimonials = [
     "month": "February",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -208,7 +208,7 @@ window.testimonials = [
     "month": "May",
     "year": "2023",
     "rating": 4,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -218,7 +218,7 @@ window.testimonials = [
     "month": "February",
     "year": "2023",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -228,7 +228,7 @@ window.testimonials = [
     "month": "January",
     "year": "2020",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -238,7 +238,7 @@ window.testimonials = [
     "month": "July",
     "year": "2020",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -248,7 +248,7 @@ window.testimonials = [
     "month": "June",
     "year": "2024",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -258,7 +258,7 @@ window.testimonials = [
     "month": "July",
     "year": "2023",
     "rating": 4,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -268,7 +268,7 @@ window.testimonials = [
     "month": "June",
     "year": "2024",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -288,7 +288,7 @@ window.testimonials = [
     "month": "July",
     "year": "2022",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -298,7 +298,7 @@ window.testimonials = [
     "month": "March",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -308,7 +308,7 @@ window.testimonials = [
     "month": "September",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -318,7 +318,7 @@ window.testimonials = [
     "month": "March",
     "year": "2022",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -328,7 +328,7 @@ window.testimonials = [
     "month": "February",
     "year": "2020",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -338,7 +338,7 @@ window.testimonials = [
     "month": "October",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -348,7 +348,7 @@ window.testimonials = [
     "month": "March",
     "year": "2020",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -358,7 +358,7 @@ window.testimonials = [
     "month": "December",
     "year": "2025",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
   {
@@ -368,7 +368,7 @@ window.testimonials = [
     "month": "April",
     "year": "2026",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": true
   },
   {
@@ -378,7 +378,7 @@ window.testimonials = [
     "month": "December",
     "year": "2019",
     "rating": 5,
-    "type": "Signature Reflexology Massage",
+    "type": "Personalized Signature",
     "highlighted": false
   },
 ];

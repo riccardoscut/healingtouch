@@ -55,7 +55,7 @@
       ],
       [
         "Walk more,",
-        "Pay less.",
+        "pay less.",
         ""
       ],
       [
@@ -87,7 +87,7 @@
     "slide_next": "Next situation",
     "slide_label": "Situations",
     "promo_label": "Launch offer",
-    "lede": "Foot reflexology in Barcelona: a gentle charge from the reflex points of your feet that rebalances the whole body. In your hotel, at home or in the studio.",
+    "lede": "Foot reflexology in Barcelona: a gentle charge from the reflex points of your feet that rebalances the whole body. In the studio, or in your hotel or home for €6 more.",
     "book": "Book a session",
     "whatsapp": "WhatsApp",
     "fact_min": "min",
@@ -171,7 +171,7 @@
     "packs_instead": "instead of",
     "packs": [
       [
-        "Signature Reflexology",
+        "Personalized Signature",
         "Deeper work on chronic discomfort and long-term well-being."
       ],
       [
@@ -387,7 +387,7 @@
     "slide_next": "Situación siguiente",
     "slide_label": "Situaciones",
     "promo_label": "Oferta de lanzamiento",
-    "lede": "Reflexología podal en Barcelona: una carga suave desde los puntos reflejos de tus pies que reequilibra todo el cuerpo. En tu hotel, en casa o en el estudio.",
+    "lede": "Reflexología podal en Barcelona: una carga suave desde los puntos reflejos de tus pies que reequilibra todo el cuerpo. En el estudio, o en tu hotel o en casa por 6 € más.",
     "book": "Reservar sesión",
     "whatsapp": "WhatsApp",
     "fact_min": "min",
@@ -471,7 +471,7 @@
     "packs_instead": "en lugar de",
     "packs": [
       [
-        "Signature Reflexology",
+        "Personalized Signature",
         "Un trabajo más profundo para molestias crónicas y un bienestar duradero."
       ],
       [
@@ -669,5 +669,20 @@
         ""
       ]
     ]
-  }
+  },
+  "slides_book": [
+    "detox",
+    "detox",
+    "detox",
+    "balance",
+    "balance",
+    "athlete",
+    "detox",
+    "athlete",
+    "detox",
+    "detox",
+    "detox",
+    "detox",
+    "detox"
+  ]
 }

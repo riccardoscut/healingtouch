@@ -14,14 +14,19 @@
   function track(ev, params, type) { if (typeof window.trackPixel === 'function') window.trackPixel(ev, params || {}, type || 'track'); }
 
   /* ---------- hero: situations in random order (one on each visit; the logo shows another one) ---------- */
-  /* slides come from home-content.json: the page's own language plus the extra languages in slide_langs (lang attribute set) */
+  /* slides come from home-content.json: the page's own language plus the extra languages in slide_langs (lang attribute set);
+     the first one is always in the page's language, other languages join after the first logo click;
+     each slide books its own treatment (hero button and mobile bar follow it) */
   var h1 = $('#h'), SL = H.slides || [], hi = 0, slBox = $('#slides'), bag = [];
-  function slideHTML(x) { return '<em>' + esc(x[0]) + '</em> <strong>' + esc(x[1]) + '</strong>' + (x[2] ? ' <em>' + esc(x[2]) + '</em>' : ''); }
+  /* the heavy word takes its own line only when it starts a new sentence */
+  function slideHTML(x) { return '<em>' + esc(x[0]) + '</em> <strong' + (/[.?!]\s*$/.test(x[0]) ? '' : ' class="in"') + '>' + esc(x[1]) + '</strong>' + (x[2] ? ' <em>' + esc(x[2]) + '</em>' : ''); }
   function setHeadline(i, dir) {
     if (!h1 || !SL.length) return;
     hi = (i + SL.length) % SL.length; var x = SL[hi];
     h1.innerHTML = slideHTML(x.t);
     if (x.l) h1.setAttribute('lang', x.l); else h1.removeAttribute('lang');
+    $$('[data-for]').forEach(function (b) { b.hidden = b.getAttribute('data-for') !== x.b; });
+    $$('[data-pact]').forEach(function (p) { var on = p.getAttribute('data-pact') === x.b; p.classList.toggle('on', on); p.setAttribute('aria-hidden', on ? 'false' : 'true'); var a = p.querySelector('a'); if (a) { if (on) a.removeAttribute('tabindex'); else a.setAttribute('tabindex', '-1'); } });
     if (dir && !reduce) { h1.classList.remove('sl-in'); void h1.offsetWidth; h1.classList.add('sl-in'); }
   }
   /* shuffled bag: every situation comes up once, in random order, before any repeats */
@@ -30,7 +35,8 @@
     if (!bag.length) { for (var q = 0; q < SL.length; q++) if (q !== hi) bag.push(q); for (var r = bag.length - 1; r > 0; r--) { var k = Math.floor(Math.random() * (r + 1)), t = bag[r]; bag[r] = bag[k]; bag[k] = t; } }
     return bag.pop();
   }
-  if (SL.length) setHeadline(Math.floor(Math.random() * SL.length));
+  var own = []; SL.forEach(function (x, q) { if (!x.l) own.push(q); });
+  if (own.length) setHeadline(own[Math.floor(Math.random() * own.length)]);
   if (slBox && SL.length > 1) {
     /* invisible copies of every slide share the grid cell, so the hero keeps the tallest slide's height and nothing jumps */
     SL.forEach(function (x) { var g = document.createElement('p'); g.className = 'sl-size'; g.setAttribute('aria-hidden', 'true'); g.innerHTML = slideHTML(x.t); slBox.appendChild(g); });
