@@ -170,7 +170,7 @@ def page(s, other, is_root=False):
 <script>(function(){{var t;try{{t=localStorage.getItem('preferred-theme')}}catch(e){{}}if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=2026-1">
+<link rel="stylesheet" href="/home.css?v=2026-11-23">
 <script>
 !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1517659402723971');fbq('track','PageView');
@@ -212,7 +212,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 </section>
 
 <section class="journey" id="journey" aria-label="{e(s["journey_label"])}">
-  <svg class="spine" id="spine" aria-hidden="true" preserveAspectRatio="none"><path id="spineBase" fill="none" stroke="none"/><g id="strands"></g></svg><div class="curtain" id="curtain" aria-hidden="true"></div>
+  <svg class="spine" id="spine" aria-hidden="true" preserveAspectRatio="none"><path id="spineBase" fill="none" stroke="none"/><g id="strands"></g></svg><div class="curtain-clip" aria-hidden="true"><div class="curtain" id="curtain"></div></div>
 {journey}
   <section class="section" id="packs" aria-labelledby="packs-h"><span class="node sec-node r"><span class="anchor"></span></span>
     <div class="section-head"><h2 id="packs-h"><em>{e(s["packs_title"][0])}</em> <strong>{e(s["packs_title"][1])}</strong></h2><p>{e(s["packs_lead"])}</p></div>
@@ -306,7 +306,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 
 <script>window.HOME={home_json};</script>
 <script src="/contents.js?v=2026-1"></script>
-<script src="/home.js?v=2026-1"></script>
+<script src="/home.js?v=2026-11-23"></script>
 <script>(function(C,A,L){{let p=function(a,ar){{a.q.push(ar);}};let d=C.document;C.Cal=C.Cal||function(){{let cal=C.Cal;let ar=arguments;if(!cal.loaded){{cal.ns={{}};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}}if(ar[0]===L){{const api=function(){{p(api,arguments);}};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){{cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}}else p(cal,ar);return;}}p(cal,ar);}};}})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

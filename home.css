@@ -43,7 +43,7 @@ img{max-width:100%}
 .lock[aria-pressed=true]{color:#A8792A}
 [data-theme=light] .lock[aria-pressed=true]{color:#7A5414}
 .lock[aria-pressed=true] .shackle-closed{display:inline}.lock[aria-pressed=true] .shackle-open{display:none}
-.brand .word{height:24px;width:auto}
+.brand .word{height:24px;width:auto;filter:brightness(1.18)}
 [data-theme=light] .brand .word,[data-theme=light] .foot-word{filter:brightness(.45) sepia(.5) saturate(2) hue-rotate(10deg)}
 .site-nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:13px;letter-spacing:.18em;text-transform:uppercase;align-items:center}
 .site-nav a{text-decoration:none}
@@ -77,8 +77,10 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .who:hover b{text-decoration:underline}
 .who .node{position:relative;flex:none;margin:0 6px 0 0}
 .who:hover .node:after,.who:focus-visible .node:after{animation-duration:1.6s}
-/* home: the thread starts at the light point beside the portrait, so the journey lets strands rise into the hero */
+/* home: the thread starts at the light point beside the portrait, so the journey lets strands rise into the hero;
+   the curtain is clipped by its own box instead, or its travel would add empty scroll after the footer */
 .hero + .journey{overflow-x:clip;overflow-y:visible}
+.curtain-clip{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
 
 /* ---------- journey: thread, light points, stops ---------- */
 .journey{position:relative;padding:10vh 0 6vh;overflow:clip}
@@ -225,7 +227,7 @@ h1 strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);lett
 .contact-list{list-style:none;padding:0;margin:26px 0 0;display:flex;justify-content:center;flex-wrap:wrap;gap:10px 28px;color:var(--muted);font-size:15px}
 
 /* ---------- footer ---------- */
-.foot{position:relative;z-index:2;text-align:center;padding:150px 24px 16vh;color:var(--muted);font-size:14px}
+.foot{position:relative;z-index:2;text-align:center;padding:150px 24px 40px;color:var(--muted);font-size:14px}
 .foot-disc{margin:0 auto 18px;width:88px;height:88px;cursor:default}.foot-disc img{width:68px;height:68px}
 .foot-word{height:30px;width:auto;margin:0 auto 18px;display:block}
 .foot .quote{font-style:italic;max-width:60ch;margin:18px auto}
