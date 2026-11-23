@@ -62,7 +62,7 @@
   /* ---------- mobile booking bar: appears while the visitor scrolls or touches the page, hides again when idle ---------- */
   var bar = $('.bar'), barT = 0;
   if (bar) {
-    var wake = function () { bar.classList.remove('idle'); clearTimeout(barT); barT = setTimeout(function () { if (!bar.contains(document.activeElement)) bar.classList.add('idle'); }, 3500); };
+    var wake = function () { bar.classList.remove('idle'); clearTimeout(barT); barT = setTimeout(function () { if (!bar.contains(document.activeElement)) bar.classList.add('idle'); }, 2000); };
     bar.classList.add('idle');
     addEventListener('scroll', wake, { passive: true });
     addEventListener('touchstart', wake, { passive: true });

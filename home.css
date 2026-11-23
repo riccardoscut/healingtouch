@@ -159,7 +159,8 @@ h1.sl-in{animation:slIn .55s cubic-bezier(.2,.7,.2,1)}
 /* treatment marks (one-stroke, drawn by the thread) */
 .sym-node{width:0;height:0;margin:0;background:none;box-shadow:none}
 .sym-node:after{display:none}
-.sym-node .sym{position:absolute;width:260px;height:260px;left:-130px;top:-130px;background:radial-gradient(circle,var(--ground) 62%,transparent 70%)}
+[data-theme=light] .sym-node{background:none;box-shadow:none}
+.sym-node .sym{position:absolute;width:260px;height:260px;left:-130px;top:-130px;background:radial-gradient(circle,var(--ground) 46%,transparent 53%)}
 .sym-node .sym svg{width:100%;height:100%;overflow:visible}
 .sym-node .anchor.a-top{left:0;top:-104px}.sym-node .anchor.a-bot{left:0;top:104px}
 .draw{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--p,0))}
@@ -317,11 +318,11 @@ h1.sl-in{animation:slIn .55s cubic-bezier(.2,.7,.2,1)}
   .lightbox figure{padding:70px 16px 20px}.lb-btn{top:auto;bottom:18px;transform:none}
   .form-row{grid-template-columns:1fr}
   .bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:45;background:var(--ground);border-top:1px solid var(--line)}
-  .bar a,.bar button{display:flex;justify-content:center;align-items:center;gap:8px;padding:18px 10px calc(18px + env(safe-area-inset-bottom));font:600 14px Barlow;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer}
+  .bar a,.bar button{display:flex;justify-content:center;align-items:center;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));font:600 12px Barlow;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer}
   .bar .bar-book{background:var(--gold-btn);color:var(--btn-ink)}
   .bar{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
   .bar.idle{transform:translateY(110%)}
-  body{padding-bottom:64px}
+  body{padding-bottom:40px}
 }
 @media (prefers-reduced-motion:reduce){
   .disc,.deck img{transition:none}html{scroll-behavior:auto}.node:after{animation:none}
