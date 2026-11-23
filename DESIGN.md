@@ -143,14 +143,18 @@ Elevation:
 - Button glow: 0 12px 36px -14px rgba(255,248,214,.7)
 - Light point halo: 0 0 0 3px rgba(255,255,255,.12), 0 0 18px 6px cyan 70%, 0 0 60px 22px violet 35%
 - Mark halo: drop-shadow(0 0 4px rgba(255,248,214,.55)) drop-shadow(0 0 14px cyan 45%)
+- Box glow (packs, reviews on hover/focus or mid-screen on touch): lift 4px, 0 18px 64px -16px moonlight 42% + 0 10px 34px -16px cyan 40%; violet in light theme
 Don't:
 - Don't reroute the thread to keep it away from text: strands and the lattice pass under body copy, headlines and buttons (always below them, with the copy's ground-coloured halo keeping it legible), on desktop and above all on mobile.
 - Don't use stock or AI-generated photography of situations, treatments or places; the only photos are Riccardo's portraits.
 - Don't apply blur or glow filters to strands or the lattice.
 - Don't fill surfaces or buttons with cyan, violet, lime or aurora; they belong to the thread.
 - Don't round buttons, cards or inputs; circles are for the logo disc, points and portraits.
-- Don't replace, recolour or redraw the logo.
+- Don't replace, recolour or redraw the foot logo; only the wordmark lettering takes the header text colour.
+- Don't give treatment marks the light-point halo; the disc behind a mark ends inside the thread's joins.
+- Don't add arrows, counters or swipe to the hero situations: the logo is the only control.
 Do:
 - Do keep the ground pure black (void-black) by default and offer the light theme only through the logo disc and padlock.
+- Do open the home on one random situation in the page's language; the line under it and the Book button follow the treatment it books (slides_book).
 - (+7 more)
 Full: .impeccable/design-full.md (read a section when you need its detail)

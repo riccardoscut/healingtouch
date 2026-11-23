@@ -203,7 +203,7 @@ A full-bleed single column on a fixed page frame inset 14px (8px on mobile). Cop
 
 The thread moves in two registers. Through the situations and treatments it travels freely between anchors. From the lower content sections onward the anchors are quiet: the thread is held in the right gutter and swells only a little between anchors, so it never runs under text.
 
-Below 820px: the header loses the wordmark and all nav items except the language switch; copy moves to a 22px right / 44px left padding so the thread runs in a 14px lane along the left gutter; actions go full width; treatment marks become 150px blocks above their copy; a sticky two-part bar (metallic Book, WhatsApp) holds the bottom edge.
+Below 820px: the header loses the wordmark and all nav items except the language switch; copy moves to a 22px right / 44px left padding so the thread runs in a 14px lane along the left gutter; actions go full width; treatment marks become 150px blocks above their copy; a slim sticky two-part bar (metallic "Book · €price", WhatsApp; 12px labels, about 34px tall) appears while the visitor scrolls or touches and hides after 2 s idle.
 
 ## Elevation & Depth
 
@@ -235,20 +235,23 @@ Metallic and quiet: one bright object per action group.
 ### Navigation and logo
 - **Header:** fixed inside the frame, fading from the ground to transparent. Tracked 13px uppercase links, 34px apart, a pill language switch with the current language filled in ink.
 - **Logo disc:** 52px black circle holding the neon rainbow foot logo (40px); hover adds a faint cyan ring; it spins once when used. In light theme the disc is transparent and the logo lines are deepened by filter so they read on paper white. The footer repeats it at 88px.
-- **Padlock:** a 30px line icon beside the disc. Unlocked (open shackle, muted colour): the logo switches theme. Locked (closed shackle, padlock amber): the logo keeps the theme and shows the next headline. The choice persists.
+- **Wordmark:** the logo's "Signature Healing Touch" lettering (`logo_onlyWords_newGold.png`) used as a CSS mask and painted in the header text colour (`--ink`: light cream on dark, night ink on light), in the header (105x24) and the footer (131x30). Owner decision 23/11/2026: lighter than the original brown-gold.
+- **Padlock:** a 30px line icon beside the disc. Unlocked (open shackle, muted colour): the logo switches theme **and** shows another random situation. Locked (closed shackle, padlock amber): the logo keeps the theme and only shows another situation. The choice persists.
+
+### Hero situations
+One random "situation" headline per visit (pool in `home-content.json`: `slides` per language, `slides_extra.ca` in Catalan, `slides_book` = the treatment each situation books). The first one is always in the page's language; Catalan lines join only after the first logo click. No arrows, counter or swipe: only the logo changes it, in shuffled order. The heavy word takes its own line only when it starts a new sentence, otherwise it stays inline. Invisible copies of every situation reserve the tallest height (spare space sits above the title), so nothing below jumps. Under the title, the line and the gold Book button follow the booked treatment: the steps pact for Executive Detox, name·minutes·price + its lead for Balance/Athlete; the button reads "Book <treatment> · €<price>" and the mobile bar "Book · €<price>".
 
 ### Light points
 A 12px white core (18px for major stops) with the light point halo, and a ring in lunar gold that pulses outward over 3.2s. On light the core turns cyan. Reduced motion stops the pulse.
 
 ### Treatment marks (signature)
-Six one-stroke figures on a 400 unit canvas, each one continuous line from the top centre to the bottom centre: drop (detox), recovering circle with arrow (athlete), balanced halves (balance), fingerprint spiral (signature), essential figure (pure body), lotus (ritual). Each is drawn as a faint hairline ghost, then a 2.6 width stroke in a cyan to gold to cyan gradient, then a 0.9 width white core, revealed by scroll progress. The thread's strands converge into the mark at its top and bottom anchors and stay clear inside it. Marks sit on a ground-coloured disc (260px desktop, 124px mobile). On mobile each mark floats beside its text, alternating sides (right for left stops, left for right stops), with the copy wrapping around its circle.
+Six one-stroke figures on a 400 unit canvas, each one continuous line from the top centre to the bottom centre: drop (detox), recovering circle with arrow (athlete), balanced halves (balance), fingerprint spiral (signature), essential figure (pure body), lotus (ritual). Each is drawn as a faint hairline ghost, then a 2.6 width stroke in a cyan to gold to cyan gradient, then a 0.9 width white core, revealed by scroll progress. The thread's strands converge into the mark at its top and bottom anchors and stay clear inside it. Marks sit on a ground-coloured disc (260px desktop, 124px mobile) that is opaque to 46% of the half-diagonal and clear by 53%, so it ends just inside the two anchors and the strands visibly join the mark at top and bottom. Marks never take the light-point fill or halo (in light theme they are line only). On mobile each mark floats beside its text, alternating sides (right for left stops, left for right stops), with the copy wrapping around its circle.
 
 ### The thread
-Eighteen strands on desktop (five on mobile) cycling cyan, gold, violet, aurora, lime at 0.9 width and 60% opacity, braided around one curve through every anchor. A ground-coloured curtain with a soft top fade slides away by transform as the visitor scrolls, revealing the thread. The hero lattice (38 curves desktop, 16 mobile) blends cyan to gold to violet, animates slowly and pauses off-screen. On mobile the light points of the situations alternate sides too, so the braid (wider than a hairline: 22px spread) zig-zags under the text from side to side and through every mark. The texts of situations and treatments (headings, copy, prices, buttons, bridge lines) are written in by the same light: each is revealed top to bottom by a soft mask at the curtain's edge as the visitor scrolls; with reduced motion or without JavaScript everything is visible at once.
+Eighteen strands on desktop (nine on mobile, spread about a third of the screen) cycling cyan, gold, violet, aurora, lime at 0.9 width and 60% opacity, braided around one curve through every anchor. A ground-coloured curtain with a soft top fade slides away by transform as the visitor scrolls, revealing the thread. The hero lattice (38 curves desktop, 16 mobile) blends cyan to gold to violet, animates slowly and pauses off-screen. On mobile the light points of the situations alternate sides too, so the braid (wider than a hairline: 22px spread) zig-zags under the text from side to side and through every mark. The texts of situations and treatments (headings, copy, prices, buttons, bridge lines) are written in by the same light: each is revealed top to bottom by a soft mask at the curtain's edge as the visitor scrolls; with reduced motion or without JavaScript everything is visible at once.
 
 ### Cards / Containers
-- **Packs:** three cells in a ruled grid, separated by hairlines, no fill beyond the ground, no radius. Price in highlight at 30px, full-width button.
-- **Reviews:** top rule only, Bodoni italic key line, small lime stars.
+- **Packs and reviews:** separate framed boxes (1px line on all sides, ground fill, 28px gaps so the thread shows between them, no radius). On hover or keyboard focus a soft moonlight glow rises (lift 4px, brighter border, warm offset shadow; violet in light theme); on touch screens the box lights up while it crosses the middle of the screen. Packs: price in highlight at 30px, button pinned to the bottom. Reviews: a word-for-word quoted phrase from the review (`quote` in contents.js) in Bodoni italic, then the full text at body size, small lime stars.
 - **Step-Up:** a square box with a 1px lime border and lime step figures notched into its top edge.
 
 ### Inputs / Fields
@@ -275,4 +278,6 @@ Hero chip: 64px circle with radial feather, linking to About. About: a stacked d
 - **Don't** apply blur or glow filters to strands or the lattice.
 - **Don't** fill surfaces or buttons with cyan, violet, lime or aurora; they belong to the thread.
 - **Don't** round buttons, cards or inputs; circles are for the logo disc, points and portraits.
-- **Don't** replace, recolour or redraw the logo.
+- **Don't** replace, recolour or redraw the foot logo (the wordmark lettering is the one exception: it takes the header text colour).
+- **Don't** give treatment marks the light-point fill or halo, and don't let the disc behind a mark cover the points where the thread joins it.
+- **Don't** add arrows, counters or swipe to the hero situations: the logo is the only control (owner decision).
