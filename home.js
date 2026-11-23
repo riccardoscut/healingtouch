@@ -173,6 +173,12 @@
     if ('ResizeObserver' in window) new ResizeObserver(function () { var h = sec.offsetHeight; if (Math.abs(h - lastH) > 2) { lastH = h; clearTimeout(rt); rt = setTimeout(build, 120); } }).observe(sec);
   }
 
+  /* ---------- packs on touch screens: no hover, so the box lights up while it crosses the middle of the screen ---------- */
+  if ('IntersectionObserver' in window && matchMedia('(hover: none)').matches) {
+    var po = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('glow', e.isIntersecting); }); }, { rootMargin: '-40% 0px -40% 0px' });
+    $$('.pack').forEach(function (el) { po.observe(el); });
+  }
+
   /* ---------- booking: Cal.com popup for three services, Stripe booking pages for the others ---------- */
   var CAL = ['balance-reflexology-massage-60-min-60', 'executive-detox-massage-45-min', 'reflexology-foot-massage-1-hour-30-min'];
   function initCal() {
