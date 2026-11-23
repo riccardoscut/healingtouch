@@ -92,6 +92,16 @@ window.siteContent = {
 // @ts-ignore
 window.testimonials = [
   {
+    "text": "Riccardo was excellent. He was incredibly attentive and intuitive and helped me get rid of a lot of lingering tension in my back and shoulders. I highly recommend him.",
+    "quote": "helped me get rid of a lot of lingering tension in my back and shoulders",
+    "name": "Athena",
+    "month": "June",
+    "year": "2026",
+    "rating": 5,
+    "type": "Signature Reflexology Massage",
+    "highlighted": false
+  },
+  {
     "text": "Tuve una sesión de reflexología podal y fue una experiencia excelente. Desde el inicio me sentí en un ambiente de calma y confianza. La técnica fue muy precisa, con la presión adecuada en cada punto, lo que me ayudó a relajarme profundamente y a liberar tensión acumulada. Al terminar, mis pies se sentían ligeros y mi cuerpo en general con más energía y equilibrio. Recomiendo totalmente sus sesiones, se nota la dedicación y el conocimiento con el que trabaja.",
     "quote": "mis pies se sentían ligeros y mi cuerpo en general con más energía y equilibrio",
     "name": "Mariana",
