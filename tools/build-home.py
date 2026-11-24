@@ -14,18 +14,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://healingtouch.da-sign.com'
 WA = 'https://wa.me/34652952566'
 CAL = 'signaturehealingtouch/'
-STRIPE = {
-    'athlete': 'https://book.stripe.com/bJe5kDclI4bP8MPfln7ok09',
-    'purebody': 'https://book.stripe.com/00w3cvdpMeQtaUXddf7ok0b',
-    'ritual': 'https://book.stripe.com/9B6dR92L84bP2or6OR7ok0a',
-}
+STRIPE = {}  # treatment key -> Stripe booking link; empty since 24/11/2026: every treatment books on Cal.com (packs keep their Stripe links)
 SERVICES = {  # id used by Cal.com / Stripe, minutes, price (from contents.js, confirmed by Riccardo)
     'detox': ('executive-detox-massage-45-min', 45, 45),
     'athlete': ('athlete-recovery-reflexology-leg-release-80-min', 80, 110),
     'balance': ('balance-reflexology-massage-60-min-60', 60, 60),
     'signature': ('reflexology-foot-massage-1-hour-30-min', 90, 70),
     'purebody': ('pure-body-massage-60-min', 60, 100),
-    'ritual': ('signature-full-body-ritual-experience-120-min', 120, 240),
+    'ritual': ('signature-full-body-ritual-experience-120-min', 120, 190),
 }
 PROMO = {'signature': 90}  # treatment key -> regular price shown struck through next to the launch price
 PACKS = [  # name index in strings, pack price, regular price, Stripe link
@@ -161,7 +157,7 @@ def page(s, other, is_root=False):
     ld = {
         '@context': 'https://schema.org', '@type': 'HealthAndBeautyBusiness', 'name': 'Signature Healing Touch',
         'url': SITE + '/', 'image': SITE + '/logo_wName_transparentBG_newGold.png', 'telephone': '+34652952566',
-        'email': 'healingtouch@da-sign.com', 'priceRange': '€45–€240',
+        'email': 'healingtouch@da-sign.com', 'priceRange': '€45–€190',
         'address': {'@type': 'PostalAddress', 'streetAddress': 'Carrer de Sardenya 371', 'postalCode': '08025', 'addressLocality': 'Barcelona', 'addressRegion': 'Catalonia', 'addressCountry': 'ES'},
         'areaServed': 'Barcelona', 'sameAs': ['https://instagram.com/SignatureHealingTouch'], 'description': s['description'],
         'founder': {'@type': 'Person', 'name': 'Riccardo Francescut', 'jobTitle': 'Cognitive Psychologist | Yoga Master | Reflexologist & Masseur'},
@@ -337,7 +333,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 
 <script>window.HOME={home_json};</script>
 <script src="/contents.js?v=2026-11-23i"></script>
-<script src="/home.js?v=2026-11-23i"></script>
+<script src="/home.js?v=2026-11-24a"></script>
 <script>(function(C,A,L){{let p=function(a,ar){{a.q.push(ar);}};let d=C.document;C.Cal=C.Cal||function(){{let cal=C.Cal;let ar=arguments;if(!cal.loaded){{cal.ns={{}};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}}if(ar[0]===L){{const api=function(){{p(api,arguments);}};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){{cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}}else p(cal,ar);return;}}p(cal,ar);}};}})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

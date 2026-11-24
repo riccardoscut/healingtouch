@@ -87,7 +87,7 @@
     "slide_next": "Next situation",
     "slide_label": "Situations",
     "promo_label": "Launch offer",
-    "lede": "Foot reflexology in Barcelona: a gentle charge from the reflex points of your feet that rebalances the whole body. In the studio, or in your hotel or home for €6 more.",
+    "lede": "Foot reflexology in Barcelona: a gentle, deep relaxation that starts from your feet. In the studio, or in your hotel or home for €6 more.",
     "book": "Book a session",
     "whatsapp": "WhatsApp",
     "fact_min": "min",
@@ -113,35 +113,35 @@
       "athlete": {
         "hook": [
           "Train hard.",
-          "Recover",
-          "faster."
+          "Rest",
+          "your legs."
         ],
         "lead": "Runs, matches, long sessions at the gym: your legs keep the score.",
         "name1": "Athlete",
         "name2": "Recovery",
-        "text": "Decontracting work on calves and quadriceps, then precise reflexology on the points most connected to your sport. Only offered as a complete protocol."
+        "text": "Decontracting work on calves and quadriceps, then precise reflexology on the areas of the feet you use most in your sport. Only offered as a complete protocol."
       },
       "balance": {
         "hook": [
-          "Stressed?",
+          "Long week?",
           "Slow",
           "down."
         ],
         "lead": "When the head never stops and the body stays on alert, the feet are the quietest way back to calm.",
         "name1": "Balance",
         "name2": "Reflexology",
-        "text": "For stress and anxiety. Conscious pressure on the main reflex zones calms the nervous system and brings you back to your natural balance."
+        "text": "To slow down. Slow, mindful pressure on the reflex zones of your feet: an hour to switch off and feel lighter."
       },
       "signature": {
         "hook": [
-          "Something hurts?",
+          "Need more time?",
           "Go",
           "deeper."
         ],
-        "lead": "A long-standing discomfort deserves time and attention. We look at it together, then work on it.",
+        "lead": "Some sessions deserve more time and attention. We talk first, then I tailor the session to you.",
         "name1": "Personalized",
         "name2": "Signature",
-        "text": "We start with a short personal anamnesis. Then “The 3 Ways of Purification” and a deep, specific phase on the reflex points linked to your issue."
+        "text": "We start with a short chat about you and what you'd like from the session. Then “The 3 Ways of Purification” and a slower, focused phase on the areas of the foot we choose together."
       },
       "purebody": {
         "name1": "Pure Body",
@@ -151,7 +151,7 @@
       "ritual": {
         "name1": "Signature",
         "name2": "Ritual",
-        "text": "Two hours uniting full-body massage and deep foot reflexology. A slow-motion escape to release tension, quiet the mind and restore inner balance."
+        "text": "Two hours uniting full-body massage and deep foot reflexology. A slow-motion escape to release tension and quiet the mind: two hours just for you."
       }
     },
     "stepup_title": "Walk more, pay less.",
@@ -172,15 +172,15 @@
     "packs": [
       [
         "Personalized Signature",
-        "Deeper work on chronic discomfort and long-term well-being."
+        "A longer, personalised session to repeat over time."
       ],
       [
         "Balance Reflexology",
-        "A deep reset of the nervous system and ongoing balance."
+        "A regular hour to switch off."
       ],
       [
         "Executive Detox",
-        "Regular stress relief, muscle recovery and a steady wellness routine."
+        "A steady relaxation routine for tired feet and legs."
       ]
     ],
     "reviews_title": [
@@ -234,6 +234,10 @@
       [
         "Which languages do you speak?",
         "Italian, Spanish, English and French."
+      ],
+      [
+        "Is it a medical treatment?",
+        "No. Sessions are for relaxation and wellbeing. They do not replace medical care or treatment by any health professional. If you have a health condition, check with your doctor first."
       ]
     ],
     "contact_title": [
@@ -387,7 +391,7 @@
     "slide_next": "Situación siguiente",
     "slide_label": "Situaciones",
     "promo_label": "Oferta de lanzamiento",
-    "lede": "Reflexología podal en Barcelona: una carga suave desde los puntos reflejos de tus pies que reequilibra todo el cuerpo. En el estudio, o en tu hotel o en casa por 6 € más.",
+    "lede": "Reflexología podal en Barcelona: una relajación suave y profunda que empieza por los pies. En el estudio, o en tu hotel o en casa por 6 € más.",
     "book": "Reservar sesión",
     "whatsapp": "WhatsApp",
     "fact_min": "min",
@@ -413,35 +417,35 @@
       "athlete": {
         "hook": [
           "Entrena duro.",
-          "Recupérate",
-          "más rápido."
+          "Descansa",
+          "las piernas."
         ],
         "lead": "Carreras, partidos, largas sesiones de gimnasio: tus piernas llevan la cuenta.",
         "name1": "Athlete",
         "name2": "Recovery",
-        "text": "Trabajo descontracturante en gemelos y cuádriceps y luego reflexología precisa en los puntos más ligados a tu deporte. Solo como protocolo completo."
+        "text": "Trabajo descontracturante en gemelos y cuádriceps y luego reflexología precisa en las zonas del pie que más usas en tu deporte. Solo como protocolo completo."
       },
       "balance": {
         "hook": [
-          "¿Estrés?",
+          "¿Semana larga?",
           "Baja",
           "el ritmo."
         ],
         "lead": "Cuando la cabeza no para y el cuerpo sigue en alerta, los pies son el camino más tranquilo hacia la calma.",
         "name1": "Balance",
         "name2": "Reflexology",
-        "text": "Para el estrés y la ansiedad. Una presión consciente sobre las principales zonas reflejas calma el sistema nervioso y te devuelve a tu equilibrio natural."
+        "text": "Para bajar el ritmo. Presión lenta y consciente sobre las zonas reflejas del pie: una hora para desconectar y sentirte más ligero."
       },
       "signature": {
         "hook": [
-          "¿Algo te duele?",
+          "¿Necesitas más tiempo?",
           "Ve",
           "más profundo."
         ],
-        "lead": "Una molestia de largo tiempo merece tiempo y atención. La miramos juntos y luego trabajamos sobre ella.",
+        "lead": "Algunas sesiones merecen más tiempo y atención. Primero hablamos y luego adapto la sesión a ti.",
         "name1": "Personalized",
         "name2": "Signature",
-        "text": "Empezamos con una breve anamnesis personal. Luego “Las 3 Vías de Purificación” y una fase profunda y específica en los puntos reflejos ligados a tu molestia."
+        "text": "Empezamos con una breve charla sobre ti y lo que buscas en la sesión. Luego “Las 3 Vías de Purificación” y una fase más lenta y centrada en las zonas del pie que elegimos juntos."
       },
       "purebody": {
         "name1": "Pure Body",
@@ -451,7 +455,7 @@
       "ritual": {
         "name1": "Signature",
         "name2": "Ritual",
-        "text": "Dos horas que unen masaje de cuerpo completo y reflexología podal profunda. Una escapada a cámara lenta para soltar tensiones, calmar la mente y recuperar el equilibrio."
+        "text": "Dos horas que unen masaje de cuerpo completo y reflexología podal profunda. Una escapada a cámara lenta para soltar tensiones y calmar la mente: dos horas solo para ti."
       }
     },
     "stepup_title": "Camina más, paga menos.",
@@ -472,15 +476,15 @@
     "packs": [
       [
         "Personalized Signature",
-        "Un trabajo más profundo para molestias crónicas y un bienestar duradero."
+        "Una sesión más larga y personalizada, para repetir en el tiempo."
       ],
       [
         "Balance Reflexology",
-        "Un reset profundo del sistema nervioso y un equilibrio constante."
+        "Una hora fija para desconectar."
       ],
       [
         "Executive Detox",
-        "Alivio regular del estrés, recuperación muscular y una rutina de bienestar."
+        "Una rutina de relajación para pies y piernas cansados."
       ]
     ],
     "reviews_title": [
@@ -534,6 +538,10 @@
       [
         "¿Qué idiomas hablas?",
         "Italiano, español, inglés y francés."
+      ],
+      [
+        "¿Es un tratamiento médico?",
+        "No. Las sesiones son de relajación y bienestar. No sustituyen la atención médica ni el tratamiento de ningún profesional sanitario. Si tienes alguna condición de salud, consulta antes con tu médico."
       ]
     ],
     "contact_title": [

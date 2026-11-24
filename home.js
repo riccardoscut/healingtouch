@@ -211,8 +211,9 @@
     $$('.pack, .review').forEach(function (el) { po.observe(el); });
   }
 
-  /* ---------- booking: Cal.com popup for three services, Stripe booking pages for the others ---------- */
-  var CAL = ['balance-reflexology-massage-60-min-60', 'executive-detox-massage-45-min', 'reflexology-foot-massage-1-hour-30-min'];
+  /* ---------- booking: Cal.com popup for every treatment (namespaces read from the buttons); packs use Stripe links ---------- */
+  var CAL = [];
+  $$('[data-cal-namespace]').forEach(function (b) { if (CAL.indexOf(b.dataset.calNamespace) < 0) CAL.push(b.dataset.calNamespace); });
   function initCal() {
     if (!window.Cal) return false;
     CAL.forEach(function (id) {
