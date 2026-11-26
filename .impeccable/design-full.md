@@ -203,7 +203,7 @@ A full-bleed single column on a fixed page frame inset 14px (8px on mobile). Cop
 
 The thread moves in two registers. Through the situations and treatments it travels freely between anchors. From the lower content sections onward the anchors are quiet: the thread is held in the right gutter and swells only a little between anchors, so it never runs under text.
 
-Below 820px: the header loses the wordmark and all nav items except the language switch; copy moves to a 22px right / 44px left padding so the thread runs in a 14px lane along the left gutter; actions go full width; treatment marks become 150px blocks above their copy; a slim sticky two-part bar (metallic "Book · €price", WhatsApp; 12px labels, about 34px tall) appears while the visitor scrolls or touches and hides after 2 s idle.
+Below 820px: the header loses the wordmark and all nav items except the language switch; copy moves to a 22px right / 44px left padding so the thread runs in a 14px lane along the left gutter; actions go full width; treatment marks become 150px blocks above their copy; a slim sticky two-part bar (metallic "Instagram" opening @SignatureHealingTouch, then WhatsApp; 12px labels, about 34px tall; it does not book and does not follow the situation, decision 26/11/2026) appears while the visitor scrolls or touches and hides after 2 s idle.
 
 ## Elevation & Depth
 
@@ -239,7 +239,7 @@ Metallic and quiet: one bright object per action group.
 - **Padlock:** a 30px line icon beside the disc. Unlocked (open shackle, muted colour): the logo switches theme **and** shows another random situation. Locked (closed shackle, padlock amber): the logo keeps the theme and only shows another situation. The choice persists.
 
 ### Hero situations
-One random "situation" headline per visit (pool in `home-content.json`: `slides` per language, `slides_extra.ca` in Catalan, `slides_book` = the treatment each situation books). The first one is always in the page's language; Catalan lines join only after the first logo click. No arrows, counter or swipe: only the logo changes it, in shuffled order. The heavy word takes its own line only when it starts a new sentence, otherwise it stays inline. Invisible copies of every situation reserve the tallest height (spare space sits above the title), so nothing below jumps. Under the title, the line and the gold Book button follow the booked treatment: the steps pact for Executive Detox, name·minutes·price + its lead for Balance/Athlete; the button reads "Book <treatment> · €<price>" and the mobile bar "Book · €<price>".
+One random "situation" headline per visit (pool in `home-content.json`: `slides` per language, `slides_extra.ca` in Catalan, `slides_book` = the treatment each situation books). The first one is always in the page's language; Catalan lines join only after the first logo click. No arrows, counter or swipe: only the logo changes it, in shuffled order. The heavy word takes its own line only when it starts a new sentence, otherwise it stays inline. Invisible copies of every situation reserve the tallest height (spare space sits above the title), so nothing below jumps. Under the title, the line and the gold Book button follow the booked treatment: the steps pact for Executive Detox, name·minutes·price + its lead for Balance/Athlete; the button reads "Book <treatment> · €<price>". The mobile bar does not follow the situation (Instagram + WhatsApp).
 
 ### Light points
 A 12px white core (18px for major stops) with the light point halo, and a ring in lunar gold that pulses outward over 3.2s. On light the core turns cyan. Reduced motion stops the pulse.
@@ -258,7 +258,7 @@ Eighteen strands on desktop (nine on mobile, spread about a third of the screen)
 Square, 1px hairline border, a 3-4% tint panel, Barlow 16px, labels in tracked 13px uppercase muted. Focus uses the global cyan outline.
 
 ### Portraits
-Hero chip: 64px circle with radial feather, linking to About. About: a stacked deck of portraits with feathered edges, back cards fanned and faded, opening a lightbox.
+Hero chip: 64px circle with radial feather, linking to About. About: a stacked deck of portraits with feathered edges, back cards fanned and faded, opening a lightbox (arrows, arrow keys, tap on the photo for the next, swipe left/right; height in dvh so the mobile arrows stay above the browser toolbar).
 
 ## Do's and Don'ts
 

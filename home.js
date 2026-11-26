@@ -267,6 +267,11 @@
     $('#lbClose').addEventListener('click', function () { lb.close(); });
     lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
     lb.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') showG(gi + 1); if (e.key === 'ArrowLeft') showG(gi - 1); });
+    /* touch screens: tap the photo for the next one, or swipe left/right */
+    li.addEventListener('click', function () { showG(gi + 1); });
+    var sx = null, sy = 0;
+    li.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    li.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { e.preventDefault(); showG(gi + (dx < 0 ? 1 : -1)); } });
   }
 
   /* ---------- review form (EmailJS, same service/template as before) ---------- */

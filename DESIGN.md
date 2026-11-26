@@ -155,6 +155,8 @@ Don't:
 - Don't add arrows, counters or swipe to the hero situations: the logo is the only control.
 Do:
 - Do keep the ground pure black (void-black) by default and offer the light theme only through the logo disc and padlock.
-- Do open the home on one random situation in the page's language; the line under it and the Book button follow the treatment it books (slides_book).
+- Do open the home on one random situation in the page's language; the line under it and the hero Book button follow the treatment it books (slides_book).
+- Do keep the slim mobile bar as Instagram (metallic, primary) + WhatsApp; it never books and never changes with the situation.
+- Do let the gallery lightbox move by arrows, keys, tap on the photo and swipe; on mobile the arrows sit above the browser toolbar.
 - (+7 more)
 Full: .impeccable/design-full.md (read a section when you need its detail)
