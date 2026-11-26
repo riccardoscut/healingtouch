@@ -20,10 +20,13 @@
   var h1 = $('#h'), SL = H.slides || [], hi = 0, slBox = $('#slides'), bag = [];
   /* the heavy word takes its own line only when it starts a new sentence */
   function slideHTML(x) { return '<em>' + esc(x[0]) + '</em> <strong' + (/[.?!]\s*$/.test(x[0]) ? '' : ' class="in"') + '>' + esc(x[1]) + '</strong>' + (x[2] ? ' <em>' + esc(x[2]) + '</em>' : ''); }
+  /* very short situations (e.g. "Walk more, pay less.") are set larger on desktop */
+  function isShort(t) { return t.join(' ').trim().length <= 24; }
   function setHeadline(i, dir) {
     if (!h1 || !SL.length) return;
     hi = (i + SL.length) % SL.length; var x = SL[hi];
     h1.innerHTML = slideHTML(x.t);
+    h1.classList.toggle('short', isShort(x.t));
     if (x.l) h1.setAttribute('lang', x.l); else h1.removeAttribute('lang');
     $$('[data-for]').forEach(function (b) { b.hidden = b.getAttribute('data-for') !== x.b; });
     $$('[data-pact]').forEach(function (p) { var on = p.getAttribute('data-pact') === x.b; p.classList.toggle('on', on); p.setAttribute('aria-hidden', on ? 'false' : 'true'); var a = p.querySelector('a'); if (a) { if (on) a.removeAttribute('tabindex'); else a.setAttribute('tabindex', '-1'); } });
@@ -39,7 +42,7 @@
   if (own.length) setHeadline(own[Math.floor(Math.random() * own.length)]);
   if (slBox && SL.length > 1) {
     /* invisible copies of every slide share the grid cell, so the hero keeps the tallest slide's height and nothing jumps */
-    SL.forEach(function (x) { var g = document.createElement('p'); g.className = 'sl-size'; g.setAttribute('aria-hidden', 'true'); g.innerHTML = slideHTML(x.t); slBox.appendChild(g); });
+    SL.forEach(function (x) { var g = document.createElement('p'); g.className = 'sl-size' + (isShort(x.t) ? ' short' : ''); g.setAttribute('aria-hidden', 'true'); g.innerHTML = slideHTML(x.t); slBox.appendChild(g); });
   }
 
   /* ---------- theme: the logo disc rotates and toggles light/dark ---------- */

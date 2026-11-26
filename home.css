@@ -61,6 +61,7 @@ h1,.sl-size{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(44px
 h1 em,.sl-size em{font-style:italic}
 h1 strong.in,.sl-size strong.in{display:inline}
 h1 strong,.sl-size strong{display:block;font-weight:900;font-size:1.2em;color:var(--ink-hi);letter-spacing:-.04em;line-height:.95}
+@media (min-width:821px){h1.short,.sl-size.short{font-size:clamp(64px,min(7.6vw,12vh),128px)}}
 /* hero situations: they stack in one grid cell (invisible copies reserve the tallest height) */
 .slides{display:grid}
 .slides > *{grid-area:1/1;align-self:end}

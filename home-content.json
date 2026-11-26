@@ -14,44 +14,89 @@
     "theme_to_dark": "Switch to dark theme",
     "slides": [
       [
-        "Your feet took 20,000 steps today.",
-        "Give",
-        "them 45 minutes back."
+        "Love running? Your",
+        "recovery",
+        "session is waiting."
       ],
       [
-        "Tomorrow you'll walk again. Your feet need",
-        "tonight.",
+        "Trekking up the mountains?",
+        "Give",
+        "your feet a rest."
+      ],
+      [
+        "Dancing for life? Give your feet some",
+        "magic.",
         ""
       ],
       [
-        "Danced all night? Your feet",
-        "paid",
-        "the bill."
+        "Barcelona nightlife? Get your",
+        "energy",
+        "back."
       ],
       [
-        "Home at 7am and can't switch off?",
-        "Start",
-        "with your feet."
+        "Personalized service? A truly",
+        "at-home",
+        "experience on Airbnb."
+      ],
+      [
+        "Daily sightseeing? Your feet did the",
+        "overtime.",
+        ""
+      ],
+      [
+        "Tired after a long day?",
+        "Reset",
+        "with foot reflexology."
+      ],
+      [
+        "Non-stop city exploring? Your steps get a",
+        "discount.",
+        ""
+      ],
+      [
+        "Feel the",
+        "difference.",
+        "Foot reflexology in the comfort of your own place."
+      ],
+      [
+        "Your feet carry you everywhere.",
+        "Give",
+        "them a rest."
+      ],
+      [
+        "Hiking in Montserrat? Let your feet",
+        "recover",
+        "faster."
+      ],
+      [
+        "20,000 steps of Gaudí today?",
+        "Give",
+        "your feet 45 minutes back."
+      ],
+      [
+        "Prefer Airbnb? Find my services there, at the",
+        "same prices",
+        "as on the website."
       ],
       [
         "Ten tabs open in your head?",
         "Close",
-        "them from your feet."
+        "them with a reflexology foot massage."
       ],
       [
-        "Today's kilometres get paid tomorrow.",
-        "Recover",
-        "tonight."
+        "All day at the laptop?",
+        "Switch off",
+        "from your feet."
       ],
       [
-        "Eight hours on your feet in the kitchen?",
-        "Sit",
+        "Landed this morning?",
+        "Reserve",
+        "your spot before you fly away."
+      ],
+      [
+        "Eight hours on your feet at work?",
+        "Lie",
         "down, they're next."
-      ],
-      [
-        "Came down the mountain? Your feet are",
-        "still",
-        "up there."
       ],
       [
         "Walk more,",
@@ -69,7 +114,7 @@
         ""
       ],
       [
-        "30,000 steps. 45-minute massage for",
+        "30,000 steps? 45 minutes for",
         "€30.",
         ""
       ],
@@ -302,7 +347,9 @@
     "find_lead": "Studio sessions take place at SLK Alkalina. I also come to your hotel or your home in Barcelona (€6 travel supplement). Always ask for availability.",
     "find_gmaps": "Open in Google Maps",
     "find_amaps": "Open in Apple Maps",
-    "find_map_label": "Open Signature Healing Touch on Google Maps: the light point marks Carrer de Sardenya 371, Barcelona"
+    "find_map_label": "Open Signature Healing Touch on Google Maps: the light point marks Carrer de Sardenya 371, Barcelona",
+    "airbnb_pact": "Also on Airbnb: book your personalized session there.",
+    "airbnb_book": "Book on Airbnb"
   },
   "es": {
     "lang": "es",
@@ -318,44 +365,89 @@
     "theme_to_dark": "Cambiar a tema oscuro",
     "slides": [
       [
-        "Tus pies han dado 20.000 pasos hoy.",
-        "Devuélveles",
-        "45 minutos."
+        "¿Te encanta correr? Tu sesión de",
+        "recuperación",
+        "te espera."
       ],
       [
-        "Mañana vuelves a caminar. Tus pies necesitan",
-        "esta noche.",
+        "¿Subiendo montañas?",
+        "Dale",
+        "un descanso a tus pies."
+      ],
+      [
+        "¿Vives para bailar? Regala",
+        "magia",
+        "a tus pies."
+      ],
+      [
+        "¿Noches de Barcelona? Recupera la",
+        "energía.",
         ""
       ],
       [
-        "¿Bailaste toda la noche? Tus pies",
-        "pagan",
-        "la cuenta."
+        "¿Servicio personalizado? Una experiencia de Airbnb",
+        "como en casa.",
+        ""
       ],
       [
-        "¿Sales a las 7 y no logras desconectar?",
-        "Empieza",
-        "por los pies."
+        "¿Turismo cada día? Tus pies hicieron",
+        "horas extra.",
+        ""
+      ],
+      [
+        "¿Cansado tras un día largo?",
+        "Resetea",
+        "con reflexología podal."
+      ],
+      [
+        "¿Explorando la ciudad sin parar? Tus pasos tienen",
+        "descuento.",
+        ""
+      ],
+      [
+        "Siente la",
+        "diferencia.",
+        "Reflexología podal en la comodidad de tu alojamiento."
+      ],
+      [
+        "Tus pies te llevan a todas partes.",
+        "Dales",
+        "un descanso."
+      ],
+      [
+        "¿Senderismo en Montserrat? Deja que tus pies se",
+        "recuperen",
+        "más rápido."
+      ],
+      [
+        "¿20.000 pasos de Gaudí hoy?",
+        "Devuelve",
+        "a tus pies 45 minutos."
+      ],
+      [
+        "¿Prefieres Airbnb? Allí están mis servicios, a los",
+        "mismos precios",
+        "que en la web."
       ],
       [
         "¿Diez pestañas abiertas en la cabeza?",
         "Ciérralas",
+        "con un masaje de reflexología podal."
+      ],
+      [
+        "¿Todo el día frente al portátil?",
+        "Desconecta",
         "desde los pies."
       ],
       [
-        "Los kilómetros de hoy se pagan mañana.",
-        "Recupérate",
-        "esta noche."
+        "¿Aterrizaste esta mañana?",
+        "Reserva",
+        "tu cita antes de irte."
       ],
       [
-        "¿Ocho horas de pie en la cocina?",
-        "Siéntate,",
+        "¿Ocho horas de pie en el trabajo?",
+        "Túmbate,",
         "ahora les toca a ellos."
-      ],
-      [
-        "¿Bajaste de la montaña? Tus pies",
-        "siguen",
-        "arriba."
       ],
       [
         "Camina más,",
@@ -373,7 +465,7 @@
         ""
       ],
       [
-        "30.000 pasos. Masaje de 45 minutos por",
+        "¿30.000 pasos? 45 minutos por",
         "30 €.",
         ""
       ],
@@ -606,50 +698,97 @@
     "find_lead": "Las sesiones en el estudio son en SLK Alkalina. También voy a tu hotel o a tu casa en Barcelona (suplemento de 6 € por el desplazamiento). Pregunta siempre por la disponibilidad.",
     "find_gmaps": "Abrir en Google Maps",
     "find_amaps": "Abrir en Apple Maps",
-    "find_map_label": "Abrir Signature Healing Touch en Google Maps: el punto de luz marca Carrer de Sardenya 371, Barcelona"
+    "find_map_label": "Abrir Signature Healing Touch en Google Maps: el punto de luz marca Carrer de Sardenya 371, Barcelona",
+    "airbnb_pact": "También en Airbnb: reserva allí tu sesión personalizada.",
+    "airbnb_book": "Reservar en Airbnb"
   },
   "slides_extra": {
     "_note": "Extra rotating hero lines by language. A page shows them when its slide_langs lists the language. ca = DRAFT, to be checked by a native speaker.",
     "ca": [
       [
-        "Els teus peus han fet 20.000 passes avui.",
-        "Regala'ls",
-        "45 minuts."
+        "T'agrada córrer? La teva sessió de",
+        "recuperació",
+        "t'espera."
       ],
       [
-        "Demà tornes a caminar. Aquesta nit és",
-        "per als teus peus.",
+        "Pujant muntanyes?",
+        "Dona",
+        "un respir als teus peus."
+      ],
+      [
+        "Vius per ballar? Regala",
+        "màgia",
+        "als teus peus."
+      ],
+      [
+        "Nits de Barcelona? Recupera",
+        "l'energia.",
         ""
       ],
       [
-        "Has ballat tota la nit? Els teus peus",
-        "paguen",
-        "el compte."
+        "Servei personalitzat? Una experiència d'Airbnb",
+        "com a casa.",
+        ""
       ],
       [
-        "Surts a les 7 i no aconsegueixes desconnectar?",
-        "Comença",
-        "pels peus."
+        "Turisme cada dia? Els teus peus han fet",
+        "hores extres.",
+        ""
+      ],
+      [
+        "Cansat després d'un dia llarg?",
+        "Reinicia",
+        "amb reflexologia podal."
+      ],
+      [
+        "Explorant la ciutat sense parar? Les teves passes tenen",
+        "descompte.",
+        ""
+      ],
+      [
+        "Sent la",
+        "diferència.",
+        "Reflexologia podal amb la comoditat del teu allotjament."
+      ],
+      [
+        "Els teus peus et porten a tot arreu.",
+        "Dona'ls",
+        "un respir."
+      ],
+      [
+        "Excursió a Montserrat? Deixa que els teus peus es",
+        "recuperin",
+        "més de pressa."
+      ],
+      [
+        "20.000 passes de Gaudí avui?",
+        "Torna",
+        "als teus peus 45 minuts."
+      ],
+      [
+        "Prefereixes Airbnb? Hi trobaràs els meus serveis, als",
+        "mateixos preus",
+        "que al web."
       ],
       [
         "Deu pestanyes obertes al cap?",
         "Tanca-les",
+        "amb un massatge de reflexologia podal."
+      ],
+      [
+        "Tot el dia davant de l'ordinador?",
+        "Desconnecta",
         "des dels peus."
       ],
       [
-        "Els quilòmetres d'avui es paguen demà.",
-        "Recupera't",
-        "aquesta nit."
+        "Has aterrat aquest matí?",
+        "Reserva",
+        "la teva cita abans de marxar."
       ],
       [
-        "Vuit hores dempeus a la cuina?",
-        "Seu,",
+        "Vuit hores dempeus a la feina?",
+        "Estira't,",
         "ara els toca a ells."
-      ],
-      [
-        "Has baixat de la muntanya? Els teus peus",
-        "encara",
-        "són a dalt."
       ],
       [
         "Camina més,",
@@ -667,7 +806,7 @@
         ""
       ],
       [
-        "30.000 passes. Massatge de 45 minuts per",
+        "30.000 passes? 45 minuts per",
         "30 €.",
         ""
       ],
@@ -679,14 +818,23 @@
     ]
   },
   "slides_book": [
-    "detox",
-    "detox",
-    "detox",
-    "balance",
-    "balance",
+    "athlete",
     "athlete",
     "detox",
+    "detox",
+    "airbnb",
+    "detox",
+    "balance",
+    "detox",
+    "balance",
+    "detox",
     "athlete",
+    "detox",
+    "airbnb",
+    "balance",
+    "balance",
+    "detox",
+    "detox",
     "detox",
     "detox",
     "detox",

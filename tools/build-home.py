@@ -13,6 +13,7 @@ import html, json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://healingtouch.da-sign.com'
 WA = 'https://wa.me/34652952566'
+AIRBNB = 'https://www.airbnb.com/sv/signaturehealingtouch'  # Airbnb Services listing (redirects to /services/7209455)
 CAL = 'signaturehealingtouch/'
 STRIPE = {}  # treatment key -> Stripe booking link; empty since 24/11/2026: every treatment books on Cal.com (packs keep their Stripe links)
 SERVICES = {  # id used by Cal.com / Stripe, minutes, price (from contents.js, confirmed by Riccardo)
@@ -46,7 +47,15 @@ def book_button(key, s, label, primary=True):
             f'data-cal-namespace="{sid}" data-cal-config=\'{{"layout":"month_view"}}\'>{e(label)}</button>')
 
 
-HERO_BOOK = ['detox', 'balance', 'athlete']  # treatments a hero situation can book
+HERO_BOOK = ['detox', 'balance', 'athlete', 'airbnb']  # what a hero situation can book ('airbnb' = the personalized session on Airbnb)
+
+
+def hero_button(key, s):
+    hide = '' if key == DATA['slides_book'][0] else ' hidden'
+    if key == 'airbnb':
+        return f'<a data-for="airbnb"{hide} class="btn btn-primary" data-book data-service="Airbnb" href="{AIRBNB}" target="_blank" rel="noopener noreferrer">{e(s["airbnb_book"])}</a>'
+    b = book_button(key, s, s["book_prefix"] + " " + name_of(key, s) + "\u00a0·\u00a0€" + str(SERVICES[key][2]))
+    return b.replace("<a class=", f'<a data-for="{key}"{hide} class=', 1).replace("<button type=", f'<button data-for="{key}"{hide} type=', 1)
 
 
 def name_of(key, s):
@@ -56,6 +65,8 @@ def name_of(key, s):
 
 def pact_line(key, s):
     first = key == DATA['slides_book'][0]
+    if key == 'airbnb':
+        return f'<p class="pact' + (' on' if first else '') + f'" data-pact="{key}"' + ('' if first else ' aria-hidden="true"') + f'><a href="{AIRBNB}" target="_blank" rel="noopener noreferrer"' + ('' if first else ' tabindex="-1"') + f'>{e(s["airbnb_pact"])}</a></p>'
     if key == 'detox':
         txt = s['pact']
     else:
@@ -195,7 +206,7 @@ def page(s, other, is_root=False):
 <script>(function(){{var t;try{{t=localStorage.getItem('preferred-theme')}}catch(e){{}}if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=2026-11-26a">
+<link rel="stylesheet" href="/home.css?v=2026-11-26b">
 <script>
 !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1517659402723971');fbq('track','PageView');
@@ -224,11 +235,11 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 <section class="hero" aria-labelledby="h">
   <canvas class="lattice" id="heroLattice" aria-hidden="true"></canvas>
   <div class="hero-copy">
-    <div class="slides" id="slides"><h1 id="h">{hero_h1(s["slides"][0])}</h1></div>
+    <div class="slides" id="slides"><h1 id="h"{' class="short"' if len(" ".join(s["slides"][0]).strip()) <= 24 else ""}>{hero_h1(s["slides"][0])}</h1></div>
     <div class="pacts">{"".join(pact_line(k, s) for k in HERO_BOOK)}</div>
     <p class="lede">{e(s["lede"])}</p>
     <div class="actions">
-      {"".join(book_button(k, s, s["book_prefix"] + " " + name_of(k, s) + "\u00a0·\u00a0€" + str(SERVICES[k][2])).replace("<a class=", f"<a data-for=\"{k}\"" + (" hidden" if k != DATA["slides_book"][0] else "") + " class=", 1).replace("<button type=", f"<button data-for=\"{k}\"" + (" hidden" if k != DATA["slides_book"][0] else "") + " type=", 1) for k in HERO_BOOK)}
+      {"".join(hero_button(k, s) for k in HERO_BOOK)}
       <a class="btn btn-ghost" href="{WA}" target="_blank" rel="noopener noreferrer">{WA_ICON}{e(s["whatsapp"])}</a>
     </div>
     <div class="facts"><span><b>45–120</b> {e(s["fact_min"])}</span><span>{e(s["fact_from"])} <b>€45</b></span><a href="#reviews"><b data-score>4.9/5</b> {e(s["fact_reviews"])}</a></div>
@@ -333,7 +344,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 
 <script>window.HOME={home_json};</script>
 <script src="/contents.js?v=2026-11-23i"></script>
-<script src="/home.js?v=2026-11-26a"></script>
+<script src="/home.js?v=2026-11-26b"></script>
 <script>(function(C,A,L){{let p=function(a,ar){{a.q.push(ar);}};let d=C.document;C.Cal=C.Cal||function(){{let cal=C.Cal;let ar=arguments;if(!cal.loaded){{cal.ns={{}};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}}if(ar[0]===L){{const api=function(){{p(api,arguments);}};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){{cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}}else p(cal,ar);return;}}p(cal,ar);}};}})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
