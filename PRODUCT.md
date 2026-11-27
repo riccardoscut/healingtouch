@@ -41,14 +41,14 @@ Where sessions take place:
 - **SLK Alkalina centre**: a treatment room Riccardo rents, Carrer de Sardenya 371, 08025 Barcelona. The address is public (confirmed 22/11/2026): shown on the home "Find the studio" section, in the FAQ and in the schema.org address; use the same NAP on Google Business Profile.
 - **Private space by arrangement**: for friends and Airbnb Experiences guests. Never publish its address.
 
-Booking and payment flow (24/11/2026): every treatment opens its Cal.com calendar (Executive Detox, Balance, Personalized Signature, Athlete Recovery, Pure Body, Signature Ritual); packs 3+1 use Stripe payment links; then `thank-you.html`. Direct contact via WhatsApp, Instagram (@SignatureHealingTouch) and email.
+Booking and payment flow (24/11/2026): every treatment opens its Cal.com calendar (Executive Detox, Balance, Personalized Signature, Athlete Recovery, Headfirst Massage, Pure Body, Signature Ritual); packs 3+1 use Stripe payment links; then `thank-you.html`. Direct contact via WhatsApp, Instagram (@SignatureHealingTouch) and email.
 Pending (Riccardo): one Stripe "customer chooses what to pay" link to replace some or all of the Stripe links (which ones: not decided yet), and the Stripe pack pages still say 4 months and "Signature Reflexology".
 
 ## Capabilities and Constraints
 
 - Static site on GitHub Pages (`main` branch). Home texts live in `home-content.json` and `tools/build-home.py` writes `index.html`, `en/index.html`, `es/index.html` (never edit those by hand); styles `home.css`, behaviour `home.js`; thank-you and privacy add `pages.css`/`pages.js`. Reviews live in `contents.js` (`window.testimonials`, each with a word-for-word `quote`). After every CSS/JS change bump the `?v=` version in `tools/build-home.py`, `thank-you.html` and `privacy.html`. `styles.css`, `script.js`, `i18n.js`, `language-switcher.js`, `theme.js` and `locales/` are no longer loaded by any page.
 - **Site languages: English (default and fallback) and Spanish only.** Every text change goes into both. Exception: the rotating hero situations also include Catalan lines (`slides_extra.ca`, shown on both pages after the first logo click; Claude's draft, to be checked by a native speaker); Italian, French, Chinese, Japanese, Polish may be added the same way later.
-- Services and prices (in `tools/build-home.py`): Executive Detox 45 min €45; Balance Reflexology 60 min €60; Athlete Recovery 80 min €110; **Personalized Signature** 90 min, regular €90, **launch offer €70** (no end date: Riccardo says when it ends); Pure Body Massage 60 min €100; Signature Ritual 120 min €190 (lowered from €240 on 24/11/2026). Packs 3+1 (four sessions for the price of three, voucher **valid 1 year** from purchase): Personalized Signature €270, Balance €180, Executive Detox €135. "Step-Up Challenge" promotion.
+- Services and prices (in `tools/build-home.py`): Executive Detox 45 min €45; Balance Reflexology 60 min €60; Athlete Recovery 80 min €110; **Personalized Signature** 90 min, regular €90, **launch offer €70** (no end date: Riccardo says when it ends); **Headfirst Massage** 50 min €50 (added 27/11/2026, Cal.com event `headfirst-massage-50-min-50`); Pure Body Massage 60 min €100; Signature Ritual 120 min €190 (lowered from €240 on 24/11/2026). Packs 3+1 (four sessions for the price of three, voucher **valid 1 year** from purchase): Personalized Signature €270, Balance €180, Executive Detox €135. "Step-Up Challenge" promotion.
 - One public name per service everywhere (cards, packs, review captions, schema.org): the 90-min one is **Personalized Signature** (decision 23/11/2026).
 - Tracking: Google Analytics + Meta Pixel; consent banner still to be done (EU).
 - The repo is public: nothing private goes in it.
@@ -59,7 +59,8 @@ Pending (Riccardo): one Stripe "customer chooses what to pay" link to replace so
 - **Trained hard (runners, athletes) → Athlete Recovery Reflexology & Leg Release 80 min.**
 - **Stressed or anxious → Balance Reflexology Massage 60 min.** Works on the nervous system.
 - **Personal ailments → Personalized Signature 90 min.** Personalised: starts with a personal anamnesis, then a deep detox procedure and specific work on the client's issue.
-- Pure Body Massage 60 min and Signature Full Body Ritual 120 min: premium experiences outside the need-based path.
+- Headfirst Massage 50 min, Pure Body Massage 60 min and Signature Full Body Ritual 120 min: experiences outside the need-based path ("Or simply treat yourself").
+- **Headfirst Massage 50 min** (27/11/2026): a few slow breaths together, then neck, scalp, face, eyes and temples, face up and then face down. No oil, only a light face cream. Ends with Riccardo's hands cupped over the client's ears. Tagline (wordplay, approved): EN "Dive in headfirst, come out thought-free." / ES "Lánzate sin pensarlo, sal sin pensamientos." Symbol: vertical infinity sign (small round upper loop, fuller lower loop) standing on an oval plate in perspective (half above, half below the bottom of the 8; back edge hidden behind the 8).
 
 **Step-Up Challenge:** clients who show they walked more than 10,000 steps get €5 to €15 off the Executive Detox (10,000+ €40, 20,000+ €35, 30,000+ €30). Purpose: promote walking as a simple way to stay fit. It is the home page's main pact: "the more you walk, the less you pay".
 

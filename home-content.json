@@ -188,6 +188,11 @@
         "name2": "Signature",
         "text": "We start with a short chat about you and what you'd like from the session. Then “The 3 Ways of Purification” and a slower, focused phase on the areas of the foot we choose together."
       },
+      "headfirst": {
+        "name1": "Headfirst",
+        "name2": "Massage",
+        "text": "Dive in headfirst, come out thought-free. A few slow breaths together, then neck, scalp, face, eyes and temples, face up and then face down. No oil, only a light face cream. It ends with my hands cupped over your ears."
+      },
       "purebody": {
         "name1": "Pure Body",
         "name2": "Massage",
@@ -538,6 +543,11 @@
         "name1": "Personalized",
         "name2": "Signature",
         "text": "Empezamos con una breve charla sobre ti y lo que buscas en la sesión. Luego “Las 3 Vías de Purificación” y una fase más lenta y centrada en las zonas del pie que elegimos juntos."
+      },
+      "headfirst": {
+        "name1": "Headfirst",
+        "name2": "Massage",
+        "text": "Lánzate sin pensarlo, sal sin pensamientos. Unas respiraciones lentas juntos, luego cuello, cuero cabelludo, rostro, ojos y sienes, boca arriba y después boca abajo. Sin aceite, solo una crema facial ligera. Terminamos con mis manos en forma de concha sobre tus oídos."
       },
       "purebody": {
         "name1": "Pure Body",

@@ -121,15 +121,23 @@
     athlete: 'M200 40 C200 96 290 120 268 170 A80 80 0 1 0 268 250 L237 268 L268 250 L268 286 L268 250 C252 300 208 322 200 360',
     balance: 'M200 40 L200 120 A80 80 0 0 1 200 280 A80 80 0 0 1 200 120 A40 40 0 0 1 200 200 A40 40 0 0 0 200 280 L200 360',
     signature: spiral(),
+    headfirst: 'M200 40 L200 128 C217 128 231 143 231 162 C231 180 216 190 200 200 C176 215 153 228 153 246 C153 271 174 292 200 292 C226 292 247 271 247 246 C247 228 224 215 200 200 C184 190 169 180 169 162 C169 143 183 128 200 128 M171.3 282.3 A60 11 0 0 0 140 292 A60 11 0 0 0 260 292 A60 11 0 0 0 228.7 282.3 M200 303 L200 360',  /* vertical infinity standing on an oval plate seen in perspective: the back of the plate hides behind the 8, then the thread leaves from the front edge */
     purebody: 'M200 40 L200 92 A20 20 0 1 1 199.9 92 L200 150 C230 150 254 214 254 300 L146 300 C146 214 170 150 200 150 L200 360',
     ritual: 'M200 40 L200 140 C168 182 168 238 200 276 C166 268 134 238 124 196 C160 204 188 236 200 276 C234 268 266 238 276 196 C240 204 212 236 200 276 C232 238 232 182 200 140 L200 276 L128 284 L272 284 C292 318 220 330 200 360'
   };
   $$('[data-symbol]').forEach(function (el, idx) {
     var d = MARKS[el.dataset.symbol]; if (!d) return; var id = 'gold' + idx;
-    el.innerHTML = '<svg viewBox="0 0 400 400" aria-hidden="true" focusable="false"><defs><linearGradient id="' + id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--c1)"/><stop offset=".3" stop-color="var(--gold-a)"/><stop offset=".7" stop-color="var(--gold-b)"/><stop offset="1" stop-color="var(--c3)"/></linearGradient></defs>' +
-      '<path class="ghost-path" d="' + d + '" fill="none" stroke="var(--line)" stroke-width="1"/>' +
-      '<path class="draw" d="' + d + '" pathLength="1" fill="none" stroke="url(#' + id + ')" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path class="draw" d="' + d + '" pathLength="1" fill="none" stroke="var(--core)" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    /* a mark may have several pieces (M ... M ...): each piece is drawn in turn, so together they still read as one stroke */
+    var parts = d.split(/(?=M)/).map(function (x) { return x.trim(); }).filter(Boolean), NS = 'http://www.w3.org/2000/svg';
+    var lens = parts.map(function (x) { var t = document.createElementNS(NS, 'path'); t.setAttribute('d', x); return t.getTotalLength ? t.getTotalLength() || 1 : 1; });
+    var tot = lens.reduce(function (a, b) { return a + b; }, 0), acc = 0, body = '';
+    parts.forEach(function (x, i) {
+      var st = parts.length > 1 ? ' style="--a:' + (acc / tot).toFixed(4) + ';--w:' + (lens[i] / tot).toFixed(4) + '"' : '', cls = parts.length > 1 ? 'draw seg' : 'draw'; acc += lens[i];
+      body += '<path class="ghost-path" d="' + x + '" fill="none" stroke="var(--line)" stroke-width="1"/>' +
+        '<path class="' + cls + '"' + st + ' d="' + x + '" pathLength="1" fill="none" stroke="url(#' + id + ')" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '<path class="' + cls + '"' + st + ' d="' + x + '" pathLength="1" fill="none" stroke="var(--core)" stroke-width=".9" stroke-linecap="round" stroke-linejoin="round"/>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 400 400" aria-hidden="true" focusable="false"><defs><linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="360"><stop offset="0" stop-color="var(--c1)"/><stop offset=".3" stop-color="var(--gold-a)"/><stop offset=".7" stop-color="var(--gold-b)"/><stop offset="1" stop-color="var(--c3)"/></linearGradient></defs>' + body + '</svg>';
   });
 
   /* ---------- the thread: braided strands through every anchor, revealed by a curtain ---------- */

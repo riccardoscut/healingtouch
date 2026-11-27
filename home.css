@@ -165,6 +165,7 @@ h1.sl-in{animation:slIn .55s cubic-bezier(.2,.7,.2,1)}
 .sym-node .sym svg{width:100%;height:100%;overflow:visible}
 .sym-node .anchor.a-top{left:0;top:-104px}.sym-node .anchor.a-bot{left:0;top:104px}
 .draw{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--p,0))}
+.draw.seg{stroke-dashoffset:calc(1 - clamp(0, (var(--p,0) - var(--a,0)) / var(--w,1), 1))}
 .sym .ghost-path{opacity:.35}
 [data-theme=dark] .sym-node .sym svg{filter:drop-shadow(0 0 4px rgba(255,248,214,.55)) drop-shadow(0 0 14px color-mix(in srgb,var(--c1) 45%,transparent))}
 

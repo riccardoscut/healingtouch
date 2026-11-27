@@ -21,6 +21,7 @@ SERVICES = {  # id used by Cal.com / Stripe, minutes, price (from contents.js, c
     'athlete': ('athlete-recovery-reflexology-leg-release-80-min', 80, 110),
     'balance': ('balance-reflexology-massage-60-min-60', 60, 60),
     'signature': ('reflexology-foot-massage-1-hour-30-min', 90, 70),
+    'headfirst': ('headfirst-massage-50-min-50', 50, 50),
     'purebody': ('pure-body-massage-60-min', 60, 100),
     'ritual': ('signature-full-body-ritual-experience-120-min', 120, 190),
 }
@@ -147,7 +148,7 @@ def page(s, other, is_root=False):
     journey = treatment('left', 'detox', s, stepup)  # the hero carousel tells the situations; the journey starts with the 45-minute massage
     journey += treatment('right', 'athlete', s) + treatment('left', 'balance', s) + treatment('right', 'signature', s)
     journey += f'  <p class="bridge">{e(s["bridge2"][0])} <strong>{e(s["bridge2"][1])}</strong></p>\n'
-    journey += treatment('left', 'purebody', s) + treatment('right', 'ritual', s)
+    journey += treatment('left', 'headfirst', s) + treatment('right', 'purebody', s) + treatment('left', 'ritual', s)
 
     packs = ''.join(f'''<article class="pack"><h3>{e(s["packs"][i][0])} 3+1</h3><p class="pp"><b>€{p}</b><s>€{reg}</s></p><p>{e(s["packs"][i][1])}</p>
         <a class="btn btn-ghost" data-book data-service="{e(s["packs"][i][0])} Pack 3+1" href="{link}" target="_blank" rel="noopener noreferrer">{e(s["packs_buy"])}</a></article>''' for i, p, reg, link in PACKS)
@@ -206,7 +207,7 @@ def page(s, other, is_root=False):
 <script>(function(){{var t;try{{t=localStorage.getItem('preferred-theme')}}catch(e){{}}if(t!=='light'&&t!=='dark')t='dark';document.documentElement.dataset.theme=t;}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home.css?v=2026-11-26b">
+<link rel="stylesheet" href="/home.css?v=2026-11-26c">
 <script>
 !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1517659402723971');fbq('track','PageView');
@@ -344,7 +345,7 @@ window.trackPixel=function(ev,p,type){{p=p||{{}};type=type||'track';if(!window.f
 
 <script>window.HOME={home_json};</script>
 <script src="/contents.js?v=2026-11-23i"></script>
-<script src="/home.js?v=2026-11-26b"></script>
+<script src="/home.js?v=2026-11-27f"></script>
 <script>(function(C,A,L){{let p=function(a,ar){{a.q.push(ar);}};let d=C.document;C.Cal=C.Cal||function(){{let cal=C.Cal;let ar=arguments;if(!cal.loaded){{cal.ns={{}};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}}if(ar[0]===L){{const api=function(){{p(api,arguments);}};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){{cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}}else p(cal,ar);return;}}p(cal,ar);}};}})(window,"https://app.cal.com/embed/embed.js","init");</script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer onload="emailjs.init('fitJ75sG9o72X64G7')"></script>
 <script data-goatcounter="https://healingtouch.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
